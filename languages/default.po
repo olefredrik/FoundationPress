@@ -1,0 +1,234 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: reverie-translation-default\n"
+"POT-Creation-Date: 2013-08-04 18:20+0100\n"
+"PO-Revision-Date: 2013-08-04 18:20+0100\n"
+"Last-Translator: Stefan Lorenz <stefan.lorenz@it-consulting-lorenz.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: /home/stefan/git/reverie\n"
+
+#: /home/stefan/git/reverie/search.php:6
+msgid "Search Results for"
+msgstr ""
+
+#: /home/stefan/git/reverie/search.php:23
+#: /home/stefan/git/reverie/index.php:21
+#: /home/stefan/git/reverie/archive.php:21
+msgid "&larr; Older posts"
+msgstr ""
+
+#: /home/stefan/git/reverie/search.php:24
+#: /home/stefan/git/reverie/index.php:22
+#: /home/stefan/git/reverie/archive.php:22
+msgid "Newer posts &rarr;"
+msgstr ""
+
+#: /home/stefan/git/reverie/content.php:16
+msgid "Continue reading..."
+msgstr ""
+
+#: /home/stefan/git/reverie/functions.php:56
+msgid "Primary Navigation"
+msgstr ""
+
+#: /home/stefan/git/reverie/functions.php:57
+msgid "Utility Navigation"
+msgstr ""
+
+#: /home/stefan/git/reverie/functions.php:95
+#, php-format
+msgid "Posted on %s at %s."
+msgstr ""
+
+#: /home/stefan/git/reverie/functions.php:96
+msgid "Written by"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:8
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:9
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:10
+msgid "(Edit)"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:16
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:31
+msgid "Please do not load this page directly. Thanks!"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:36
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:46
+msgid "No Responses to"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:46
+msgid "One Response to"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:46
+msgid "% Responses to"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:53
+msgid "&larr; Older comments"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:54
+msgid "Newer comments &rarr;"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:63
+msgid "Comments are closed."
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:70
+msgid "Leave a Reply"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:70
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:73
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:77
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:77
+msgid "Log out of this account"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:77
+msgid "Log out &raquo;"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:80
+msgid "Name"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:80
+#: /home/stefan/git/reverie/comments.php:84
+msgid " (required)"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:84
+msgid "Email (will not be published)"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:88
+msgid "Website"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:93
+msgid "Comment"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:96
+msgid "You can use these tags:"
+msgstr ""
+
+#: /home/stefan/git/reverie/comments.php:97
+msgid "Submit Comment"
+msgstr ""
+
+#: /home/stefan/git/reverie/page-full.php:21
+#: /home/stefan/git/reverie/single.php:17 /home/stefan/git/reverie/page.php:17
+msgid "Pages:"
+msgstr ""
+
+#: /home/stefan/git/reverie/content-none.php:12
+msgid "Nothing Found"
+msgstr ""
+
+#: /home/stefan/git/reverie/content-none.php:15
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+
+#: /home/stefan/git/reverie/footer.php:10
+msgid "Crafted on"
+msgstr ""
+
+#: /home/stefan/git/reverie/searchform.php:4
+#: /home/stefan/git/reverie/searchform.php:7
+msgid "Search"
+msgstr ""
+
+#: /home/stefan/git/reverie/404.php:8
+msgid "File Not Found"
+msgstr ""
+
+#: /home/stefan/git/reverie/404.php:12
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+
+#: /home/stefan/git/reverie/404.php:14
+msgid "Please try the following:"
+msgstr ""
+
+#: /home/stefan/git/reverie/404.php:16
+msgid "Check your spelling"
+msgstr ""
+
+#: /home/stefan/git/reverie/404.php:17
+#, php-format
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr ""
+
+#: /home/stefan/git/reverie/404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr ""
+
+#: /home/stefan/git/reverie/lib/foundation.php:16
+msgid "&laquo;"
+msgstr ""
+
+#: /home/stefan/git/reverie/lib/foundation.php:17
+msgid "&raquo;"
+msgstr ""
+
+#: /home/stefan/git/reverie/lib/foundation.php:36
+#, php-format
+msgid ""
+"Please assign a menu to the primary menu location under %1$s or %2$s the "
+"design."
+msgstr ""
+
+#: /home/stefan/git/reverie/lib/foundation.php:37
+#, php-format
+msgid "<a href=\"%s\">Menus</a>"
+msgstr ""
+
+#: /home/stefan/git/reverie/lib/foundation.php:40
+#, php-format
+msgid "<a href=\"%s\">Customize</a>"
+msgstr ""

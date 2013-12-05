@@ -1,0 +1,30 @@
+/*
+Theme Name:         FoundationPress
+Theme URI:          https://github.com/olefredrik/foundationpress.git
+Description:        FoundationPress is a WordPress starter theme based on Foundation 5 by Zurb
+Version:            1.0.0
+Author:             Ole Fredrik Lie
+Author URI:         http://olefredrik.com/
+
+License:            MIT License
+License URI:        http://www.opensource.org/licenses/mit-license.php
+*/
+
+/* ---------------------------------------------------------------------------- 
+  
+  Unfortunately WordPress will require a style.css file
+  located in the theme's root folder for stuff to work.
+
+  However, we will not be using vanlilla CSS. We're using Sass.
+
+  Sass is a superset of CSS that adds in amazing features
+  such as variables, nested selectors and loops. It's also
+  the easiest way to customize Foundation.
+
+  All Sass files are located in the /scss folder.
+
+  Please read the README.md file before getting started. More info on how
+  to use Sass with Foundation can be found here:
+  http://foundation.zurb.com/docs/sass.html
+
+---------------------------------------------------------------------------- */
