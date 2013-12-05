@@ -18,7 +18,7 @@ The purpose of the Foundation Press is that it should only contain the most esse
 ```bash
 cd my-wordpress-folder/wp-content/themes/
 mkdir FoundationPress && cd FoundationPress
-git clone git@github.com/olefredrik/foundationpress.git
+git clone git@github.com:olefredrik/FoundationPress.git
 npm install && bower install
 ```
 
