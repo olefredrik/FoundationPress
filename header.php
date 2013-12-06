@@ -21,55 +21,29 @@
       <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
     </section>
     <section class="middle tab-bar-section">
+      
       <h1 class="title"><?php bloginfo( 'name' ); ?></h1>
+
     </section>
   </nav>
 
   <aside class="left-off-canvas-menu">
-      <?php
-          wp_nav_menu( array(
-              'theme_location' => 'primary',
-              'container' => false,
-              'depth' => 0,
-              'items_wrap' => '<ul class="off-canvas-list">%3$s</ul>',
-              'fallback_cb' => 'FoundationPress_menu_fallback', // workaround to show a message to set up a menu
-              'walker' => new FoundationPress_walker( array(
-                  'in_top_bar' => true,
-                  'item_type' => 'li',
-                  'menu_type' => 'main-menu'
-              ) ),
-          ) );
-      ?>
+    <?php foundationPress_mobile_off_canvas(); ?>
   </aside>
   
-  <div class="contain-to-grid">
-    <nav class="top-bar show-for-medium-up" data-topbar>
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-        </li>
-      </ul>
-   
-      <section class="top-bar-section">
-
-      <?php
-          wp_nav_menu( array(
-              'theme_location' => 'primary',
-              'container' => false,
-              'depth' => 0,
-              'items_wrap' => '<ul class="right">%3$s</ul>',
-              'fallback_cb' => 'FoundationPress_menu_fallback', // workaround to show a message to set up a menu
-              'walker' => new FoundationPress_walker( array(
-                  'in_top_bar' => true,
-                  'item_type' => 'li',
-                  'menu_type' => 'main-menu'
-              ) ),
-          ) );
-      ?>
-
-      </section>
-    </nav>
-  </div>
+        <div class="top-bar-container contain-to-grid show-for-medium-up">
+            <nav class="top-bar">
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+                    </li>          
+                </ul>
+                <section class="top-bar-section">
+                    <?php foundationPress_top_bar_l(); ?>
+                    <?php foundationPress_top_bar_r(); ?>
+                </section>
+            </nav>
+        </div>
 
 <header class="row" role="banner">
   <div class="small-12 columns">
