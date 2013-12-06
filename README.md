@@ -32,7 +32,7 @@ Check for Foundation Updates? Run:
 `foundation update`
 
 
-## Directory Strucutre
+## Directory Structure
 
   * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
   * `scss/_settings.scss`: Original Foundation base settings are found here
