@@ -1,1 +1,2 @@
-$(document).foundation();
+jQuery.noConflict();
+jQuery(document).foundation();
