@@ -55,15 +55,6 @@
 			</nav>
 		</footer>
 	</section>
-<?php else : // this is displayed if there are no comments so far ?>
-	<?php if ( comments_open() ) : ?>
-	<?php else : // comments are closed ?>
-	<section id="comments">
-		<div class="notice">
-			<p class="bottom"><?php _e('Comments are closed.', 'FoundationPress') ?></p>
-		</div>
-	</section>
-	<?php endif; ?>
 <?php endif; ?>
 <?php if ( comments_open() ) : ?>
 <section id="respond">
