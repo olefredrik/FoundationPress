@@ -43,3 +43,7 @@ Check for Foundation Updates? Run:
 ## Documentation
 
 * [Zurb Foundation Docs](http://foundation.zurb.com/docs/)
+
+## Demo
+
+* [Clean FoundationPress install](http://foundationpress.olefredrik.com/)
