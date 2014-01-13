@@ -33,16 +33,26 @@ Check for Foundation Updates? Run:
 `foundation update`
 
 
-## Directory Structure
+## Stylesheet Folder Structure
 
   * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
   * `scss/_settings.scss`: Original Foundation base settings are found here
   * `scss/custom.scss`: Add your custom styling here
   * `css/app.css`: All Sass files are minified and compiled to this file
 
-## Documentation
+## Script Folder Strucutre
+  
+  * `bower_components/`: This is the source folder where all Foundation scripts are located. `foundation update` will check and update scripts in this folder
+  * `js/`: jQuery, Modernizr and Foundation scripts are copied from `bower_components/` to this directory, where they are minified and concatinated and enqueued in WordPress
+  * Please note that you must run `grunt` in your terminal for the scripts to be copied. See [Gruntfile.js](https://github.com/olefredrik/FoundationPress/blob/master/Gruntfile.js) for details
+
+## How to get started with Foundation
 
 * [Zurb Foundation Docs](http://foundation.zurb.com/docs/)
+
+## Learn how to use WordPress
+
+* [WordPress Codex](http://codex.wordpress.org/)
 
 ## Demo
 
