@@ -30,14 +30,16 @@
     $('head').append('<meta class="foundation-mq-xxlarge">');
   }
 
-  // Embed FastClick (this should be removed later)
-  function FastClick(layer){'use strict';var oldOnClick,self=this;this.trackingClick=false;this.trackingClickStart=0;this.targetElement=null;this.touchStartX=0;this.touchStartY=0;this.lastTouchIdentifier=0;this.touchBoundary=10;this.layer=layer;if(!layer||!layer.nodeType){throw new TypeError('Layer must be a document node');}this.onClick=function(){return FastClick.prototype.onClick.apply(self,arguments)};this.onMouse=function(){return FastClick.prototype.onMouse.apply(self,arguments)};this.onTouchStart=function(){return FastClick.prototype.onTouchStart.apply(self,arguments)};this.onTouchMove=function(){return FastClick.prototype.onTouchMove.apply(self,arguments)};this.onTouchEnd=function(){return FastClick.prototype.onTouchEnd.apply(self,arguments)};this.onTouchCancel=function(){return FastClick.prototype.onTouchCancel.apply(self,arguments)};if(FastClick.notNeeded(layer)){return}if(this.deviceIsAndroid){layer.addEventListener('mouseover',this.onMouse,true);layer.addEventListener('mousedown',this.onMouse,true);layer.addEventListener('mouseup',this.onMouse,true)}layer.addEventListener('click',this.onClick,true);layer.addEventListener('touchstart',this.onTouchStart,false);layer.addEventListener('touchmove',this.onTouchMove,false);layer.addEventListener('touchend',this.onTouchEnd,false);layer.addEventListener('touchcancel',this.onTouchCancel,false);if(!Event.prototype.stopImmediatePropagation){layer.removeEventListener=function(type,callback,capture){var rmv=Node.prototype.removeEventListener;if(type==='click'){rmv.call(layer,type,callback.hijacked||callback,capture)}else{rmv.call(layer,type,callback,capture)}};layer.addEventListener=function(type,callback,capture){var adv=Node.prototype.addEventListener;if(type==='click'){adv.call(layer,type,callback.hijacked||(callback.hijacked=function(event){if(!event.propagationStopped){callback(event)}}),capture)}else{adv.call(layer,type,callback,capture)}}}if(typeof layer.onclick==='function'){oldOnClick=layer.onclick;layer.addEventListener('click',function(event){oldOnClick(event)},false);layer.onclick=null}}FastClick.prototype.deviceIsAndroid=navigator.userAgent.indexOf('Android')>0;FastClick.prototype.deviceIsIOS=/iP(ad|hone|od)/.test(navigator.userAgent);FastClick.prototype.deviceIsIOS4=FastClick.prototype.deviceIsIOS&&(/OS 4_\d(_\d)?/).test(navigator.userAgent);FastClick.prototype.deviceIsIOSWithBadTarget=FastClick.prototype.deviceIsIOS&&(/OS ([6-9]|\d{2})_\d/).test(navigator.userAgent);FastClick.prototype.needsClick=function(target){'use strict';switch(target.nodeName.toLowerCase()){case'button':case'select':case'textarea':if(target.disabled){return true}break;case'input':if((this.deviceIsIOS&&target.type==='file')||target.disabled){return true}break;case'label':case'video':return true}return(/\bneedsclick\b/).test(target.className)};FastClick.prototype.needsFocus=function(target){'use strict';switch(target.nodeName.toLowerCase()){case'textarea':case'select':return true;case'input':switch(target.type){case'button':case'checkbox':case'file':case'image':case'radio':case'submit':return false}return!target.disabled&&!target.readOnly;default:return(/\bneedsfocus\b/).test(target.className)}};FastClick.prototype.sendClick=function(targetElement,event){'use strict';var clickEvent,touch;if(document.activeElement&&document.activeElement!==targetElement){document.activeElement.blur()}touch=event.changedTouches[0];clickEvent=document.createEvent('MouseEvents');clickEvent.initMouseEvent('click',true,true,window,1,touch.screenX,touch.screenY,touch.clientX,touch.clientY,false,false,false,false,0,null);clickEvent.forwardedTouchEvent=true;targetElement.dispatchEvent(clickEvent)};FastClick.prototype.focus=function(targetElement){'use strict';var length;if(this.deviceIsIOS&&targetElement.setSelectionRange){length=targetElement.value.length;targetElement.setSelectionRange(length,length)}else{targetElement.focus()}};FastClick.prototype.updateScrollParent=function(targetElement){'use strict';var scrollParent,parentElement;scrollParent=targetElement.fastClickScrollParent;if(!scrollParent||!scrollParent.contains(targetElement)){parentElement=targetElement;do{if(parentElement.scrollHeight>parentElement.offsetHeight){scrollParent=parentElement;targetElement.fastClickScrollParent=parentElement;break}parentElement=parentElement.parentElement}while(parentElement)}if(scrollParent){scrollParent.fastClickLastScrollTop=scrollParent.scrollTop}};FastClick.prototype.getTargetElementFromEventTarget=function(eventTarget){'use strict';if(eventTarget.nodeType===Node.TEXT_NODE){return eventTarget.parentNode}return eventTarget};FastClick.prototype.onTouchStart=function(event){'use strict';var targetElement,touch,selection;if(event.targetTouches.length>1){return true}targetElement=this.getTargetElementFromEventTarget(event.target);touch=event.targetTouches[0];if(this.deviceIsIOS){selection=window.getSelection();if(selection.rangeCount&&!selection.isCollapsed){return true}if(!this.deviceIsIOS4){if(touch.identifier===this.lastTouchIdentifier){event.preventDefault();return false}this.lastTouchIdentifier=touch.identifier;this.updateScrollParent(targetElement)}}this.trackingClick=true;this.trackingClickStart=event.timeStamp;this.targetElement=targetElement;this.touchStartX=touch.pageX;this.touchStartY=touch.pageY;if((event.timeStamp-this.lastClickTime)<200){event.preventDefault()}return true};FastClick.prototype.touchHasMoved=function(event){'use strict';var touch=event.changedTouches[0],boundary=this.touchBoundary;if(Math.abs(touch.pageX-this.touchStartX)>boundary||Math.abs(touch.pageY-this.touchStartY)>boundary){return true}return false};FastClick.prototype.onTouchMove=function(event){'use strict';if(!this.trackingClick){return true}if(this.targetElement!==this.getTargetElementFromEventTarget(event.target)||this.touchHasMoved(event)){this.trackingClick=false;this.targetElement=null}return true};FastClick.prototype.findControl=function(labelElement){'use strict';if(labelElement.control!==undefined){return labelElement.control}if(labelElement.htmlFor){return document.getElementById(labelElement.htmlFor)}return labelElement.querySelector('button, input:not([type=hidden]), keygen, meter, output, progress, select, textarea')};FastClick.prototype.onTouchEnd=function(event){'use strict';var forElement,trackingClickStart,targetTagName,scrollParent,touch,targetElement=this.targetElement;if(!this.trackingClick){return true}if((event.timeStamp-this.lastClickTime)<200){this.cancelNextClick=true;return true}this.lastClickTime=event.timeStamp;trackingClickStart=this.trackingClickStart;this.trackingClick=false;this.trackingClickStart=0;if(this.deviceIsIOSWithBadTarget){touch=event.changedTouches[0];targetElement=document.elementFromPoint(touch.pageX-window.pageXOffset,touch.pageY-window.pageYOffset)||targetElement;targetElement.fastClickScrollParent=this.targetElement.fastClickScrollParent}targetTagName=targetElement.tagName.toLowerCase();if(targetTagName==='label'){forElement=this.findControl(targetElement);if(forElement){this.focus(targetElement);if(this.deviceIsAndroid){return false}targetElement=forElement}}else if(this.needsFocus(targetElement)){if((event.timeStamp-trackingClickStart)>100||(this.deviceIsIOS&&window.top!==window&&targetTagName==='input')){this.targetElement=null;return false}this.focus(targetElement);if(!this.deviceIsIOS4||targetTagName!=='select'){this.targetElement=null;event.preventDefault()}return false}if(this.deviceIsIOS&&!this.deviceIsIOS4){scrollParent=targetElement.fastClickScrollParent;if(scrollParent&&scrollParent.fastClickLastScrollTop!==scrollParent.scrollTop){return true}}if(!this.needsClick(targetElement)){event.preventDefault();this.sendClick(targetElement,event)}return false};FastClick.prototype.onTouchCancel=function(){'use strict';this.trackingClick=false;this.targetElement=null};FastClick.prototype.onMouse=function(event){'use strict';if(!this.targetElement){return true}if(event.forwardedTouchEvent){return true}if(!event.cancelable){return true}if(!this.needsClick(this.targetElement)||this.cancelNextClick){if(event.stopImmediatePropagation){event.stopImmediatePropagation()}else{event.propagationStopped=true}event.stopPropagation();event.preventDefault();return false}return true};FastClick.prototype.onClick=function(event){'use strict';var permitted;if(this.trackingClick){this.targetElement=null;this.trackingClick=false;return true}if(event.target.type==='submit'&&event.detail===0){return true}permitted=this.onMouse(event);if(!permitted){this.targetElement=null}return permitted};FastClick.prototype.destroy=function(){'use strict';var layer=this.layer;if(this.deviceIsAndroid){layer.removeEventListener('mouseover',this.onMouse,true);layer.removeEventListener('mousedown',this.onMouse,true);layer.removeEventListener('mouseup',this.onMouse,true)}layer.removeEventListener('click',this.onClick,true);layer.removeEventListener('touchstart',this.onTouchStart,false);layer.removeEventListener('touchmove',this.onTouchMove,false);layer.removeEventListener('touchend',this.onTouchEnd,false);layer.removeEventListener('touchcancel',this.onTouchCancel,false)};FastClick.notNeeded=function(layer){'use strict';var metaViewport;if(typeof window.ontouchstart==='undefined'){return true}if((/Chrome\/[0-9]+/).test(navigator.userAgent)){if(FastClick.prototype.deviceIsAndroid){metaViewport=document.querySelector('meta[name=viewport]');if(metaViewport&&metaViewport.content.indexOf('user-scalable=no')!==-1){return true}}else{return true}}if(layer.style.msTouchAction==='none'){return true}return false};FastClick.attach=function(layer){'use strict';return new FastClick(layer)};if(typeof define!=='undefined'&&define.amd){define(function(){'use strict';return FastClick})}else if(typeof module!=='undefined'&&module.exports){module.exports=FastClick.attach;module.exports.FastClick=FastClick}else{window.FastClick=FastClick}
+  // Enable FastClick if present
 
-
-  // Enable FastClick
-  if(typeof FastClick !== 'undefined') {
-    FastClick.attach(document.body);
-  }
+  $(function() {
+    if(typeof FastClick !== 'undefined') {
+      // Don't attach to body if undefined
+      if (typeof document.body !== 'undefined') {
+        FastClick.attach(document.body);
+      }
+    }
+  });
 
   // private Fast Selector wrapper,
   // returns jQuery object. Only use where
@@ -174,7 +176,7 @@
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     media_queries : {
       small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
@@ -218,6 +220,7 @@
           return this.libs[lib].init.apply(this.libs[lib], [this.scope, args[lib]]);
         }
 
+        args = args instanceof Array ? args : Array(args);    // PATCH: added this line
         return this.libs[lib].init.apply(this.libs[lib], args);
       }
 
@@ -379,7 +382,7 @@
             should_bind_events = !S(this).data(this.name + '-init');
 
         if (typeof method === 'string') {
-          return this[method].call(this);
+          return this[method].call(this, options);
         }
 
         if (S(this.scope).is('[data-' + this.name +']')) {
@@ -421,10 +424,11 @@
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     settings : {
       focus_on_invalid : true,
+      error_labels: true, // labels with a for="inputId" will recieve an `error` class
       timeout : 1000,
       patterns : {
         alpha: /[a-zA-Z]+/,
@@ -532,16 +536,16 @@
       var type = el.getAttribute('type'),
           required = typeof el.getAttribute('required') === 'string';
 
-      if (this.settings.patterns.hasOwnProperty(type)) {
-        return [el, this.settings.patterns[type], required];
-      }
-
       var pattern = el.getAttribute('pattern') || '';
 
       if (this.settings.patterns.hasOwnProperty(pattern) && pattern.length > 0) {
         return [el, this.settings.patterns[pattern], required];
       } else if (pattern.length > 0) {
         return [el, new RegExp(pattern), required];
+      }
+      
+      if (this.settings.patterns.hasOwnProperty(type)) {
+        return [el, this.settings.patterns[type], required];
       }
 
       pattern = /.*/;
@@ -559,25 +563,45 @@
             value = el.value,
             is_equal = el.getAttribute('data-equalto'),
             is_radio = el.type === "radio",
+            is_checkbox = el.type === "checkbox",
+            label = $('label[for="' + el.getAttribute('id') + '"]'),
             valid_length = (required) ? (el.value.length > 0) : true;
 
         if (is_radio && required) {
           validations.push(this.valid_radio(el, required));
+        } else if (is_checkbox && required) {
+          validations.push(this.valid_checkbox(el, required));
         } else if (is_equal && required) {
           validations.push(this.valid_equal(el, required));
         } else {
           if (el_patterns[i][1].test(value) && valid_length ||
             !required && el.value.length < 1) {
             $(el).removeAttr('data-invalid').parent().removeClass('error');
+            if (label.length > 0 && this.settings.error_labels) label.removeClass('error');
+
             validations.push(true);
           } else {
             $(el).attr('data-invalid', '').parent().addClass('error');
+            if (label.length > 0 && this.settings.error_labels) label.addClass('error');
+
             validations.push(false);
           }
         }
       }
 
       return validations;
+    },
+
+    valid_checkbox : function(el, required) {
+      var el = $(el),
+          valid = (el.is(':checked') || !required);
+      if (valid) {
+        el.removeAttr('data-invalid').parent().removeClass('error');
+      } else {
+        el.attr('data-invalid', '').parent().addClass('error');
+      }
+
+      return valid;
     },
 
     valid_radio : function (el, required) {
@@ -616,13 +640,14 @@
     }
   };
 }(jQuery, this, this.document));
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
   Foundation.libs.accordion = {
     name : 'accordion',
 
-    version : '5.0.1',
+    version : '5.0.3',
 
     settings : {
       active_class: 'active',
@@ -664,7 +689,7 @@
   Foundation.libs.alert = {
     name : 'alert',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     settings : {
       animation: 'fadeOut',
@@ -679,7 +704,7 @@
     events : function () {
       $(this.scope).off('.alert').on('click.fndtn.alert', '[data-alert] a.close', function (e) {
           var alertBox = $(this).closest("[data-alert]"),
-              settings = alertBox.data('alert-init');
+              settings = alertBox.data('alert-init') || Foundation.libs.alert.settings;
 
         e.preventDefault();
         alertBox[settings.animation](settings.speed, function () {
@@ -692,18 +717,19 @@
     reflow : function () {}
   };
 }(jQuery, this, this.document));
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
   Foundation.libs.clearing = {
     name : 'clearing',
 
-    version: '5.0.0',
+    version: '5.0.3',
 
     settings : {
       templates : {
         viewing : '<a href="#" class="clearing-close">&times;</a>' +
-          '<div class="visible-img" style="display: none"><img src="//:0">' +
+          '<div class="visible-img" style="display: none"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="" />' +
           '<p class="clearing-caption"></p><a href="#" class="clearing-main-prev"><span></span></a>' +
           '<a href="#" class="clearing-main-next"><span></span></a></div>'
       },
@@ -906,11 +932,14 @@
     },
 
     keydown : function (e) {
-      var clearing = $('ul[data-clearing]', '.clearing-blackout');
+      var clearing = $('ul[data-clearing]', '.clearing-blackout'),
+          NEXT_KEY = this.rtl ? 37 : 39,
+          PREV_KEY = this.rtl ? 39 : 37,
+          ESC_KEY = 27;
 
-      if (e.which === 39) this.go(clearing, 'next');
-      if (e.which === 37) this.go(clearing, 'prev');
-      if (e.which === 27) $('a.clearing-close').trigger('click');
+      if (e.which === NEXT_KEY) this.go(clearing, 'next');
+      if (e.which === PREV_KEY) this.go(clearing, 'prev');
+      if (e.which === ESC_KEY) $('a.clearing-close').trigger('click');
     },
 
     nav : function (e, direction) {
@@ -978,7 +1007,9 @@
       } else {
         target.css({
           marginRight : -(target.outerWidth() / 2),
-          marginTop : -(target.outerHeight() / 2)
+          marginTop : -(target.outerHeight() / 2),
+          left: 'auto',
+          right: '50%'
         });
       }
       return this;
@@ -1052,19 +1083,25 @@
       var clearing = target.parent(),
           old_index = this.settings.prev_index || target.index(),
           direction = this.direction(clearing, current, target),
+          dir = this.rtl ? 'right' : 'left',
           left = parseInt(clearing.css('left'), 10),
           width = target.outerWidth(),
           skip_shift;
 
+      var dir_obj = {};
+
       // we use jQuery animate instead of CSS transitions because we
       // need a callback to unlock the next animation
+      // needs support for RTL **
       if (target.index() !== old_index && !/skip/.test(direction)){
         if (/left/.test(direction)) {
           this.lock();
-          clearing.animate({left : left + width}, 300, this.unlock());
+          dir_obj[dir] = left + width;
+          clearing.animate(dir_obj, 300, this.unlock());
         } else if (/right/.test(direction)) {
           this.lock();
-          clearing.animate({left : left - width}, 300, this.unlock());
+          dir_obj[dir] = left - width;
+          clearing.animate(dir_obj, 300, this.unlock());
         }
       } else if (/skip/.test(direction)) {
         // the target image is not adjacent to the current image, so
@@ -1073,9 +1110,11 @@
         this.lock();
 
         if (skip_shift > 0) {
-          clearing.animate({left : -(skip_shift * width)}, 300, this.unlock());
+          dir_obj[dir] = -(skip_shift * width);
+          clearing.animate(dir_obj, 300, this.unlock());
         } else {
-          clearing.animate({left : 0}, 300, this.unlock());
+          dir_obj[dir] = 0;
+          clearing.animate(dir_obj, 300, this.unlock());
         }
       }
 
@@ -1149,7 +1188,7 @@
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     settings : {
       active_class: 'open',
@@ -1170,8 +1209,10 @@
       $(this.scope)
         .off('.dropdown')
         .on('click.fndtn.dropdown', '[data-dropdown]', function (e) {
-          var settings = $(this).data('dropdown-init');
+          var settings = $(this).data('dropdown-init') || self.settings;
           e.preventDefault();
+
+          self.closeall.call(self);
 
           if (!settings.is_hover || Modernizr.touch) self.toggle($(this));
         })
@@ -1187,18 +1228,23 @@
                 target = $("[data-dropdown='" + dropdown.attr('id') + "']");
           }
 
-          var settings = target.data('dropdown-init');
+          var settings = target.data('dropdown-init') || self.settings;
+          
+          if($(e.target).data('dropdown') && settings.is_hover) {
+            self.closeall.call(self);
+          }
+          
           if (settings.is_hover) self.open.apply(self, [dropdown, target]);
         })
         .on('mouseleave.fndtn.dropdown', '[data-dropdown], [data-dropdown-content]', function (e) {
           var $this = $(this);
           self.timeout = setTimeout(function () {
             if ($this.data('dropdown')) {
-              var settings = $this.data('dropdown-init');
+              var settings = $this.data('dropdown-init') || self.settings;
               if (settings.is_hover) self.close.call(self, $('#' + $this.data('dropdown')));
             } else {
               var target = $('[data-dropdown="' + $(this).attr('id') + '"]'),
-                  settings = target.data('dropdown-init');
+                  settings = target.data('dropdown-init') || self.settings;
               if (settings.is_hover) self.close.call(self, $this);
             }
           }.bind(this), 150);
@@ -1218,8 +1264,12 @@
 
           self.close.call(self, $('[data-dropdown-content]'));
         })
-        .on('opened.fndtn.dropdown', '[data-dropdown-content]', this.settings.opened)
-        .on('closed.fndtn.dropdown', '[data-dropdown-content]', this.settings.closed);
+        .on('opened.fndtn.dropdown', '[data-dropdown-content]', function () {
+            self.settings.opened.call(this);
+        })
+        .on('closed.fndtn.dropdown', '[data-dropdown-content]', function () {
+            self.settings.closed.call(this);
+        });
 
       $(window)
         .off('.dropdown')
@@ -1237,6 +1287,13 @@
             .removeClass(self.settings.active_class);
           $(this).trigger('closed');
         }
+      });
+    },
+
+    closeall: function() {
+      var self = this;
+      $.each($('[data-dropdown-content]'), function() {
+        self.close.call(self, $(this))
       });
     },
 
@@ -1334,7 +1391,7 @@
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     cache : {},
 
@@ -1345,7 +1402,7 @@
       load_attr : 'interchange',
 
       named_queries : {
-        'default' : Foundation.media_queries.small,
+        'default' : 'only screen',
         small : Foundation.media_queries.small,
         medium : Foundation.media_queries.medium,
         large : Foundation.media_queries.large,
@@ -1401,6 +1458,7 @@
       Foundation.inherit(this, 'throttle');
 
       this.data_attr = 'data-' + this.settings.load_attr;
+      $.extend(true, this.settings, method, options);
 
       this.bindings(method, options);
       this.load('images');
@@ -1508,7 +1566,7 @@
     },
 
     update_nodes : function () {
-      var nodes = this.S('[' + this.data_attr + ']:not(img)'),
+      var nodes = this.S('[' + this.data_attr + ']').not('img'),
           count = nodes.length,
           loaded_count = 0,
           data_attr = this.data_attr;
@@ -1596,7 +1654,7 @@
       var uuid = this.uuid(),
           current_uuid = el.data('uuid');
 
-      if (current_uuid) return this.cache[current_uuid];
+      if (this.cache[current_uuid]) return this.cache[current_uuid];
 
       el.attr('data-uuid', uuid);
 
@@ -1632,6 +1690,7 @@
   };
 
 }(jQuery, this, this.document));
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
@@ -1640,7 +1699,7 @@
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     defaults : {
       expose               : false,      // turn on or off the expose feature
@@ -1770,7 +1829,7 @@
       }
 
       // generate the tips and insert into dom.
-      if (!this.settings.cookie_monster || this.settings.cookie_monster && $.cookie(this.settings.cookie_name) === null) {
+      if (!this.settings.cookie_monster || this.settings.cookie_monster && !$.cookie(this.settings.cookie_name)) {
         this.settings.$tip_content.each(function (index) {
           var $this = $(this);
           this.settings = $.extend({}, self.defaults, self.data_options($this))
@@ -2024,7 +2083,7 @@
       window_half = $(window).height() / 2;
       tipOffset = Math.ceil(this.settings.$target.offset().top - window_half + this.settings.$next_tip.outerHeight());
 
-      if (tipOffset > 0) {
+      if (tipOffset != 0) {
         $('html, body').animate({
           scrollTop: tipOffset
         }, this.settings.scroll_speed, 'swing');
@@ -2060,26 +2119,29 @@
       }
 
       if (!/body/i.test(this.settings.$target.selector)) {
-
           if (this.bottom()) {
-            var leftOffset = this.settings.$target.offset().left;
-            if (Foundation.rtl) {
-              leftOffset = this.settings.$target.offset().width - this.settings.$next_tip.width() + leftOffset;
+            if (this.rtl) {
+              this.settings.$next_tip.css({
+                top: (this.settings.$target.offset().top + nub_height + this.settings.$target.outerHeight()),
+                left: this.settings.$target.offset().left + this.settings.$target.outerWidth() - this.settings.$next_tip.outerWidth()});
+            } else {
+              this.settings.$next_tip.css({
+                top: (this.settings.$target.offset().top + nub_height + this.settings.$target.outerHeight()),
+                left: this.settings.$target.offset().left});
             }
-            this.settings.$next_tip.css({
-              top: (this.settings.$target.offset().top + nub_height + this.settings.$target.outerHeight()),
-              left: leftOffset});
 
             this.nub_position($nub, this.settings.tip_settings.nub_position, 'top');
 
           } else if (this.top()) {
-            var leftOffset = this.settings.$target.offset().left;
-            if (Foundation.rtl) {
-              leftOffset = this.settings.$target.offset().width - this.settings.$next_tip.width() + leftOffset;
+            if (this.rtl) {
+              this.settings.$next_tip.css({
+                top: (this.settings.$target.offset().top - this.settings.$next_tip.outerHeight() - nub_height),
+                left: this.settings.$target.offset().left + this.settings.$target.outerWidth() - this.settings.$next_tip.outerWidth()});
+            } else {
+              this.settings.$next_tip.css({
+                top: (this.settings.$target.offset().top - this.settings.$next_tip.outerHeight() - nub_height),
+                left: this.settings.$target.offset().left});
             }
-            this.settings.$next_tip.css({
-              top: (this.settings.$target.offset().top - this.settings.$next_tip.outerHeight() - nub_height),
-              left: leftOffset});
 
             this.nub_position($nub, this.settings.tip_settings.nub_position, 'bottom');
 
@@ -2478,7 +2540,7 @@
   Foundation.libs.magellan = {
     name : 'magellan',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     settings : {
       active_class: 'active',
@@ -2487,7 +2549,11 @@
 
     init : function (scope, method, options) {
       this.fixed_magellan = $("[data-magellan-expedition]");
+      this.magellan_placeholder = $('<div></div>').css({
+        height: this.fixed_magellan.outerHeight(true)
+      }).hide().insertAfter(this.fixed_magellan);
       this.set_threshold();
+      this.set_active_class(method);
       this.last_destination = $('[data-magellan-destination]').last();
       this.events();
     },
@@ -2541,9 +2607,11 @@
               if (fixed_position) {
                 $expedition.addClass('fixed');
                 $expedition.css({position:"fixed", top:0});
+                self.magellan_placeholder.show();
               } else {
                 $expedition.removeClass('fixed');
                 $expedition.css({position:"", top:""});
+                self.magellan_placeholder.hide();
               }
               if (fixed_position && typeof attr != 'undefined' && attr != false) {
                 $expedition.css({position:"fixed", top:attr + "px"});
@@ -2582,6 +2650,12 @@
       }
     },
 
+    set_active_class : function (options) {
+      if (options && options.active_class && typeof options.active_class === 'string') {
+        this.settings.active_class = options.active_class;
+      }
+    },
+
     off : function () {
       $(this.scope).off('.fndtn.magellan');
       $(window).off('.fndtn.magellan');
@@ -2597,7 +2671,7 @@
   Foundation.libs.offcanvas = {
     name : 'offcanvas',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     settings : {},
 
@@ -2628,6 +2702,7 @@
     reflow : function () {}
   };
 }(jQuery, this, this.document));
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
@@ -2666,7 +2741,7 @@
 
     self.update_active_link = function(index) {
       var link = $('a[data-orbit-link="'+slides_container.children().eq(index).attr('data-orbit-slide')+'"]');
-      link.parents('ul').find('[data-orbit-link]').removeClass(settings.bullets_active_class);
+      link.siblings().removeClass(settings.bullets_active_class);
       link.addClass(settings.bullets_active_class);
     };
 
@@ -2721,8 +2796,13 @@
       var dir = 'next';
       locked = true;
       if (next_idx < idx) {dir = 'prev';}
-      if (next_idx >= slides.length) {next_idx = 0;}
-      else if (next_idx < 0) {next_idx = slides.length - 1;}
+      if (next_idx >= slides.length) {
+        if (!settings.circular) return false;
+        next_idx = 0;
+      } else if (next_idx < 0) {
+        if (!settings.circular) return false;
+        next_idx = slides.length - 1;
+      }
       
       var current = $(slides.get(idx));
       var next = $(slides.get(next_idx));
@@ -2786,11 +2866,20 @@
       }
     };
 
-    self.link_bullet = function(e) {
+    self.link_bullet = function(e) {    
       var index = $(this).attr('data-orbit-slide');
       if ((typeof index === 'string') && (index = $.trim(index)) != "") {
-        self._goto(parseInt(index));
+        if(isNaN(parseInt(index)))
+        {
+          var slide = container.find('[data-orbit-slide='+index+']');
+          if (slide.index() != -1) {self._goto(slide.index() + 1);}
+        }
+        else
+        {
+          self._goto(parseInt(index));
+        }
       }
+
     }
 
     self.timer_callback = function() {
@@ -3005,7 +3094,7 @@
   Foundation.libs.orbit = {
     name: 'orbit',
 
-    version: '5.0.0',
+    version: '5.0.3',
 
     settings: {
       animation: 'slide',
@@ -3032,6 +3121,7 @@
       active_slide_class: 'active',
       orbit_transition_class: 'orbit-transitioning',
       bullets: true,
+      circular: true,
       timer: true,
       variable_height: false,
       swipe: true,
@@ -3039,24 +3129,31 @@
       after_slide_change: noop
     },
 
-    init: function (scope, method, options) {
+    init : function (scope, method, options) {
+      var self = this;
+      this.bindings(method, options);
+    },
+
+    events : function (instance) {
+      var orbit_instance = new Orbit($(instance), $(instance).data('orbit-init'));
+      $(instance).data(self.name + '-instance', orbit_instance);
+    },
+
+    reflow : function () {
       var self = this;
 
-      if (typeof method === 'object') {
-        $.extend(true, self.settings, method);
+      if ($(self.scope).is('[data-orbit]')) {
+        var $el = $(self.scope);
+        var instance = $el.data(self.name + '-instance');
+        instance.compute_dimensions();
+      } else {
+        $('[data-orbit]', self.scope).each(function(idx, el) {
+          var $el = $(el);
+          var opts = self.data_options($el);
+          var instance = $el.data(self.name + '-instance');
+          instance.compute_dimensions();
+        });
       }
-
-      if ($(scope).is('[data-orbit]')) {
-        var $el = $(scope);
-        var opts = self.data_options($el);
-        new Orbit($el, $.extend({},self.settings, opts));
-      }
-
-      $('[data-orbit]', scope).each(function(idx, el) {
-        var $el = $(el);
-        var opts = self.data_options($el);
-        new Orbit($el, $.extend({},self.settings, opts));
-      });
     }
   };
 
@@ -3069,7 +3166,7 @@
   Foundation.libs.reveal = {
     name : 'reveal',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     locked : false,
 
@@ -3101,7 +3198,7 @@
 
     init : function (scope, method, options) {
       Foundation.inherit(this, 'delay');
-
+      $.extend(true, this.settings, method, options);
       this.bindings(method, options);
     },
 
@@ -3130,7 +3227,9 @@
         });
 
       $(this.scope)
-        .off('.reveal')
+        .off('.reveal');
+
+      $(document)
         .on('click.fndtn.reveal', this.close_targets(), function (e) {
 
           e.preventDefault();
@@ -3168,18 +3267,35 @@
           .on('closed.fndtn.reveal', '[data-reveal]', this.close_video);
       }
 
-      $('body').on('keyup.fndtn.reveal', function ( event ) {
+      return true;
+    },
+
+    // PATCH #3: turning on key up capture only when a reveal window is open
+    key_up_on : function (scope) {
+      var self = this;
+
+      // PATCH #1: fixing multiple keyup event trigger from single key press
+      $('body').off('keyup.fndtn.reveal').on('keyup.fndtn.reveal', function ( event ) {
         var open_modal = $('[data-reveal].open'),
             settings = open_modal.data('reveal-init');
-        if ( event.which === 27  && settings.close_on_esc) { // 27 is the keycode for the Escape key
-          open_modal.foundation('reveal', 'close');
+        // PATCH #2: making sure that the close event can be called only while unlocked,
+        //           so that multiple keyup.fndtn.reveal events don't prevent clean closing of the reveal window.
+        if ( settings && event.which === 27  && settings.close_on_esc && !self.locked) { // 27 is the keycode for the Escape key
+          self.close.call(self, open_modal);
         }
       });
 
       return true;
     },
 
+    // PATCH #3: turning on key up capture only when a reveal window is open
+    key_up_off : function (scope) {
+      $('body').off('keyup.fndtn.reveal');
+      return true;
+    },
+
     open : function (target, ajax_settings) {
+      var self = this;
       if (target) {
         if (typeof target.selector !== 'undefined') {
           var modal = $('#' + target.data('reveal-id'));
@@ -3192,6 +3308,8 @@
         var modal = $(this.scope);
       }
 
+      var settings = modal.data('reveal-init');
+
       if (!modal.hasClass('open')) {
         var open_modal = $('[data-reveal].open');
 
@@ -3200,18 +3318,28 @@
             .data('offset', this.cache_offset(modal));
         }
 
+        this.key_up_on(modal);    // PATCH #3: turning on key up capture only when a reveal window is open
         modal.trigger('open');
 
         if (open_modal.length < 1) {
-          this.toggle_bg();
+          this.toggle_bg(modal);
+        }
+
+        if (typeof ajax_settings === 'string') {
+          ajax_settings = {
+            url: ajax_settings
+          };
         }
 
         if (typeof ajax_settings === 'undefined' || !ajax_settings.url) {
-          this.hide(open_modal, this.settings.css.close);
-          this.show(modal, this.settings.css.open);
+          if (open_modal.length > 0) {
+            var open_modal_settings = open_modal.data('reveal-init');
+            this.hide(open_modal, open_modal_settings.css.close);
+          }
+
+          this.show(modal, settings.css.open);
         } else {
-          var self = this,
-              old_success = typeof ajax_settings.success !== 'undefined' ? ajax_settings.success : null;
+          var old_success = typeof ajax_settings.success !== 'undefined' ? ajax_settings.success : null;
 
           $.extend(ajax_settings, {
             success: function (data, textStatus, jqXHR) {
@@ -3222,8 +3350,11 @@
               modal.html(data);
               $(modal).foundation('section', 'reflow');
 
-              self.hide(open_modal, self.settings.css.close);
-              self.show(modal, self.settings.css.open);
+              if (open_modal.length > 0) {
+                var open_modal_settings = open_modal.data('reveal-init');
+                self.hide(open_modal, open_modal_settings.css.close);
+              }
+              self.show(modal, settings.css.open);
             }
           });
 
@@ -3233,15 +3364,16 @@
     },
 
     close : function (modal) {
-
       var modal = modal && modal.length ? modal : $(this.scope),
-          open_modals = $('[data-reveal].open');
+          open_modals = $('[data-reveal].open'),
+          settings = modal.data('reveal-init');
 
       if (open_modals.length > 0) {
         this.locked = true;
+        this.key_up_off(modal);   // PATCH #3: turning on key up capture only when a reveal window is open
         modal.trigger('close');
-        this.toggle_bg();
-        this.hide(open_modals, this.settings.css.close);
+        this.toggle_bg(modal);
+        this.hide(open_modals, settings.css.close, settings);
       }
     },
 
@@ -3255,7 +3387,9 @@
       return base;
     },
 
-    toggle_bg : function () {
+    toggle_bg : function (modal) {
+      var settings = modal.data('reveal-init');
+
       if ($('.' + this.settings.bg_class).length === 0) {
         this.settings.bg = $('<div />', {'class': this.settings.bg_class})
           .appendTo('body');
@@ -3271,17 +3405,19 @@
     show : function (el, css) {
       // is modal
       if (css) {
+        var settings = el.data('reveal-init');
         if (el.parent('body').length === 0) {
-          var placeholder = el.wrap('<div style="display: none;" />').parent();
+          var placeholder = el.wrap('<div style="display: none;" />').parent(),
+              rootElement = this.settings.rootElement || 'body';;
           el.on('closed.fndtn.reveal.wrapped', function() {
             el.detach().appendTo(placeholder);
             el.unwrap().unbind('closed.fndtn.reveal.wrapped');
           });
 
-          el.detach().appendTo('body');
+          el.detach().appendTo(rootElement);
         }
 
-        if (/pop/i.test(this.settings.animation)) {
+        if (/pop/i.test(settings.animation)) {
           css.top = $(window).scrollTop() - el.data('offset') + 'px';
           var end_css = {
             top: $(window).scrollTop() + el.data('css-top') + 'px',
@@ -3291,34 +3427,36 @@
           return this.delay(function () {
             return el
               .css(css)
-              .animate(end_css, this.settings.animation_speed, 'linear', function () {
+              .animate(end_css, settings.animation_speed, 'linear', function () {
                 this.locked = false;
                 el.trigger('opened');
               }.bind(this))
               .addClass('open');
-          }.bind(this), this.settings.animation_speed / 2);
+          }.bind(this), settings.animation_speed / 2);
         }
 
-        if (/fade/i.test(this.settings.animation)) {
+        if (/fade/i.test(settings.animation)) {
           var end_css = {opacity: 1};
 
           return this.delay(function () {
             return el
               .css(css)
-              .animate(end_css, this.settings.animation_speed, 'linear', function () {
+              .animate(end_css, settings.animation_speed, 'linear', function () {
                 this.locked = false;
                 el.trigger('opened');
               }.bind(this))
               .addClass('open');
-          }.bind(this), this.settings.animation_speed / 2);
+          }.bind(this), settings.animation_speed / 2);
         }
 
         return el.css(css).show().css({opacity: 1}).addClass('open').trigger('opened');
       }
 
+      var settings = this.settings;
+
       // should we animate the background?
-      if (/fade/i.test(this.settings.animation)) {
-        return el.fadeIn(this.settings.animation_speed / 2);
+      if (/fade/i.test(settings.animation)) {
+        return el.fadeIn(settings.animation_speed / 2);
       }
 
       return el.show();
@@ -3327,7 +3465,8 @@
     hide : function (el, css) {
       // is modal
       if (css) {
-        if (/pop/i.test(this.settings.animation)) {
+        var settings = el.data('reveal-init');
+        if (/pop/i.test(settings.animation)) {
           var end_css = {
             top: - $(window).scrollTop() - el.data('offset') + 'px',
             opacity: 0
@@ -3335,33 +3474,35 @@
 
           return this.delay(function () {
             return el
-              .animate(end_css, this.settings.animation_speed, 'linear', function () {
+              .animate(end_css, settings.animation_speed, 'linear', function () {
                 this.locked = false;
                 el.css(css).trigger('closed');
               }.bind(this))
               .removeClass('open');
-          }.bind(this), this.settings.animation_speed / 2);
+          }.bind(this), settings.animation_speed / 2);
         }
 
-        if (/fade/i.test(this.settings.animation)) {
+        if (/fade/i.test(settings.animation)) {
           var end_css = {opacity: 0};
 
           return this.delay(function () {
             return el
-              .animate(end_css, this.settings.animation_speed, 'linear', function () {
+              .animate(end_css, settings.animation_speed, 'linear', function () {
                 this.locked = false;
                 el.css(css).trigger('closed');
               }.bind(this))
               .removeClass('open');
-          }.bind(this), this.settings.animation_speed / 2);
+          }.bind(this), settings.animation_speed / 2);
         }
 
         return el.hide().css(css).removeClass('open').trigger('closed');
       }
 
+      var settings = this.settings;
+
       // should we animate the background?
-      if (/fade/i.test(this.settings.animation)) {
-        return el.fadeOut(this.settings.animation_speed / 2);
+      if (/fade/i.test(settings.animation)) {
+        return el.fadeOut(settings.animation_speed / 2);
       }
 
       return el.hide();
@@ -3418,10 +3559,11 @@
   Foundation.libs.tab = {
     name : 'tab',
 
-    version : '5.0.1',
+    version : '5.0.3',
 
     settings : {
-      active_class: 'active'
+      active_class: 'active',
+      callback : function () {}
     },
 
     init : function (scope, method, options) {
@@ -3433,13 +3575,21 @@
         e.preventDefault();
 
         var tab = $(this).parent(),
+            tabs = tab.closest('[data-tab]'),
             target = $('#' + this.href.split('#')[1]),
             siblings = tab.siblings(),
-            settings = tab.closest('[data-tab]').data('tab-init');
-
-        tab.addClass(settings.active_class);
+            settings = tabs.data('tab-init');
+        
+        // allow usage of data-tab-content attribute instead of href
+        if ($(this).data('tab-content')) {
+          target = $('#' + $(this).data('tab-content').split('#')[1]);
+        }
+        
+        tab.addClass(settings.active_class).trigger('opened');
         siblings.removeClass(settings.active_class);
         target.siblings().removeClass(settings.active_class).end().addClass(settings.active_class);
+        settings.callback(tab);
+        tabs.trigger('toggled', [tab]);
       });
     },
 
@@ -3455,7 +3605,7 @@
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     settings : {
       additional_inheritable_classes : [],
@@ -3566,18 +3716,19 @@
       nub = tip.children('.nub');
       nubHeight = nub.outerHeight();
       nubWidth = nub.outerHeight();
+      
+      tip.css({'width' : (width) ? width : 'auto'});
 
       objPos = function (obj, top, right, bottom, left, width) {
         return obj.css({
           'top' : (top) ? top : 'auto',
           'bottom' : (bottom) ? bottom : 'auto',
           'left' : (left) ? left : 'auto',
-          'right' : (right) ? right : 'auto',
-          'width' : (width) ? width : 'auto'
+          'right' : (right) ? right : 'auto'
         }).end();
       };
 
-      objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', target.offset().left, width);
+      objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', target.offset().left);
 
       if (this.small()) {
         objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', 12.5, $(this.scope).width());
@@ -3588,16 +3739,16 @@
         if (Foundation.rtl) {
           left = target.offset().left + target.offset().width - tip.outerWidth();
         }
-        objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', left, width);
+        objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', left);
         tip.removeClass('tip-override');
         if (classes && classes.indexOf('tip-top') > -1) {
-          objPos(tip, (target.offset().top - tip.outerHeight()), 'auto', 'auto', left, width)
+          objPos(tip, (target.offset().top - tip.outerHeight() - 10), 'auto', 'auto', left)
             .removeClass('tip-override');
         } else if (classes && classes.indexOf('tip-left') > -1) {
-          objPos(tip, (target.offset().top + (target.outerHeight() / 2) - nubHeight*2.5), 'auto', 'auto', (target.offset().left - tip.outerWidth() - nubHeight), width)
+          objPos(tip, (target.offset().top + (target.outerHeight() / 2) - (tip.outerHeight() / 2)), 'auto', 'auto', (target.offset().left - tip.outerWidth() - nubHeight))
             .removeClass('tip-override');
         } else if (classes && classes.indexOf('tip-right') > -1) {
-          objPos(tip, (target.offset().top + (target.outerHeight() / 2) - nubHeight*2.5), 'auto', 'auto', (target.offset().left + target.outerWidth() + nubHeight), width)
+          objPos(tip, (target.offset().top + (target.outerHeight() / 2) - (tip.outerHeight() / 2)), 'auto', 'auto', (target.offset().left + target.outerWidth() + nubHeight))
             .removeClass('tip-override');
         }
       }
@@ -3658,7 +3809,7 @@
   Foundation.libs.topbar = {
     name : 'topbar',
 
-    version: '5.0.1',
+    version: '5.0.3',
 
     settings : {
       index : 0,
@@ -3689,7 +3840,7 @@
         var topbarContainer = topbar.parent();
         if(topbarContainer.hasClass('fixed') || topbarContainer.hasClass(settings.sticky_class)) {
           self.settings.sticky_class = settings.sticky_class;
-          self.settings.stick_topbar = topbar;
+          self.settings.sticky_topbar = topbar;
           topbar.data('height', topbarContainer.outerHeight());
           topbar.data('stickyoffset', topbarContainer.offset().top);
         } else {
@@ -3775,6 +3926,7 @@
           } else {
             topbar.addClass('fixed');
             topbar.parent().addClass('expanded');
+            $('body').addClass('f-topbar-fixed');
           }
         }
       }
@@ -3957,9 +4109,9 @@
             url = $link.attr('href');
 
         if (settings.mobile_show_parent_link && url && url.length > 1) {
-          var $titleLi = $('<li class="title back js-generated"><h5><a href="#"></a></h5></li><li><a class="parent-link js-generated" href="' + url + '">' + $link.text() +'</a></li>');
+          var $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li><a class="parent-link js-generated" href="' + url + '">' + $link.text() +'</a></li>');
         } else {
-          var $titleLi = $('<li class="title back js-generated"><h5><a href="#"></a></h5></li>');
+          var $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li>');
         }
 
         // Copy link to subnav

@@ -36,7 +36,7 @@
 
     self.update_active_link = function(index) {
       var link = $('a[data-orbit-link="'+slides_container.children().eq(index).attr('data-orbit-slide')+'"]');
-      link.parents('ul').find('[data-orbit-link]').removeClass(settings.bullets_active_class);
+      link.siblings().removeClass(settings.bullets_active_class);
       link.addClass(settings.bullets_active_class);
     };
 
@@ -91,8 +91,13 @@
       var dir = 'next';
       locked = true;
       if (next_idx < idx) {dir = 'prev';}
-      if (next_idx >= slides.length) {next_idx = 0;}
-      else if (next_idx < 0) {next_idx = slides.length - 1;}
+      if (next_idx >= slides.length) {
+        if (!settings.circular) return false;
+        next_idx = 0;
+      } else if (next_idx < 0) {
+        if (!settings.circular) return false;
+        next_idx = slides.length - 1;
+      }
       
       var current = $(slides.get(idx));
       var next = $(slides.get(next_idx));
@@ -156,11 +161,20 @@
       }
     };
 
-    self.link_bullet = function(e) {
+    self.link_bullet = function(e) {    
       var index = $(this).attr('data-orbit-slide');
       if ((typeof index === 'string') && (index = $.trim(index)) != "") {
-        self._goto(parseInt(index));
+        if(isNaN(parseInt(index)))
+        {
+          var slide = container.find('[data-orbit-slide='+index+']');
+          if (slide.index() != -1) {self._goto(slide.index() + 1);}
+        }
+        else
+        {
+          self._goto(parseInt(index));
+        }
       }
+
     }
 
     self.timer_callback = function() {
@@ -375,7 +389,7 @@
   Foundation.libs.orbit = {
     name: 'orbit',
 
-    version: '5.0.0',
+    version: '5.0.3',
 
     settings: {
       animation: 'slide',
@@ -402,6 +416,7 @@
       active_slide_class: 'active',
       orbit_transition_class: 'orbit-transitioning',
       bullets: true,
+      circular: true,
       timer: true,
       variable_height: false,
       swipe: true,
@@ -409,24 +424,31 @@
       after_slide_change: noop
     },
 
-    init: function (scope, method, options) {
+    init : function (scope, method, options) {
+      var self = this;
+      this.bindings(method, options);
+    },
+
+    events : function (instance) {
+      var orbit_instance = new Orbit($(instance), $(instance).data('orbit-init'));
+      $(instance).data(self.name + '-instance', orbit_instance);
+    },
+
+    reflow : function () {
       var self = this;
 
-      if (typeof method === 'object') {
-        $.extend(true, self.settings, method);
+      if ($(self.scope).is('[data-orbit]')) {
+        var $el = $(self.scope);
+        var instance = $el.data(self.name + '-instance');
+        instance.compute_dimensions();
+      } else {
+        $('[data-orbit]', self.scope).each(function(idx, el) {
+          var $el = $(el);
+          var opts = self.data_options($el);
+          var instance = $el.data(self.name + '-instance');
+          instance.compute_dimensions();
+        });
       }
-
-      if ($(scope).is('[data-orbit]')) {
-        var $el = $(scope);
-        var opts = self.data_options($el);
-        new Orbit($el, $.extend({},self.settings, opts));
-      }
-
-      $('[data-orbit]', scope).each(function(idx, el) {
-        var $el = $(el);
-        var opts = self.data_options($el);
-        new Orbit($el, $.extend({},self.settings, opts));
-      });
     }
   };
 
