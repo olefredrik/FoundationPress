@@ -36,8 +36,15 @@ Check for Foundation Updates? Run:
 ## Stylesheet Folder Structure
 
   * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
-  * `scss/_settings.scss`: Original Foundation base settings are found here
-  * `scss/custom.scss`: Add your custom styling here
+
+  * `scss/app.scss`: Sass imports for global config, foundation and site structure
+
+  * `scss/config/_variables.scss`: Your custom variables
+  * `scss/config/_colors.scss`: Your custom color scheme
+  * `scss/config/_settings.scss`: Original Foundation 5 base settings
+
+  * `scss/site/_structure`: Your custom site structure
+
   * `css/app.css`: All Sass files are minified and compiled to this file
 
 ## Script Folder Strucutre
