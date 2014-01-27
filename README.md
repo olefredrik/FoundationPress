@@ -1,9 +1,10 @@
 # FoundationPress
 
-This is a WordPress starter theme based on Foundation 5 by Zurb. 
-I made it for myself, as a solid starter theme for new and exciting WordPress projects.
+This is a WordPress starter theme based on Foundation 5 by Zurb. The purpose of FoundationPress, is to act as a small and handy toolbox that contains the essentials needed to build any design. FoundationPress is meant to be a starting point, not the final product. If you're looking for an all-in-one theme with built-in shortcodes, plugins, fancypancy portfolio templates or whatnot, I'm afraid you have to look elsewhere.
 
-The purpose of the Foundation Press is that it should only contain the most essential, with no need to peel away unnecessary features. If you're looking for a starter theme with built-in shortcode plugins, fancypancy portfolio templates or whatnot, I'm afraid you have to look elsewhere. 
+Please fork, copy, modify, delete, share or do whatever you like with this. 
+
+All contributions are welcome!
 
 ## Requirements
 
