@@ -3,7 +3,7 @@
 $include-html-type-classes: $include-html-classes !default;
 
 // We use these to control header font styles
-$header-font-family: join("Open Sans", $body-font-family) !default;
+$header-font-family: $body-font-family !default;
 $header-font-weight: 300 !default;
 $header-font-style: normal !default;
 $header-font-color: #222 !default;
@@ -22,14 +22,14 @@ $h6-font-size: 1rem !default;
 
 // These control how subheaders are styled.
 $subheader-line-height: 1.4 !default;
-$subheader-font-color: lighten($header-font-color, 30%) !default;
+$subheader-font-color: scale-color($header-font-color, $lightness: 35%) !default;
 $subheader-font-weight: 300 !default;
 $subheader-top-margin: .2rem !default;
 $subheader-bottom-margin: .5rem !default;
 
 // A general <small> styling
 $small-font-size: 60% !default;
-$small-font-color: lighten($header-font-color, 30%) !default;
+$small-font-color: scale-color($header-font-color, $lightness: 35%) !default;
 
 // We use these to style paragraphs
 $paragraph-font-family: inherit !default;
@@ -43,14 +43,14 @@ $paragraph-aside-font-style: italic !default;
 $paragraph-text-rendering: optimizeLegibility !default;
 
 // We use these to style <code> tags
-$code-color: darken($alert-color, 15%) !default;
+$code-color: scale-color($alert-color, $lightness: -27%) !default;
 $code-font-family: Consolas, 'Liberation Mono', Courier, monospace !default;
 $code-font-weight: bold !default;
 
 // We use these to style anchors
 $anchor-text-decoration: none !default;
 $anchor-font-color: $primary-color !default;
-$anchor-font-color-hover: darken($primary-color, 5%) !default;
+$anchor-font-color-hover: scale-color($primary-color, $lightness: -14%) !default;
 
 // We use these to style the <hr> element
 $hr-border-width: 1px !default;
@@ -69,11 +69,11 @@ $definition-list-header-margin-bottom: .3rem !default;
 $definition-list-margin-bottom: rem-calc(12) !default;
 
 // We use these to style blockquotes
-$blockquote-font-color: lighten($header-font-color, 30%) !default;
+$blockquote-font-color: scale-color($header-font-color, $lightness: 35%) !default;
 $blockquote-padding: rem-calc(9 20 0 19) !default;
 $blockquote-border: 1px solid #ddd !default;
 $blockquote-cite-font-size: rem-calc(13) !default;
-$blockquote-cite-font-color: lighten($header-font-color, 20%) !default;
+$blockquote-cite-font-color: scale-color($header-font-color, $lightness: 23%) !default;
 $blockquote-cite-link-color: $blockquote-cite-font-color !default;
 
 // Acronym styles
@@ -108,12 +108,12 @@ $microformat-abbr-font-decoration: none !default;
 //
 
 // These will throw a deprecation warning if used within a media query.
-%lead {
+@mixin lead {
   font-size: $paragraph-font-size + rem-calc(3.5);
   line-height: 1.6;
 }
 
-%subheader {
+@mixin subheader {
   line-height: $subheader-line-height;
   color: $subheader-font-color;
   font-weight: $subheader-font-weight;
@@ -145,7 +145,6 @@ $microformat-abbr-font-decoration: none !default;
     td {
       margin:0;
       padding:0;
-      direction: $text-direction;
     }
 
     /* Default Link Styles */
@@ -169,7 +168,7 @@ $microformat-abbr-font-decoration: none !default;
       margin-bottom: $paragraph-margin-bottom;
       text-rendering: $paragraph-text-rendering;
 
-      &.lead { @extend %lead; }
+      &.lead { @include lead; }
 
       & aside {
         font-size: $paragraph-aside-font-size;
@@ -203,7 +202,7 @@ $microformat-abbr-font-decoration: none !default;
     h5 { font-size: $h5-font-size; }
     h6 { font-size: $h6-font-size; }
 
-    .subheader { @extend %subheader; }
+    .subheader { @include subheader; }
 
     hr {
       border: $hr-border-style $hr-border-color;
@@ -250,8 +249,8 @@ $microformat-abbr-font-decoration: none !default;
 
     ul {
       margin-#{$default-float}: $list-side-margin;
-      &.no-bullet { 
-        margin-#{$default-float}: $list-side-margin-no-bullet; 
+      &.no-bullet {
+        margin-#{$default-float}: $list-side-margin-no-bullet;
         li {
           ul,
           ol {

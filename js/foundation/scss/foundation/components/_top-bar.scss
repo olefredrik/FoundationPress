@@ -14,8 +14,6 @@ $topbar-bg: $topbar-bg-color !default;
 $topbar-height: 45px !default;
 $topbar-margin-bottom: 0 !default;
 
-// Control Input height for top bar
-
 // Controlling the styles for the title in the top bar
 $topbar-title-weight: normal !default;
 $topbar-title-font-size: rem-calc(17) !default;
@@ -24,6 +22,7 @@ $topbar-title-font-size: rem-calc(17) !default;
 $topbar-dropdown-bg: #333 !default;
 $topbar-dropdown-link-color: #fff !default;
 $topbar-dropdown-link-bg: #333 !default;
+$topbar-dropdown-link-weight: normal !default;
 $topbar-dropdown-toggle-size: 5px !default;
 $topbar-dropdown-toggle-color: #fff !default;
 $topbar-dropdown-toggle-alpha: 0.4 !default;
@@ -37,7 +36,7 @@ $topbar-link-font-size: rem-calc(13) !default;
 $topbar-link-hover-lightness: -10% !default; // Darken by 10%
 $topbar-link-bg-hover: #272727 !default;
 $topbar-link-bg-active: $primary-color !default;
-$topbar-link-bg-active-hover: darken($primary-color, 5%) !default;
+$topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%) !default;
 $topbar-link-font-family: $body-font-family !default;
 
 $topbar-button-font-size: 0.75rem;
@@ -64,22 +63,22 @@ $topbar-breakpoint: #{lower-bound($medium-range)} !default; // Change to 9999px 
 $topbar-media-query: $medium-up !default;
 
 // Divider Styles
-$topbar-divider-border-bottom: solid 1px lighten($topbar-bg-color, 10%) !default;
-$topbar-divider-border-top: solid 1px darken($topbar-bg-color, 10%) !default;
+$topbar-divider-border-bottom: solid 1px  scale-color($topbar-bg-color, $lightness: 13%) !default;
+$topbar-divider-border-top: solid 1px scale-color($topbar-bg-color, $lightness: -50%) !default;
 
 // Sticky Class
 $topbar-sticky-class: ".sticky" !default;
 $topbar-arrows: true !default; //Set false to remove the triangle icon from the menu item
 
-// Used to provide media query values for javascript components.
-// This class is generated despite the value of $include-html-top-bar-classes
-// to ensure width calculations work correctly.
-meta.foundation-mq-topbar {
-  font-family: "/" + unquote($topbar-media-query) + "/";
-  width: $topbar-breakpoint;
-}
-
 @include exports("top-bar") {
+  // Used to provide media query values for javascript components.
+  // This class is generated despite the value of $include-html-top-bar-classes
+  // to ensure width calculations work correctly.
+  meta.foundation-mq-topbar {
+    font-family: "/" + unquote($topbar-media-query) + "/";
+    width: $topbar-breakpoint;
+  }
+
   @if $include-html-top-bar-classes {
 
     /* Wrapped around .top-bar to contain to grid width */
@@ -138,14 +137,14 @@ meta.foundation-mq-topbar {
 
       input { height: auto; padding-top: .35rem; padding-bottom: .35rem; font-size: $topbar-button-font-size; }
 
-      .button { 
-        padding-top: .45rem; 
-        padding-bottom: .35rem; 
-        margin-bottom: 0; 
-        font-size: $topbar-button-font-size; 
+      .button {
+        padding-top: .45rem;
+        padding-bottom: .35rem;
+        margin-bottom: 0;
+        font-size: $topbar-button-font-size;
           // position: relative;
           // top: -1px;
-        
+
       }
 
       // Title Area
@@ -199,18 +198,21 @@ meta.foundation-mq-topbar {
           padding-#{$default-float}: 40px;
 
           a {
-            text-indent: -48px;
-            width: 34px;
+            // text-indent: -48px;
             height: 34px;
             line-height: 33px;
             padding: 0;
+            padding-right: 25px;
             color: $topbar-menu-link-color;
+            position: relative;
 
-            span {
+            &::after {
+              content:"";
               position: absolute;
               #{$opposite-direction}: 0;
               display: block;
               width: 16px;
+              top:0;
               height: 0;
               // Shh, don't tell, but box-shadows create the menu icon :)
               @if $experimental {
@@ -249,7 +251,7 @@ meta.foundation-mq-topbar {
           }
         }
       }
-      
+
 
 
     }
@@ -289,32 +291,32 @@ meta.foundation-mq-topbar {
           font-size: $topbar-link-font-size;
           font-weight: $topbar-link-weight;
           background: $topbar-dropdown-bg;
-          
+
           &.button {
             background: $primary-color;
             font-size: $topbar-link-font-size;
-             padding-right: $topbar-height / 3;
-             padding-left: $topbar-height / 3;
+             padding-#{$opposite-direction}: $topbar-height / 3;
+             padding-#{$default-float}: $topbar-height / 3;
             &:hover {
-              background: darken($primary-color, 10%);
+              background: scale-color($primary-color, $lightness: -27%);
             }
           }
           &.button.secondary {
             background: $secondary-color;
             &:hover {
-              background: darken($secondary-color, 10%);
+              background: scale-color($secondary-color, $lightness: -11%);
             }
           }
           &.button.success {
             background: $success-color;
             &:hover {
-              background: darken($success-color, 10%);
+              background: scale-color($success-color, $lightness: -21%);
             }
           }
           &.button.alert {
             background: $alert-color;
             &:hover {
-              background: darken($alert-color, 10%);
+              background: scale-color($alert-color, $lightness: -18%);
             }
           }
 
@@ -331,8 +333,8 @@ meta.foundation-mq-topbar {
         &.active > a {
           background: $topbar-link-bg-active;
           color: $topbar-link-color-active;
-  		&:hover {
-              background: $topbar-link-bg-active-hover;
+          &:hover {
+                background: $topbar-link-bg-active-hover;
           }
         }
       }
@@ -347,7 +349,7 @@ meta.foundation-mq-topbar {
         & > a {
           &:after {
             @if ($topbar-arrows){
-              @include css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), $default-float); 
+              @include css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), $default-float);
             }
             margin-#{$opposite-direction}: $topbar-height / 3;
             margin-top: -($topbar-dropdown-toggle-size / 2) - 2;
@@ -377,7 +379,7 @@ meta.foundation-mq-topbar {
           height: auto;
 
           a {
-            font-weight: normal;
+            font-weight: $topbar-dropdown-link-weight;
             padding: 8px $topbar-height / 3;
             &.parent-link {
               font-weight: $topbar-link-weight;
@@ -391,6 +393,8 @@ meta.foundation-mq-topbar {
               display: block;
             }
           }
+          &.has-form { padding: 8px $topbar-height / 3; }
+          .button { top: auto; }
         }
 
         label {
@@ -457,11 +461,13 @@ meta.foundation-mq-topbar {
               color: $topbar-link-color-hover;
             }
           }
-          a:not(.button) {
-            padding: 0 $topbar-height / 3;
-            line-height: $topbar-height;
-            background: $topbar-bg;
-            &:hover { background: $topbar-link-bg-hover; }
+          &:not(.has-form) {
+            a:not(.button) {
+              padding: 0 $topbar-height / 3;
+              line-height: $topbar-height;
+              background: $topbar-bg;
+              &:hover { background: $topbar-link-bg-hover; }
+            }
           }
         }
 
@@ -498,6 +504,7 @@ meta.foundation-mq-topbar {
                 top: 1rem;
                 margin-top: -2px;
                 #{$opposite-direction}: 5px;
+                line-height: 1.2;
               }
             }
           }
@@ -548,8 +555,8 @@ meta.foundation-mq-topbar {
           height: $topbar-height;
         }
 
-        // Position overrides for ul.right
-        ul.right {
+        // Position overrides for ul.right and ul.left
+        .right {
           li .dropdown {
             left: auto;
             right: 0;
@@ -557,12 +564,20 @@ meta.foundation-mq-topbar {
             li .dropdown { right: 100%; }
           }
         }
+        .left {
+          li .dropdown {
+            right: auto;
+            left: 0;
+
+            li .dropdown { left: 100%; }
+          }
+        }
       }
 
       // Degrade gracefully when Javascript is disabled. Displays dropdown and changes
       // background & text color on hover.
       .no-js .top-bar-section {
-  	  ul li {
+        ul li {
           // Apply the hover link color when it has that class
           &:hover > a {
             background: $topbar-link-bg-hover;
@@ -576,15 +591,14 @@ meta.foundation-mq-topbar {
           }
         }
 
-  	  .has-dropdown {
+        .has-dropdown {
           &:hover {
             & > .dropdown {
               display: block;
             }
           }
-  	  }
-  	}
+        }
+      }
     }
-
   }
 }
