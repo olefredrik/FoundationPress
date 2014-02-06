@@ -31,6 +31,7 @@ $topbar-dropdown-toggle-alpha: 0.4 !default;
 $topbar-link-color: #fff !default;
 $topbar-link-color-hover: #fff !default;
 $topbar-link-color-active: #fff !default;
+$topbar-link-color-active-hover: #fff !default;
 $topbar-link-weight: normal !default;
 $topbar-link-font-size: rem-calc(13) !default;
 $topbar-link-hover-lightness: -10% !default; // Darken by 10%
@@ -198,7 +199,9 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
           padding-#{$default-float}: 40px;
 
           a {
-            // text-indent: -48px;
+            @if $text-direction == rtl {
+              text-indent: -58px;
+            }
             height: 34px;
             line-height: 33px;
             padding: 0;
@@ -335,6 +338,7 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
           color: $topbar-link-color-active;
           &:hover {
                 background: $topbar-link-bg-active-hover;
+                color: $topbar-link-color-active-hover;
           }
         }
       }
@@ -469,6 +473,15 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
               &:hover { background: $topbar-link-bg-hover; }
             }
           }
+          &.active:not(.has-form) {
+            a:not(.button) {
+              padding: 0 $topbar-height / 3;
+              line-height: $topbar-height;
+              color: $topbar-link-color-active;
+              background: $topbar-link-bg-active;
+              &:hover { background: $topbar-link-bg-active-hover; }
+            }
+          }
         }
 
         .has-dropdown {
@@ -558,18 +571,18 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
         // Position overrides for ul.right and ul.left
         .right {
           li .dropdown {
-            left: auto;
-            right: 0;
+            #{$default-float}: auto;
+            #{$opposite-direction}: 0;
 
-            li .dropdown { right: 100%; }
+            li .dropdown { #{$opposite-direction}: 100%; }
           }
         }
         .left {
           li .dropdown {
-            right: auto;
-            left: 0;
+            #{$opposite-direction}: auto;
+            #{$default-float}: 0;
 
-            li .dropdown { left: 100%; }
+            li .dropdown { #{$default-float}: 100%; }
           }
         }
       }
