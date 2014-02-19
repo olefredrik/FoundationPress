@@ -1,7 +1,7 @@
 /*
  * Foundation Responsive Library
  * http://foundation.zurb.com
- * Copyright 2013, ZURB
+ * Copyright 2014, ZURB
  * Free to use under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
 */
@@ -9,26 +9,23 @@
 (function ($, window, document, undefined) {
   'use strict';
 
-  // Used to retrieve Foundation media queries from CSS.
-  if($('head').has('.foundation-mq-small').length === 0) {
-    $('head').append('<meta class="foundation-mq-small">');
-  }
+  var header_helpers = function (class_array) {
+    var i = class_array.length;
 
-  if($('head').has('.foundation-mq-medium').length === 0) {
-    $('head').append('<meta class="foundation-mq-medium">');
-  }
+    while (i--) {
+      if($('head').has('.' + class_array[i]).length === 0) {
+        $('head').append('<meta class="' + class_array[i] + '">');
+      }
+    }
+  };
 
-  if($('head').has('.foundation-mq-large').length === 0) {
-    $('head').append('<meta class="foundation-mq-large">');
-  }
-
-  if($('head').has('.foundation-mq-xlarge').length === 0) {
-    $('head').append('<meta class="foundation-mq-xlarge">');
-  }
-
-  if($('head').has('.foundation-mq-xxlarge').length === 0) {
-    $('head').append('<meta class="foundation-mq-xxlarge">');
-  }
+  header_helpers([
+    'foundation-mq-small', 
+    'foundation-mq-medium', 
+    'foundation-mq-large', 
+    'foundation-mq-xlarge', 
+    'foundation-mq-xxlarge', 
+    'foundation-data-attribute-namespace']);
 
   // Enable FastClick if present
 
@@ -46,8 +43,14 @@
   // getElementById is not available.
   var S = function (selector, context) {
     if (typeof selector === 'string') {
-      if (context) {
-        return $(context.querySelectorAll(selector));
+      if (context) { 
+        var cont;
+        if (context.jquery) {
+          cont = context[0];
+        } else {
+          cont = context;
+        }
+        return $(cont.querySelectorAll(selector));
       }
 
       return $(document.querySelectorAll(selector));
@@ -55,6 +58,106 @@
 
     return $(selector, context);
   };
+
+  // Namespace functions.
+
+  var attr_name = function (init) {
+    var arr = [];
+    if (!init) arr.push('data');
+    if (this.namespace.length > 0) arr.push(this.namespace);
+    arr.push(this.name);
+
+    return arr.join('-');
+  };
+
+  var header_helpers = function (class_array) {
+    var i = class_array.length;
+
+    while (i--) {
+      if($('head').has('.' + class_array[i]).length === 0) {
+        $('head').append('<meta class="' + class_array[i] + '">');
+      }
+    }
+  };
+
+  var add_namespace = function (str) {
+    var parts = str.split('-'),
+        i = parts.length,
+        arr = [];
+
+    while(i--) {
+      if (i !== 0) {
+        arr.push(parts[i]);
+      } else {
+        if (this.namespace.length > 0) {
+          arr.push(this.namespace, parts[i]);
+        } else {
+          arr.push(parts[i]);
+        }
+      }
+    }
+
+    return arr.reverse().join('-');
+  };
+
+  // Event binding and data-options updating.
+
+  var bindings = function (method, options) {
+    var self = this,
+        should_bind_events = !S(this).data(this.attr_name(true));
+
+    if (typeof method === 'string') {
+      return this[method].call(this, options);
+    }
+
+    if (S(this.scope).is('[' + this.attr_name() +']')) {
+      S(this.scope).data(this.attr_name(true) + '-init', $.extend({}, this.settings, (options || method), this.data_options(S(this.scope))));
+
+      if (should_bind_events) {
+        this.events(this.scope);
+      }
+
+    } else {
+      S('[' + this.attr_name() +']', this.scope).each(function () {
+        var should_bind_events = !S(this).data(self.attr_name(true) + '-init');
+
+        S(this).data(self.attr_name(true) + '-init', $.extend({}, self.settings, (options || method), self.data_options(S(this))));
+
+        if (should_bind_events) {
+          self.events(this);
+        }
+      });
+    }
+  };
+
+  var single_image_loaded = function (image, callback) {
+    function loaded () {
+      callback(image[0]);
+    }
+
+    function bindLoad () {
+      this.one('load', loaded);
+
+      if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
+        var src = this.attr( 'src' ),
+            param = src.match( /\?/ ) ? '&' : '?';
+
+        param += 'random=' + (new Date()).getTime();
+        this.attr('src', src + param);
+      }
+    }
+
+    if (!image.attr('src')) {
+      loaded();
+      return;
+    }
+
+    if (image[0].complete || image[0].readyState === 4) {
+      loaded();
+    } else {
+      bindLoad.call(image);
+    }
+  }
 
   /*
     https://github.com/paulirish/matchMedia.js
@@ -167,7 +270,7 @@
 
   function removeQuotes (string) {
     if (typeof string === 'string' || string instanceof String) {
-      string = string.replace(/^[\\/'"]+|(;\s?})+|[\\/'"]+$/g, '');
+      string = string.replace(/^['\\/"]+|(;\s?})+|['\\/"]+$/g, '');
     }
 
     return string;
@@ -176,7 +279,7 @@
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     media_queries : {
       small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
@@ -188,6 +291,10 @@
 
     stylesheet : $('<style></style>').appendTo('head')[0].sheet,
 
+    global: {
+      namespace: ''
+    },
+
     init : function (scope, libraries, method, options, response) {
       var library_arr,
           args = [scope, method, options, response],
@@ -198,6 +305,8 @@
 
       // set foundation global scope
       this.scope = scope || this.scope;
+
+      this.set_namespace();
 
       if (libraries && typeof libraries === 'string' && !/reflow/i.test(libraries)) {
         if (this.libs.hasOwnProperty(libraries)) {
@@ -229,41 +338,66 @@
 
     patch : function (lib) {
       lib.scope = this.scope;
-      lib['data_options'] = this.lib_methods.data_options;
-      lib['bindings'] = this.lib_methods.bindings;
-      lib['S'] = S;
+      lib.namespace = this.global.namespace;
       lib.rtl = this.rtl;
+      lib['data_options'] = this.utils.data_options;
+      lib['attr_name'] = attr_name;
+      lib['add_namespace'] = add_namespace;
+      lib['bindings'] = bindings;
+      lib['S'] = this.utils.S;
     },
 
     inherit : function (scope, methods) {
-      var methods_arr = methods.split(' ');
+      var methods_arr = methods.split(' '),
+          i = methods_arr.length;
 
-      for (var i = methods_arr.length - 1; i >= 0; i--) {
-        if (this.lib_methods.hasOwnProperty(methods_arr[i])) {
-          this.libs[scope.name][methods_arr[i]] = this.lib_methods[methods_arr[i]];
+      while (i--) {
+        if (this.utils.hasOwnProperty(methods_arr[i])) {
+          scope[methods_arr[i]] = this.utils[methods_arr[i]];
         }
       }
     },
 
-    random_str : function (length) {
-      var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+    set_namespace: function () {
+      var namespace = $('.foundation-data-attribute-namespace').css('font-family');
 
-      if (!length) {
-        length = Math.floor(Math.random() * chars.length);
-      }
+      if (/false/i.test(namespace)) return;
 
-      var str = '';
-      for (var i = 0; i < length; i++) {
-        str += chars[Math.floor(Math.random() * chars.length)];
-      }
-      return str;
+      this.global.namespace = namespace;
     },
 
     libs : {},
 
     // methods that can be inherited in libraries
-    lib_methods : {
-      throttle : function(fun, delay) {
+    utils : {
+
+      // Description:
+      //    Fast Selector wrapper returns jQuery object. Only use where getElementById 
+      //    is not available.
+      //
+      // Arguments:
+      //    Selector (String): CSS selector describing the element(s) to be 
+      //    returned as a jQuery object.
+      //
+      //    Scope (String): CSS selector describing the area to be searched. Default 
+      //    is document.
+      //
+      // Returns:
+      //    Element (jQuery Object): jQuery object containing elements matching the 
+      //    selector within the scope.
+      S : S,
+
+      // Description:
+      //    Executes a function a max of once every n milliseconds 
+      //
+      // Arguments:
+      //    Func (Function): Function to be throttled.
+      //
+      //    Delay (Integer): Function execution threshold in milliseconds.
+      //
+      // Returns:
+      //    Lazy_function (Function): Function with throttling applied.
+      throttle : function(func, delay) {
         var timer = null;
 
         return function () {
@@ -271,22 +405,70 @@
 
           clearTimeout(timer);
           timer = setTimeout(function () {
-            fun.apply(context, args);
+            func.apply(context, args);
           }, delay);
         };
       },
 
-      // parses data-options attribute
-      data_options : function (el) {
-        var opts = {}, ii, p, opts_arr, opts_len,
-            data_options = el.data('options');
+      // Description:
+      //    Executes a function when it stops being invoked for n seconds
+      //    Modified version of _.debounce() http://underscorejs.org
+      //
+      // Arguments:
+      //    Func (Function): Function to be debounced.
+      //
+      //    Delay (Integer): Function execution threshold in milliseconds.
+      // 
+      //    Immediate (Bool): Whether the function should be called at the beginning 
+      //    of the delay instead of the end. Default is false.
+      //
+      // Returns:
+      //    Lazy_function (Function): Function with debouncing applied.
+      debounce : function(func, delay, immediate) {
+        var timeout, result;
+        return function() {
+          var context = this, args = arguments;
+          var later = function() {
+            timeout = null;
+            if (!immediate) result = func.apply(context, args);
+          };
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, delay);
+          if (callNow) result = func.apply(context, args);
+          return result;
+        };
+      },
 
-        if (typeof data_options === 'object') {
-          return data_options;
+      // Description:
+      //    Parses data-options attribute
+      //
+      // Arguments:
+      //    El (jQuery Object): Element to be parsed.
+      //
+      // Returns:
+      //    Options (Javascript Object): Contents of the element's data-options 
+      //    attribute.
+      data_options : function (el) {
+        var opts = {}, ii, p, opts_arr,
+            data_options = function (el) {
+              var namespace = Foundation.global.namespace;
+
+              if (namespace.length > 0) {
+                return el.data(namespace + '-options');
+              }
+
+              return el.data('options');
+            };
+
+        var cached_options = data_options(el);
+
+        if (typeof cached_options === 'object') {
+          return cached_options;
         }
 
-        opts_arr = (data_options || ':').split(';'),
-        opts_len = opts_arr.length;
+        opts_arr = (cached_options || ':').split(';'),
+        ii = opts_arr.length;
 
         function isNumber (o) {
           return ! isNaN (o-0) && o !== null && o !== "" && o !== false && o !== true;
@@ -297,8 +479,7 @@
           return str;
         }
 
-        // parse options
-        for (ii = opts_len - 1; ii >= 0; ii--) {
+        while (ii--) {
           p = opts_arr[ii].split(':');
 
           if (/true/i.test(p[1])) p[1] = true;
@@ -313,22 +494,14 @@
         return opts;
       },
 
-      delay : function (fun, delay) {
-        return setTimeout(fun, delay);
-      },
-
-      // test for empty object or array
-      empty : function (obj) {
-        if (obj.length && obj.length > 0)    return false;
-        if (obj.length && obj.length === 0)  return true;
-
-        for (var key in obj) {
-          if (hasOwnProperty.call(obj, key))    return false;
-        }
-
-        return true;
-      },
-
+      // Description:
+      //    Adds JS-recognizable media queries
+      //
+      // Arguments:
+      //    Media (String): Key string for the media query to be stored as in 
+      //    Foundation.media_queries
+      //
+      //    Class (String): Class name for the generated <meta> tag
       register_media : function(media, media_class) {
         if(Foundation.media_queries[media] === undefined) {
           $('head').append('<meta class="' + media_class + '">');
@@ -336,7 +509,15 @@
         }
       },
 
-      addCustomRule : function(rule, media) {
+      // Description:
+      //    Add custom CSS within a JS-defined media query
+      //
+      // Arguments:
+      //    Rule (String): CSS rule to be appended to the document.
+      //
+      //    Media (String): Optional media query string for the CSS rule to be 
+      //    nested under.
+      add_custom_rule : function(rule, media) {
         if(media === undefined) {
           Foundation.stylesheet.insertRule(rule, Foundation.stylesheet.cssRules.length);
         } else {
@@ -348,61 +529,48 @@
         }
       },
 
-      loaded : function (image, callback) {
-        function loaded () {
-          callback(image[0]);
-        }
-
-        function bindLoad () {
-          this.one('load', loaded);
-
-          if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
-            var src = this.attr( 'src' ),
-                param = src.match( /\?/ ) ? '&' : '?';
-
-            param += 'random=' + (new Date()).getTime();
-            this.attr('src', src + param);
-          }
-        }
-
-        if (!image.attr('src')) {
-          loaded();
-          return;
-        }
-
-        if (image[0].complete || image[0].readyState === 4) {
-          loaded();
-        } else {
-          bindLoad.call(image);
-        }
-      },
-
-      bindings : function (method, options) {
+      // Description:
+      //    Performs a callback function when an image is fully loaded
+      //
+      // Arguments:
+      //    Image (jQuery Object): Image(s) to check if loaded.
+      //
+      //    Callback (Function): Fundation to execute when image is fully loaded.
+      image_loaded : function (images, callback) {
         var self = this,
-            should_bind_events = !S(this).data(this.name + '-init');
+            unloaded = images.length;
 
-        if (typeof method === 'string') {
-          return this[method].call(this, options);
-        }
-
-        if (S(this.scope).is('[data-' + this.name +']')) {
-          S(this.scope).data(this.name + '-init', $.extend({}, this.settings, (options || method), this.data_options(S(this.scope))));
-
-          if (should_bind_events) {
-            this.events(this.scope);
-          }
-
-        } else {
-          S('[data-' + this.name + ']', this.scope).each(function () {
-            var should_bind_events = !S(this).data(self.name + '-init');
-
-            S(this).data(self.name + '-init', $.extend({}, self.settings, (options || method), self.data_options(S(this))));
-
-            if (should_bind_events) {
-              self.events(this);
+        images.each(function(){
+          single_image_loaded(self.S(this),function(){
+            unloaded -= 1; 
+            if(unloaded == 0){
+              callback(images);
             }
           });
+        });
+      },
+
+      // Description:
+      //    Returns a random, alphanumeric string
+      //
+      // Arguments:
+      //    Length (Integer): Length of string to be generated. Defaults to random 
+      //    integer.
+      //
+      // Returns:
+      //    Rand (String): Pseudo-random, alphanumeric string.
+      random_str : function (length) {
+        var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+
+        if (!length) {
+          length = Math.floor(Math.random() * chars.length);
         }
+
+        var str = '';
+        while (length--) {
+          str += chars[Math.floor(Math.random() * chars.length)];
+        }
+        return str;
       }
     }
   };
@@ -424,16 +592,17 @@
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     settings : {
+      live_validate : true,
       focus_on_invalid : true,
       error_labels: true, // labels with a for="inputId" will recieve an `error` class
       timeout : 1000,
       patterns : {
-        alpha: /[a-zA-Z]+/,
-        alpha_numeric : /[a-zA-Z0-9]+/,
-        integer: /-?\d+/,
+        alpha: /^[a-zA-Z]+$/,
+        alpha_numeric : /^[a-zA-Z0-9]+$/,
+        integer: /^\d+$/,
         number: /-?(?:\d+|\d{1,3}(?:,\d{3})+)?(?:\.\d+)?/,
 
         // generic password: upper-case, lower-case, number/special character, and min 8 characters
@@ -472,14 +641,19 @@
 
     events : function (scope) {
       var self = this,
-          form = $(scope).attr('novalidate', 'novalidate'),
-          settings = form.data('abide-init');
+          form = self.S(scope).attr('novalidate', 'novalidate'),
+          settings = form.data(this.attr_name(true) + '-init');
+
+      this.invalid_attr = this.add_namespace('data-invalid');
 
       form
         .off('.abide')
         .on('submit.fndtn.abide validate.fndtn.abide', function (e) {
-          var is_ajax = /ajax/i.test($(this).attr('data-abide'));
-          return self.validate($(this).find('input, textarea, select').get(), e, is_ajax);
+          var is_ajax = /ajax/i.test(self.S(this).attr(self.attr_name()));
+          return self.validate(self.S(this).find('input, textarea, select').get(), e, is_ajax);
+        })
+        .on('reset', function() {
+          return self.reset($(this));
         })
         .find('input, textarea, select')
           .off('.abide')
@@ -488,24 +662,33 @@
           })
           .on('keydown.fndtn.abide', function (e) {
             var settings = $(this).closest('form').data('abide-init');
-            clearTimeout(self.timer);
-            self.timer = setTimeout(function () {
-              self.validate([this], e);
-            }.bind(this), settings.timeout);
+            if (settings.live_validate === true) {
+              clearTimeout(self.timer);
+              self.timer = setTimeout(function () {
+                self.validate([this], e);
+              }.bind(this), settings.timeout);
+            }
           });
+    },
+
+    reset : function (form) {
+      form.removeAttr(this.invalid_attr);
+      $(this.invalid_attr, form).removeAttr(this.invalid_attr);
+      $('.error', form).not('small').removeClass('error');
     },
 
     validate : function (els, e, is_ajax) {
       var validations = this.parse_patterns(els),
           validation_count = validations.length,
-          form = $(els[0]).closest('form'),
+          form = this.S(els[0]).closest('form'),
           submit_event = /submit/.test(e.type);
 
+      // Has to count up to make sure the focus gets applied to the top error
       for (var i=0; i < validation_count; i++) {
         if (!validations[i] && (submit_event || is_ajax)) {
           if (this.settings.focus_on_invalid) els[i].focus();
           form.trigger('invalid');
-          $(els[i]).closest('form').attr('data-invalid', '');
+          this.S(els[i]).closest('form').attr(this.invalid_attr, '');
           return false;
         }
       }
@@ -514,7 +697,7 @@
         form.trigger('valid');
       }
 
-      form.removeAttr('data-invalid');
+      form.removeAttr(this.invalid_attr);
 
       if (is_ajax) return false;
 
@@ -522,10 +705,10 @@
     },
 
     parse_patterns : function (els) {
-      var count = els.length,
+      var i = els.length,
           el_patterns = [];
 
-      for (var i = count - 1; i >= 0; i--) {
+      while (i--) {
         el_patterns.push(this.pattern(els[i]));
       }
 
@@ -554,37 +737,51 @@
     },
 
     check_validation_and_apply_styles : function (el_patterns) {
-      var count = el_patterns.length,
+      var i = el_patterns.length,
           validations = [];
 
-      for (var i = count - 1; i >= 0; i--) {
+      while (i--) {
         var el = el_patterns[i][0],
             required = el_patterns[i][2],
             value = el.value,
-            is_equal = el.getAttribute('data-equalto'),
+            direct_parent = this.S(el).parent(),
+            is_equal = el.getAttribute(this.add_namespace('data-equalto')),
             is_radio = el.type === "radio",
             is_checkbox = el.type === "checkbox",
-            label = $('label[for="' + el.getAttribute('id') + '"]'),
+            label = this.S('label[for="' + el.getAttribute('id') + '"]'),
             valid_length = (required) ? (el.value.length > 0) : true;
+
+        var parent;
+
+        if (!direct_parent.is('label')) {
+          parent = direct_parent;
+        } else {
+          parent = direct_parent.parent();
+        }
 
         if (is_radio && required) {
           validations.push(this.valid_radio(el, required));
         } else if (is_checkbox && required) {
           validations.push(this.valid_checkbox(el, required));
         } else if (is_equal && required) {
-          validations.push(this.valid_equal(el, required));
+          validations.push(this.valid_equal(el, required, parent));
         } else {
+
           if (el_patterns[i][1].test(value) && valid_length ||
             !required && el.value.length < 1) {
-            $(el).removeAttr('data-invalid').parent().removeClass('error');
+            this.S(el).removeAttr(this.invalid_attr);
+            parent.removeClass('error');
             if (label.length > 0 && this.settings.error_labels) label.removeClass('error');
 
             validations.push(true);
+            $(el).triggerHandler('valid');
           } else {
-            $(el).attr('data-invalid', '').parent().addClass('error');
+            this.S(el).attr(this.invalid_attr, '');
+            parent.addClass('error');
             if (label.length > 0 && this.settings.error_labels) label.addClass('error');
 
             validations.push(false);
+            $(el).triggerHandler('invalid');
           }
         }
       }
@@ -593,12 +790,13 @@
     },
 
     valid_checkbox : function(el, required) {
-      var el = $(el),
+      var el = this.S(el),
           valid = (el.is(':checked') || !required);
+
       if (valid) {
-        el.removeAttr('data-invalid').parent().removeClass('error');
+        el.removeAttr(this.invalid_attr).parent().removeClass('error');
       } else {
-        el.attr('data-invalid', '').parent().addClass('error');
+        el.attr(this.invalid_attr, '').parent().addClass('error');
       }
 
       return valid;
@@ -610,30 +808,34 @@
           count = group.length,
           valid = false;
 
+      // Has to count up to make sure the focus gets applied to the top error
       for (var i=0; i < count; i++) {
         if (group[i].checked) valid = true;
       }
 
+      // Has to count up to make sure the focus gets applied to the top error
       for (var i=0; i < count; i++) {
         if (valid) {
-          $(group[i]).removeAttr('data-invalid').parent().removeClass('error');
+          this.S(group[i]).removeAttr(this.invalid_attr).parent().removeClass('error');
         } else {
-          $(group[i]).attr('data-invalid', '').parent().addClass('error');
+          this.S(group[i]).attr(this.invalid_attr, '').parent().addClass('error');
         }
       }
 
       return valid;
     },
 
-    valid_equal: function(el, required) {
-      var from  = document.getElementById(el.getAttribute('data-equalto')).value,
+    valid_equal: function(el, required, parent) {
+      var from  = document.getElementById(el.getAttribute(this.add_namespace('data-equalto'))).value,
           to    = el.value,
           valid = (from === to);
 
       if (valid) {
-        $(el).removeAttr('data-invalid').parent().removeClass('error');
+        this.S(el).removeAttr(this.invalid_attr);
+        parent.removeClass('error');
       } else {
-        $(el).attr('data-invalid', '').parent().addClass('error');
+        this.S(el).attr(this.invalid_attr, '');
+        parent.addClass('error');
       }
 
       return valid;
@@ -647,7 +849,7 @@
   Foundation.libs.accordion = {
     name : 'accordion',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     settings : {
       active_class: 'active',
@@ -655,25 +857,33 @@
     },
 
     init : function (scope, method, options) {
-      this.bindings(method, options);
+      this.bindings(method, options); 
     },
 
     events : function () {
-      $(this.scope).off('.accordion').on('click.fndtn.accordion', '[data-accordion] > dd > a', function (e) {
-        var accordion = $(this).parent(),
-            target = $('#' + this.href.split('#')[1]),
-            siblings = $('> dd > .content', target.closest('[data-accordion]')),
-            settings = accordion.parent().data('accordion-init'),
-            active = $('> dd > .content.' + settings.active_class, accordion.parent());
+      var self = this;
+      var S = this.S;
+      S(this.scope)
+      .off('.fndtn.accordion')
+      .on('click.fndtn.accordion', '[' + this.attr_name() + '] > dd > a', function (e) {
+        var accordion = S(this).closest('[' + self.attr_name() + ']'),
+            target = S('#' + this.href.split('#')[1]),
+            siblings = S('dd > .content', accordion),
+            aunts = $('> dd', accordion),
+            settings = accordion.data(self.attr_name(true) + '-init'),
+            active_content = S('dd > .content.' + settings.active_class, accordion),
+            active_parent = S('dd.' + settings.active_class, accordion);
 
         e.preventDefault();
 
-        if (active[0] == target[0] && settings.toggleable) {
-          return target.toggleClass(settings.active_class);
+        if (active_content[0] == target[0] && settings.toggleable) {
+          active_parent.toggleClass(settings.active_class, false);
+          return target.toggleClass(settings.active_class, false);
         }
 
         siblings.removeClass(settings.active_class);
-        target.addClass(settings.active_class);
+        aunts.removeClass(settings.active_class);
+        target.addClass(settings.active_class).parent().addClass(settings.active_class);
       });
     },
 
@@ -689,7 +899,7 @@
   Foundation.libs.alert = {
     name : 'alert',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     settings : {
       animation: 'fadeOut',
@@ -702,13 +912,16 @@
     },
 
     events : function () {
-      $(this.scope).off('.alert').on('click.fndtn.alert', '[data-alert] a.close', function (e) {
-          var alertBox = $(this).closest("[data-alert]"),
-              settings = alertBox.data('alert-init') || Foundation.libs.alert.settings;
+      var self = this,
+          S = this.S;
+
+      $(this.scope).off('.alert').on('click.fndtn.alert', '[' + this.attr_name() + '] a.close', function (e) {
+          var alertBox = S(this).closest('[' + self.attr_name() + ']'),
+              settings = alertBox.data(self.attr_name(true) + '-init') || self.settings;
 
         e.preventDefault();
         alertBox[settings.animation](settings.speed, function () {
-          $(this).trigger('closed').remove();
+          S(this).trigger('closed').remove();
           settings.callback();
         });
       });
@@ -724,12 +937,12 @@
   Foundation.libs.clearing = {
     name : 'clearing',
 
-    version: '5.0.3',
+    version: '5.1.1',
 
     settings : {
       templates : {
         viewing : '<a href="#" class="clearing-close">&times;</a>' +
-          '<div class="visible-img" style="display: none"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="" />' +
+          '<div class="visible-img" style="display: none"><div class="clearing-touch-label"></div><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="" />' +
           '<p class="clearing-caption"></p><a href="#" class="clearing-main-prev"><span></span></a>' +
           '<a href="#" class="clearing-main-next"><span></span></a></div>'
       },
@@ -738,6 +951,8 @@
       // add 'div.clearing-blackout, div.visible-img' to close on background click
       close_selectors : '.clearing-close',
 
+      touch_label : '&larr;&nbsp;Swipe to Advance&nbsp;&rarr;',
+
       // event initializers and locks
       init : false,
       locked : false
@@ -745,37 +960,38 @@
 
     init : function (scope, method, options) {
       var self = this;
-      Foundation.inherit(this, 'throttle loaded');
+      Foundation.inherit(this, 'throttle image_loaded');
 
       this.bindings(method, options);
 
-      if ($(this.scope).is('[data-clearing]')) {
-        this.assemble($('li', this.scope));
+      if (self.S(this.scope).is('[' + this.attr_name() + ']')) { 
+        this.assemble(self.S('li', this.scope));
       } else {
-        $('[data-clearing]', this.scope).each(function () {
-          self.assemble($('li', this));
+        self.S('[' + this.attr_name() + ']', this.scope).each(function () {
+          self.assemble(self.S('li', this));
         });
       }
     },
 
     events : function (scope) {
-      var self = this;
+      var self = this,
+      S = self.S;
 
-      $(this.scope)
+      S(this.scope)
         .off('.clearing')
-        .on('click.fndtn.clearing', 'ul[data-clearing] li',
+        .on('click.fndtn.clearing', 'ul[' + this.attr_name() + '] li',
           function (e, current, target) {
-            var current = current || $(this),
+            var current = current || S(this),
                 target = target || current,
                 next = current.next('li'),
-                settings = current.closest('[data-clearing]').data('clearing-init'),
-                image = $(e.target);
+                settings = current.closest('[' + self.attr_name() + ']').data(self.attr_name(true) + '-init'),
+                image = S(e.target);
 
             e.preventDefault();
 
             if (!settings) {
               self.init();
-              settings = current.closest('[data-clearing]').data('clearing-init');
+              settings = current.closest('[' + self.attr_name() + ']').data(self.attr_name(true) + '-init');
             }
 
             // if clearing is open and the current image is
@@ -784,7 +1000,7 @@
               current[0] === target[0] && 
               next.length > 0 && self.is_open(current)) {
               target = next;
-              image = $('img', target);
+              image = S('img', target);
             }
 
             // set current and target to the clicked li if not otherwise defined.
@@ -801,16 +1017,17 @@
         .on('keydown.fndtn.clearing',
           function (e) { self.keydown(e) });
 
-      $(window).off('.clearing').on('resize.fndtn.clearing',
+      S(window).off('.clearing').on('resize.fndtn.clearing',
         function () { self.resize() });
 
       this.swipe_events(scope);
     },
 
     swipe_events : function (scope) {
-      var self = this;
+      var self = this,
+      S = self.S;
 
-      $(this.scope)
+      S(this.scope)
         .on('touchstart.fndtn.clearing', '.visible-img', function(e) {
           if (!e.touches) { e = e.originalEvent; }
           var data = {
@@ -821,7 +1038,7 @@
                 is_scrolling: undefined
               };
 
-          $(this).data('swipe-transition', data);
+          S(this).data('swipe-transition', data);
           e.stopPropagation();
         })
         .on('touchmove.fndtn.clearing', '.visible-img', function(e) {
@@ -829,7 +1046,7 @@
           // Ignore pinch/zoom events
           if(e.touches.length > 1 || e.scale && e.scale !== 1) return;
 
-          var data = $(this).data('swipe-transition');
+          var data = S(this).data('swipe-transition');
 
           if (typeof data === 'undefined') {
             data = {};
@@ -849,7 +1066,7 @@
           }
         })
         .on('touchend.fndtn.clearing', '.visible-img', function(e) {
-          $(this).data('swipe-transition', {});
+          S(this).data('swipe-transition', {});
           e.stopPropagation();
         });
     },
@@ -860,24 +1077,31 @@
       if ($el.parent().hasClass('carousel')) return;
       $el.after('<div id="foundationClearingHolder"></div>');
 
-      var holder = $('#foundationClearingHolder'),
-          settings = $el.data('clearing-init'),
+      var holder = this.S('#foundationClearingHolder'),
+          settings = $el.data(this.attr_name(true) + '-init'),
           grid = $el.detach(),
           data = {
             grid: '<div class="carousel">' + grid[0].outerHTML + '</div>',
             viewing: settings.templates.viewing
           },
           wrapper = '<div class="clearing-assembled"><div>' + data.viewing +
-            data.grid + '</div></div>';
+            data.grid + '</div></div>',
+          touch_label = this.settings.touch_label;
 
-      return holder.after(wrapper).remove();
+      if (Modernizr.touch) {
+        wrapper = $(wrapper).find('.clearing-touch-label').html(touch_label).end();
+      }
+
+      holder.after(wrapper).remove();
     },
 
     open : function ($image, current, target) {
-      var root = target.closest('.clearing-assembled'),
-          container = $('div', root).first(),
-          visible_image = $('.visible-img', container),
-          image = $('img', visible_image).not($image);
+      var self = this,
+          root = target.closest('.clearing-assembled'),
+          container = self.S('div', root).first(),
+          visible_image = self.S('.visible-img', container),
+          image = self.S('img', visible_image).not($image),
+          label = self.S('.clearing-touch-label', container);
 
       if (!this.locked()) {
         // set the image to the selected thumbnail
@@ -885,15 +1109,15 @@
           .attr('src', this.load($image))
           .css('visibility', 'hidden');
 
-        this.loaded(image, function () {
+        this.image_loaded(image, function () {
           image.css('visibility', 'visible');
           // toggle the gallery
           root.addClass('clearing-blackout');
           container.addClass('clearing-container');
           visible_image.show();
           this.fix_height(target)
-            .caption($('.clearing-caption', visible_image), $image)
-            .center(image)
+            .caption(self.S('.clearing-caption', visible_image), $image)
+            .center_and_label(image,label)
             .shift(current, target, function () {
               target.siblings().removeClass('visible');
               target.addClass('visible');
@@ -917,7 +1141,7 @@
         container = $('div', root).first();
         visible_image = $('.visible-img', container);
         this.settings.prev_index = 0;
-        $('ul[data-clearing]', root)
+        $('ul[' + this.attr_name() + ']', root)
           .attr('style', '').closest('.clearing-blackout')
           .removeClass('clearing-blackout');
         container.removeClass('clearing-container');
@@ -932,28 +1156,29 @@
     },
 
     keydown : function (e) {
-      var clearing = $('ul[data-clearing]', '.clearing-blackout'),
+      var clearing = $('ul[' + this.attr_name() + ']', '.clearing-blackout'),
           NEXT_KEY = this.rtl ? 37 : 39,
           PREV_KEY = this.rtl ? 39 : 37,
           ESC_KEY = 27;
 
       if (e.which === NEXT_KEY) this.go(clearing, 'next');
       if (e.which === PREV_KEY) this.go(clearing, 'prev');
-      if (e.which === ESC_KEY) $('a.clearing-close').trigger('click');
+      if (e.which === ESC_KEY) this.S('a.clearing-close').trigger('click');
     },
 
     nav : function (e, direction) {
-      var clearing = $('ul[data-clearing]', '.clearing-blackout');
+      var clearing = $('ul[' + this.attr_name() + ']', '.clearing-blackout');
 
       e.preventDefault();
       this.go(clearing, direction);
     },
 
     resize : function () {
-      var image = $('img', '.clearing-blackout .visible-img');
+      var image = $('img', '.clearing-blackout .visible-img'),
+          label = $('.clearing-touch-label', '.clearing-blackout');
 
       if (image.length) {
-        this.center(image);
+        this.center_and_label(image, label);
       }
     },
 
@@ -963,7 +1188,7 @@
           self = this;
 
       lis.each(function () {
-          var li = $(this),
+          var li = self.S(this),
               image = li.find('img');
 
           if (li.height() > image.outerHeight()) {
@@ -982,32 +1207,42 @@
         .siblings('.visible-img');
 
       if (target.next().length > 0) {
-        $('.clearing-main-next', visible_image)
+        this.S('.clearing-main-next', visible_image)
           .removeClass('disabled');
       } else {
-        $('.clearing-main-next', visible_image)
+        this.S('.clearing-main-next', visible_image)
           .addClass('disabled');
       }
 
       if (target.prev().length > 0) {
-        $('.clearing-main-prev', visible_image)
+        this.S('.clearing-main-prev', visible_image)
           .removeClass('disabled');
       } else {
-        $('.clearing-main-prev', visible_image)
+        this.S('.clearing-main-prev', visible_image)
           .addClass('disabled');
       }
     },
 
-    center : function (target) {
+    center_and_label : function (target, label) {
       if (!this.rtl) {
         target.css({
           marginLeft : -(target.outerWidth() / 2),
           marginTop : -(target.outerHeight() / 2)
         });
+        label.css({
+          marginLeft : -(label.outerWidth() / 2),
+          marginTop : -(target.outerHeight() / 2)-label.outerHeight()-10
+        });
       } else {
         target.css({
           marginRight : -(target.outerWidth() / 2),
           marginTop : -(target.outerHeight() / 2),
+          left: 'auto',
+          right: '50%'
+        });
+        label.css({
+          marginRight : -(label.outerWidth() / 2),
+          marginTop : -(target.outerHeight() / 2)-label.outerHeight()-10,
           left: 'auto',
           right: '50%'
         });
@@ -1039,12 +1274,12 @@
     img : function (img) {
       if (img.length) {
         var new_img = new Image(),
-            new_a = $('a', img);
+            new_a = this.S('a', img);
 
         if (new_a.length) {
           new_img.src = new_a.attr('href');
         } else {
-          new_img.src = $('img', img).attr('src');
+          new_img.src = this.S('img', img).attr('src');
         }
       }
       return this;
@@ -1070,11 +1305,11 @@
     // directional methods
 
     go : function ($ul, direction) {
-      var current = $('.visible', $ul),
+      var current = this.S('.visible', $ul),
           target = current[direction]();
 
       if (target.length) {
-        $('img', target)
+        this.S('img', target)
           .trigger('click', [current, target]);
       }
     },
@@ -1122,9 +1357,9 @@
     },
 
     direction : function ($el, current, target) {
-      var lis = $('li', $el),
+      var lis = this.S('li', $el),
           li_width = lis.outerWidth() + (lis.outerWidth() / 4),
-          up_count = Math.floor($('.clearing-container').outerWidth() / li_width) - 1,
+          up_count = Math.floor(this.S('.clearing-container').outerWidth() / li_width) - 1,
           target_index = lis.index(target),
           response;
 
@@ -1171,8 +1406,8 @@
     },
 
     off : function () {
-      $(this.scope).off('.fndtn.clearing');
-      $(window).off('.fndtn.clearing');
+      this.S(this.scope).off('.fndtn.clearing');
+      this.S(window).off('.fndtn.clearing');
     },
 
     reflow : function () {
@@ -1188,7 +1423,7 @@
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     settings : {
       active_class: 'open',
@@ -1204,74 +1439,72 @@
     },
 
     events : function (scope) {
-      var self = this;
+      var self = this,
+          S = self.S;
 
-      $(this.scope)
+      S(this.scope)
         .off('.dropdown')
-        .on('click.fndtn.dropdown', '[data-dropdown]', function (e) {
-          var settings = $(this).data('dropdown-init') || self.settings;
+        .on('click.fndtn.dropdown', '[' + this.attr_name() + ']', function (e) {
+          var settings = S(this).data(self.attr_name(true) + '-init') || self.settings;
           e.preventDefault();
-
-          self.closeall.call(self);
-
-          if (!settings.is_hover || Modernizr.touch) self.toggle($(this));
+          if (!settings.is_hover || Modernizr.touch) self.toggle(S(this));
         })
-        .on('mouseenter.fndtn.dropdown', '[data-dropdown], [data-dropdown-content]', function (e) {
-          var $this = $(this);
+        .on('mouseenter.fndtn.dropdown', '[' + this.attr_name() + '], [' + this.attr_name() + '-content]', function (e) {
+          var $this = S(this);
           clearTimeout(self.timeout);
 
-          if ($this.data('dropdown')) {
-            var dropdown = $('#' + $this.data('dropdown')),
+          if ($this.data(self.data_attr())) {
+            var dropdown = S('#' + $this.data(self.data_attr())),
                 target = $this;
           } else {
             var dropdown = $this;
-                target = $("[data-dropdown='" + dropdown.attr('id') + "']");
+                target = S("[" + self.attr_name() + "='" + dropdown.attr('id') + "']");
           }
 
-          var settings = target.data('dropdown-init') || self.settings;
+          var settings = target.data(self.attr_name(true) + '-init') || self.settings;
           
-          if($(e.target).data('dropdown') && settings.is_hover) {
+          if(S(e.target).data(self.data_attr()) && settings.is_hover) {
             self.closeall.call(self);
           }
           
           if (settings.is_hover) self.open.apply(self, [dropdown, target]);
         })
-        .on('mouseleave.fndtn.dropdown', '[data-dropdown], [data-dropdown-content]', function (e) {
-          var $this = $(this);
+        .on('mouseleave.fndtn.dropdown', '[' + this.attr_name() + '], [' + this.attr_name() + '-content]', function (e) {
+          var $this = S(this);
           self.timeout = setTimeout(function () {
-            if ($this.data('dropdown')) {
-              var settings = $this.data('dropdown-init') || self.settings;
-              if (settings.is_hover) self.close.call(self, $('#' + $this.data('dropdown')));
+            if ($this.data(self.data_attr())) {
+              var settings = $this.data(self.data_attr(true) + '-init') || self.settings;
+              if (settings.is_hover) self.close.call(self, S('#' + $this.data(self.data_attr())));
             } else {
-              var target = $('[data-dropdown="' + $(this).attr('id') + '"]'),
-                  settings = target.data('dropdown-init') || self.settings;
+              var target = S('[' + self.attr_name() + '="' + S(this).attr('id') + '"]'),
+                  settings = target.data(self.attr_name(true) + '-init') || self.settings;
               if (settings.is_hover) self.close.call(self, $this);
             }
           }.bind(this), 150);
         })
         .on('click.fndtn.dropdown', function (e) {
-          var parent = $(e.target).closest('[data-dropdown-content]');
+          var parent = S(e.target).closest('[' + self.attr_name() + '-content]');
 
-          if ($(e.target).data('dropdown') || $(e.target).parent().data('dropdown')) {
+          if (S(e.target).data(self.data_attr()) || S(e.target).parent().data(self.data_attr())) {
             return;
           }
-          if (!($(e.target).data('revealId')) && 
-            (parent.length > 0 && ($(e.target).is('[data-dropdown-content]') || 
+          if (!(S(e.target).data('revealId')) && 
+            (parent.length > 0 && (S(e.target).is('[' + self.attr_name() + '-content]') || 
               $.contains(parent.first()[0], e.target)))) {
             e.stopPropagation();
             return;
           }
 
-          self.close.call(self, $('[data-dropdown-content]'));
+          self.close.call(self, S('[' + self.attr_name() + '-content]'));
         })
-        .on('opened.fndtn.dropdown', '[data-dropdown-content]', function () {
+        .on('opened.fndtn.dropdown', '[' + self.attr_name() + '-content]', function () {
             self.settings.opened.call(this);
         })
-        .on('closed.fndtn.dropdown', '[data-dropdown-content]', function () {
+        .on('closed.fndtn.dropdown', '[' + self.attr_name() + '-content]', function () {
             self.settings.closed.call(this);
         });
 
-      $(window)
+      S(window)
         .off('.dropdown')
         .on('resize.fndtn.dropdown', self.throttle(function () {
           self.resize.call(self);
@@ -1281,19 +1514,19 @@
     close: function (dropdown) {
       var self = this;
       dropdown.each(function () {
-        if ($(this).hasClass(self.settings.active_class)) {
-          $(this)
+        if (self.S(this).hasClass(self.settings.active_class)) {
+          self.S(this)
             .css(Foundation.rtl ? 'right':'left', '-99999px')
             .removeClass(self.settings.active_class);
-          $(this).trigger('closed');
+          self.S(this).trigger('closed');
         }
       });
     },
 
     closeall: function() {
       var self = this;
-      $.each($('[data-dropdown-content]'), function() {
-        self.close.call(self, $(this))
+      $.each(self.S('[' + this.attr_name() + '-content]'), function() {
+        self.close.call(self, self.S(this))
       });
     },
 
@@ -1304,26 +1537,34 @@
         dropdown.trigger('opened');
     },
 
+    data_attr: function () {
+      if (this.namespace.length > 0) {
+        return this.namespace + '-' + this.name;
+      }
+
+      return this.name;
+    },
+
     toggle : function (target) {
-      var dropdown = $('#' + target.data('dropdown'));
+      var dropdown = this.S('#' + target.data(this.data_attr()));
       if (dropdown.length === 0) {
         // No dropdown found, not continuing
         return;
       }
 
-      this.close.call(this, $('[data-dropdown-content]').not(dropdown));
+      this.close.call(this, this.S('[' + this.attr_name() + '-content]').not(dropdown));
 
       if (dropdown.hasClass(this.settings.active_class)) {
         this.close.call(this, dropdown);
       } else {
-        this.close.call(this, $('[data-dropdown-content]'))
+        this.close.call(this, this.S('[' + this.attr_name() + '-content]'))
         this.open.call(this, dropdown, target);
       }
     },
 
     resize : function () {
-      var dropdown = $('[data-dropdown-content].open'),
-          target = $("[data-dropdown='" + dropdown.attr('id') + "']");
+      var dropdown = this.S('[' + this.attr_name() + '-content].open'),
+          target = this.S("[" + this.attr_name() + "='" + dropdown.attr('id') + "']");
 
       if (dropdown.length && target.length) {
         this.css(dropdown, target);
@@ -1346,7 +1587,7 @@
         });
         dropdown.css(Foundation.rtl ? 'right':'left', '2.5%');
       } else {
-        if (!Foundation.rtl && $(window).width() > dropdown.outerWidth() + target.offset().left) {
+        if (!Foundation.rtl && this.S(window).width() > dropdown.outerWidth() + target.offset().left) {
           var left = position.left;
           if (dropdown.hasClass('right')) {
             dropdown.removeClass('right');
@@ -1374,10 +1615,10 @@
     },
 
     off: function () {
-      $(this.scope).off('.fndtn.dropdown');
-      $('html, body').off('.fndtn.dropdown');
-      $(window).off('.fndtn.dropdown');
-      $('[data-dropdown-content]').off('.fndtn.dropdown');
+      this.S(this.scope).off('.fndtn.dropdown');
+      this.S('html, body').off('.fndtn.dropdown');
+      this.S(window).off('.fndtn.dropdown');
+      this.S('[data-dropdown-content]').off('.fndtn.dropdown');
       this.settings.init = false;
     },
 
@@ -1388,10 +1629,74 @@
 ;(function ($, window, document, undefined) {
   'use strict';
 
+  Foundation.libs.equalizer = {
+    name : 'equalizer',
+
+    version : '5.1.1',
+
+    settings : {
+      use_tallest: true,
+      before_height_change: $.noop,
+      after_height_change: $.noop
+    },
+
+    init : function (scope, method, options) {
+      this.bindings(method, options);
+      this.reflow();
+    },
+
+    events : function () {
+      this.S(window).off('.equalizer').on('resize.fndtn.equalizer', function(e){
+        this.reflow();
+      }.bind(this));
+    },
+
+    equalize: function(equalizer) {
+      var isStacked = false,
+          vals = equalizer.find('[' + this.attr_name() + '-watch]'),
+          firstTopOffset = vals.first().offset().top,
+          settings = equalizer.data(this.attr_name(true)+'-init');
+      
+      if (vals.length === 0) return;
+      settings.before_height_change();
+      equalizer.trigger('before-height-change');
+      vals.height('inherit');
+      vals.each(function(){
+        var el = $(this);
+        if (el.offset().top !== firstTopOffset) {
+          isStacked = true;
+        }
+      });
+      if (isStacked) return;
+      
+      var heights = vals.map(function(){ return $(this).outerHeight() });
+      if (settings.use_tallest) {
+        var max = Math.max.apply(null, heights);
+        vals.height(max);
+      } else {
+        var min = Math.min.apply(null, heights);
+        vals.height(min);
+      }
+      settings.after_height_change();
+      equalizer.trigger('after-height-change');
+    },
+
+    reflow : function () {
+      var self = this;
+
+      this.S('[' + this.attr_name() + ']', this.scope).each(function(){
+        self.equalize($(this));
+      });
+    }
+  };
+}(jQuery, this, this.document));
+;(function ($, window, document, undefined) {
+  'use strict';
+
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     cache : {},
 
@@ -1440,13 +1745,13 @@
 
             return trigger(el[0].src);
           }
-          var last_path = el.data('interchange-last-path');
+          var last_path = el.data(this.data_attr + '-last-path');
 
           if (last_path == path) return;
 
           return $.get(path, function (response) {
             el.html(response);
-            el.data('interchange-last-path', path);
+            el.data(this.data_attr + '-last-path', path);
             trigger();
           });
 
@@ -1455,9 +1760,9 @@
     },
 
     init : function (scope, method, options) {
-      Foundation.inherit(this, 'throttle');
+      Foundation.inherit(this, 'throttle random_str');
 
-      this.data_attr = 'data-' + this.settings.load_attr;
+      this.data_attr = this.set_data_attr();
       $.extend(true, this.settings, method, options);
 
       this.bindings(method, options);
@@ -1471,7 +1776,7 @@
       $(window)
         .off('.interchange')
         .on('resize.fndtn.interchange', self.throttle(function () {
-          self.resize.call(self);
+          self.resize();
         }, 50));
 
       return this;
@@ -1491,7 +1796,7 @@
 
           if (passed) {
             this.settings.directives[passed
-              .scenario[1]](passed.el, passed.scenario[0], function () {
+              .scenario[1]].call(this, passed.el, passed.scenario[0], function () {
                 if (arguments[0] instanceof Array) { 
                   var args = arguments[0];
                 } else { 
@@ -1510,17 +1815,17 @@
       var count = scenarios.length;
 
       if (count > 0) {
-        var el = this.S('[data-uuid="' + uuid + '"]');
+        var el = this.S('[' + this.add_namespace('data-uuid') + '="' + uuid + '"]');
 
-        for (var i = count - 1; i >= 0; i--) {
-          var mq, rule = scenarios[i][2];
+        while (count--) {
+          var mq, rule = scenarios[count][2];
           if (this.settings.named_queries.hasOwnProperty(rule)) {
             mq = matchMedia(this.settings.named_queries[rule]);
           } else {
             mq = matchMedia(rule);
           }
           if (mq.matches) {
-            return {el: el, scenario: scenarios[i]};
+            return {el: el, scenario: scenarios[count]};
           }
         }
       }
@@ -1539,6 +1844,7 @@
     update_images : function () {
       var images = this.S('img[' + this.data_attr + ']'),
           count = images.length,
+          i = count,
           loaded_count = 0,
           data_attr = this.data_attr;
 
@@ -1546,7 +1852,7 @@
       this.cached_images = [];
       this.images_loaded = (count === 0);
 
-      for (var i = count - 1; i >= 0; i--) {
+      while (i--) {
         loaded_count++;
         if (images[i]) {
           var str = images[i].getAttribute(data_attr) || '';
@@ -1556,7 +1862,7 @@
           }
         }
 
-        if(loaded_count === count) {
+        if (loaded_count === count) {
           this.images_loaded = true;
           this.enhance('images');
         }
@@ -1568,6 +1874,7 @@
     update_nodes : function () {
       var nodes = this.S('[' + this.data_attr + ']').not('img'),
           count = nodes.length,
+          i = count,
           loaded_count = 0,
           data_attr = this.data_attr;
 
@@ -1577,7 +1884,7 @@
       this.nodes_loaded = (count === 0);
 
 
-      for (var i = count - 1; i >= 0; i--) {
+      while (i--) {
         loaded_count++;
         var str = nodes[i].getAttribute(data_attr) || '';
 
@@ -1595,9 +1902,9 @@
     },
 
     enhance : function (type) {
-      var count = this['cached_' + type].length;
+      var i = this['cached_' + type].length;
 
-      for (var i = count - 1; i >= 0; i--) {
+      while (i--) {
         this.object($(this['cached_' + type][i]));
       }
 
@@ -1620,10 +1927,11 @@
 
     object : function(el) {
       var raw_arr = this.parse_data_attr(el),
-          scenarios = [], count = raw_arr.length;
+          scenarios = [], 
+          i = raw_arr.length;
 
-      if (count > 0) {
-        for (var i = count - 1; i >= 0; i--) {
+      if (i > 0) {
+        while (i--) {
           var split = raw_arr[i].split(/\((.*?)(\))$/);
 
           if (split.length > 1) {
@@ -1640,10 +1948,11 @@
     },
 
     uuid : function (separator) {
-      var delim = separator || "-";
+      var delim = separator || "-",
+          self = this;
 
       function S4() {
-        return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        return self.random_str(6);
       }
 
       return (S4() + S4() + delim + S4() + delim + S4()
@@ -1652,11 +1961,11 @@
 
     store : function (el, scenarios) {
       var uuid = this.uuid(),
-          current_uuid = el.data('uuid');
+          current_uuid = el.data(this.add_namespace('uuid', true));
 
       if (this.cache[current_uuid]) return this.cache[current_uuid];
 
-      el.attr('data-uuid', uuid);
+      el.attr(this.add_namespace('data-uuid'), uuid);
 
       return this.cache[uuid] = scenarios;
     },
@@ -1669,11 +1978,28 @@
       return str;
     },
 
-    parse_data_attr : function (el) {
-      var raw = el.data(this.settings.load_attr).split(/\[(.*?)\]/),
-          count = raw.length, output = [];
+    set_data_attr: function (init) {
+      if (init) {
+        if (this.namespace.length > 0) {
+          return this.namespace + '-' + this.settings.load_attr;
+        }
 
-      for (var i = count - 1; i >= 0; i--) {
+        return this.settings.load_attr;
+      }
+
+      if (this.namespace.length > 0) {
+        return 'data-' + this.namespace + '-' + this.settings.load_attr;
+      }
+
+      return 'data-' + this.settings.load_attr;
+    },
+
+    parse_data_attr : function (el) {
+      var raw = el.attr(this.attr_name()).split(/\[(.*?)\]/),
+          i = raw.length, 
+          output = [];
+
+      while (i--) {
         if (raw[i].replace(/[\W\d]+/, '').length > 4) {
           output.push(raw[i]);
         }
@@ -1699,29 +2025,29 @@
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     defaults : {
-      expose               : false,      // turn on or off the expose feature
-      modal                : true,      // Whether to cover page with modal during the tour
-      tip_location          : 'bottom',  // 'top' or 'bottom' in relation to parent
-      nub_position          : 'auto',    // override on a per tooltip bases
-      scroll_speed          : 1500,       // Page scrolling speed in milliseconds, 0 = no scroll animation
-      scroll_animation     : 'linear',   // supports 'swing' and 'linear', extend with jQuery UI.
-      timer                : 0,         // 0 = no timer , all other numbers = timer in milliseconds
-      start_timer_on_click    : true,      // true or false - true requires clicking the first button start the timer
-      start_offset          : 0,         // the index of the tooltip you want to start on (index of the li)
-      next_button           : true,      // true or false to control whether a next button is used
-      tip_animation         : 'fade',    // 'pop' or 'fade' in each tip
-      pause_after           : [],        // array of indexes where to pause the tour after
-      exposed              : [],        // array of expose elements
-      tip_animation_fade_speed: 300,       // when tipAnimation = 'fade' this is speed in milliseconds for the transition
-      cookie_monster        : false,     // true or false to control whether cookies are used
-      cookie_name           : 'joyride', // Name the cookie you'll use
-      cookie_domain         : false,     // Will this cookie be attached to a domain, ie. '.notableapp.com'
-      cookie_expires        : 365,       // set when you would like the cookie to expire.
-      tip_container         : 'body',    // Where will the tip be attached
-      tip_location_patterns : {
+      expose                   : false,     // turn on or off the expose feature
+      modal                    : true,      // Whether to cover page with modal during the tour
+      tip_location             : 'bottom',  // 'top' or 'bottom' in relation to parent
+      nub_position             : 'auto',    // override on a per tooltip bases
+      scroll_speed             : 1500,      // Page scrolling speed in milliseconds, 0 = no scroll animation
+      scroll_animation         : 'linear',  // supports 'swing' and 'linear', extend with jQuery UI.
+      timer                    : 0,         // 0 = no timer , all other numbers = timer in milliseconds
+      start_timer_on_click     : true,      // true or false - true requires clicking the first button start the timer
+      start_offset             : 0,         // the index of the tooltip you want to start on (index of the li)
+      next_button              : true,      // true or false to control whether a next button is used
+      tip_animation            : 'fade',    // 'pop' or 'fade' in each tip
+      pause_after              : [],        // array of indexes where to pause the tour after
+      exposed                  : [],        // array of expose elements
+      tip_animation_fade_speed : 300,       // when tipAnimation = 'fade' this is speed in milliseconds for the transition
+      cookie_monster           : false,     // true or false to control whether cookies are used
+      cookie_name              : 'joyride', // Name the cookie you'll use
+      cookie_domain            : false,     // Will this cookie be attached to a domain, ie. '.notableapp.com'
+      cookie_expires           : 365,       // set when you would like the cookie to expire.
+      tip_container            : 'body',    // Where will the tip be attached
+      tip_location_patterns    : {
         top: ['bottom'],
         bottom: [], // bottom should not need to be repositioned
         left: ['right', 'top', 'bottom'],
@@ -1746,7 +2072,7 @@
     },
 
     init : function (scope, method, options) {
-      Foundation.inherit(this, 'throttle delay');
+      Foundation.inherit(this, 'throttle random_str');
 
       this.settings = this.defaults;
 
@@ -1783,7 +2109,7 @@
       $(window)
         .off('.joyride')
         .on('resize.fndtn.joyride', self.throttle(function () {
-          if ($('[data-joyride]').length > 0 && self.settings.$next_tip) {
+          if ($('[' + self.attr_name() + ']').length > 0 && self.settings.$next_tip) {
             if (self.settings.exposed.length > 0) {
               var $els = $(self.settings.exposed);
 
@@ -1805,7 +2131,7 @@
 
     start : function () {
       var self = this,
-          $this = $('[data-joyride]', this.scope),
+          $this = $('[' + this.attr_name() + ']', this.scope),
           integer_settings = ['timer', 'scrollSpeed', 'startOffset', 'tipAnimationFadeSpeed', 'cookieExpires'],
           int_settings_count = integer_settings.length;
 
@@ -1813,7 +2139,7 @@
 
       if (!this.settings.init) this.events();
 
-      this.settings = $this.data('joyride-init');
+      this.settings = $this.data(this.attr_name(true) + '-init');
 
       // non configureable settings
       this.settings.$content_el = $this;
@@ -1835,7 +2161,8 @@
           this.settings = $.extend({}, self.defaults, self.data_options($this))
 
           // Make sure that settings parsed from data_options are integers where necessary
-          for (var i = int_settings_count - 1; i >= 0; i--) {
+          var i = int_settings_count;
+          while (i--) {
             self.settings[integer_settings[i]] = parseInt(self.settings[integer_settings[i]], 10);
           }
           self.create({$li : $this, index : index});
@@ -1869,7 +2196,7 @@
         this.timer_instance(opts.index);
 
       $blank.append($(this.settings.template.wrapper));
-      $blank.first().attr('data-index', opts.index);
+      $blank.first().attr(this.add_namespace('data-index'), opts.index);
       $('.joyride-content-wrapper', $blank).append(content);
 
       return $blank[0];
@@ -1897,7 +2224,9 @@
     },
 
     create : function (opts) {
-      var buttonText = opts.$li.attr('data-button') || opts.$li.attr('data-text'),
+      console.log(opts.$li)
+      var buttonText = opts.$li.attr(this.add_namespace('data-button')) 
+        || opts.$li.attr(this.add_namespace('data-text')),
         tipClass = opts.$li.attr('class'),
         $tip_content = $(this.tip_template({
           tip_class : tipClass,
@@ -1966,7 +2295,7 @@
 
               this.settings.$next_tip.show();
 
-              this.delay(function () {
+              setTimeout(function () {
                 $timer.animate({
                   width: $timer.parent().width()
                 }, this.settings.timer, 'linear');
@@ -1988,7 +2317,7 @@
                 .fadeIn(this.settings.tip_animation_fade_speed)
                 .show();
 
-              this.delay(function () {
+              setTimeout(function () {
                 $timer.animate({
                   width: $timer.parent().width()
                 }, this.settings.timer, 'linear');
@@ -2062,8 +2391,9 @@
     },
 
     set_target : function () {
-      var cl = this.settings.$li.attr('data-class'),
-          id = this.settings.$li.attr('data-id'),
+      console.log(this.add_namespace('data-class'))
+      var cl = this.settings.$li.attr(this.add_namespace('data-class')),
+          id = this.settings.$li.attr(this.add_namespace('data-id')),
           $sel = function () {
             if (id) {
               return $(document.getElementById(id));
@@ -2073,6 +2403,8 @@
               return $('body');
             }
           };
+
+      console.log(cl, id)
 
       this.settings.$target = $sel();
     },
@@ -2261,7 +2593,7 @@
           el,
           origCSS,
           origClasses,
-          randId = 'expose-'+Math.floor(Math.random()*10000);
+          randId = 'expose-' + this.random_str(6);
 
       if (arguments.length > 0 && arguments[0] instanceof $) {
         el = arguments[0];
@@ -2394,7 +2726,7 @@
     },
 
     remove_exposed: function(el){
-      var search, count;
+      var search, i;
       if (el instanceof $) {
         search = el[0]
       } else if (typeof el == 'string'){
@@ -2402,9 +2734,9 @@
       }
 
       this.settings.exposed = this.settings.exposed || [];
-      count = this.settings.exposed.length;
+      i = this.settings.exposed.length;
 
-      for (var i=0; i < count; i++) {
+      while (i--) {
         if (this.settings.exposed[i] == search) {
           this.settings.exposed.splice(i, 1);
           return;
@@ -2537,141 +2869,181 @@
 ;(function ($, window, document, undefined) {
   'use strict';
 
-  Foundation.libs.magellan = {
-    name : 'magellan',
+  Foundation.libs['magellan-expedition'] = {
+    name : 'magellan-expedition',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     settings : {
       active_class: 'active',
-      threshold: 0
+      threshold: 0, // pixels from the top of the expedition for it to become fixes
+      destination_threshold: 20, // pixels from the top of destination for it to be considered active
+      throttle_delay: 30 // calculation throttling to increase framerate
     },
 
     init : function (scope, method, options) {
-      this.fixed_magellan = $("[data-magellan-expedition]");
-      this.magellan_placeholder = $('<div></div>').css({
-        height: this.fixed_magellan.outerHeight(true)
-      }).hide().insertAfter(this.fixed_magellan);
-      this.set_threshold();
-      this.set_active_class(method);
-      this.last_destination = $('[data-magellan-destination]').last();
-      this.events();
+      Foundation.inherit(this, 'throttle');
+      this.bindings(method, options);
     },
 
     events : function () {
-      var self = this;
+      var self = this,
+          S = self.S,
+          settings = self.settings;
+      
+      // initialize expedition offset
+      self.set_expedition_position();
+      
 
-      $(this.scope)
+      S(self.scope)
         .off('.magellan')
-        .on('arrival.fndtn.magellan', '[data-magellan-arrival]', function (e) {
-          var $destination = $(this),
-              $expedition = $destination.closest('[data-magellan-expedition]'),
-              active_class = $expedition.attr('data-magellan-active-class')
-                || self.settings.active_class;
+        .on('click.fndtn.magellan', '[' + self.add_namespace('data-magellan-arrival') + '] a[href^="#"]', function (e) {
+            e.preventDefault();
+            var expedition = $(this).closest('[' + self.attr_name() + ']'),
+                settings = expedition.data('magellan-expedition-init');
 
-            $destination
-              .closest('[data-magellan-expedition]')
-              .find('[data-magellan-arrival]')
-              .not($destination)
-              .removeClass(active_class);
-            $destination.addClass(active_class);
-        });
+            var hash = this.hash.split('#').join(''),
+                target = $('a[name='+hash+']');
+            if (target.length === 0) target = $('#'+hash);
 
-      this.fixed_magellan
-        .off('.magellan')
-        .on('update-position.fndtn.magellan', function() {
-          var $el = $(this);
+            // Account for expedition height if fixed position
+            var scroll_top = target.offset().top;
+            if (expedition.css('position') === 'fixed') {
+              scroll_top = scroll_top - expedition.outerHeight();
+            }
+
+            $('html, body').stop().animate({
+                'scrollTop': scroll_top
+            }, 700, 'swing', function () {
+                window.location.hash = '#'+hash;
+            });
         })
-        .trigger('update-position');
-
-      $(window)
-        .off('.magellan')
-        .on('resize.fndtn.magellan', function() {
-          this.fixed_magellan.trigger('update-position');
-        }.bind(this))
-        .on('scroll.fndtn.magellan', function() {
-          var windowScrollTop = $(window).scrollTop();
-          self.fixed_magellan.each(function() {
-            var $expedition = $(this);
-            if (typeof $expedition.data('magellan-top-offset') === 'undefined') {
-              $expedition.data('magellan-top-offset', $expedition.offset().top);
-            }
-            if (typeof $expedition.data('magellan-fixed-position') === 'undefined') {
-              $expedition.data('magellan-fixed-position', false);
-            }
-            var fixed_position = (windowScrollTop + self.settings.threshold) > $expedition.data("magellan-top-offset");
-            var attr = $expedition.attr('data-magellan-top-offset');
-
-            if ($expedition.data("magellan-fixed-position") != fixed_position) {
-              $expedition.data("magellan-fixed-position", fixed_position);
-              if (fixed_position) {
-                $expedition.addClass('fixed');
-                $expedition.css({position:"fixed", top:0});
-                self.magellan_placeholder.show();
-              } else {
-                $expedition.removeClass('fixed');
-                $expedition.css({position:"", top:""});
-                self.magellan_placeholder.hide();
-              }
-              if (fixed_position && typeof attr != 'undefined' && attr != false) {
-                $expedition.css({position:"fixed", top:attr + "px"});
-              }
-            }
-          });
-        });
-
-
-      if (this.last_destination.length > 0) {
-        $(window).on('scroll.fndtn.magellan', function (e) {
-          var windowScrollTop = $(window).scrollTop(),
-              scrolltopPlusHeight = windowScrollTop + $(window).height(),
-              lastDestinationTop = Math.ceil(self.last_destination.offset().top);
-
-          $('[data-magellan-destination]').each(function () {
-            var $destination = $(this),
-                destination_name = $destination.attr('data-magellan-destination'),
-                topOffset = $destination.offset().top - $destination.outerHeight(true) - windowScrollTop;
-            if (topOffset <= self.settings.threshold) {
-              $("[data-magellan-arrival='" + destination_name + "']").trigger('arrival');
-            }
-            // In large screens we may hit the bottom of the page and dont reach the top of the last magellan-destination, so lets force it
-            if (scrolltopPlusHeight >= $(self.scope).height() && lastDestinationTop > windowScrollTop && lastDestinationTop < scrolltopPlusHeight) {
-              $('[data-magellan-arrival]').last().trigger('arrival');
-            }
-          });
-        });
-      }
+        .on('scroll.fndtn.magellan', self.throttle(this.check_for_arrivals.bind(this), settings.throttle_delay))
+        .on('resize.fndtn.magellan', self.throttle(this.set_expedition_position.bind(this), settings.throttle_delay));
     },
 
-    set_threshold : function () {
-      if (typeof this.settings.threshold !== 'number') {
-        this.settings.threshold = (this.fixed_magellan.length > 0) ?
-          this.fixed_magellan.outerHeight(true) : 0;
-      }
+    check_for_arrivals : function() {
+      var self = this;
+      self.update_arrivals();
+      self.update_expedition_positions();
     },
 
-    set_active_class : function (options) {
-      if (options && options.active_class && typeof options.active_class === 'string') {
-        this.settings.active_class = options.active_class;
+    set_expedition_position : function() {
+      var self = this;
+      $('[' + this.attr_name() + '=fixed]', self.scope).each(function(idx, el) {
+        var expedition = $(this),
+            styles = expedition.attr('styles'), // save styles
+            top_offset;
+
+        expedition.attr('style', '');
+        top_offset = expedition.offset().top;
+
+        expedition.data(self.data_attr('magellan-top-offset'), top_offset);
+        expedition.attr('style', styles);
+      });
+    },
+
+    update_expedition_positions : function() {
+      var self = this,
+          window_top_offset = $(window).scrollTop();
+
+      $('[' + this.attr_name() + '=fixed]', self.scope).each(function() {
+        var expedition = $(this),
+            top_offset = expedition.data('magellan-top-offset');
+        
+        if (window_top_offset >= top_offset) {
+          // Placeholder allows height calculations to be consistent even when
+          // appearing to switch between fixed/non-fixed placement
+          var placeholder = expedition.prev('[' + self.add_namespace('data-magellan-expedition-clone') + ']');
+          if (placeholder.length === 0) {
+            placeholder = expedition.clone();
+            placeholder.removeAttr(self.attr_name());
+            placeholder.attr(self.add_namespace('data-magellan-expedition-clone'),'');
+            expedition.before(placeholder);
+          }
+          expedition.css({position:'fixed', top: 0});
+        } else {
+          expedition.prev('[' + self.add_namespace('data-magellan-expedition-clone') + ']').remove();
+          expedition.attr('style','');
+        }
+      });
+    },
+
+    update_arrivals : function() {
+      var self = this,
+          window_top_offset = $(window).scrollTop();
+
+      $('[' + this.attr_name() + ']', self.scope).each(function() {
+        var expedition = $(this),
+            settings = settings = expedition.data(self.attr_name(true) + '-init'),
+            offsets = self.offsets(expedition, window_top_offset),
+            arrivals = expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']'),
+            active_item = false;
+        offsets.each(function(idx, item) {
+          if (item.viewport_offset >= item.top_offset) {
+            var arrivals = expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']');
+            arrivals.not(item.arrival).removeClass(settings.active_class);
+            item.arrival.addClass(settings.active_class);
+            active_item = true;
+            return true;
+          }
+        });
+
+        if (!active_item) arrivals.removeClass(settings.active_class);
+      });
+    },
+
+    offsets : function(expedition, window_offset) {
+      var self = this,
+          settings = expedition.data(self.attr_name(true) + '-init'),
+          viewport_offset = (window_offset + settings.destination_threshold);
+
+      return expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']').map(function(idx, el) {
+        var name = $(this).data(self.data_attr('magellan-arrival')),
+            dest = $('[' + self.add_namespace('data-magellan-destination') + '=' + name + ']');
+        if (dest.length > 0) {
+          var top_offset = dest.offset().top;
+          return {
+            destination : dest,
+            arrival : $(this),
+            top_offset : top_offset,
+            viewport_offset : viewport_offset
+          }
+        }
+      }).sort(function(a, b) {
+        if (a.top_offset < b.top_offset) return -1;
+        if (a.top_offset > b.top_offset) return 1;
+        return 0;
+      });
+    },
+
+    data_attr: function (str) {
+      if (this.namespace.length > 0) {
+        return this.namespace + '-' + str;
       }
+
+      return str;
     },
 
     off : function () {
-      $(this.scope).off('.fndtn.magellan');
-      $(window).off('.fndtn.magellan');
+      this.S(this.scope).off('.magellan');
+      this.S(window).off('.magellan');
     },
 
-    reflow : function () {}
+    reflow : function () {
+      var self = this;
+      // remove placeholder expeditions used for height calculation purposes
+      $('[' + self.add_namespace('data-magellan-expedition-clone') + ']', self.scope).remove();
+    }
   };
 }(jQuery, this, this.document));
-
 ;(function ($, window, document, undefined) {
   'use strict';
 
   Foundation.libs.offcanvas = {
     name : 'offcanvas',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     settings : {},
 
@@ -2680,22 +3052,24 @@
     },
 
     events : function () {
-      $(this.scope).off('.offcanvas')
+      var S = this.S;
+
+      S(this.scope).off('.offcanvas')
         .on('click.fndtn.offcanvas', '.left-off-canvas-toggle', function (e) {
           e.preventDefault();
-          $(this).closest('.off-canvas-wrap').toggleClass('move-right');
+          S(this).closest('.off-canvas-wrap').toggleClass('move-right');
         })
         .on('click.fndtn.offcanvas', '.exit-off-canvas', function (e) {
           e.preventDefault();
-          $(".off-canvas-wrap").removeClass("move-right");
+          S(".off-canvas-wrap").removeClass("move-right");
         })
         .on('click.fndtn.offcanvas', '.right-off-canvas-toggle', function (e) {
           e.preventDefault();
-          $(this).closest(".off-canvas-wrap").toggleClass("move-left");
+          S(this).closest(".off-canvas-wrap").toggleClass("move-left");
         })
         .on('click.fndtn.offcanvas', '.exit-off-canvas', function (e) {
           e.preventDefault();
-          $(".off-canvas-wrap").removeClass("move-left");
+          S(".off-canvas-wrap").removeClass("move-left");
         });
     },
 
@@ -2726,12 +3100,17 @@
         locked = false,
         adjust_height_after = false;
 
-    slides_container.children().first().addClass(settings.active_slide_class);
+
+    self.slides = function() {
+      return slides_container.children(settings.slide_selector);
+    };
+
+    self.slides().first().addClass(settings.active_slide_class);
 
     self.update_slide_number = function(index) {
       if (settings.slide_number) {
         number_container.find('span:first').text(parseInt(index)+1);
-        number_container.find('span:last').text(slides_container.children().length);
+        number_container.find('span:last').text(self.slides().length);
       }
       if (settings.bullets) {
         bullets_container.children().removeClass(settings.bullets_active_class);
@@ -2740,7 +3119,7 @@
     };
 
     self.update_active_link = function(index) {
-      var link = $('a[data-orbit-link="'+slides_container.children().eq(index).attr('data-orbit-slide')+'"]');
+      var link = $('a[data-orbit-link="'+self.slides().eq(index).attr('data-orbit-slide')+'"]');
       link.siblings().removeClass(settings.bullets_active_class);
       link.addClass(settings.bullets_active_class);
     };
@@ -2773,7 +3152,7 @@
         bullets_container = $('<ol>').addClass(settings.bullets_container_class);
         container.append(bullets_container);
         bullets_container.wrap('<div class="orbit-bullets-container"></div>');
-        slides_container.children().each(function(idx, el) {
+        self.slides().each(function(idx, el) {
           var bullet = $('<li>').attr('data-orbit-slide', idx);
           bullets_container.append(bullet);
         });
@@ -2782,16 +3161,13 @@
       if (settings.stack_on_small) {
         container.addClass(settings.stack_on_small_class);
       }
-
-      self.update_slide_number(0);
-      self.update_active_link(0);
     };
 
     self._goto = function(next_idx, start_timer) {
       // if (locked) {return false;}
       if (next_idx === idx) {return false;}
       if (typeof timer === 'object') {timer.restart();}
-      var slides = slides_container.children();
+      var slides = self.slides();
 
       var dir = 'next';
       locked = true;
@@ -2887,10 +3263,10 @@
     }
     
     self.compute_dimensions = function() {
-      var current = $(slides_container.children().get(idx));
+      var current = $(self.slides().get(idx));
       var h = current.height();
       if (!settings.variable_height) {
-        slides_container.children().each(function(){
+        self.slides().each(function(){
           if ($(this).height() > h) { h = $(this).height(); }
         });
       }
@@ -2923,7 +3299,10 @@
 
     self.init = function() {
       self.build_markup();
-      if (settings.timer) {timer = self.create_timer(); timer.start();}
+      if (settings.timer) {
+        timer = self.create_timer(); 
+        Foundation.utils.image_loaded(this.slides().children('img'), timer.start);
+      }
       animate = new FadeAnimation(settings, slides_container);
       if (settings.animation === 'slide') 
         animate = new SlideAnimation(settings, slides_container);        
@@ -2983,11 +3362,13 @@
       
       $(document).on('click', '[data-orbit-link]', self.link_custom);
       $(window).on('resize', self.compute_dimensions);
-      $(window).on('load', self.compute_dimensions);
-      $(window).on('load', function(){
+      Foundation.utils.image_loaded(this.slides().children('img'), self.compute_dimensions);
+      Foundation.utils.image_loaded(this.slides().children('img'), function() {
         container.prev('.preloader').css('display', 'none');
+        self.update_slide_number(0);
+        self.update_active_link(0);
+        slides_container.trigger('ready.fndtn.orbit');
       });
-      slides_container.trigger('ready.fndtn.orbit');
     };
 
     self.init();
@@ -3094,7 +3475,7 @@
   Foundation.libs.orbit = {
     name: 'orbit',
 
-    version: '5.0.3',
+    version: '5.1.1',
 
     settings: {
       animation: 'slide',
@@ -3114,6 +3495,7 @@
       timer_paused_class: 'paused',
       timer_progress_class: 'orbit-progress',
       slides_container_class: 'orbit-slides-container',
+      slide_selector: '*',
       bullets_container_class: 'orbit-bullets',
       bullets_active_class: 'active',
       slide_number_class: 'orbit-slide-number',
@@ -3135,20 +3517,20 @@
     },
 
     events : function (instance) {
-      var orbit_instance = new Orbit($(instance), $(instance).data('orbit-init'));
-      $(instance).data(self.name + '-instance', orbit_instance);
+      var orbit_instance = new Orbit(this.S(instance), this.S(instance).data('orbit-init'));
+      this.S(instance).data(self.name + '-instance', orbit_instance);
     },
 
     reflow : function () {
       var self = this;
 
-      if ($(self.scope).is('[data-orbit]')) {
-        var $el = $(self.scope);
+      if (self.S(self.scope).is('[data-orbit]')) {
+        var $el = self.S(self.scope);
         var instance = $el.data(self.name + '-instance');
         instance.compute_dimensions();
       } else {
-        $('[data-orbit]', self.scope).each(function(idx, el) {
-          var $el = $(el);
+        self.S('[data-orbit]', self.scope).each(function(idx, el) {
+          var $el = self.S(el);
           var opts = self.data_options($el);
           var instance = $el.data(self.name + '-instance');
           instance.compute_dimensions();
@@ -3166,7 +3548,7 @@
   Foundation.libs.reveal = {
     name : 'reveal',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     locked : false,
 
@@ -3197,22 +3579,22 @@
     },
 
     init : function (scope, method, options) {
-      Foundation.inherit(this, 'delay');
       $.extend(true, this.settings, method, options);
       this.bindings(method, options);
     },
 
     events : function (scope) {
-      var self = this;
+      var self = this,
+          S = self.S;
 
-      $('[data-reveal-id]', this.scope)
+      S(this.scope)
         .off('.reveal')
-        .on('click.fndtn.reveal', function (e) {
+        .on('click.fndtn.reveal', '[' + this.add_namespace('data-reveal-id') + ']', function (e) {
           e.preventDefault();
 
           if (!self.locked) {
-            var element = $(this),
-                ajax = element.data('reveal-ajax');
+            var element = S(this),
+                ajax = element.data(self.data_attr('reveal-ajax'));
 
             self.locked = true;
 
@@ -3226,29 +3608,26 @@
           }
         });
 
-      $(this.scope)
-        .off('.reveal');
-
-      $(document)
+      S(document)
         .on('click.fndtn.reveal', this.close_targets(), function (e) {
 
           e.preventDefault();
 
           if (!self.locked) {
-            var settings = $('[data-reveal].open').data('reveal-init'),
-                bg_clicked = $(e.target)[0] === $('.' + settings.bg_class)[0];
+            var settings = S('[' + self.attr_name() + '].open').data(self.attr_name(true) + '-init'),
+                bg_clicked = S(e.target)[0] === S('.' + settings.bg_class)[0];
 
             if (bg_clicked && !settings.close_on_background_click) {
               return;
             }
 
             self.locked = true;
-            self.close.call(self, bg_clicked ? $('[data-reveal].open') : $(this).closest('[data-reveal]'));
+            self.close.call(self, bg_clicked ? S('[' + self.attr_name() + '].open') : S(this).closest('[' + self.attr_name() + ']'));
           }
         });
 
-      if($('[data-reveal]', this.scope).length > 0) {
-        $(this.scope)
+      if(S('[' + self.attr_name() + ']', this.scope).length > 0) {
+        S(this.scope)
           // .off('.reveal')
           .on('open.fndtn.reveal', this.settings.open)
           .on('opened.fndtn.reveal', this.settings.opened)
@@ -3257,14 +3636,14 @@
           .on('closed.fndtn.reveal', this.settings.closed)
           .on('closed.fndtn.reveal', this.close_video);
       } else {
-        $(this.scope)
+        S(this.scope)
           // .off('.reveal')
-          .on('open.fndtn.reveal', '[data-reveal]', this.settings.open)
-          .on('opened.fndtn.reveal', '[data-reveal]', this.settings.opened)
-          .on('opened.fndtn.reveal', '[data-reveal]', this.open_video)
-          .on('close.fndtn.reveal', '[data-reveal]', this.settings.close)
-          .on('closed.fndtn.reveal', '[data-reveal]', this.settings.closed)
-          .on('closed.fndtn.reveal', '[data-reveal]', this.close_video);
+          .on('open.fndtn.reveal', '[' + self.attr_name() + ']', this.settings.open)
+          .on('opened.fndtn.reveal', '[' + self.attr_name() + ']', this.settings.opened)
+          .on('opened.fndtn.reveal', '[' + self.attr_name() + ']', this.open_video)
+          .on('close.fndtn.reveal', '[' + self.attr_name() + ']', this.settings.close)
+          .on('closed.fndtn.reveal', '[' + self.attr_name() + ']', this.settings.closed)
+          .on('closed.fndtn.reveal', '[' + self.attr_name() + ']', this.close_video);
       }
 
       return true;
@@ -3275,9 +3654,9 @@
       var self = this;
 
       // PATCH #1: fixing multiple keyup event trigger from single key press
-      $('body').off('keyup.fndtn.reveal').on('keyup.fndtn.reveal', function ( event ) {
-        var open_modal = $('[data-reveal].open'),
-            settings = open_modal.data('reveal-init');
+      self.S('body').off('keyup.fndtn.reveal').on('keyup.fndtn.reveal', function ( event ) {
+        var open_modal = self.S('[' + self.attr_name() + '].open'),
+            settings = open_modal.data(self.attr_name(true) + '-init');
         // PATCH #2: making sure that the close event can be called only while unlocked,
         //           so that multiple keyup.fndtn.reveal events don't prevent clean closing of the reveal window.
         if ( settings && event.which === 27  && settings.close_on_esc && !self.locked) { // 27 is the keycode for the Escape key
@@ -3290,7 +3669,7 @@
 
     // PATCH #3: turning on key up capture only when a reveal window is open
     key_up_off : function (scope) {
-      $('body').off('keyup.fndtn.reveal');
+      this.S('body').off('keyup.fndtn.reveal');
       return true;
     },
 
@@ -3298,20 +3677,20 @@
       var self = this;
       if (target) {
         if (typeof target.selector !== 'undefined') {
-          var modal = $('#' + target.data('reveal-id'));
+          var modal = self.S('#' + target.data(self.data_attr('reveal-id')));
         } else {
-          var modal = $(this.scope);
+          var modal = self.S(this.scope);
 
           ajax_settings = target;
         }
       } else {
-        var modal = $(this.scope);
+        var modal = self.S(this.scope);
       }
 
-      var settings = modal.data('reveal-init');
+      var settings = modal.data(self.attr_name(true) + '-init');
 
       if (!modal.hasClass('open')) {
-        var open_modal = $('[data-reveal].open');
+        var open_modal = self.S('[' + self.attr_name() + '].open');
 
         if (typeof modal.data('css-top') === 'undefined') {
           modal.data('css-top', parseInt(modal.css('top'), 10))
@@ -3333,7 +3712,7 @@
 
         if (typeof ajax_settings === 'undefined' || !ajax_settings.url) {
           if (open_modal.length > 0) {
-            var open_modal_settings = open_modal.data('reveal-init');
+            var open_modal_settings = open_modal.data(self.attr_name(true) + '-init');
             this.hide(open_modal, open_modal_settings.css.close);
           }
 
@@ -3348,10 +3727,10 @@
               }
 
               modal.html(data);
-              $(modal).foundation('section', 'reflow');
+              self.S(modal).foundation('section', 'reflow');
 
               if (open_modal.length > 0) {
-                var open_modal_settings = open_modal.data('reveal-init');
+                var open_modal_settings = open_modal.data(self.attr_name(true));
                 self.hide(open_modal, open_modal_settings.css.close);
               }
               self.show(modal, settings.css.open);
@@ -3364,9 +3743,9 @@
     },
 
     close : function (modal) {
-      var modal = modal && modal.length ? modal : $(this.scope),
-          open_modals = $('[data-reveal].open'),
-          settings = modal.data('reveal-init');
+      var modal = modal && modal.length ? modal : this.S(this.scope),
+          open_modals = this.S('[' + this.attr_name() + '].open'),
+          settings = modal.data(this.attr_name(true) + '-init');
 
       if (open_modals.length > 0) {
         this.locked = true;
@@ -3388,9 +3767,9 @@
     },
 
     toggle_bg : function (modal) {
-      var settings = modal.data('reveal-init');
+      var settings = modal.data(this.attr_name(true));
 
-      if ($('.' + this.settings.bg_class).length === 0) {
+      if (this.S('.' + this.settings.bg_class).length === 0) {
         this.settings.bg = $('<div />', {'class': this.settings.bg_class})
           .appendTo('body');
       }
@@ -3405,10 +3784,11 @@
     show : function (el, css) {
       // is modal
       if (css) {
-        var settings = el.data('reveal-init');
+        var settings = el.data(this.attr_name(true) + '-init');
         if (el.parent('body').length === 0) {
           var placeholder = el.wrap('<div style="display: none;" />').parent(),
-              rootElement = this.settings.rootElement || 'body';;
+              rootElement = this.settings.rootElement || 'body';
+
           el.on('closed.fndtn.reveal.wrapped', function() {
             el.detach().appendTo(placeholder);
             el.unwrap().unbind('closed.fndtn.reveal.wrapped');
@@ -3424,7 +3804,7 @@
             opacity: 1
           };
 
-          return this.delay(function () {
+          return setTimeout(function () {
             return el
               .css(css)
               .animate(end_css, settings.animation_speed, 'linear', function () {
@@ -3438,7 +3818,7 @@
         if (/fade/i.test(settings.animation)) {
           var end_css = {opacity: 1};
 
-          return this.delay(function () {
+          return setTimeout(function () {
             return el
               .css(css)
               .animate(end_css, settings.animation_speed, 'linear', function () {
@@ -3459,20 +3839,22 @@
         return el.fadeIn(settings.animation_speed / 2);
       }
 
+      this.locked = false;
+
       return el.show();
     },
 
     hide : function (el, css) {
       // is modal
       if (css) {
-        var settings = el.data('reveal-init');
+        var settings = el.data(this.attr_name(true) + '-init');
         if (/pop/i.test(settings.animation)) {
           var end_css = {
             top: - $(window).scrollTop() - el.data('offset') + 'px',
             opacity: 0
           };
 
-          return this.delay(function () {
+          return setTimeout(function () {
             return el
               .animate(end_css, settings.animation_speed, 'linear', function () {
                 this.locked = false;
@@ -3485,7 +3867,7 @@
         if (/fade/i.test(settings.animation)) {
           var end_css = {opacity: 0};
 
-          return this.delay(function () {
+          return setTimeout(function () {
             return el
               .animate(end_css, settings.animation_speed, 'linear', function () {
                 this.locked = false;
@@ -3509,8 +3891,8 @@
     },
 
     close_video : function (e) {
-      var video = $(this).find('.flex-video'),
-          iframe = video.find('iframe');
+      var video = $('.flex-video', e.target),
+          iframe = $('iframe', video);
 
       if (iframe.length > 0) {
         iframe.attr('data-src', iframe[0].src);
@@ -3520,7 +3902,7 @@
     },
 
     open_video : function (e) {
-      var video = $(this).find('.flex-video'),
+      var video = $('.flex-video', e.target),
           iframe = video.find('iframe');
 
       if (iframe.length > 0) {
@@ -3534,6 +3916,14 @@
         }
         video.show();
       }
+    },
+
+    data_attr: function (str) {
+      if (this.namespace.length > 0) {
+        return this.namespace + '-' + str;
+      }
+
+      return str;
     },
 
     cache_offset : function (modal) {
@@ -3559,7 +3949,7 @@
   Foundation.libs.tab = {
     name : 'tab',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     settings : {
       active_class: 'active',
@@ -3571,26 +3961,38 @@
     },
 
     events : function () {
-      $(this.scope).off('.tab').on('click.fndtn.tab', '[data-tab] > dd > a', function (e) {
-        e.preventDefault();
+      var self = this,
+          S = this.S;
 
-        var tab = $(this).parent(),
-            tabs = tab.closest('[data-tab]'),
-            target = $('#' + this.href.split('#')[1]),
+      S(this.scope).off('.tab').on('click.fndtn.tab', '[' + this.attr_name() + '] > dd > a', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var tab = S(this).parent(),
+            tabs = tab.closest('[' + self.attr_name() + ']'),
+            target = S('#' + this.href.split('#')[1]),
             siblings = tab.siblings(),
-            settings = tabs.data('tab-init');
+            settings = tabs.data(self.attr_name(true) + '-init');
         
         // allow usage of data-tab-content attribute instead of href
-        if ($(this).data('tab-content')) {
-          target = $('#' + $(this).data('tab-content').split('#')[1]);
+        if (S(this).data(self.data_attr('tab-content'))) {
+          target = S('#' + S(this).data(self.data_attr('tab-content')).split('#')[1]);
         }
         
-        tab.addClass(settings.active_class).trigger('opened');
+        tab.addClass(settings.active_class).triggerHandler('opened');
         siblings.removeClass(settings.active_class);
         target.siblings().removeClass(settings.active_class).end().addClass(settings.active_class);
         settings.callback(tab);
-        tabs.trigger('toggled', [tab]);
+        tabs.triggerHandler('toggled', [tab]);
       });
+    },
+
+    data_attr: function (str) {
+      if (this.namespace.length > 0) {
+        return this.namespace + '-' + str;
+      }
+
+      return str;
     },
 
     off : function () {},
@@ -3605,7 +4007,7 @@
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.0.3',
+    version : '5.1.1',
 
     settings : {
       additional_inheritable_classes : [],
@@ -3613,6 +4015,7 @@
       append_to: 'body',
       touch_close_text: 'Tap To Close',
       disable_for_touch: false,
+      hover_delay: 200,
       tip_template : function (selector, content) {
         return '<span data-selector="' + selector + '" class="' 
           + Foundation.libs.tooltip.settings.tooltip_class.substring(1) 
@@ -3623,39 +4026,44 @@
     cache : {},
 
     init : function (scope, method, options) {
+      Foundation.inherit(this, 'random_str');
       this.bindings(method, options);
     },
 
     events : function () {
-      var self = this;
+      var self = this,
+          S = self.S;
 
       if (Modernizr.touch) {
-        $(this.scope)
+        S(document)
           .off('.tooltip')
           .on('click.fndtn.tooltip touchstart.fndtn.tooltip touchend.fndtn.tooltip', 
-            '[data-tooltip]', function (e) {
-            var settings = $.extend({}, self.settings, self.data_options($(this)));
+            '[' + this.attr_name() + ']:not(a)', function (e) {
+            var settings = $.extend({}, self.settings, self.data_options(S(this)));
             if (!settings.disable_for_touch) {
               e.preventDefault();
-              $(settings.tooltip_class).hide();
-              self.showOrCreateTip($(this));
+              S(settings.tooltip_class).hide();
+              self.showOrCreateTip(S(this));
             }
           })
           .on('click.fndtn.tooltip touchstart.fndtn.tooltip touchend.fndtn.tooltip', 
             this.settings.tooltip_class, function (e) {
             e.preventDefault();
-            $(this).fadeOut(150);
+            S(this).fadeOut(150);
           });
       } else {
-        $(this.scope)
+        S(document)
           .off('.tooltip')
           .on('mouseenter.fndtn.tooltip mouseleave.fndtn.tooltip', 
-            '[data-tooltip]', function (e) {
-            var $this = $(this);
+            '[' + this.attr_name() + ']', function (e) {
+            var $this = S(this);
 
             if (/enter|over/i.test(e.type)) {
-              self.showOrCreateTip($this);
+              this.timer = setTimeout(function () {
+                var tip = self.showOrCreateTip($this);
+              }.bind(this), self.settings.hover_delay);
             } else if (e.type === 'mouseout' || e.type === 'mouseleave') {
+              clearTimeout(this.timer);
               self.hide($this);
             }
           });
@@ -3677,7 +4085,7 @@
           tip = null;
 
       if (selector) {
-        tip = $('span[data-selector="' + selector + '"]' + this.settings.tooltip_class);
+        tip = this.S('span[data-selector="' + selector + '"]' + this.settings.tooltip_class);
       }
 
       return (typeof tip === 'object') ? tip : false;
@@ -3685,10 +4093,10 @@
 
     selector : function ($target) {
       var id = $target.attr('id'),
-          dataSelector = $target.attr('data-tooltip') || $target.attr('data-selector');
+          dataSelector = $target.attr(this.attr_name()) || $target.attr('data-selector');
 
       if ((id && id.length < 1 || !id) && typeof dataSelector != 'string') {
-        dataSelector = 'tooltip' + Math.random().toString(36).substring(7);
+        dataSelector = 'tooltip' + this.random_str(6);
         $target.attr('data-selector', dataSelector);
       }
 
@@ -3716,9 +4124,13 @@
       nub = tip.children('.nub');
       nubHeight = nub.outerHeight();
       nubWidth = nub.outerHeight();
-      
-      tip.css({'width' : (width) ? width : 'auto'});
 
+      if(this.small()) {
+        tip.css({'width' : '100%' });
+      } else {
+        tip.css({'width' : (width) ? width : 'auto'});
+      }
+      
       objPos = function (obj, top, right, bottom, left, width) {
         return obj.css({
           'top' : (top) ? top : 'auto',
@@ -3731,16 +4143,18 @@
       objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', target.offset().left);
 
       if (this.small()) {
-        objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', 12.5, $(this.scope).width());
+        objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', 12.5, this.S(this.scope).width());
         tip.addClass('tip-override');
-        objPos(nub, -nubHeight, 'auto', 'auto', target.offset().left);
+        objPos(nub, -nubHeight, 'auto', 'auto', target.offset().left + 10);
       } else {
         var left = target.offset().left;
         if (Foundation.rtl) {
-          left = target.offset().left + target.offset().width - tip.outerWidth();
+          left = target.offset().left + target.outerWidth() - tip.outerWidth();
         }
+
         objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', left);
         tip.removeClass('tip-override');
+        nub.removeAttr( 'style' );
         if (classes && classes.indexOf('tip-top') > -1) {
           objPos(tip, (target.offset().top - tip.outerHeight() - 10), 'auto', 'auto', left)
             .removeClass('tip-override');
@@ -3761,7 +4175,7 @@
     },
 
     inheritable_classes : function (target) {
-      var inheritables = ['tip-top', 'tip-left', 'tip-bottom', 'tip-right', 'noradius'].concat(this.settings.additional_inheritable_classes),
+      var inheritables = ['tip-top', 'tip-left', 'tip-bottom', 'tip-right', 'radius', 'round'].concat(this.settings.additional_inheritable_classes),
           classes = target.attr('class'),
           filtered = classes ? $.map(classes.split(' '), function (el, i) {
             if ($.inArray(el, inheritables) !== -1) {
@@ -3776,13 +4190,13 @@
       var $tip = this.getTip($target);
 
       this.reposition($target, $tip, $target.attr('class'));
-      $tip.fadeIn(150);
+      return $tip.fadeIn(150);
     },
 
     hide : function ($target) {
       var $tip = this.getTip($target);
 
-      $tip.fadeOut(150);
+      return $tip.fadeOut(150);
     },
 
     // deprecate reload
@@ -3793,9 +4207,9 @@
     },
 
     off : function () {
-      $(this.scope).off('.fndtn.tooltip');
-      $(this.settings.tooltip_class).each(function (i) {
-        $('[data-tooltip]').get(i).attr('title', $(this).text());
+      this.S(this.scope).off('.fndtn.tooltip');
+      this.S(this.settings.tooltip_class).each(function (i) {
+        $('[' + this.attr_name() + ']').get(i).attr('title', $(this).text());
       }).remove();
     },
 
@@ -3809,7 +4223,7 @@
   Foundation.libs.topbar = {
     name : 'topbar',
 
-    version: '5.0.3',
+    version: '5.1.1',
 
     settings : {
       index : 0,
@@ -3822,17 +4236,17 @@
     },
 
     init : function (section, method, options) {
-      Foundation.inherit(this, 'addCustomRule register_media throttle');
+      Foundation.inherit(this, 'add_custom_rule register_media throttle');
       var self = this;
 
       self.register_media('topbar', 'foundation-mq-topbar');
 
       this.bindings(method, options);
 
-      $('[data-topbar]', this.scope).each(function () {
-        var topbar = $(this),
-            settings = topbar.data('topbar-init'),
-            section = $('section', this),
+      self.S('[' + this.attr_name() + ']', this.scope).each(function () {
+        var topbar = self.S(this),
+            settings = topbar.data(self.attr_name(true) + '-init'),
+            section = self.S('section', this),
             titlebar = $('> ul', this).first();
 
         topbar.data('index', 0);
@@ -3850,16 +4264,16 @@
         if (!settings.assembled) self.assemble(topbar);
 
         if (settings.is_hover) {
-          $('.has-dropdown', topbar).addClass('not-click');
+          self.S('.has-dropdown', topbar).addClass('not-click');
         } else {
-          $('.has-dropdown', topbar).removeClass('not-click');
+          self.S('.has-dropdown', topbar).removeClass('not-click');
         }
 
         // Pad body when sticky (scrolled) or fixed.
-        self.addCustomRule('.f-topbar-fixed { padding-top: ' + topbar.data('height') + 'px }');
+        self.add_custom_rule('.f-topbar-fixed { padding-top: ' + topbar.data('height') + 'px }');
 
         if (topbarContainer.hasClass('fixed')) {
-          $('body').addClass('f-topbar-fixed');
+          self.S('body').addClass('f-topbar-fixed');
         }
       });
 
@@ -3869,14 +4283,14 @@
       var self = this;
 
       if (toggleEl) {
-        var topbar = $(toggleEl).closest('[data-topbar]');
+        var topbar = self.S(toggleEl).closest('[' + this.attr_name() + ']');
       } else {
-        var topbar = $('[data-topbar]');
+        var topbar = self.S('[' + this.attr_name() + ']');
       }
 
-      var settings = topbar.data('topbar-init');
+      var settings = topbar.data(this.attr_name(true) + '-init');
 
-      var section = $('section, .section', topbar);
+      var section = self.S('section, .section', topbar);
 
       if (self.breakpoint()) {
         if (!self.rtl) {
@@ -3887,7 +4301,7 @@
           $('>.name', section).css({right: '100%'});
         }
 
-        $('li.moved', section).removeClass('moved');
+        self.S('li.moved', section).removeClass('moved');
         topbar.data('index', 0);
 
         topbar
@@ -3900,13 +4314,13 @@
           if (topbar.hasClass('fixed')) {
             topbar.parent().addClass('fixed');
             topbar.removeClass('fixed');
-            $('body').addClass('f-topbar-fixed');
+            self.S('body').addClass('f-topbar-fixed');
           }
         } else if (topbar.parent().hasClass('fixed')) {
           if (settings.scrolltop) {
             topbar.parent().removeClass('fixed');
             topbar.addClass('fixed');
-            $('body').removeClass('f-topbar-fixed');
+            self.S('body').removeClass('f-topbar-fixed');
 
             window.scrollTo(0,0);
           } else {
@@ -3926,7 +4340,7 @@
           } else {
             topbar.addClass('fixed');
             topbar.parent().addClass('expanded');
-            $('body').addClass('f-topbar-fixed');
+            self.S('body').addClass('f-topbar-fixed');
           }
         }
       }
@@ -3935,18 +4349,20 @@
     timer : null,
 
     events : function (bar) {
-      var self = this;
-      $(this.scope)
+      var self = this,
+          S = this.S;
+
+      S(this.scope)
         .off('.topbar')
-        .on('click.fndtn.topbar', '[data-topbar] .toggle-topbar', function (e) {
+        .on('click.fndtn.topbar', '[' + this.attr_name() + '] .toggle-topbar', function (e) {
           e.preventDefault();
           self.toggle(this);
         })
-        .on('click.fndtn.topbar', '[data-topbar] li.has-dropdown', function (e) {
-          var li = $(this),
-              target = $(e.target),
-              topbar = li.closest('[data-topbar]'),
-              settings = topbar.data('topbar-init');
+        .on('click.fndtn.topbar', '[' + this.attr_name() + '] li.has-dropdown', function (e) {
+          var li = S(this),
+              target = S(e.target),
+              topbar = li.closest('[' + self.attr_name() + ']'),
+              settings = topbar.data(self.attr_name(true) + '-init');
 
           if(target.data('revealId')) {
             self.toggle();
@@ -3974,13 +4390,13 @@
             }
           }
         })
-        .on('click.fndtn.topbar', '[data-topbar] .has-dropdown>a', function (e) {
+        .on('click.fndtn.topbar', '[' + this.attr_name() + '] .has-dropdown>a', function (e) {
           if (self.breakpoint()) {
 
             e.preventDefault();
 
-            var $this = $(this),
-                topbar = $this.closest('[data-topbar]'),
+            var $this = S(this),
+                topbar = $this.closest('[' + self.attr_name() + ']'),
                 section = topbar.find('section, .section'),
                 dropdownHeight = $this.next('.dropdown').outerHeight(),
                 $selectedLi = $this.closest('li');
@@ -4000,28 +4416,28 @@
           }
         });
       
-      $(window).off('.topbar').on('resize.fndtn.topbar', self.throttle(function () {
+      S(window).off('.topbar').on('resize.fndtn.topbar', self.throttle(function () {
         self.resize.call(self);
       }, 50)).trigger('resize');
 
-      $('body').off('.topbar').on('click.fndtn.topbar touchstart.fndtn.topbar', function (e) {
-        var parent = $(e.target).closest('li').closest('li.hover');
+      S('body').off('.topbar').on('click.fndtn.topbar touchstart.fndtn.topbar', function (e) {
+        var parent = S(e.target).closest('li').closest('li.hover');
 
         if (parent.length > 0) {
           return;
         }
 
-        $('[data-topbar] li').removeClass('hover');
+        S('[' + self.attr_name() + '] li').removeClass('hover');
       });
 
       // Go up a level on Click
-      $(this.scope).on('click.fndtn.topbar', '[data-topbar] .has-dropdown .back', function (e) {
+      S(this.scope).on('click.fndtn.topbar', '[' + this.attr_name() + '] .has-dropdown .back', function (e) {
         e.preventDefault();
 
-        var $this = $(this),
-            topbar = $this.closest('[data-topbar]'),
+        var $this = S(this),
+            topbar = $this.closest('[' + self.attr_name() + ']'),
             section = topbar.find('section, .section'),
-            settings = topbar.data('topbar-init'),
+            settings = topbar.data(self.attr_name(true) + '-init'),
             $movedLi = $this.closest('li.moved'),
             $previousLevelUl = $movedLi.parent();
 
@@ -4049,9 +4465,9 @@
 
     resize : function () {
       var self = this;
-      $('[data-topbar]').each(function () {
-        var topbar = $(this),
-            settings = topbar.data('topbar-init');
+      self.S('[' + this.attr_name() + ']').each(function () {
+        var topbar = self.S(this),
+            settings = topbar.data(self.attr_name(true) + '-init');
 
         var stickyContainer = topbar.parent('.' + self.settings.sticky_class);
         var stickyOffset;
@@ -4075,7 +4491,7 @@
             stickyContainer.removeClass('fixed');
 
             stickyOffset = stickyContainer.offset().top;
-            if($(document.body).hasClass('f-topbar-fixed')) {
+            if(self.S(document.body).hasClass('f-topbar-fixed')) {
               stickyOffset -= topbar.data('height');
             }
 
@@ -4096,31 +4512,33 @@
 
     assemble : function (topbar) {
       var self = this,
-          settings = topbar.data('topbar-init'),
-          section = $('section', topbar),
+          settings = topbar.data(this.attr_name(true) + '-init'),
+          section = self.S('section', topbar),
           titlebar = $('> ul', topbar).first();
 
       // Pull element out of the DOM for manipulation
       section.detach();
 
-      $('.has-dropdown>a', section).each(function () {
-        var $link = $(this),
+      self.S('.has-dropdown>a', section).each(function () {
+        var $link = self.S(this),
             $dropdown = $link.siblings('.dropdown'),
             url = $link.attr('href');
 
-        if (settings.mobile_show_parent_link && url && url.length > 1) {
-          var $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li><a class="parent-link js-generated" href="' + url + '">' + $link.text() +'</a></li>');
-        } else {
-          var $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li>');
+        if (!$dropdown.find('.title.back').length) {
+          if (settings.mobile_show_parent_link && url && url.length > 1) {
+            var $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li><a class="parent-link js-generated" href="' + url + '">' + $link.text() +'</a></li>');
+          } else {
+            var $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li>');
+          }
+  
+          // Copy link to subnav
+          if (settings.custom_back_text == true) {
+            $('h5>a', $titleLi).html(settings.back_text);
+          } else {
+            $('h5>a', $titleLi).html('&laquo; ' + $link.html());
+          }
+          $dropdown.prepend($titleLi);
         }
-
-        // Copy link to subnav
-        if (settings.custom_back_text == true) {
-          $('h5>a', $titleLi).html(settings.back_text);
-        } else {
-          $('h5>a', $titleLi).html('&laquo; ' + $link.html());
-        }
-        $dropdown.prepend($titleLi);
       });
 
       // Put element back in the DOM
@@ -4133,43 +4551,45 @@
     },
 
     assembled : function (topbar) {
-      topbar.data('topbar-init', $.extend({}, topbar.data('topbar-init'), {assembled: true}));
+      topbar.data(this.attr_name(true), $.extend({}, topbar.data(this.attr_name(true)), {assembled: true}));
     },
 
     height : function (ul) {
       var total = 0,
           self = this;
 
-      $('> li', ul).each(function () { total += $(this).outerHeight(true); });
+      $('> li', ul).each(function () { total += self.S(this).outerHeight(true); });
 
       return total;
     },
 
     sticky : function () {
-      var $window = $(window),
+      var $window = this.S(window),
           self = this;
 
-      $(window).on('scroll', function() {
+      this.S(window).on('scroll', function() {
         self.update_sticky_positioning();
       });
     },
 
     update_sticky_positioning: function() {
-      var klass = '.' + this.settings.sticky_class;
-      var $window = $(window);
+      var klass = '.' + this.settings.sticky_class,
+          $window = this.S(window),
+          self = this;
 
-      if ($(klass).length > 0) {
+
+      if (self.S(klass).length > 0) {
         var distance = this.settings.sticky_topbar.data('stickyoffset');
-        if (!$(klass).hasClass('expanded')) {
+        if (!self.S(klass).hasClass('expanded')) {
           if ($window.scrollTop() > (distance)) {
-            if (!$(klass).hasClass('fixed')) {
-              $(klass).addClass('fixed');
-              $('body').addClass('f-topbar-fixed');
+            if (!self.S(klass).hasClass('fixed')) {
+              self.S(klass).addClass('fixed');
+              self.S('body').addClass('f-topbar-fixed');
             }
           } else if ($window.scrollTop() <= distance) {
-            if ($(klass).hasClass('fixed')) {
-              $(klass).removeClass('fixed');
-              $('body').removeClass('f-topbar-fixed');
+            if (self.S(klass).hasClass('fixed')) {
+              self.S(klass).removeClass('fixed');
+              self.S('body').removeClass('f-topbar-fixed');
             }
           }
         }
@@ -4177,8 +4597,8 @@
     },
 
     off : function () {
-      $(this.scope).off('.fndtn.topbar');
-      $(window).off('.fndtn.topbar');
+      this.S(this.scope).off('.fndtn.topbar');
+      this.S(window).off('.fndtn.topbar');
     },
 
     reflow : function () {}
