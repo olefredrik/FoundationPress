@@ -31,7 +31,8 @@ While you're working on your project, run:
 And you're set!
 
 Check for Foundation Updates? Run:
-`foundation update`
+`foundation update` 
+(this requires the foundation gem to be installed in order to work. Please see the [docs](http://foundation.zurb.com/docs/sass.html) for details.)
 
 
 ## Stylesheet Folder Structure
