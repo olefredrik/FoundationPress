@@ -1,7 +1,7 @@
 /**
  * @preserve FastClick: polyfill to remove click delays on browsers with touch UIs.
  *
- * @version 0.6.11
+ * @version 0.6.12
  * @codingstandard ftlabs-jsv2
  * @copyright The Financial Times Limited [All Rights Reserved]
  * @license MIT License (see LICENSE.txt)
@@ -562,6 +562,7 @@ FastClick.prototype.onTouchEnd = function(event) {
 		}
 
 		this.focus(targetElement);
+		this.sendClick(targetElement, event);
 
 		// Select elements need the event to go through on iOS 4, otherwise the selector menu won't open.
 		if (!this.deviceIsIOS4 || targetTagName !== 'select') {
