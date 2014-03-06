@@ -66,3 +66,4 @@ Check for Foundation Updates? Run:
 ## Demo
 
 * [Clean FoundationPress install](http://foundationpress.olefredrik.com/)
+* [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
