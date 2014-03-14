@@ -10,7 +10,7 @@
     } elseif ( is_archive() ) {
       wp_title(''); echo ' Archive | '; bloginfo( 'name' );
     } elseif ( is_search() ) {
-      echo 'Search for &quot;'.wp_specialchars($s).'&quot; | '; bloginfo( 'name' );
+      echo 'Search for &quot;'.esc_html($s).'&quot; | '; bloginfo( 'name' );
     } elseif ( is_home() || is_front_page() ) {
       bloginfo( 'name' ); echo ' | '; bloginfo( 'description' );
     }  elseif ( is_404() ) {
