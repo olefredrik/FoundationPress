@@ -19,8 +19,8 @@ module.exports = function(grunt) {
     copy: {
       main: {
         expand: true,
-        cwd: 'bower_components',
-        src: '**',
+        cwd: 'bower_components/',
+        src: '**/*.js',
         dest: 'js'
       },
     },
