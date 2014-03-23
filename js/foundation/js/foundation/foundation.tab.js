@@ -5,7 +5,7 @@
   Foundation.libs.tab = {
     name : 'tab',
 
-    version : '5.2.0',
+    version : '5.2.1',
 
     settings : {
       active_class: 'active',
@@ -138,7 +138,8 @@
       siblings.removeClass(settings.active_class);
       target.siblings().removeClass(settings.active_class).end().addClass(settings.active_class);
       settings.callback(tab);
-      tabs.triggerHandler('toggled', [tab]);
+      target.triggerHandler('toggled', [tab]);
+      tabs.triggerHandler('toggled', [target]);
     },
 
     data_attr: function (str) {
