@@ -4,7 +4,7 @@
   Foundation.libs.equalizer = {
     name : 'equalizer',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {
       use_tallest: true,
@@ -13,6 +13,7 @@
     },
 
     init : function (scope, method, options) {
+      Foundation.inherit(this, 'image_loaded');
       this.bindings(method, options);
       this.reflow();
     },
@@ -25,7 +26,7 @@
 
     equalize: function(equalizer) {
       var isStacked = false,
-          vals = equalizer.find('[' + this.attr_name() + '-watch]'),
+          vals = equalizer.find('[' + this.attr_name() + '-watch]:visible'),
           firstTopOffset = vals.first().offset().top,
           settings = equalizer.data(this.attr_name(true)+'-init');
 
@@ -57,7 +58,10 @@
       var self = this;
 
       this.S('[' + this.attr_name() + ']', this.scope).each(function(){
-        self.equalize($(this));
+        var $eq_target = $(this);
+        self.image_loaded(self.S('img', this), function(){
+          self.equalize($eq_target)
+        });
       });
     }
   };

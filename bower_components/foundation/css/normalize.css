@@ -97,8 +97,8 @@ h1 {
  * Address styling not present in IE 8/9.
  */
 mark {
-  background: yellow;
-  color: black; }
+  background: #ff0;
+  color: #000; }
 
 /**
  * Address inconsistent and variable font size in all browsers.
@@ -278,7 +278,7 @@ input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webki
  * Define consistent border, margin, and padding.
  */
 fieldset {
-  border: 1px solid silver;
+  border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
