@@ -1,33 +1,27 @@
 <?php
-function foundationpress_sidebars_widgets() {
-    $sidebars = array('Sidebar');
-    foreach ($sidebars as $sidebar) {
-        register_sidebar(array(
-            'name'=> $sidebar,
-            'id'=> 'foundationpress_sidebar',
-            'before_widget' => '<article id="%1$s" class="row widget %2$s"><div class="small-12 columns">',
-            'after_widget' => '</div></article>',
-            'before_title' => '<h6><strong>',
-            'after_title' => '</strong></h6>'
-        ));
-    }
-    do_action('framework_sidebars');
-}
-add_action( 'widgets_init', 'foundationpress_sidebars_widgets' );
 
-function foundationpress_footer_widgets() {
-    $sidebars = array('Footer');
-    foreach ($sidebars as $sidebar) {
-        register_sidebar(array(
-            'name'=> $sidebar,
-            'id'=> 'foundationpress_footer',
-            'before_widget' => '<article id="%1$s" class="large-4 columns widget %2$s">',
-            'after_widget' => '</article>',
-            'before_title' => '<h6><strong>',
-            'after_title' => '</strong></h6>'
-        ));
-    }
-    do_action('framework_footerwidget');
+function foundationpress_sidebar_widgets() {
+  register_sidebar(array(
+      'id' => 'sidebar-widgets',
+      'name' => __('Sidebar widgets', 'foundationpress'),
+      'description' => __('Drag widgets to this sidebar container.', 'foundationpress'),
+      'before_widget' => '<article id="%1$s" class="row widget %2$s"><div class="small-12 columns">',
+      'after_widget' => '</div></article>',
+      'before_title' => '<h6>',
+      'after_title' => '</h6>'
+  ));
+
+  register_sidebar(array(
+      'id' => 'footer-widgets',
+      'name' => __('Footer widgets', 'foundationpress'),
+      'description' => __('Drag widgets to this footer container', 'foundationpress'),
+      'before_widget' => '<article id="%1$s" class="large-4 columns widget %2$s">',
+      'after_widget' => '</article>',
+      'before_title' => '<h6>',
+      'after_title' => '</h6>'      
+  ));
 }
-add_action( 'widgets_init', 'foundationpress_footer_widgets' );
+
+add_action( 'widgets_init', 'foundationpress_sidebar_widgets' );
+
 ?>
