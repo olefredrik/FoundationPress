@@ -4,7 +4,7 @@
   Foundation.libs.slider = {
     name : 'slider',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings: {
       start: 0,
@@ -28,22 +28,24 @@
 
       $(this.scope)
         .off('.slider')
-        .on('mousedown.fndtn.slider touchstart.fndtn.slider pointerdown.fndtn.slider', '[' + self.attr_name() + '] .range-slider-handle', function(e) {
+        .on('mousedown.fndtn.slider touchstart.fndtn.slider pointerdown.fndtn.slider',
+        '[' + self.attr_name() + '] .range-slider-handle', function(e) {
           if (!self.cache.active) {
+            e.preventDefault();
             self.set_active_slider($(e.target));
           }
         })
         .on('mousemove.fndtn.slider touchmove.fndtn.slider pointermove.fndtn.slider', function(e) {
           if (!!self.cache.active) {
-            e.preventDefault(); 
-            self.calculate_position(self.cache.active, e.pageX || e.originalEvent.touches[0].clientX || e.currentPoint.x);
+            e.preventDefault();
+            self.calculate_position(self.cache.active, e.pageX || e.originalEvent.clientX || e.originalEvent.touches[0].clientX || e.currentPoint.x);
           }
         })
         .on('mouseup.fndtn.slider touchend.fndtn.slider pointerup.fndtn.slider', function(e) {
           self.remove_active_slider();
         })
         .on('change.fndtn.slider', function(e) {
-          self.settings.on_change;
+          self.settings.on_change();
         });
 
       self.S(window)
@@ -69,11 +71,18 @@
           bar_o = $.data($handle[0], 'bar_o');
 
       requestAnimationFrame(function(){
-        var pct = self.limit_to((((cursor_x)-bar_o)/bar_w),0,1),
-            norm = self.normalized_value(pct, settings.start, settings.end, settings.step);
+        var pct;
+
+        if (Foundation.rtl) {
+          pct = self.limit_to(((bar_o+bar_w-cursor_x)/bar_w),0,1);
+        } else {
+          pct = self.limit_to(((cursor_x-bar_o)/bar_w),0,1);
+        }
+
+        var norm = self.normalized_value(pct, settings.start, settings.end, settings.step);
 
         self.set_ui($handle, norm);
-      }); 
+      });
     },
 
     set_ui : function($handle, value) {
@@ -84,9 +93,13 @@
           handle_offset = norm_pct*(bar_w-handle_w)-1,
           progress_bar_width = norm_pct*100;
 
+      if (Foundation.rtl) {
+        handle_offset = -handle_offset;
+      }
+
       this.set_translate($handle, handle_offset);
       $handle.siblings('.range-slider-active-segment').css('width', progress_bar_width+'%');
-      
+
       $handle.parent().attr(this.attr_name(), value);
       $handle.parent().trigger('change');
 
@@ -105,7 +118,7 @@
     },
 
     normalized_percentage : function(val, start, end) {
-      return val/(end - start);
+      return (val - start)/(end - start);
     },
 
     normalized_value : function(val, start, end, step) {
@@ -115,7 +128,7 @@
           mod = (point-(point%step)) / step,
           rem = point % step,
           round = ( rem >= step*0.5 ? step : 0);
-      return (mod*step + round);
+      return (mod*step + round) + start;
     },
 
     set_translate : function(ele, offset, vertical) {
@@ -151,7 +164,7 @@
 
     set_initial_position : function($ele) {
       var settings = $.data($ele.children('.range-slider-handle')[0], 'settings'),
-          initial = (!!settings.initial ? settings.initial : Math.floor((settings.end-settings.start)*0.5/settings.step)*settings.step),
+          initial = (!!settings.initial ? settings.initial : Math.floor((settings.end-settings.start)*0.5/settings.step)*settings.step+settings.start),
           $handle = $ele.children('.range-slider-handle');
       this.set_ui($handle, initial);
     },
@@ -173,9 +186,9 @@
         var handle = $(this).children('.range-slider-handle')[0],
             val = $(this).attr(self.attr_name());
         self.initialize_settings(handle);
-        
+
         if (val) {
-          self.set_ui($(handle), parseInt(val));
+          self.set_ui($(handle), parseFloat(val));
         } else {
           self.set_initial_position($(this));
         }

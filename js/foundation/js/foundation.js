@@ -14,8 +14,8 @@
     var head = $('head');
 
     while (i--) {
-      if($('head').has('.' + class_array[i]).length === 0) {
-        $('head').append('<meta class="' + class_array[i] + '" />');
+      if(head.has('.' + class_array[i]).length === 0) {
+          head.append('<meta class="' + class_array[i] + '" />');
       }
     }
   };
@@ -154,7 +154,7 @@
     https://github.com/paulirish/matchMedia.js
   */
 
-  window.matchMedia = window.matchMedia || (function( doc, undefined ) {
+  window.matchMedia = window.matchMedia || (function( doc ) {
 
     "use strict";
 
@@ -246,7 +246,7 @@
     }
   } else {
     // polyfill
-    window.requestAnimationFrame = function (callback, element) {
+    window.requestAnimationFrame = function (callback) {
       var currTime = new Date().getTime(),
         timeToCall = Math.max(0, 16 - (currTime - lastTime)),
         id = window.setTimeout(function () {
@@ -276,7 +276,7 @@
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     media_queries : {
       small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
@@ -289,12 +289,11 @@
     stylesheet : $('<style></style>').appendTo('head')[0].sheet,
 
     global: {
-      namespace: ''
+      namespace: undefined
     },
 
     init : function (scope, libraries, method, options, response) {
-      var library_arr,
-          args = [scope, method, options, response],
+      var args = [scope, method, options, response],
           responses = [];
 
       // check RTL
@@ -332,7 +331,7 @@
           return this.libs[lib].init.apply(this.libs[lib], [this.scope, args[lib]]);
         }
 
-        args = args instanceof Array ? args : Array(args);    // PATCH: added this line
+        args = args instanceof Array ? args : new Array(args);    // PATCH: added this line
         return this.libs[lib].init.apply(this.libs[lib], args);
       }
 
@@ -363,19 +362,24 @@
 
     set_namespace: function () {
 
-      // Don't bother reading the namespace out of the meta tag
-      // if the namespace has been set globally in javascript
+      // Description:
+      //    Don't bother reading the namespace out of the meta tag
+      //    if the namespace has been set globally in javascript
       //
-      // Example: something like Foundation.global.namespace = 'my-namespace';
+      // Example: 
+      //    Foundation.global.namespace = 'my-namespace';
+      // or make it an empty string:
+      //    Foundation.global.namespace = '';
       //
-      // Otherwise, if the namespace hasn't been set globally,
-      // read it out of the meta tag
       //
-      var namespace = this.global.namespace || $('.foundation-data-attribute-namespace').css('font-family');
 
-      if (/false/i.test(namespace)) return;
+      // If the namespace has not been set (is undefined), try to read it out of the meta element. 
+      // Otherwise use the globally defined namespace, even if it's empty ('')
+      var namespace = ( this.global.namespace === undefined ) ? $('.foundation-data-attribute-namespace').css('font-family') : this.global.namespace;
       
-      this.global.namespace = namespace;
+      // Finally, if the namsepace is either undefined or false, set it to an empty string. 
+      // Otherwise use the namespace value.
+      this.global.namespace = ( namespace === undefined || /false/i.test(namespace) ) ? '' : namespace;
     },
 
     libs : {},
@@ -415,10 +419,12 @@
         return function () {
           var context = this, args = arguments;
 
-          clearTimeout(timer);
-          timer = setTimeout(function () {
-            func.apply(context, args);
-          }, delay);
+          if (timer == null) {
+            timer = setTimeout(function () {
+              func.apply(context, args);
+              timer = null;
+            }, delay);
+          }
         };
       },
 
@@ -479,7 +485,7 @@
           return cached_options;
         }
 
-        opts_arr = (cached_options || ':').split(';'),
+        opts_arr = (cached_options || ':').split(';');
         ii = opts_arr.length;
 
         function isNumber (o) {
@@ -500,7 +506,7 @@
             if (p[1].indexOf('.') === -1) {
               p[1] = parseInt(p[1], 10);
             } else {
-              p[1] = parseFloat(p[1], 10);
+              p[1] = parseFloat(p[1]);
             }
           }
 
@@ -608,7 +614,7 @@
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {
       live_validate : true,
@@ -618,8 +624,8 @@
       patterns : {
         alpha: /^[a-zA-Z]+$/,
         alpha_numeric : /^[a-zA-Z0-9]+$/,
-        integer: /^\d+$/,
-        number: /-?(?:\d+|\d{1,3}(?:,\d{3})+)?(?:\.\d+)?/,
+        integer: /^[-+]?\d+$/,
+        number: /^[-+]?\d*(?:\.\d+)?$/,
 
         // amex, visa, diners
         card : /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/,
@@ -628,18 +634,18 @@
         // http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#valid-e-mail-address
         email : /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
 
-        url: /(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?/,
+        url: /^(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
         // abc.de
         domain: /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/,
 
-        datetime: /([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])T([0-5][0-9])\:([0-5][0-9])\:([0-5][0-9])(Z|([\-\+]([0-1][0-9])\:00))/,
+        datetime: /^([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])T([0-5][0-9])\:([0-5][0-9])\:([0-5][0-9])(Z|([\-\+]([0-1][0-9])\:00))$/,
         // YYYY-MM-DD
-        date: /(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))/,
+        date: /(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/,
         // HH:MM:SS
-        time : /(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}/,
-        dateISO: /\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}/,
+        time : /^(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}$/,
+        dateISO: /^\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}$/,
         // MM/DD/YYYY
-        month_day_year : /(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/,
+        month_day_year : /^(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d$/,
 
         // #FFF or #FFFFFF
         color: /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/
@@ -664,7 +670,7 @@
     events : function (scope) {
       var self = this,
           form = self.S(scope).attr('novalidate', 'novalidate'),
-          settings = form.data(this.attr_name(true) + '-init');
+          settings = form.data(this.attr_name(true) + '-init') || {};
 
       this.invalid_attr = this.add_namespace('data-invalid');
 
@@ -683,7 +689,6 @@
             self.validate([this], e);
           })
           .on('keydown.fndtn.abide', function (e) {
-            var settings = $(this).closest('form').data(self.attr_name(true) + '-init');
             if (settings.live_validate === true) {
               clearTimeout(self.timer);
               self.timer = setTimeout(function () {
@@ -702,15 +707,17 @@
     validate : function (els, e, is_ajax) {
       var validations = this.parse_patterns(els),
           validation_count = validations.length,
-          form = this.S(els[0]).closest('form'),
+          form = this.S(els[0]).closest('[data-' + this.attr_name(true) + ']'),
+          settings = form.data(this.attr_name(true) + '-init') || {},
           submit_event = /submit/.test(e.type);
 
+      form.trigger('validated');
       // Has to count up to make sure the focus gets applied to the top error
       for (var i=0; i < validation_count; i++) {
         if (!validations[i] && (submit_event || is_ajax)) {
-          if (this.settings.focus_on_invalid) els[i].focus();
+          if (settings.focus_on_invalid) els[i].focus();
           form.trigger('invalid');
-          this.S(els[i]).closest('form').attr(this.invalid_attr, '');
+          this.S(els[i]).closest('[data-' + this.attr_name(true) + ']').attr(this.invalid_attr, '');
           return false;
         }
       }
@@ -746,7 +753,7 @@
       if (this.settings.patterns.hasOwnProperty(pattern) && pattern.length > 0) {
         return [el, this.settings.patterns[pattern], required];
       } else if (pattern.length > 0) {
-        return [el, new RegExp(pattern), required];
+        return [el, new RegExp('^'+pattern+'$'), required];
       }
 
       if (this.settings.patterns.hasOwnProperty(type)) {
@@ -760,7 +767,9 @@
 
     check_validation_and_apply_styles : function (el_patterns) {
       var i = el_patterns.length,
-          validations = [];
+          validations = [],
+          form = this.S(el_patterns[0][0]).closest('[data-' + this.attr_name(true) + ']'),
+          settings = form.data(this.attr_name(true) + '-init') || {};
 
       while (i--) {
         var el = el_patterns[i][0],
@@ -799,20 +808,21 @@
             this.S(el).attr(this.invalid_attr, '');
             parent.addClass('error');
           }
+
         } else {
 
           if (el_patterns[i][1].test(value) && valid_length ||
             !required && el.value.length < 1 || $(el).attr('disabled')) {
             this.S(el).removeAttr(this.invalid_attr);
             parent.removeClass('error');
-            if (label.length > 0 && this.settings.error_labels) label.removeClass('error');
+            if (label.length > 0 && settings.error_labels) label.removeClass('error');
 
             validations.push(true);
             $(el).triggerHandler('valid');
           } else {
             this.S(el).attr(this.invalid_attr, '');
             parent.addClass('error');
-            if (label.length > 0 && this.settings.error_labels) label.addClass('error');
+            if (label.length > 0 && settings.error_labels) label.addClass('error');
 
             validations.push(false);
             $(el).triggerHandler('invalid');
@@ -838,7 +848,7 @@
 
     valid_radio : function (el, required) {
       var name = el.getAttribute('name'),
-          group = document.getElementsByName(name),
+          group = this.S(el).closest('[data-' + this.attr_name(true) + ']').find("[name="+name+"]"),
           count = group.length,
           valid = false;
 
@@ -857,6 +867,43 @@
       }
 
       return valid;
+    },
+
+    valid_equal: function(el, required, parent) {
+      var from  = document.getElementById(el.getAttribute(this.add_namespace('data-equalto'))).value,
+          to    = el.value,
+          valid = (from === to);
+
+      if (valid) {
+        this.S(el).removeAttr(this.invalid_attr);
+        parent.removeClass('error');
+      } else {
+        this.S(el).attr(this.invalid_attr, '');
+        parent.addClass('error');
+      }
+
+      return valid;
+    },
+
+    valid_oneof: function(el, required, parent, doNotValidateOthers) {
+      var el = this.S(el),
+        others = this.S('[' + this.add_namespace('data-oneof') + ']'),
+        valid = others.filter(':checked').length > 0;
+
+      if (valid) {
+        el.removeAttr(this.invalid_attr).parent().removeClass('error');
+      } else {
+        el.attr(this.invalid_attr, '').parent().addClass('error');
+      }
+
+      if (!doNotValidateOthers) {
+        var _this = this;
+        others.each(function() {
+          _this.valid_oneof.call(_this, this, null, null, true);
+        });
+      }
+
+      return valid;
     }
   };
 }(jQuery, this, this.document));
@@ -867,10 +914,11 @@
   Foundation.libs.accordion = {
     name : 'accordion',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {
       active_class: 'active',
+      multi_expand: false,
       toggleable: true
     },
 
@@ -887,7 +935,7 @@
         var accordion = S(this).closest('[' + self.attr_name() + ']'),
             target = S('#' + this.href.split('#')[1]),
             siblings = S('dd > .content', accordion),
-            aunts = $('> dd', accordion),
+            aunts = $('dd', accordion),
             settings = accordion.data(self.attr_name(true) + '-init'),
             active_content = S('dd > .content.' + settings.active_class, accordion),
             active_parent = S('dd.' + settings.active_class, accordion);
@@ -895,13 +943,16 @@
 
         if (! S(this).closest('dl').is(accordion)) { return; }
 
-        if (active_content[0] == target[0] && settings.toggleable) {
+        if (settings.toggleable && target.is(active_content)) {
           active_parent.toggleClass(settings.active_class, false);
           return target.toggleClass(settings.active_class, false);
         }
 
-        siblings.removeClass(settings.active_class);
-        aunts.removeClass(settings.active_class);
+        if (!settings.multi_expand) {
+          siblings.removeClass(settings.active_class);
+          aunts.removeClass(settings.active_class);
+        }
+
         target.addClass(settings.active_class).parent().addClass(settings.active_class);
       });
     },
@@ -918,11 +969,9 @@
   Foundation.libs.alert = {
     name : 'alert',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {
-      animation: 'fadeOut',
-      speed: 300, // fade out speed
       callback: function (){}
     },
 
@@ -939,10 +988,18 @@
               settings = alertBox.data(self.attr_name(true) + '-init') || self.settings;
 
         e.preventDefault();
-        alertBox[settings.animation](settings.speed, function () {
-          S(this).trigger('close').remove();
-          settings.callback();
-        });
+        if ('transitionend' in window || 'webkitTransitionEnd' in window || 'oTransitionEnd' in window) {
+          alertBox.addClass("alert-close");
+          alertBox.on('transitionend webkitTransitionEnd oTransitionEnd', function(e) {
+            S(this).trigger('close').remove();
+            settings.callback();
+          });
+        } else {
+          alertBox.fadeOut(300, function () {
+            S(this).trigger('close').remove();
+            settings.callback();
+          });
+        }
       });
     },
 
@@ -956,7 +1013,7 @@
   Foundation.libs.clearing = {
     name : 'clearing',
 
-    version: '5.2.1',
+    version: '5.2.2',
 
     settings : {
       templates : {
@@ -970,7 +1027,7 @@
       // add 'div.clearing-blackout, div.visible-img' to close on background click
       close_selectors : '.clearing-close',
 
-      touch_label : '&larr;&nbsp;Swipe to Advance&nbsp;&rarr;',
+      touch_label : '',
 
       // event initializers and locks
       init : false,
@@ -1098,14 +1155,24 @@
     assemble : function ($li) {
       var $el = $li.parent();
 
-      if ($el.parent().hasClass('carousel')) return;
+      if ($el.parent().hasClass('carousel')) {
+        return;
+      }
+      
       $el.after('<div id="foundationClearingHolder"></div>');
-
+      var grid = $el.detach();
+      var grid_outerHTML = '';
+      if (grid[0] == null) {
+        return;
+      } else {
+        grid_outerHTML = grid[0].outerHTML;
+      }
+      
       var holder = this.S('#foundationClearingHolder'),
           settings = $el.data(this.attr_name(true) + '-init'),
           grid = $el.detach(),
           data = {
-            grid: '<div class="carousel">' + grid[0].outerHTML + '</div>',
+            grid: '<div class="carousel">' + grid_outerHTML + '</div>',
             viewing: settings.templates.viewing
           },
           wrapper = '<div class="clearing-assembled"><div>' + data.viewing +
@@ -1123,10 +1190,10 @@
       var self = this,
           body = $(document.body),
           root = target.closest('.clearing-assembled'),
-          container = $('div', root).first(),
-          visible_image = $('.visible-img', container),
-          image = $('img', visible_image).not($image),
-          label = $('.clearing-touch-label', '.clearing-blackout'),
+          container = self.S('div', root).first(),
+          visible_image = self.S('.visible-img', container),
+          image = self.S('img', visible_image).not($image),
+          label = self.S('.clearing-touch-label', container),
           error = false;
 
       image.error(function () {
@@ -1478,7 +1545,7 @@
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {
       active_class: 'open',
@@ -1502,8 +1569,10 @@
         .off('.dropdown')
         .on('click.fndtn.dropdown', '[' + this.attr_name() + ']', function (e) {
           var settings = S(this).data(self.attr_name(true) + '-init') || self.settings;
-          e.preventDefault();
-          if (!settings.is_hover || Modernizr.touch) self.toggle(S(this));
+          if (!settings.is_hover || Modernizr.touch) {
+            e.preventDefault();
+            self.toggle($(this));
+          }
         })
         .on('mouseenter.fndtn.dropdown', '[' + this.attr_name() + '], [' + this.attr_name() + '-content]', function (e) {
           var $this = S(this);
@@ -1575,6 +1644,8 @@
         if (self.S(this).hasClass(self.settings.active_class)) {
           self.S(this)
             .css(Foundation.rtl ? 'right':'left', '-99999px')
+            .removeClass(self.settings.active_class)
+            .prev('[' + self.attr_name() + ']')
             .removeClass(self.settings.active_class);
 
           self.S(this).trigger('closed', [dropdown]);
@@ -1593,6 +1664,7 @@
         this
           .css(dropdown
             .addClass(this.settings.active_class), target);
+        dropdown.prev('[' + this.attr_name() + ']').addClass(this.settings.active_class);
         dropdown.trigger('opened', [dropdown, target]);
     },
 
@@ -1780,7 +1852,7 @@
   Foundation.libs.equalizer = {
     name : 'equalizer',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {
       use_tallest: true,
@@ -1789,6 +1861,7 @@
     },
 
     init : function (scope, method, options) {
+      Foundation.inherit(this, 'image_loaded');
       this.bindings(method, options);
       this.reflow();
     },
@@ -1801,7 +1874,7 @@
 
     equalize: function(equalizer) {
       var isStacked = false,
-          vals = equalizer.find('[' + this.attr_name() + '-watch]'),
+          vals = equalizer.find('[' + this.attr_name() + '-watch]:visible'),
           firstTopOffset = vals.first().offset().top,
           settings = equalizer.data(this.attr_name(true)+'-init');
 
@@ -1833,7 +1906,10 @@
       var self = this;
 
       this.S('[' + this.attr_name() + ']', this.scope).each(function(){
-        self.equalize($(this));
+        var $eq_target = $(this);
+        self.image_loaded(self.S('img', this), function(){
+          self.equalize($eq_target)
+        });
       });
     }
   };
@@ -1844,7 +1920,7 @@
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     cache : {},
 
@@ -1897,14 +1973,10 @@
 
           if (last_path == path) return;
 
-
-          var regex = "/^.(\.jpg|\.jpeg|\.png|\.gif|\.tiff|\.bmp)\??|#?./";
-
-          if (new RegExp(regex,'i').test(path)){
-
-              $(el).css('background-image', 'url('+path+')');
-              el.data('interchange-last-path', path);
-              return trigger(path);
+          if (/\.(gif|jpg|jpeg|tiff|png)([?#].*)?/i.test(path)) {
+            $(el).css('background-image', 'url('+path+')');
+            el.data('interchange-last-path', path);
+            return trigger(path);
           }
 
           return $.get(path, function (response) {
@@ -2182,7 +2254,7 @@
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     defaults : {
       expose                   : false,     // turn on or off the expose feature
@@ -2204,6 +2276,7 @@
       cookie_domain            : false,     // Will this cookie be attached to a domain, ie. '.notableapp.com'
       cookie_expires           : 365,       // set when you would like the cookie to expire.
       tip_container            : 'body',    // Where will the tip be attached
+      abort_on_close           : true,      // When true, the close event will not fire any callback
       tip_location_patterns    : {
         top: ['bottom'],
         bottom: [], // bottom should not need to be repositioned
@@ -2260,7 +2333,7 @@
 
         .on('click.fndtn.joyride', '.joyride-close-tip', function (e) {
           e.preventDefault();
-          this.end();
+          this.end(this.settings.abort_on_close);
         }.bind(this));
 
       $(window)
@@ -2984,7 +3057,7 @@
       }
     },
 
-    end : function () {
+    end : function (abort) {
       if (this.settings.cookie_monster) {
         $.cookie(this.settings.cookie_name, 'ridden', { expires: this.settings.cookie_expires, domain: this.settings.cookie_domain });
       }
@@ -3001,8 +3074,12 @@
 
       $('.joyride-modal-bg').hide();
       this.settings.$current_tip.hide();
-      this.settings.post_step_callback(this.settings.$li.index(), this.settings.$current_tip);
-      this.settings.post_ride_callback(this.settings.$li.index(), this.settings.$current_tip);
+
+      if (typeof abort === 'undefined') {
+        this.settings.post_step_callback(this.settings.$li.index(), this.settings.$current_tip);
+        this.settings.post_ride_callback(this.settings.$li.index(), this.settings.$current_tip);
+      }
+
       $('.joyride-tip-guide').remove();
     },
 
@@ -3025,7 +3102,7 @@
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {
       active_class: 'active',
@@ -3043,10 +3120,10 @@
       var self = this,
           S = self.S,
           settings = self.settings;
-      
+
       // initialize expedition offset
       self.set_expedition_position();
-      
+
       S(self.scope)
         .off('.magellan')
         .on('click.fndtn.magellan', '[' + self.add_namespace('data-magellan-arrival') + '] a[href^="#"]', function (e) {
@@ -3055,19 +3132,22 @@
                 settings = expedition.data('magellan-expedition-init');
 
             var hash = this.hash.split('#').join(''),
-                target = $('a[name='+hash+']');
+                target = $("a[name='"+hash+"']");
             if (target.length === 0) target = $('#'+hash);
 
             // Account for expedition height if fixed position
             var scroll_top = target.offset().top;
-            if (expedition.css('position') === 'fixed') {
-              scroll_top = scroll_top - expedition.outerHeight();
-            }
+            scroll_top = scroll_top - expedition.outerHeight();
 
             $('html, body').stop().animate({
                 'scrollTop': scroll_top
             }, 700, 'swing', function () {
-                window.location.hash = '#'+hash;
+                if(history.pushState) {
+                    history.pushState(null, null, '#'+hash);
+                }
+                else {
+                    location.hash = '#'+hash;
+                }
             });
         })
         .on('scroll.fndtn.magellan', self.throttle(this.check_for_arrivals.bind(this), settings.throttle_delay))
@@ -3102,7 +3182,7 @@
       $('[' + this.attr_name() + '=fixed]', self.scope).each(function() {
         var expedition = $(this),
             top_offset = expedition.data('magellan-top-offset');
-        
+
         if (window_top_offset >= top_offset) {
           // Placeholder allows height calculations to be consistent even when
           // appearing to switch between fixed/non-fixed placement
@@ -3148,13 +3228,13 @@
     offsets : function(expedition, window_offset) {
       var self = this,
           settings = expedition.data(self.attr_name(true) + '-init'),
-          viewport_offset = (window_offset + settings.destination_threshold);
+          viewport_offset = window_offset;
 
       return expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']').map(function(idx, el) {
         var name = $(this).data(self.data_attr('magellan-arrival')),
             dest = $('[' + self.add_namespace('data-magellan-destination') + '=' + name + ']');
         if (dest.length > 0) {
-          var top_offset = dest.offset().top;
+          var top_offset = dest.offset().top - settings.destination_threshold - expedition.outerHeight();
           return {
             destination : dest,
             arrival : $(this),
@@ -3189,13 +3269,14 @@
     }
   };
 }(jQuery, this, this.document));
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
   Foundation.libs.offcanvas = {
     name : 'offcanvas',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {},
 
@@ -3204,43 +3285,36 @@
     },
 
     events : function () {
-      var S = this.S;
+      var self = this,
+          S = self.S;
 
       S(this.scope).off('.offcanvas')
         .on('click.fndtn.offcanvas', '.left-off-canvas-toggle', function (e) {
-          e.preventDefault();
-          S(this).closest('.off-canvas-wrap').toggleClass('move-right');
-        })
-        .on('click.fndtn.offcanvas', '.exit-off-canvas', function (e) {
-          e.preventDefault();
-          S(".off-canvas-wrap").removeClass("move-right");
+          self.click_toggle_class(e, 'move-right');
         })
         .on('click.fndtn.offcanvas', '.left-off-canvas-menu a', function (e) {
-          e.preventDefault();
-          var href = $(this).attr('href');
-          S('.off-canvas-wrap').on('transitionend webkitTransitionEnd oTransitionEnd', function(e) {
-              window.location = href
-              S('.off-canvas-wrap').off('transitionend webkitTransitionEnd oTransitionEnd');
-          });
           S(".off-canvas-wrap").removeClass("move-right");
         })
         .on('click.fndtn.offcanvas', '.right-off-canvas-toggle', function (e) {
-          e.preventDefault();
-          S(this).closest(".off-canvas-wrap").toggleClass("move-left");
-        })
-        .on('click.fndtn.offcanvas', '.exit-off-canvas', function (e) {
-          e.preventDefault();
-          S(".off-canvas-wrap").removeClass("move-left");
+          self.click_toggle_class(e, 'move-left');
         })
         .on('click.fndtn.offcanvas', '.right-off-canvas-menu a', function (e) {
-          e.preventDefault();
-          var href = $(this).attr('href');
-          S('.off-canvas-wrap').on('transitionend webkitTransitionEnd oTransitionEnd', function(e) {
-              window.location = href
-              S('.off-canvas-wrap').off('transitionend webkitTransitionEnd oTransitionEnd');
-          });
           S(".off-canvas-wrap").removeClass("move-left");
-        });
+        })
+        .on('click.fndtn.offcanvas', '.exit-off-canvas', function (e) {
+          self.click_remove_class(e, 'move-left');
+          self.click_remove_class(e, 'move-right');
+        })
+    },
+
+    click_toggle_class: function(e, class_name) {
+      e.preventDefault();
+      this.S(e.target).closest('.off-canvas-wrap').toggleClass(class_name);
+    },
+
+    click_remove_class: function(e, class_name) {
+      e.preventDefault();
+      this.S('.off-canvas-wrap').removeClass(class_name);
     },
 
     reflow : function () {}
@@ -3266,7 +3340,8 @@
         timer_container,
         idx = 0,
         animate,
-        adjust_height_after = false;
+        adjust_height_after = false,
+        has_init_active = slides_container.find("." + settings.active_slide_class).length > 0;
 
     self.cache = {};
 
@@ -3274,7 +3349,7 @@
       return slides_container.children(settings.slide_selector);
     };
 
-    self.slides().first().addClass(settings.active_slide_class);
+    if (!has_init_active) {self.slides().first().addClass(settings.active_slide_class)};
 
     self.update_slide_number = function(index) {
       if (settings.slide_number) {
@@ -3297,7 +3372,12 @@
       slides_container.wrap('<div class="'+settings.container_class+'"></div>');
       container = slides_container.parent();
       slides_container.addClass(settings.slides_container_class);
+      slides_container.addClass(settings.animation);
       
+      if (settings.stack_on_small) {
+        container.addClass(settings.stack_on_small_class);
+      }
+
       if (settings.navigation_arrows) {
         container.append($('<a href="#"><span></span></a>').addClass(settings.prev_class));
         container.append($('<a href="#"><span></span></a>').addClass(settings.next_class));
@@ -3306,7 +3386,9 @@
       if (settings.timer) {
         timer_container = $('<div>').addClass(settings.timer_container_class);
         timer_container.append('<span>');
-        timer_container.append($('<div>').addClass(settings.timer_progress_class));
+        if (settings.timer_show_progress_bar) {
+            timer_container.append($('<div>').addClass(settings.timer_progress_class));
+        }
         timer_container.addClass(settings.timer_paused_class);
         container.append(timer_container);
       }
@@ -3327,9 +3409,6 @@
         });
       }
 
-      if (settings.stack_on_small) {
-        container.addClass(settings.stack_on_small_class);
-      }
     };
 
     self._prepare_direction = function(next_idx, current_direction) {
@@ -3355,7 +3434,6 @@
       var current = $(slides.get(idx))
         , next = $(slides.get(next_idx));
       
-
       return [dir, current, next, next_idx];
     };
 
@@ -3372,6 +3450,9 @@
         , current = res[1]
         , next = res[2]
         , next_idx = res[3];
+
+      // This means that circular is disabled and we most likely reached the last slide.
+      if (res === false) return false;
 
       slides_container.trigger('before-slide-change.fndtn.orbit');
       settings.before_slide_change();
@@ -3512,20 +3593,32 @@
         self.cache.timer = self.create_timer(); 
         Foundation.utils.image_loaded(this.slides().children('img'), self.cache.timer.start);
       }
-      // animate = new FadeAnimation(settings, slides_container);
-      // if (settings.animation === 'slide') 
-      //   animate = new SlideAnimation(settings, slides_container);
-      if(settings.animation === 'fade') {slides_container.addClass('fade');}
+      
       animate = new CSSAnimation(settings, slides_container);
+
+      if (has_init_active) {
+        var $init_target = slides_container.find("." + settings.active_slide_class),
+            animation_speed = settings.animation_speed;
+        settings.animation_speed = 1;
+        $init_target.removeClass('active');
+        self._goto($init_target.index());
+        settings.animation_speed = animation_speed;
+      }
+
       container.on('click', '.'+settings.next_class, self.next);
       container.on('click', '.'+settings.prev_class, self.prev);
 
-      container.on('click', '[data-orbit-slide]', self.link_bullet);
+      if (settings.next_on_click) {
+        container.on('click', '[data-orbit-slide]', self.link_bullet);
+      }
+      
       container.on('click', self.toggle_timer);
       if (settings.swipe) {
         slides_container.on('touchstart.fndtn.orbit',function(e) {
           if (self.cache.animating) {return;}
           if (!e.touches) {e = e.originalEvent;}
+          e.preventDefault();
+          e.stopPropagation();
 
           self.cache.start_page_x = e.touches[0].pageX;
           self.cache.start_page_y = e.touches[0].pageY;
@@ -3601,12 +3694,13 @@
       });
       
       $(document).on('click', '[data-orbit-link]', self.link_custom);
-      $(window).on('resize', self.compute_dimensions);
-      Foundation.utils.image_loaded(this.slides().children('img'), self.compute_dimensions);
-      Foundation.utils.image_loaded(this.slides().children('img'), function() {
-        container.prev('.preloader').css('display', 'none');
-        self.update_slide_number(0);
-        self.update_active_link(0);
+      $(window).on('load resize', self.compute_dimensions);
+      var children = this.slides().find('img');
+      Foundation.utils.image_loaded(children, self.compute_dimensions);
+      Foundation.utils.image_loaded(children, function() {
+        container.prev('.'+settings.preloader_class).css('display', 'none');
+        self.update_slide_number(idx);
+        self.update_active_link(idx);
         slides_container.trigger('ready.fndtn.orbit');
       });
     };
@@ -3618,6 +3712,7 @@
     var self = this,
         duration = settings.timer_speed,
         progress = el.find('.'+settings.timer_progress_class),
+        do_progress = progress && progress.css('display') != 'none',
         start, 
         timeout,
         left = -1;
@@ -3634,7 +3729,7 @@
       clearTimeout(timeout);
       el.addClass(settings.timer_paused_class);
       left = -1;
-      self.update_progress(0);
+      if (do_progress) {self.update_progress(0);}
       self.start();
     };
 
@@ -3642,8 +3737,10 @@
       if (!el.hasClass(settings.timer_paused_class)) {return true;}
       left = (left === -1) ? duration : left;
       el.removeClass(settings.timer_paused_class);
-      start = new Date().getTime();
-      progress.animate({'width': '100%'}, left, 'linear');
+      if (do_progress) {
+          start = new Date().getTime();
+          progress.animate({'width': '100%'}, left, 'linear');
+      }
       timeout = setTimeout(function() {
         self.restart();
         callback();
@@ -3655,10 +3752,12 @@
       if (el.hasClass(settings.timer_paused_class)) {return true;}
       clearTimeout(timeout);
       el.addClass(settings.timer_paused_class);
-      var end = new Date().getTime();
-      left = left - (end - start);
-      var w = 100 - ((left / duration) * 100);
-      self.update_progress(w);
+      if (do_progress) {
+          var end = new Date().getTime();
+          left = left - (end - start);
+          var w = 100 - ((left / duration) * 100);
+          self.update_progress(w);
+      }
       el.trigger('timer-stopped.fndtn.orbit');
     };
   };
@@ -3667,29 +3766,89 @@
     var animation_end = "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend";
 
     this.next = function(current, next, callback) {
-      next.on(animation_end, function(e){
-        next.unbind(animation_end);
-        current.removeClass("active animate-out");
-        next.removeClass("animate-in");
-        callback();
-      });
+      if (Modernizr.csstransitions) {
+        next.on(animation_end, function(e){
+          next.unbind(animation_end);
+          current.removeClass("active animate-out");
+          next.removeClass("animate-in");
+          container.children().css({
+            "transform":"",
+            "-ms-transform":"",
+            "-webkit-transition-duration":"",
+            "-moz-transition-duration": "",
+            "-o-transition-duration": "",
+            "transition-duration":""
+          });
+          callback();
+        });
+      } else {
+        setTimeout(function(){
+          current.removeClass("active animate-out");
+          next.removeClass("animate-in");
+          container.children().css({
+            "transform":"",
+            "-ms-transform":"",
+            "-webkit-transition-duration":"",
+            "-moz-transition-duration": "",
+            "-o-transition-duration": "",
+            "transition-duration":""
+          });
+          callback();
+        }, settings.animation_speed);
+      }
       container.children().css({
-        "transform":"", 
-        "transitionDuration":""
+        "transform":"",
+        "-ms-transform":"",
+        "-webkit-transition-duration":"",
+        "-moz-transition-duration": "",
+        "-o-transition-duration": "",
+        "transition-duration":""
       });
       current.addClass("animate-out");
       next.addClass("animate-in");
     };
 
     this.prev = function(current, prev, callback) {
-      prev.on(animation_end, function(e){
-        prev.unbind(animation_end);
-        current.removeClass("active animate-out");
-        prev.removeClass("animate-in");
-        callback();
+      if (Modernizr.csstransitions) {
+        prev.on(animation_end, function(e){
+          prev.unbind(animation_end);
+          current.removeClass("active animate-out");
+          prev.removeClass("animate-in");
+          container.children().css({
+            "transform":"",
+            "-ms-transform":"",
+            "-webkit-transition-duration":"",
+            "-moz-transition-duration": "",
+            "-o-transition-duration": "",
+            "transition-duration":""
+          });
+          callback();
+        });
+      } else {
+        setTimeout(function(){
+          current.removeClass("active animate-out");
+          prev.removeClass("animate-in");
+          container.children().css({
+            "transform":"",
+            "-ms-transform":"",
+            "-webkit-transition-duration":"",
+            "-moz-transition-duration": "",
+            "-o-transition-duration": "",
+            "transition-duration":""
+          });
+          callback();
+        }, settings.animation_speed);
+      }
+      container.children().css({
+        "transform":"",
+        "-ms-transform":"",
+        "-webkit-transition-duration":"",
+        "-moz-transition-duration": "",
+        "-o-transition-duration": "",
+        "transition-duration":""
       });
-      current.css({"transform":"", "transitionDuration":""}).addClass("animate-out");
-      prev.css({"transform":"", "transitionDuration":""}).addClass("animate-in");
+      current.addClass("animate-out");
+      prev.addClass("animate-in");
     };
   };
 
@@ -3699,13 +3858,14 @@
   Foundation.libs.orbit = {
     name: 'orbit',
 
-    version: '5.2.1',
+    version: '5.2.2',
 
     settings: {
       animation: 'slide',
       timer_speed: 10000,
       pause_on_hover: true,
       resume_on_mouseout: false,
+      next_on_click: true,
       animation_speed: 500,
       stack_on_small: false,
       navigation_arrows: true,
@@ -3718,7 +3878,9 @@
       timer_container_class: 'orbit-timer',
       timer_paused_class: 'paused',
       timer_progress_class: 'orbit-progress',
+      timer_show_progress_bar: true,
       slides_container_class: 'orbit-slides-container',
+      preloader_class: 'preloader',
       slide_selector: '*',
       bullets_container_class: 'orbit-bullets',
       bullets_active_class: 'active',
@@ -3772,7 +3934,7 @@
   Foundation.libs.reveal = {
     name : 'reveal',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     locked : false,
 
@@ -4200,7 +4362,7 @@
   Foundation.libs.slider = {
     name : 'slider',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings: {
       start: 0,
@@ -4224,22 +4386,24 @@
 
       $(this.scope)
         .off('.slider')
-        .on('mousedown.fndtn.slider touchstart.fndtn.slider pointerdown.fndtn.slider', '[' + self.attr_name() + '] .range-slider-handle', function(e) {
+        .on('mousedown.fndtn.slider touchstart.fndtn.slider pointerdown.fndtn.slider',
+        '[' + self.attr_name() + '] .range-slider-handle', function(e) {
           if (!self.cache.active) {
+            e.preventDefault();
             self.set_active_slider($(e.target));
           }
         })
         .on('mousemove.fndtn.slider touchmove.fndtn.slider pointermove.fndtn.slider', function(e) {
           if (!!self.cache.active) {
-            e.preventDefault(); 
-            self.calculate_position(self.cache.active, e.pageX || e.originalEvent.touches[0].clientX || e.currentPoint.x);
+            e.preventDefault();
+            self.calculate_position(self.cache.active, e.pageX || e.originalEvent.clientX || e.originalEvent.touches[0].clientX || e.currentPoint.x);
           }
         })
         .on('mouseup.fndtn.slider touchend.fndtn.slider pointerup.fndtn.slider', function(e) {
           self.remove_active_slider();
         })
         .on('change.fndtn.slider', function(e) {
-          self.settings.on_change;
+          self.settings.on_change();
         });
 
       self.S(window)
@@ -4265,11 +4429,18 @@
           bar_o = $.data($handle[0], 'bar_o');
 
       requestAnimationFrame(function(){
-        var pct = self.limit_to((((cursor_x)-bar_o)/bar_w),0,1),
-            norm = self.normalized_value(pct, settings.start, settings.end, settings.step);
+        var pct;
+
+        if (Foundation.rtl) {
+          pct = self.limit_to(((bar_o+bar_w-cursor_x)/bar_w),0,1);
+        } else {
+          pct = self.limit_to(((cursor_x-bar_o)/bar_w),0,1);
+        }
+
+        var norm = self.normalized_value(pct, settings.start, settings.end, settings.step);
 
         self.set_ui($handle, norm);
-      }); 
+      });
     },
 
     set_ui : function($handle, value) {
@@ -4280,9 +4451,13 @@
           handle_offset = norm_pct*(bar_w-handle_w)-1,
           progress_bar_width = norm_pct*100;
 
+      if (Foundation.rtl) {
+        handle_offset = -handle_offset;
+      }
+
       this.set_translate($handle, handle_offset);
       $handle.siblings('.range-slider-active-segment').css('width', progress_bar_width+'%');
-      
+
       $handle.parent().attr(this.attr_name(), value);
       $handle.parent().trigger('change');
 
@@ -4301,7 +4476,7 @@
     },
 
     normalized_percentage : function(val, start, end) {
-      return val/(end - start);
+      return (val - start)/(end - start);
     },
 
     normalized_value : function(val, start, end, step) {
@@ -4311,7 +4486,7 @@
           mod = (point-(point%step)) / step,
           rem = point % step,
           round = ( rem >= step*0.5 ? step : 0);
-      return (mod*step + round);
+      return (mod*step + round) + start;
     },
 
     set_translate : function(ele, offset, vertical) {
@@ -4347,7 +4522,7 @@
 
     set_initial_position : function($ele) {
       var settings = $.data($ele.children('.range-slider-handle')[0], 'settings'),
-          initial = (!!settings.initial ? settings.initial : Math.floor((settings.end-settings.start)*0.5/settings.step)*settings.step),
+          initial = (!!settings.initial ? settings.initial : Math.floor((settings.end-settings.start)*0.5/settings.step)*settings.step+settings.start),
           $handle = $ele.children('.range-slider-handle');
       this.set_ui($handle, initial);
     },
@@ -4369,9 +4544,9 @@
         var handle = $(this).children('.range-slider-handle')[0],
             val = $(this).attr(self.attr_name());
         self.initialize_settings(handle);
-        
+
         if (val) {
-          self.set_ui($(handle), parseInt(val));
+          self.set_ui($(handle), parseFloat(val));
         } else {
           self.set_initial_position($(this));
         }
@@ -4389,13 +4564,14 @@
   Foundation.libs.tab = {
     name : 'tab',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {
       active_class: 'active',
       callback : function () {},
       deep_linking: false,
-      scroll_to_content: true
+      scroll_to_content: true,
+      is_hover: false
     },
 
     default_tab_hashes: [],
@@ -4419,12 +4595,22 @@
       var self = this,
           S = this.S;
 
-      // Click event: tab title
-      S(this.scope).off('.tab').on('click.fndtn.tab', '[' + this.attr_name() + '] > dd > a', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        self.toggle_active_tab(S(this).parent());
-      });
+      S(this.scope)
+        .off('.tab')
+        // Click event: tab title
+        .on('click.fndtn.tab', '[' + this.attr_name() + '] > dd > a', function (e) {
+          var settings = S(this).closest('[' + self.attr_name() +']').data(self.attr_name(true) + '-init');
+          if (!settings.is_hover || Modernizr.touch) {
+            e.preventDefault();
+            e.stopPropagation();
+            self.toggle_active_tab(S(this).parent());
+          }
+        })
+        // Hover event: tab title
+        .on('mouseenter.fndtn.tab', '[' + this.attr_name() + '] > dd > a', function (e) {
+          var settings = S(this).closest('[' + self.attr_name() +']').data(self.attr_name(true) + '-init');
+          if (settings.is_hover) self.toggle_active_tab(S(this).parent());
+        });
 
       // Location hash change event
       S(window).on('hashchange.fndtn.tab', function (e) {
@@ -4546,7 +4732,7 @@
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {
       additional_inheritable_classes : [],
@@ -4578,10 +4764,14 @@
       $(this.scope)
         .off('.tooltip')
         .on('mouseenter.fndtn.tooltip mouseleave.fndtn.tooltip touchstart.fndtn.tooltip MSPointerDown.fndtn.tooltip',
-          '[' + this.attr_name() + ']:not(a)', function (e) {
+          '[' + this.attr_name() + ']', function (e) {
           var $this = S(this),
               settings = $.extend({}, self.settings, self.data_options($this)),
               is_touch = false;
+
+          if (Modernizr.touch && /touchstart|MSPointerDown/i.test(e.type) && S(e.target).is('a')) {
+            return false;
+          }
 
           if (/mouse/i.test(e.type) && self.ie_touch(e)) return false;
 
@@ -4743,7 +4933,8 @@
     },
 
     small : function () {
-      return matchMedia(Foundation.media_queries.small).matches;
+      return matchMedia(Foundation.media_queries.small).matches &&
+        !matchMedia(Foundation.media_queries.medium).matches;
     },
 
     inheritable_classes : function ($target) {
@@ -4800,7 +4991,7 @@
       var self = this;
       this.S(this.scope).off('.fndtn.tooltip');
       this.S(this.settings.tooltip_class).each(function (i) {
-        $('[' + self.attr_name() + ']').get(i).attr('title', $(this).text());
+        $('[' + self.attr_name() + ']').eq(i).attr('title', $(this).text());
       }).remove();
     },
 
@@ -4814,7 +5005,7 @@
   Foundation.libs.topbar = {
     name : 'topbar',
 
-    version: '5.2.1',
+    version: '5.2.2',
 
     settings : {
       index : 0,
@@ -4998,6 +5189,8 @@
           } else {
             li.addClass('hover');
 
+            $(li).siblings().removeClass('hover');
+
             if (target[0].nodeName === 'A' && target.parent().hasClass('has-dropdown')) {
               e.preventDefault();
             }
@@ -5040,7 +5233,7 @@
           return;
         }
 
-        S('[' + self.attr_name() + '] li').removeClass('hover');
+        S('[' + self.attr_name() + '] li.hover').removeClass('hover');
       });
 
       // Go up a level on Click

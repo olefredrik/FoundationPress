@@ -4,7 +4,7 @@
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {
       additional_inheritable_classes : [],
@@ -36,10 +36,14 @@
       $(this.scope)
         .off('.tooltip')
         .on('mouseenter.fndtn.tooltip mouseleave.fndtn.tooltip touchstart.fndtn.tooltip MSPointerDown.fndtn.tooltip',
-          '[' + this.attr_name() + ']:not(a)', function (e) {
+          '[' + this.attr_name() + ']', function (e) {
           var $this = S(this),
               settings = $.extend({}, self.settings, self.data_options($this)),
               is_touch = false;
+
+          if (Modernizr.touch && /touchstart|MSPointerDown/i.test(e.type) && S(e.target).is('a')) {
+            return false;
+          }
 
           if (/mouse/i.test(e.type) && self.ie_touch(e)) return false;
 
@@ -201,7 +205,8 @@
     },
 
     small : function () {
-      return matchMedia(Foundation.media_queries.small).matches;
+      return matchMedia(Foundation.media_queries.small).matches &&
+        !matchMedia(Foundation.media_queries.medium).matches;
     },
 
     inheritable_classes : function ($target) {
@@ -258,7 +263,7 @@
       var self = this;
       this.S(this.scope).off('.fndtn.tooltip');
       this.S(this.settings.tooltip_class).each(function (i) {
-        $('[' + self.attr_name() + ']').get(i).attr('title', $(this).text());
+        $('[' + self.attr_name() + ']').eq(i).attr('title', $(this).text());
       }).remove();
     },
 
