@@ -17,10 +17,17 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      main: {
+      scripts: {
         expand: true,
         cwd: 'bower_components/',
         src: '**/*.js',
+        dest: 'js'
+      },
+
+      maps: {
+        expand: true,
+        cwd: 'bower_components/',
+        src: '**/*.map',
         dest: 'js'
       },
     },
