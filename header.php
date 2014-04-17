@@ -32,10 +32,13 @@
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
-
+  <?php do_action('foundationPress_after_body'); ?>
+  
   <div class="off-canvas-wrap">
   <div class="inner-wrap">
-
+  
+  <?php do_action('foundationPress_layout_start'); ?>
+  
   <nav class="tab-bar show-for-small-only">
     <section class="left-small">
       <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
@@ -74,4 +77,5 @@
 </header>
 
 <section class="container" role="document">
+  <?php do_action('foundationPress_after_header'); ?>
   <div class="row">
