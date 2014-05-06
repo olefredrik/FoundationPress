@@ -15,7 +15,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
   Unfortunately WordPress will require a style.css file
   located in the theme's root folder for stuff to work.
 
-  However, we will not be using vanlilla CSS. We're using Sass.
+  However, we will not be using vanilla CSS. We're using Sass.
 
   Sass is a superset of CSS that adds in amazing features
   such as variables, nested selectors and loops. It's also
