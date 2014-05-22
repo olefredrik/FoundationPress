@@ -3,7 +3,8 @@
 Template Name: Kitchen Sink
 */
 get_header(); ?>
-
+<section ="main-content">
+<div class="row">
 	<div class="small-12 large-12 columns" role="main">
 	
 	<?php /* Start loop */ ?>
@@ -711,7 +712,7 @@ get_header(); ?>
 			<?php comments_template(); ?>
 		</article>
 	<?php endwhile; // End the loop ?>
-
 	</div>
-		
+</div>
+</section>		
 <?php get_footer(); ?>
