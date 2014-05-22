@@ -16,7 +16,7 @@ get_header(); ?>
 		</div>
 
 		<div class="floatingyeti show-for-medium-up">
-			<img data-cfsrc="http://foundation.zurb.com/assets/img/homepage/hero-image.svg" src="http://foundation.zurb.com/assets/img/homepage/hero-image.svg">
+			<img data-cfsrc="http://foundation.zurb.com/assets/img/homepage/hero-image.svg" alt="Foundation Yeti" src="http://foundation.zurb.com/assets/img/homepage/hero-image.svg">
 		</div>
 	</div>
 
@@ -50,6 +50,6 @@ get_header(); ?>
 
 		</div>
 
-	<?php get_sidebar(); ?></div>
-		
+	<?php get_sidebar(); ?>
+</div>		
 <?php get_footer(); ?>
