@@ -50,25 +50,25 @@ $orbit-nav-hide-for-small: true !default;
 $orbit-bullet-hide-for-small: true !default;
 $orbit-timer-hide-for-small: true !default;
 
-// CSS Transform 
-// This function is needed in order to put in all of the browser prefixes. 
-// The normal tranform attribute still does not work properly across all browsers. 
+// CSS Transform
+// This function is needed in order to put in all of the browser prefixes.
+// The normal tranform attribute still does not work properly across all browsers.
 // In order to receive the transitionEnd events then you will still need to use the vendor prefixes
 @mixin translate3d($x,$y,$z) {
   -ms-transform:translate($x,$y);
-  -webkit-transform:translate3d($x,$y,$z);
-  -moz-transform:translate3d($x,$y,$z);
-  // -ms-transform:translate3d($x,$y,$z);
-  -o-transform:translate3d($x,$y,$z);
-  transform:translate3d($x,$y,$z);
+
+  -webkit-transform: translate3d($x,$y,$z);
+     -moz-transform: translate3d($x,$y,$z);
+       -o-transform: translate3d($x,$y,$z);
+          transform: translate3d($x,$y,$z);
 }
 
 @mixin rotate($d) {
   -webkit-transform: rotate($d);
-  -moz-transform: rotate($d);
-  -ms-transform: rotate($d);
-  -o-transform: rotate($d);
-  transform: rotate($d);
+     -moz-transform: rotate($d);
+      -ms-transform: rotate($d);
+       -o-transform: rotate($d);
+          transform: rotate($d);
 }
 
 @include exports("orbit") {
@@ -141,8 +141,8 @@ $orbit-timer-hide-for-small: true !default;
         -webkit-transform: translateZ(0);
 
         img { display: block; max-width: 100%; }
-        
-        &.fade li {
+
+        &.fade > li {
           opacity: 0;
           transition: opacity $orbit-animation-speed $orbit-animation-ease;
           @include translate3d(0,0,0);
@@ -156,8 +156,8 @@ $orbit-timer-hide-for-small: true !default;
             transition: opacity $orbit-animation-speed $orbit-animation-ease;
           }
         }
-            
-        &.swipe-next li {
+
+        &.swipe-next > li {
           @include translate3d(100%,0,0);
           &.animate-in {
             @include translate3d(0,0,0);
@@ -169,7 +169,7 @@ $orbit-timer-hide-for-small: true !default;
           }
         }
 
-        &.swipe-prev li {
+        &.swipe-prev > li {
           @include translate3d(-100%,0,0);
           &.animate-in {
             @include translate3d(0,0,0);
@@ -181,15 +181,19 @@ $orbit-timer-hide-for-small: true !default;
           }
         }
 
-        li {
+        > li {
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           @include translate3d(100%,0,0);
 
+          > a { display: block; }
+
           &.active {
             opacity: 1;
+            // "relative" positioning is required for variable height of children.
+            position:relative;
             top: 0;
             left: 0;
             @include translate3d(0,0,0);
@@ -217,7 +221,7 @@ $orbit-timer-hide-for-small: true !default;
         top: 10px;
         #{$default-float}: 10px;
         font-size: 12px;
-        span { font-weight: 700; padding: $orbit-slide-number-padding;}
+        span { font-weight: $font-weight-bold; padding: $orbit-slide-number-padding;}
         color: $orbit-slide-number-font-color;
         background: $orbit-slide-number-bg;
         z-index: 10;
@@ -256,7 +260,7 @@ $orbit-timer-hide-for-small: true !default;
           border-top: none;
           border-bottom: none;
         }
-      
+
         // Pause button
         &.paused {
           & > span {
@@ -268,14 +272,14 @@ $orbit-timer-hide-for-small: true !default;
             border-left-style: solid;
             @include rotate(180deg);
             border-color: transparent #fff transparent transparent;
-            &.dark { 
+            &.dark {
               border-color: transparent #333 transparent transparent;
             }
           }
         }
       }
-      
-      
+
+
 
       &:hover .orbit-timer > span { display: block; }
 
@@ -388,15 +392,15 @@ $orbit-timer-hide-for-small: true !default;
 
             .orbit-slides-container {height: auto !important;}
             .orbit-slides-container > * {
-                position: relative;
+                position: relative !important;
                 margin-left: 0% !important;
-                opacity:1 !important;
-                -webkit-transform:none !important;
-                -moz-transform:none !important;
-                -ms-transform:none !important;
-                -o-transform:none !important;
-                transform:none !important;
-                transition:none !important;
+                opacity: 1 !important;
+                -webkit-transform: none !important;
+                   -moz-transform: none !important;
+                    -ms-transform: none !important;
+                     -o-transform: none !important;
+                        transform: none !important;
+                transition: none !important;
             }
 
             @if $orbit-timer-hide-for-small {
@@ -407,6 +411,10 @@ $orbit-timer-hide-for-small: true !default;
             }
             @if $orbit-bullet-hide-for-small {
                 .orbit-bullets{display: none;}
+            }
+
+            .orbit-slide-number {
+              display: none;
             }
         }
     }
