@@ -385,6 +385,29 @@ get_header(); ?>
 			<!-- Reveal Modals end -->
 
 			<hr>
+			<h4 id="sliders">Sliders</h4>
+			<div class="range-slider" data-slider>
+			    <span class="range-slider-handle"></span>
+			    <span class="range-slider-active-segment"></span>
+			    <input type="hidden">
+			</div>
+			<div class="range-slider radius" data-slider>
+			    <span class="range-slider-handle"></span>
+			    <span class="range-slider-active-segment"></span>
+			    <input type="hidden">
+			</div>
+			<div class="range-slider round" data-slider>
+			    <span class="range-slider-handle"></span>
+			    <span class="range-slider-active-segment"></span>
+			    <input type="hidden">
+			</div>
+			<div class="range-slider" data-slider data-options="step: 20;">
+			    <span class="range-slider-handle"></span>
+			    <span class="range-slider-active-segment"></span>
+			    <input type="hidden">
+			</div>
+
+			<hr>
 			<h4 id="accordion">Accordion</h4>
 			<dl class="accordion" data-accordion>
 			  <dd>
