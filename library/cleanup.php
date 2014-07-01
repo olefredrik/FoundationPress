@@ -142,8 +142,8 @@ function fixed_img_caption_shortcode($attr, $content = null) {
     if ( 1 > (int) $width || empty($caption) )
         return $content;
     if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
-    return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . $width . 'px">'
-    . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
+    return '<figure>'
+    . do_shortcode( $content ) . '<figcaption>' . $caption . '</figcaption></figure>';
 }
 
 
