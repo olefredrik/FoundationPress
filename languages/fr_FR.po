@@ -1,0 +1,251 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FoundationPress\n"
+"POT-Creation-Date: 2014-07-10 10:45-0500\n"
+"PO-Revision-Date: 2014-07-16 09:28-0500\n"
+"Last-Translator: \n"
+"Language-Team: Le Saint <info@lesaint.ca>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.6\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: __;_e;_x;esc_html__;esc_html_e;esc_html_x;esc_attr__;"
+"esc_attr_e;esc_attr_x;_ex;_n;_nx;_n_noop;_nx_noop\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:8
+msgid "File Not Found"
+msgstr "Fichier non trouvé"
+
+#: ../404.php:12
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+"La page que vous recherchez n'existe probablement plus, à changée de nom ou "
+"est temporairement non disponible."
+
+#: ../404.php:14
+msgid "Please try the following:"
+msgstr "SVP essayez ceci:"
+
+#: ../404.php:16
+msgid "Check your spelling"
+msgstr "Vérifier votre orthographe"
+
+#: ../404.php:17
+#, php-format
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "Retour à la <a href=\"%s\">page d'accueil</a>"
+
+#: ../404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr "Cliquez sur le bouton <a href=\"javascript:history.back()\">Retour</a>"
+
+#: ../archive.php:21 ../index.php:25 ../search.php:25
+msgid "&larr; Older posts"
+msgstr "&larr; Articles précédents"
+
+#: ../archive.php:22 ../index.php:26 ../search.php:26
+msgid "Newer posts &rarr;"
+msgstr "Articles récents &rarr;"
+
+#: ../comments.php:8
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn\">%s</cite>"
+
+#: ../comments.php:9
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#: ../comments.php:10
+msgid "(Edit)"
+msgstr "(Editer)"
+
+#: ../comments.php:16
+msgid "Your comment is awaiting moderation."
+msgstr "Votre commentaire est en attente de modération"
+
+#: ../comments.php:31
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Ne pas charger cette page directement, merci!"
+
+#: ../comments.php:36
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Cet article est privé. Entrez le mot de passe pour voir les commentaires."
+
+#: ../comments.php:46
+msgid "No Responses to"
+msgstr "Pas de réponse à"
+
+#: ../comments.php:46
+msgid "One Response to"
+msgstr "Une Réponse à"
+
+#: ../comments.php:46
+msgid "% Responses to"
+msgstr "% Réponses à"
+
+#: ../comments.php:53
+msgid "&larr; Older comments"
+msgstr "&larr; Commentaires précédents"
+
+#: ../comments.php:54
+msgid "Newer comments &rarr;"
+msgstr "Commentaires suivants &rarr;"
+
+#: ../comments.php:61
+msgid "Leave a Reply"
+msgstr "Laisser une réponse"
+
+#: ../comments.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Laisser une réponse à %s"
+
+#: ../comments.php:64
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+"Vous devez être <a href=\"%s\">connecté</a> pour poster un commentaire."
+
+#: ../comments.php:68
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "Connecté comme <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: ../comments.php:68
+msgid "Log out of this account"
+msgstr "Déconnecter ce compte"
+
+#: ../comments.php:68
+msgid "Log out &raquo;"
+msgstr "Se déconnecter &raquo;"
+
+#: ../comments.php:71
+msgid "Name"
+msgstr "Nom"
+
+#: ../comments.php:71 ../comments.php:75
+msgid " (required)"
+msgstr "(requis)"
+
+#: ../comments.php:75
+msgid "Email (will not be published)"
+msgstr "Courriel (ne sera pas affiché)"
+
+#: ../comments.php:79
+msgid "Website"
+msgstr "Site web"
+
+#: ../comments.php:84
+msgid "Comment"
+msgstr "Commenter"
+
+#: ../comments.php:87
+msgid "You can use these tags:"
+msgstr "Tags utilisables:"
+
+#: ../comments.php:88
+msgid "Submit Comment"
+msgstr "Envoyer commentaire"
+
+#: ../content-none.php:11
+msgid "Nothing Found"
+msgstr "Rien trouvé"
+
+#: ../content-none.php:17
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Prêt à publier votre premier article? <a href=\"%1$s\">Commencez ici</a>."
+
+#: ../content-none.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Désolé, mais rien ne correspond à votre recherche. Essayez à nouveau avec "
+"des mots clef différents."
+
+#: ../content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Nous pouvons trouver ce que vous cherchez. Peut être qu'une recherche "
+"pourrait aider."
+
+#: ../content.php:16
+msgid "Continue reading..."
+msgstr "Continuer à lire..."
+
+#: ../hero.php:40 ../kitchen-sink.php:731 ../page-full.php:19
+#: ../page-home.php:20 ../page.php:19 ../single.php:28
+msgid "Pages:"
+msgstr "Pages"
+
+#: ../library/entry-meta.php:4
+#, php-format
+msgid "Posted on %s at %s."
+msgstr "Posté le %s à %s."
+
+#: ../library/entry-meta.php:5
+msgid "Written by"
+msgstr "Écrit par"
+
+#: ../library/foundation.php:16
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: ../library/foundation.php:17
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: ../library/foundation.php:40
+#, php-format
+msgid ""
+"Please assign a menu to the primary menu location under %1$s or %2$s the "
+"design."
+msgstr "Assignez un menu à l'emplacement primaire de menu dans %1$s ou %2$s."
+
+#: ../library/foundation.php:41
+#, php-format
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">Menus</a>"
+
+#: ../library/foundation.php:44
+#, php-format
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">Personnaliser</a>"
+
+#: ../library/widget-areas.php:6
+msgid "Sidebar widgets"
+msgstr "Widgets côté"
+
+#: ../library/widget-areas.php:7
+msgid "Drag widgets to this sidebar container."
+msgstr "Déposer les widgets dans ce conteneur."
+
+#: ../library/widget-areas.php:16
+msgid "Footer widgets"
+msgstr "Widgets du pied de page"
+
+#: ../library/widget-areas.php:17
+msgid "Drag widgets to this footer container"
+msgstr "Déposer les widgets dans ce conteneur."
+
+#: ../search.php:7
+msgid "Search Results for"
+msgstr "Résultats pour"
+
+#: ../searchform.php:6 ../searchform.php:10
+msgid "Search"
+msgstr "Rechercher"
