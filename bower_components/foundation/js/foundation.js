@@ -278,7 +278,7 @@
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     media_queries : {
       small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
@@ -618,7 +618,7 @@
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     settings : {
       live_validate : true,
@@ -918,7 +918,7 @@
   Foundation.libs.accordion = {
     name : 'accordion',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     settings : {
       active_class: 'active',
@@ -940,7 +940,7 @@
         var accordion = S(this).closest('[' + self.attr_name() + ']'),
             target = S('#' + this.href.split('#')[1]),
             siblings = S('dd > .content', accordion),
-            aunts = $('dd', accordion),
+            aunts = $('>dd', accordion),
             groupSelector = self.attr_name() + '=' + accordion.attr(self.attr_name()),
             settings = accordion.data(self.attr_name(true) + '-init'),
             active_content = S('dd > .content.' + settings.active_class, accordion);
@@ -984,7 +984,7 @@
   Foundation.libs.alert = {
     name : 'alert',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     settings : {
       callback: function (){}
@@ -1028,7 +1028,7 @@
   Foundation.libs.clearing = {
     name : 'clearing',
 
-    version: '5.3.0',
+    version: '5.3.1',
 
     settings : {
       templates : {
@@ -1220,6 +1220,11 @@
           label = self.S('.clearing-touch-label', container),
           error = false;
 
+      // Event to disable scrolling on touch devices when Clearing is activated
+      $('body').on('touchmove',function(e){
+        e.preventDefault();
+      });
+
       image.error(function () {
         error = true;
       });
@@ -1290,6 +1295,9 @@
         visible_image.hide();
         visible_image.trigger('closed.fndtn.clearing');        
       }
+
+      // Event to re-enable scrolling on touch devices
+      $('body').off('touchmove');
 
       return false;
     },
@@ -1571,7 +1579,7 @@
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     settings : {
       active_class: 'open',
@@ -1885,7 +1893,7 @@
   Foundation.libs.equalizer = {
     name : 'equalizer',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     settings : {
       use_tallest: true,
@@ -1960,7 +1968,7 @@
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     cache : {},
 
@@ -2307,7 +2315,7 @@
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     defaults : {
       expose                   : false,     // turn on or off the expose feature
@@ -2497,7 +2505,7 @@
     },
 
     button_text : function (txt) {
-      if (this.settings.next_button) {
+      if (this.settings.tip_settings.next_button) {
         txt = $.trim(txt) || 'Next';
         txt = $(this.settings.template.button).append(txt)[0].outerHTML;
       } else {
@@ -2507,6 +2515,7 @@
     },
 
     create : function (opts) {
+      this.settings.tip_settings = $.extend({}, this.settings, this.data_options(opts.$li));
       var buttonText = opts.$li.attr(this.add_namespace('data-button')) 
         || opts.$li.attr(this.add_namespace('data-text')),
         tipClass = opts.$li.attr('class'),
@@ -3152,7 +3161,7 @@
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     settings : {
       active_class: 'active',
@@ -3186,10 +3195,12 @@
           
           if (target.length === 0) {
             target = $('#'+hash);
+            
           }
 
+
           // Account for expedition height if fixed position
-          var scroll_top = target.offset().top - settings.destination_threshold;
+          var scroll_top = target.offset().top - settings.destination_threshold + 1;
           scroll_top = scroll_top - expedition.outerHeight();
 
           $('html, body').stop().animate({
@@ -3333,7 +3344,7 @@
   Foundation.libs.offcanvas = {
     name : 'offcanvas',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     settings : {
       open_method: 'move',
@@ -3478,7 +3489,7 @@
     };
 
     self.update_active_link = function(index) {
-      var link = $('a[data-orbit-link="'+self.slides().eq(index).attr('data-orbit-slide')+'"]');
+      var link = $('[data-orbit-link="'+self.slides().eq(index).attr('data-orbit-slide')+'"]');
       link.siblings().removeClass(settings.bullets_active_class);
       link.addClass(settings.bullets_active_class);
     };
@@ -3840,7 +3851,7 @@
   Foundation.libs.orbit = {
     name: 'orbit',
 
-    version: '5.3.0',
+    version: '5.3.1',
 
     settings: {
       animation: 'slide',
@@ -3908,13 +3919,14 @@
 
     
 }(jQuery, window, window.document));
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
   Foundation.libs.reveal = {
     name : 'reveal',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     locked : false,
 
@@ -3958,7 +3970,7 @@
         .off('.reveal')
         .on('click.fndtn.reveal', '[' + this.add_namespace('data-reveal-id') + ']:not([disabled])', function (e) {
           e.preventDefault();
-
+        
           if (!self.locked) {
             var element = S(this),
                 ajax = element.data(self.data_attr('reveal-ajax'));
@@ -4044,6 +4056,7 @@
       return true;
     },
 
+
     open : function (target, ajax_settings) {
       var self = this,
           modal;
@@ -4063,6 +4076,11 @@
 
       var settings = modal.data(self.attr_name(true) + '-init');
       settings = settings || this.settings;
+
+
+      if (modal.hasClass('open') && target.attr('data-reveal-id') == modal.attr('id')) {
+        return self.close(modal);
+      }
 
       if (!modal.hasClass('open')) {
         var open_modal = self.S('[' + self.attr_name() + '].open');
@@ -4283,7 +4301,7 @@
 
       if (iframe.length > 0) {
         iframe.attr('data-src', iframe[0].src);
-        iframe.attr('src', 'about:blank');
+        iframe.attr('src', iframe.attr('src'));
         video.hide();
       }
     },
@@ -4352,7 +4370,7 @@
   Foundation.libs.slider = {
     name : 'slider',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     settings: {
       start: 0,
@@ -4388,10 +4406,15 @@
           if (!!self.cache.active) {
             e.preventDefault();
             if ($.data(self.cache.active[0], 'settings').vertical) {
-              self.calculate_position(self.cache.active, e.pageY || 
-                                                         e.originalEvent.clientY || 
-                                                         e.originalEvent.touches[0].clientY || 
-                                                         e.currentPoint.y);
+              var scroll_offset = 0;
+              if (!e.pageY) {
+                scroll_offset = window.scrollY;
+              }
+              self.calculate_position(self.cache.active, (e.pageY || 
+                                                          e.originalEvent.clientY || 
+                                                          e.originalEvent.touches[0].clientY || 
+                                                          e.currentPoint.y) 
+                                                          + scroll_offset);
             } else {
               self.calculate_position(self.cache.active, e.pageX || 
                                                          e.originalEvent.clientX || 
@@ -4579,7 +4602,7 @@
   Foundation.libs.tab = {
     name : 'tab',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     settings : {
       active_class: 'active',
@@ -4747,7 +4770,7 @@
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.3.0',
+    version : '5.3.1',
 
     settings : {
       additional_inheritable_classes : [],
@@ -5046,7 +5069,7 @@
   Foundation.libs.topbar = {
     name : 'topbar',
 
-    version: '5.3.0',
+    version: '5.3.1',
 
     settings : {
       index : 0,
