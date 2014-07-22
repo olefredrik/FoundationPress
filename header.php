@@ -50,25 +50,9 @@
     </section>
   </nav>
 
-  <aside class="left-off-canvas-menu">
-    <?php foundationPress_mobile_off_canvas(); ?>
-  </aside>
-  
-        <div class="top-bar-container contain-to-grid show-for-medium-up">
-            <nav class="top-bar" data-topbar="">
-                <ul class="title-area">
-                    <li class="name">
-                        <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-                    </li>          
-                </ul>
-                <section class="top-bar-section">
-                    <?php foundationPress_top_bar_l(); ?>
-                    <?php foundationPress_top_bar_r(); ?>
-                </section>
-            </nav>
-        </div>
+  <?php get_template_part('parts/off-canvas-menu'); ?>
 
-
+  <?php get_template_part('parts/top-bar'); ?>
 
 <section class="container" role="document">
   <?php do_action('foundationPress_after_header'); ?>
