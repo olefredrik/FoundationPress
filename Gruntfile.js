@@ -29,7 +29,7 @@ module.exports = function(grunt) {
         cwd: 'bower_components/',
         src: '**/*.map',
         dest: 'js'
-      },
+      }
     },
 
     uglify: {
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 
     concat: {
       options: {
-        separator: ';',
+        separator: ';'
       },
       dist: {
         src: [
@@ -50,8 +50,8 @@ module.exports = function(grunt) {
           'js/init-foundation.js'
         ],
 
-        dest: 'js/app.js',
-      },
+        dest: 'js/app.js'
+      }
 
     },
 
