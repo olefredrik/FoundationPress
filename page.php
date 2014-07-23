@@ -2,9 +2,9 @@
 
 <div class="row">
 	<div class="small-12 large-8 columns" role="main">
-	
+
 	<?php do_action('foundationPress_before_content'); ?>
-	
+
 	<?php while (have_posts()) : the_post(); ?>
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<header>
