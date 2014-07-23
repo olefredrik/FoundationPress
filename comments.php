@@ -10,13 +10,13 @@
 					<?php edit_comment_link(__('(Edit)', 'FoundationPress'), '', '') ?>
 				</div>
 			</header>
-			
+
 			<?php if ($comment->comment_approved == '0') : ?>
-       			<div class="notice">
+				<div class="notice">
 					<p class="bottom"><?php _e('Your comment is awaiting moderation.', 'FoundationPress') ?></p>
-          		</div>
+				</div>
 			<?php endif; ?>
-			
+
 			<section class="comment">
 				<?php comment_text() ?>
 				<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
@@ -46,7 +46,7 @@
 		<h3><?php comments_number(__('No Responses to', 'FoundationPress'), __('One Response to', 'FoundationPress'), __('% Responses to', 'FoundationPress') ); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
 		<ol class="commentlist">
 		<?php wp_list_comments('type=comment&callback=FoundationPress_comments'); ?>
-		
+
 		</ol>
 		<footer>
 			<nav id="comments-nav">
