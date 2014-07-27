@@ -24,6 +24,9 @@ cd your-theme-name
 npm install && bower install
 ```
 
+Tip: If you get an error saying Permission denied (publickey) when cloning the repository, use the https protocol instead:
+```git clone https://github.com/olefredrik/FoundationPress.git```
+
 While you're working on your project, run:
 
 `grunt`
