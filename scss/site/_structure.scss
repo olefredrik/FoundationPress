@@ -57,8 +57,13 @@ figcaption {
  * ----------------------------------------------------------------------------
  */
 
-// Insert styles here
-
+// A more subtle background color for the active menu item
+.top-bar-section li.active:not(.has-form) a:not(.button)  {
+	background: #272727;
+}
+.top-bar-section li.active:not(.has-form) a:hover:not(.button) {
+	background: #202020;
+}
 
 /**
  * 4.0 Content
