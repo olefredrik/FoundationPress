@@ -81,7 +81,10 @@ function foundationPress_mobile_off_canvas() {
 */
 
 function add_menuclass($ulclass) {
-return preg_replace('/<a rel="button"/', '<a rel="button" class="button"', $ulclass, 1);
+    $find = array('/<a rel="button"/', '/<a title=".*?" rel="button"/');
+    $replace = array('<a rel="button" class="button"', '<a rel="button" class="button"');
+    
+    return preg_replace($find, $replace, $ulclass, 1);
 }
 add_filter('wp_nav_menu','add_menuclass');
 
