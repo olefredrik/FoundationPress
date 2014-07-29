@@ -65,6 +65,14 @@ figcaption {
 	background: #202020;
 }
 
+// Add some whitespace above the footer for medium-up screens
+@media #{$medium-up} {
+	footer.row {
+		margin-top: rem-calc(60);
+	}
+}
+
+
 /**
  * 4.0 Content
  * ----------------------------------------------------------------------------
