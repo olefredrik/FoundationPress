@@ -6,9 +6,20 @@ Please fork, copy, modify, delete, share or do whatever you like with this.
 
 All contributions are welcome!
 
+
 ## Requirements
 
-*You'll need to have the following items installed before continuing.*
+
+**A brief explanation to the requriements** (feel free to skip this if you're a pro):
+
+Back in the days we wrote all styles in the style.css file. Then we realized that this could quickly create clutter and confusion, especially in larger projects. Foundation uses SASS (equivalent to LESS, used in Bootstrap). In short, SASS is a CSS pre-processor that allows you to write styles more effectively and tidy. 
+
+To compile SASS files into one style sheet, we use a tool called Grunt. In short, Grunt is a task runner that automates repetitive tasks like minification, compilation, linting, etc. Grunt and Grunt plugins are installed and managed via npm, the Node.js package manager. Before setting up Grunt ensure that your npm is up-to-date by running ```npm update -g npm``` (this might require ```sudo``` on certain systems)
+
+Bower is a package manager used by Zurb to distribute Foundation. When you have Bower installed, you will be able to run ```foundation update``` in the terminal to update Foundation to the latest version. (After an upgrade you must run ```grunt``` to recompile files).
+
+
+**Okay, so you'll need to have the following items installed before continuing.**
 
   * [Node.js](http://nodejs.org): Use the installer provided on the NodeJS website.
   * [Grunt](http://gruntjs.com/): Run `[sudo] npm install -g grunt-cli`
