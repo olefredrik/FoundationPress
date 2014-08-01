@@ -49,7 +49,7 @@ Check for Foundation Updates? Run:
 (this requires the foundation gem to be installed in order to work. Please see the [docs](http://foundation.zurb.com/docs/sass.html) for details.)
 
 
-## Stylesheet Folder Structure
+### Stylesheet Folder Structure
 
   * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
 
@@ -63,22 +63,37 @@ Check for Foundation Updates? Run:
 
   * `css/app.css`: All Sass files are minified and compiled to this file
 
-## Script Folder Strucutre
+### Script Folder Strucutre
   
   * `bower_components/`: This is the source folder where all Foundation scripts are located. `foundation update` will check and update scripts in this folder
   * `js/`: jQuery, Modernizr and Foundation scripts are copied from `bower_components/` to this directory, where they are minified and concatinated and enqueued in WordPress
   * Please note that you must run `grunt` in your terminal for the scripts to be copied. See [Gruntfile.js](https://github.com/olefredrik/FoundationPress/blob/master/Gruntfile.js) for details
-
-## How to get started with Foundation
-
-* [Zurb Foundation Docs](http://foundation.zurb.com/docs/)
-
-## Learn how to use WordPress
-
-* [WordPress Codex](http://codex.wordpress.org/)
 
 ## Demo
 
 * [Clean FoundationPress install](http://foundationpress.olefredrik.com/)
 * [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
 * [FoundationPSD - Photoshop template for Foundation](http://foundationpress.olefredrik.com/downloads/foundation-psd-template/)
+
+## Contributing
+#### Here are ways to get involved:
+
+1. [Star](https://github.com/olefredrik/FoundationPress/stargazers) the project!
+2. Answer questions that come through [GitHub issues](https://github.com/olefredrik/FoundationPress/issues)
+3. Report a bug that you find
+4. Share a theme you've built on top of FoundationPress
+5. [Tweet](https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Ffoundationpress.olefredrik.com%2F&text=Check%20out%20FoundationPress%2C%20the%20ultimate%20%23WordPress%20starter-theme%20built%20on%20%23Foundation%205&tw_p=tweetbutton&url=http%3A%2F%2Ffoundationpress.olefredrik.com&via=olefredrik) and [blog](http://www.justinfriebel.com/my-first-experience-with-foundationpress-a-wordpress-starter-theme-106/) about the advantages (and criticisms) of FoundationPress
+
+
+#### Pull Requests
+
+Pull requests are highly appreciated. About a dozen people have written parts of FoundationPress (so far). Here are some guidelines to help:
+
+1. Solve a problem. Features are great, but even better is cleaning-up and fixing issues in the code that you discover
+2. Make sure that your code is bug-free and does not introduce new bugs
+3. Create a [pull request](https://help.github.com/articles/creating-a-pull-request)
+
+## Documentation
+
+* [Zurb Foundation Docs](http://foundation.zurb.com/docs/)
+* [WordPress Codex](http://codex.wordpress.org/)
