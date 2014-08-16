@@ -10,7 +10,7 @@ All contributions are welcome!
 ## Requirements
 
 
-**A brief explanation to the requriements** (feel free to skip this if you're a pro):
+**A brief explanation to the requirements** (feel free to skip this if you're a pro):
 
 Back in the days we wrote all styles in the style.css file. Then we realized that this could quickly create clutter and confusion, especially in larger projects. Foundation uses SASS (equivalent to LESS, used in Bootstrap). In short, SASS is a CSS pre-processor that allows you to write styles more effectively and tidy. 
 
