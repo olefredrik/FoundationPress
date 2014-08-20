@@ -169,7 +169,7 @@ function image_editor($html, $id, $alt, $title) {
         $html);
 } 
 
-// Wrap images with figure tag 
+// Wrap images with figure tag - Credit: Robert O'Rourke - http://bit.ly/1q0WHFs
 function img_unautop($pee) {
     $pee = preg_replace('/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '<figure>$1</figure>', $pee);
     return $pee;
