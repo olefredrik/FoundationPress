@@ -611,7 +611,30 @@ get_header(); ?>
 				</section>
 			</nav>
 
-			<!-- End Top Bar -->
+			<hr>
+			<h4 id="icon-bar">Icon bar</h4>
+			<div class="icon-bar five-up" role="navigation"> 
+			  <a class="item" role="button" tabindex="0" aria-label="home"> 
+			    <i class="fi-home"></i> 
+			    <label id="home">Home</label>
+			  </a> 
+			  <a class="item" role="button" tabindex="0" aria-label="Bookmark"> 
+			    <i class="fi-bookmark"></i> 
+			    <label id="bookmark">Bookmark</label>
+			  </a> 
+			  <a class="item" role="button" tabindex="0" aria-label="Information"> 
+			    <i class="fi-info"></i> 
+			    <label id="information">Information</label>
+			  </a> 
+			  <a class="item" role="button" tabindex="0" aria-label="Mail"> 
+			    <i class="fi-mail"></i> 
+			    <label id="mail">Mail</label>
+			  </a> 
+			  <a class="item" role="button" tabindex="0" aria-label="Like"> 
+			    <i class="fi-like"></i> 
+			    <label id="like">Like</label>
+			  </a> 
+			</div>
 
 			<hr>
 			<h4 id="type">Type</h4>
