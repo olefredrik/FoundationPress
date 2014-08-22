@@ -137,13 +137,18 @@ function fixed_img_caption_shortcode($attr, $content = null) {
         'id'    => '',
         'align' => 'alignnone',
         'width' => '',
-        'caption' => ''
+        'caption' => '',
+        'class'   => ''
     ), $attr));
     if ( 1 > (int) $width || empty($caption) )
         return $content;
-    if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
-    return '<figure>'
-    . do_shortcode( $content ) . '<figcaption>' . $caption . '</figcaption></figure>';
+
+    $markup = '<figure';
+    if ($id) $markup .= ' id="' . esc_attr($id) . '"';
+    if ($class) $markup .= ' class="' . esc_attr($class) . '"';
+    $markup .= '>';
+    $markup .= do_shortcode( $content ) . '<figcaption>' . $caption . '</figcaption></figure>';
+    return $markup;
 }
 
 
