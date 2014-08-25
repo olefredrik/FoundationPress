@@ -66,6 +66,7 @@ Check for Foundation Updates? Run:
 ### Script Folder Strucutre
   
   * `bower_components/`: This is the source folder where all Foundation scripts are located. `foundation update` will check and update scripts in this folder
+  * `js/custom`: This is where you put all your custom scripts. Every .js file you put in this directory will be minified and concatinated to [app.js](https://github.com/olefredrik/FoundationPress/blob/master/js/app.js)
   * `js/`: jQuery, Modernizr and Foundation scripts are copied from `bower_components/` to this directory, where they are minified and concatinated and enqueued in WordPress
   * Please note that you must run `grunt` in your terminal for the scripts to be copied. See [Gruntfile.js](https://github.com/olefredrik/FoundationPress/blob/master/Gruntfile.js) for details
 
