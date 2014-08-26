@@ -12,7 +12,7 @@ get_header(); ?>
 		</div>
 
 		<div class="medium-6 columns end">
-			<a class="download large button hide-for-small" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
+			<a role="button" class="download large button hide-for-small" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
 		</div>
 
 		<div class="floatingyeti show-for-medium-up">

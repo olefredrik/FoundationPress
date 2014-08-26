@@ -34,7 +34,7 @@
 	<body <?php body_class(); ?>>
 	<?php do_action('foundationPress_after_body'); ?>
 	
-	<div class="off-canvas-wrap" data-offcanvas>
+	<div class="off-canvas-wrap" data-offcanvas aria-hidden="true">
 	<div class="inner-wrap">
 	
 	<?php do_action('foundationPress_layout_start'); ?>
