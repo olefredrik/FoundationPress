@@ -1,0 +1,300 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FoundationPress v5.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-08-24 17:21:40+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/0.1\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: comments.php:71
+#@ FoundationPress
+msgid "Name"
+msgstr "Name"
+
+#: comments.php:88
+#@ FoundationPress
+msgid "Submit Comment"
+msgstr "Kommentar senden"
+
+#: comments.php:68
+#@ FoundationPress
+msgid "Log out of this account"
+msgstr "Diesen Benutzer abmelden"
+
+#: comments.php:68
+#@ FoundationPress
+msgid "Log out &raquo;"
+msgstr "Abmelden &raquo;"
+
+#: comments.php:36
+#@ FoundationPress
+msgid "This post is password protected. Enter the password to view comments."
+msgstr "Dieser Beitrag ist passwortgeschützt. Um die Kommentare zu sehen, musst du das Passwort eingeben."
+
+#: comments.php:79
+#@ FoundationPress
+msgid "Website"
+msgstr "Website"
+
+#: comments.php:64
+#, php-format
+#@ FoundationPress
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Du musst <a href=\"%s\">angemeldet</a> sein, um einen Kommentar abzugeben."
+
+#: hero.php:40
+#: kitchen-sink.php:739
+#: page-full.php:19
+#: page-sidebar-left.php:21
+#: page.php:18
+#: single.php:27
+#: woocommerce.php:18
+#@ FoundationPress
+msgid "Pages:"
+msgstr "Seiten:"
+
+#: comments.php:16
+#@ FoundationPress
+msgid "Your comment is awaiting moderation."
+msgstr "Dein Kommentar wartet auf Freischaltung."
+
+#: comments.php:10
+#@ FoundationPress
+msgid "(Edit)"
+msgstr "(Bearbeiten)"
+
+#: comments.php:61
+#@ FoundationPress
+msgid "Leave a Reply"
+msgstr "Hinterlasse eine Antwort"
+
+#: comments.php:61
+#, php-format
+#@ FoundationPress
+msgid "Leave a Reply to %s"
+msgstr "Hinterlasse einen Kommentar zu %s"
+
+#: searchform.php:6
+#: searchform.php:10
+#@ FoundationPress
+msgid "Search"
+msgstr "Suchen"
+
+#: 404.php:8
+#@ FoundationPress
+msgid "File Not Found"
+msgstr "Seite nicht gefunden"
+
+#: 404.php:12
+#@ FoundationPress
+msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
+msgstr "Die Seite, die Sie suchen wurde möglicherweise entfernt oder umbenannt, oder ist vorübergehend nicht verfügbar."
+
+#: 404.php:14
+#@ FoundationPress
+msgid "Please try the following:"
+msgstr "Bitte versuchen Sie folgendes:"
+
+#: 404.php:16
+#@ FoundationPress
+msgid "Check your spelling"
+msgstr "Überprüfen Sie Ihre Eingabe"
+
+#: 404.php:17
+#, php-format
+#@ FoundationPress
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "Zurück zur <a href=\"%s\">Startseite</a>"
+
+#: 404.php:18
+#@ FoundationPress
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr "Klicken Sie die <a href=\"javascript:history.back()\">Zurück</a> Schaltfläche"
+
+#: archive.php:21
+#: index.php:24
+#: search.php:25
+#@ FoundationPress
+msgid "&larr; Older posts"
+msgstr "&larr; ältere Beiträge"
+
+#: archive.php:22
+#: index.php:25
+#: search.php:26
+#@ FoundationPress
+msgid "Newer posts &rarr;"
+msgstr "neuere Beiträge &rarr;"
+
+#: comments.php:8
+#, php-format
+#@ FoundationPress
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr ""
+
+#: comments.php:9
+#, php-format
+#@ FoundationPress
+msgid "%1$s"
+msgstr ""
+
+#: comments.php:31
+#@ FoundationPress
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Bitte diese Seite nicht direkt laden. Danke!"
+
+#: comments.php:46
+#@ FoundationPress
+msgid "No Responses to"
+msgstr "Keine Antworten zu"
+
+#: comments.php:46
+#@ FoundationPress
+msgid "One Response to"
+msgstr "Eine Antwort zu"
+
+#: comments.php:46
+#@ FoundationPress
+msgid "% Responses to"
+msgstr "% Antworten zu"
+
+#: comments.php:53
+#@ FoundationPress
+msgid "&larr; Older comments"
+msgstr "&larr; ältere Kommentare"
+
+#: comments.php:54
+#@ FoundationPress
+msgid "Newer comments &rarr;"
+msgstr "neuere Kommentare &rarr;"
+
+#: comments.php:68
+#, php-format
+#@ FoundationPress
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "Angemeldet als <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: comments.php:71
+#: comments.php:75
+#@ FoundationPress
+msgid " (required)"
+msgstr "(erforderlich)"
+
+#: comments.php:75
+#@ FoundationPress
+msgid "Email (will not be published)"
+msgstr "Email (wird nicht veröffentlicht)"
+
+#: comments.php:84
+#@ FoundationPress
+msgid "Comment"
+msgstr "Kommentar"
+
+#: comments.php:87
+#@ FoundationPress
+msgid "You can use these tags:"
+msgstr "Sie können diese Tags verwenden:"
+
+#: content-none.php:11
+#@ FoundationPress
+msgid "Nothing Found"
+msgstr "nichts gefunden"
+
+#: content-none.php:17
+#, php-format
+#@ FoundationPress
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Bereit, den ersten Beitrag zu veröffentlichen? <a href=\"%1$s\">Beginnen Sie hier</a>"
+
+#: content-none.php:21
+#@ FoundationPress
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Es tut uns leid, aber es konnten keine Übereinstimmungen gefunden werden. Bitte versuchen Sie es erneut mit einigen anderen Suchbegriffen."
+
+#: content-none.php:26
+#@ FoundationPress
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Es scheint, wir finden nicht, was Sie suchen. Vielleicht hilft suchen."
+
+#: content.php:16
+#@ FoundationPress
+msgid "Continue reading..."
+msgstr "Lesen Sie weiter..."
+
+#: library/entry-meta.php:4
+#, php-format
+#@ FoundationPress
+msgid "Posted on %s at %s."
+msgstr "Veröffentlicht am %s um %s."
+
+#: library/entry-meta.php:5
+#@ FoundationPress
+msgid "Written by"
+msgstr "Geschrieben von"
+
+#: library/foundation.php:16
+#@ FoundationPress
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: library/foundation.php:17
+#@ FoundationPress
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: library/foundation.php:40
+#, php-format
+#@ FoundationPress
+msgid "Please assign a menu to the primary menu location under %1$s or %2$s the design."
+msgstr "Bitte weisen Sie ein Menü zur primären Menüposition %1$s oder %2$s zu."
+
+#: library/foundation.php:41
+#, php-format
+#@ FoundationPress
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">Menüs</a>"
+
+#: library/foundation.php:44
+#, php-format
+#@ FoundationPress
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">Anpassen</a>"
+
+#: library/widget-areas.php:6
+#@ FoundationPress
+msgid "Sidebar widgets"
+msgstr "Seitenleiste-Widgetbereich"
+
+#: library/widget-areas.php:7
+#@ FoundationPress
+msgid "Drag widgets to this sidebar container."
+msgstr "Ziehen Sie Widgets zu diesem Seitenleistenbereich."
+
+#: library/widget-areas.php:16
+#@ FoundationPress
+msgid "Footer widgets"
+msgstr "Footer Widgetbereich"
+
+#: library/widget-areas.php:17
+#@ FoundationPress
+msgid "Drag widgets to this footer container"
+msgstr "Ziehen Sie Widgets zu diesem Footerbereich"
+
+#: search.php:7
+#@ FoundationPress
+msgid "Search Results for"
+msgstr "Suchergebnisse für"
+
