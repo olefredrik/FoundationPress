@@ -76,6 +76,15 @@ Check for Foundation Updates? Run:
 * [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
 * [FoundationPSD - Photoshop template for Foundation](http://foundationpress.olefredrik.com/downloads/foundation-psd-template/)
 
+## Examples of sites built on top of FoundationPress
+
+* [Harvard Center for Green Buildings and Cities](http://www.harvardcgbc.org/)
+* [Arch Design](http://archdesign.grafique.cz/)
+* [Thinx Underwear](http://www.shethinx.com/)
+* [Threadbird blog](http://blog.threadbird.com/)
+* [Public House Wines blog](http://publichousewines.hstestsite.info/)
+* [Bristol Doors Open Day 2014](http://www.bristoldoorsopenday.org/)
+
 ## Contributing
 #### Here are ways to get involved:
 
