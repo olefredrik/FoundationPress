@@ -20,7 +20,7 @@ $namespace: false !default;
 $base-font-size: 100% !default;
 
 // $base-line-height is 24px while $base-font-size is 16px
-$base-line-height: 150% !default;
+$base-line-height: 1.5 !default;
 
 //
 // Global Foundation Mixins
@@ -228,7 +228,6 @@ $success-color: #43AC6A !default;   // sea-green
 $warning-color: #f08a24 !default;   // carrot
 $info-color: #a0d3e8 !default;      // cornflower
 
-
 $white         : #FFFFFF !default;
 $ghost         : #FAFAFA !default;
 $snow          : #F9F9F9 !default;
@@ -248,7 +247,6 @@ $tuatara       : #444444 !default;
 $oil           : #333333 !default;
 $jet           : #222222 !default;
 $black         : #000000 !default;
-
 
 // We use these to define default font weights
 $font-weight-normal: normal !default;
@@ -327,6 +325,7 @@ $large: $large-up;
 
 
 //We use this as cursors values for enabling the option of having custom cursors in the whole site's stylesheet
+$cursor-auto-value: auto !default;
 $cursor-crosshair-value: crosshair !default;
 $cursor-default-value: default !default;
 $cursor-pointer-value: pointer !default;
@@ -341,7 +340,7 @@ $cursor-text-value: text !default;
   // Forward slash placed around everything to convince PhantomJS to read the value.
 
   meta.foundation-version {
-    font-family: "/{{ VERSION }}/";
+    font-family: "/5.4.3/";
   }
 
   meta.foundation-mq-small {
@@ -399,7 +398,7 @@ $cursor-text-value: text !default;
       font-style: $body-font-style;
       line-height: $base-line-height; // Set to $base-line-height to take on browser default of 150%
       position: relative;
-      cursor: $cursor-default-value;
+      cursor: $cursor-auto-value;
     }
 
   a:hover { cursor: $cursor-pointer-value; }
