@@ -1,0 +1,282 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-13 17:56+0200\n"
+"PO-Revision-Date: 2014-09-13 18:14+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.9\n"
+"Language: nb\n"
+
+#: 404.php:8
+msgid "File Not Found"
+msgstr "Finner ikke filen"
+
+#: 404.php:12
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+"Siden du leter etter kan ha blitt flyttet, navnet kan være endret, eller den "
+"kan være midlertidig utilgjengelig."
+
+#: 404.php:14
+msgid "Please try the following:"
+msgstr "Vennligst forsøk følgende:"
+
+#: 404.php:16
+msgid "Check your spelling"
+msgstr "Sjekk staving"
+
+#: 404.php:17
+#, php-format
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "Gå tilbake til <a href=\"%s\">forsiden</a>"
+
+#: 404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr "Klikk <a href=\"javascript:history.back()\">Tilbake</a> knappen"
+
+#. /previous pages when applicable
+#: archive.php:21 index.php:24 search.php:25
+msgid "&larr; Older posts"
+msgstr "&larr; Eldre innlegg"
+
+#: archive.php:22 index.php:25 search.php:26
+msgid "Newer posts &rarr;"
+msgstr "Nyere innlegg &rarr;"
+
+#: comments.php:8
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn\">%s</cite>"
+
+#: comments.php:9
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#: comments.php:10
+msgid "(Edit)"
+msgstr "(Rediger)"
+
+#: comments.php:16
+msgid "Your comment is awaiting moderation."
+msgstr "Din kommentar avventer moderasjon."
+
+#: comments.php:31
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Vennligst ikke last denne siden direkte. Takk!"
+
+#: comments.php:36
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Dette innlegget er passordbeskyttet. Skriv inn passord for å vise "
+"kommentarer."
+
+#: comments.php:46
+msgid "No Responses to"
+msgstr "Ingen svar på"
+
+#: comments.php:46
+msgid "One Response to"
+msgstr "Ett svar på"
+
+#: comments.php:46
+msgid "% Responses to"
+msgstr "% svar på"
+
+#: comments.php:53
+msgid "&larr; Older comments"
+msgstr "&larr; Eldre kommentarer"
+
+#: comments.php:54
+msgid "Newer comments &rarr;"
+msgstr "Nyere kommentarer &rarr;"
+
+#: comments.php:61
+msgid "Leave a Reply"
+msgstr "Legg igjen et svar"
+
+#: comments.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Legg igjen et svar til %s"
+
+#: comments.php:64
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Du må være <a href=\"%s\">logget inn</a> for å poste en kommentar."
+
+#: comments.php:68
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "Logget inn som <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: comments.php:68
+msgid "Log out of this account"
+msgstr "Logg av denne kontoen"
+
+#: comments.php:68
+msgid "Log out &raquo;"
+msgstr "Logg av &raquo;"
+
+#: comments.php:71
+msgid "Name"
+msgstr "Navn"
+
+#: comments.php:71 comments.php:75
+msgid " (required)"
+msgstr "(påkrevd)"
+
+#: comments.php:75
+msgid "Email (will not be published)"
+msgstr "E-post (vil ikke bli publisert)"
+
+#: comments.php:79
+msgid "Website"
+msgstr "Nettside"
+
+#: comments.php:84
+msgid "Comment"
+msgstr "Kommentar"
+
+#: comments.php:87
+msgid "You can use these tags:"
+msgstr "Du kan benytte disse taggene:"
+
+#: comments.php:88
+msgid "Submit Comment"
+msgstr "Send inn kommentar"
+
+#: content-none.php:11
+msgid "Nothing Found"
+msgstr "Ingenting funnet"
+
+#: content-none.php:17
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Klar til å publisere ditt første innlegg? <a href=\"%1$s\">Kom i gang her</"
+"a>."
+
+#: content-none.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Beklager, men vi fant ingenting som traff på ditt søk. Forsøk gjerne igjen "
+"med andre søkeord."
+
+#: content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Det ser ikke ut som om vi finner det du leter etter. Kanskje et søk kan "
+"hjelpe?"
+
+#. /archive/search.
+#. *
+#. * @subpackage FoundationPress
+#. * @since FoundationPress 1.0
+#.
+#: content.php:16
+msgid "Continue reading..."
+msgstr "Les videre..."
+
+#: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
+#: page.php:18 single.php:27 woocommerce.php:18
+msgid "Pages:"
+msgstr "Sider:"
+
+#: library/entry-meta.php:4
+#, php-format
+msgid "Posted on %s at %s."
+msgstr "Skrevet den %s på %s."
+
+#: library/entry-meta.php:5
+msgid "Written by"
+msgstr "Skrevet av"
+
+#: library/foundation.php:16
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: library/foundation.php:17
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: library/foundation.php:40
+#, php-format
+msgid ""
+"Please assign a menu to the primary menu location under %1$s or %2$s the "
+"design."
+msgstr ""
+"Vennligst tildel en meny til primærmenyplasseringen etter %1$s eller %2$s "
+"designet."
+
+#: library/foundation.php:41
+#, php-format
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">Menyer</a>"
+
+#: library/foundation.php:44
+#, php-format
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">Tilpass</a>"
+
+#: library/widget-areas.php:6
+msgid "Sidebar widgets"
+msgstr "Sidestolpe widgets"
+
+#: library/widget-areas.php:7
+msgid "Drag widgets to this sidebar container."
+msgstr "Dra widgets til denne sidestolpe konteineren."
+
+#: library/widget-areas.php:16
+msgid "Footer widgets"
+msgstr "Bunn widgets"
+
+#: library/widget-areas.php:17
+msgid "Drag widgets to this footer container"
+msgstr "Dra widgets til denne bunn kontaineren"
+
+#: node_modules/grunt-pot/test/fixtures/some-file.php:3
+msgid "I'm a translatable string."
+msgstr "Jeg er en tekststreng som kan oversettes."
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:4
+msgid "Me too"
+msgstr "Jeg også"
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:7
+#, php-format
+msgid "I have %d apple"
+msgid_plural "I have %d apples"
+msgstr[0] "Jeg har %d eple"
+msgstr[1] "Jeg har %d epler"
+
+#. / TRANSLATORS: This should be translated as a shorthand for YEAR-MONTH-DAY using 4, 2 and 2 digits.
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:16
+msgid "yyyy-mm-dd"
+msgstr "yyyy-mm-dd"
+
+#: search.php:7
+msgid "Search Results for"
+msgstr "Søketreff for"
+
+#: searchform.php:6 searchform.php:10
+msgid "Search"
+msgstr "Søk"
