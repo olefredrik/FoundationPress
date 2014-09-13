@@ -6,9 +6,7 @@ Please fork, copy, modify, delete, share or do whatever you like with this.
 
 All contributions are welcome!
 
-
 ## Requirements
-
 
 **A brief explanation to the requirements** (feel free to skip this if you're a pro):
 
@@ -48,7 +46,6 @@ Check for Foundation Updates? Run:
 `foundation update` 
 (this requires the foundation gem to be installed in order to work. Please see the [docs](http://foundation.zurb.com/docs/sass.html) for details.)
 
-
 ### Stylesheet Folder Structure
 
   * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
@@ -80,10 +77,12 @@ Check for Foundation Updates? Run:
 
 * [Harvard Center for Green Buildings and Cities](http://www.harvardcgbc.org/)
 * [Arch Design](http://archdesign.grafique.cz/)
+* [Hip and Healthy](http://hipandhealthy.com)
 * [Thinx Underwear](http://www.shethinx.com/)
 * [Threadbird blog](http://blog.threadbird.com/)
 * [Public House Wines blog](http://publichousewines.hstestsite.info/)
 * [Bristol Doors Open Day 2014](http://www.bristoldoorsopenday.org/)
+* [Franchise Career Advisors](http://franchisecareeradvisors.com)
 
 ## Contributing
 #### Here are ways to get involved:
@@ -93,7 +92,6 @@ Check for Foundation Updates? Run:
 3. Report a bug that you find
 4. Share a theme you've built on top of FoundationPress
 5. [Tweet](https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Ffoundationpress.olefredrik.com%2F&text=Check%20out%20FoundationPress%2C%20the%20ultimate%20%23WordPress%20starter-theme%20built%20on%20%23Foundation%205&tw_p=tweetbutton&url=http%3A%2F%2Ffoundationpress.olefredrik.com&via=olefredrik) and [blog](http://www.justinfriebel.com/my-first-experience-with-foundationpress-a-wordpress-starter-theme-106/) about the advantages (and criticisms) of FoundationPress
-
 
 #### Pull Requests
 
