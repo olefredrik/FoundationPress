@@ -1,6 +1,7 @@
 /*
 Theme Name:         FoundationPress
-Theme URI:          https://github.com/olefredrik/foundationpress.git
+Theme URI:          http://foundationpress.olefredrik.com
+Github Theme URI:   https://github.com/olefredrik/FoundationPress
 Description:        FoundationPress is a WordPress starter theme based on Foundation 5 by Zurb
 Version:            5.4.3
 Author:             Ole Fredrik Lie
@@ -26,5 +27,8 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
   Please read the README.md file before getting started. More info on how
   to use Sass with Foundation can be found here:
   http://foundation.zurb.com/docs/sass.html
+
+  If you for some reason would like to write plain css instead of using Sass,
+  you could just enqueue this file (style.css) to the header and add your styles in this file
 
 ---------------------------------------------------------------------------- */
