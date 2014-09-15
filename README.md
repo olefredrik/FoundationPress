@@ -80,6 +80,7 @@ Check for Foundation Updates? Run:
 * [Hip and Healthy](http://hipandhealthy.com)
 * [Thinx Underwear](http://www.shethinx.com/)
 * [Threadbird blog](http://blog.threadbird.com/)
+* [Code Cub](http://www.thecodecub.com/)
 * [Public House Wines blog](http://publichousewines.hstestsite.info/)
 * [Bristol Doors Open Day 2014](http://www.bristoldoorsopenday.org/)
 * [Franchise Career Advisors](http://franchisecareeradvisors.com)
@@ -105,3 +106,9 @@ Pull requests are highly appreciated. About a dozen people have written parts of
 
 * [Zurb Foundation Docs](http://foundation.zurb.com/docs/)
 * [WordPress Codex](http://codex.wordpress.org/)
+
+## Tutorials
+
+* [Build a responsive WordPress theme](http://www.webdesignermag.co.uk/tutorials/build-a-responsive-wordpress-theme/)
+* [Setting Up a Blog with Foundation and WordPress](http://www.thecodecub.com/htmlcss/setting-up-a-blog-with-foundation-and-wordpress/)
+
