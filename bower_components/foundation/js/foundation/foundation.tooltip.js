@@ -4,7 +4,7 @@
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.4.3',
+    version : '5.3.2',
 
     settings : {
       additional_inheritable_classes : [],
@@ -15,9 +15,9 @@
       hover_delay: 200,
       show_on : 'all',
       tip_template : function (selector, content) {
-        return '<span data-selector="' + selector + '" id="' + selector + '" class="'
+        return '<span data-selector="' + selector + '" class="'
           + Foundation.libs.tooltip.settings.tooltip_class.substring(1)
-          + '" role="tooltip">' + content + '<span class="nub"></span></span>';
+          + '">' + content + '<span class="nub"></span></span>';
       }
     },
 
@@ -143,9 +143,7 @@
 
       if ((id && id.length < 1 || !id) && typeof dataSelector != 'string') {
         dataSelector = this.random_str(6);
-        $target
-          .attr('data-selector', dataSelector)
-          .attr('aria-describedby', dataSelector);
+        $target.attr('data-selector', dataSelector);
       }
 
       return (id && id.length > 0) ? id : dataSelector;

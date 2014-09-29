@@ -4,7 +4,7 @@
   Foundation.libs.reveal = {
     name : 'reveal',
 
-    version : '5.4.3',
+    version : '5.3.2',
 
     locked : false,
 
@@ -210,7 +210,6 @@
           $.ajax(ajax_settings);
         }
       }
-      self.S(window).trigger('resize');
     },
 
     close : function (modal) {

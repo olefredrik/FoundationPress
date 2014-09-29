@@ -6,12 +6,11 @@
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.4.3',
+    version : '5.3.2',
 
     defaults : {
       expose                   : false,     // turn on or off the expose feature
       modal                    : true,      // Whether to cover page with modal during the tour
-      keyboard                 : true,      // enable left, right and esc keystrokes
       tip_location             : 'bottom',  // 'top' or 'bottom' in relation to parent
       nub_position             : 'auto',    // override on a per tooltip bases
       scroll_speed             : 1500,      // Page scrolling speed in milliseconds, 0 = no scroll animation
@@ -64,34 +63,6 @@
       this.bindings(method, options)
     },
 
-    go_next : function() {
-      if (this.settings.$li.next().length < 1) {
-        this.end();
-      } else if (this.settings.timer > 0) {
-        clearTimeout(this.settings.automate);
-        this.hide();
-        this.show();
-        this.startTimer();
-      } else {
-        this.hide();
-        this.show();
-      }
-    },
-
-    go_prev : function() {
-      if (this.settings.$li.prev().length < 1) {
-        // Do nothing if there are no prev element
-      } else if (this.settings.timer > 0) {
-        clearTimeout(this.settings.automate);
-        this.hide();
-        this.show(null, true);
-        this.startTimer();
-      } else {
-        this.hide();
-        this.show(null, true);
-      }
-    },
-
     events : function () {
       var self = this;
 
@@ -99,40 +70,46 @@
         .off('.joyride')
         .on('click.fndtn.joyride', '.joyride-next-tip, .joyride-modal-bg', function (e) {
           e.preventDefault();
-          this.go_next()
+
+          if (this.settings.$li.next().length < 1) {
+            this.end();
+          } else if (this.settings.timer > 0) {
+            clearTimeout(this.settings.automate);
+            this.hide();
+            this.show();
+            this.startTimer();
+          } else {
+            this.hide();
+            this.show();
+          }
+
         }.bind(this))
         .on('click.fndtn.joyride', '.joyride-prev-tip', function (e) {
           e.preventDefault();
-          this.go_prev();
+
+          if (this.settings.$li.prev().length < 1) {
+            // Do nothing if there are no prev element
+          } else if (this.settings.timer > 0) {
+            clearTimeout(this.settings.automate);
+            this.hide();
+            this.show(null, true);
+            this.startTimer();
+          } else {
+            this.hide();
+            this.show(null, true);
+          }
+
         }.bind(this))
 
         .on('click.fndtn.joyride', '.joyride-close-tip', function (e) {
           e.preventDefault();
           this.end(this.settings.abort_on_close);
-        }.bind(this))
-
-        .on("keyup.joyride", function(e) {
-          if (!this.settings.keyboard) return;
-
-          switch (e.which) {
-            case 39: // right arrow
-              e.preventDefault();
-              this.go_next();
-              break;
-            case 37: // left arrow
-              e.preventDefault();
-              this.go_prev();
-              break;
-            case 27: // escape
-              e.preventDefault();
-              this.end(this.settings.abort_on_close);
-          }
         }.bind(this));
 
       $(window)
         .off('.joyride')
         .on('resize.fndtn.joyride', self.throttle(function () {
-          if ($('[' + self.attr_name() + ']').length > 0 && self.settings.$next_tip && self.settings.riding) {
+          if ($('[' + self.attr_name() + ']').length > 0 && self.settings.$next_tip) {
             if (self.settings.exposed.length > 0) {
               var $els = $(self.settings.exposed);
 
@@ -171,7 +148,6 @@
       this.settings.$tip_content = this.settings.$content_el.find('> li');
       this.settings.paused = false;
       this.settings.attempts = 0;
-      this.settings.riding = true;
 
       // can we create cookies?
       if (typeof $.cookie !== 'function') {
@@ -884,11 +860,7 @@
         this.un_expose();
       }
 
-      // Unplug keystrokes listener
-      $(this.scope).off('keyup.joyride')
-
       this.settings.$next_tip.data('closed', true);
-      this.settings.riding = false;
 
       $('.joyride-modal-bg').hide();
       this.settings.$current_tip.hide();
