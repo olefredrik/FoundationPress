@@ -4,7 +4,7 @@
   Foundation.libs.slider = {
     name : 'slider',
 
-    version : '5.4.3',
+    version : '5.4.6',
 
     settings: {
       start: 0,
@@ -136,15 +136,15 @@
       }
       $handle.attr('aria-valuenow', value);
 
-      // if (settings.input_id != '') {
-      //   $(settings.display_selector).each(function(){
-      //     if (this.hasOwnProperty('value')) {
-      //       $(this).val(value);
-      //     } else {
-      //       $(this).text(value);
-      //     }
-      //   });
-      // }
+      if (settings.display_selector != '') {
+        $(settings.display_selector).each(function(){
+          if (this.hasOwnProperty('value')) {
+            $(this).val(value);
+          } else {
+            $(this).text(value);
+          }
+        });
+      }
 
     },
 

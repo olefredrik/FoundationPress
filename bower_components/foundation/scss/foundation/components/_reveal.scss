@@ -3,6 +3,7 @@
 // Licensed under MIT Open Source
 
 @import "global";
+@import "grid";
 
 //
 // @name _reveal.scss
@@ -12,21 +13,22 @@
 $include-html-reveal-classes: $include-html-classes !default;
 
 // We use these to control the style of the reveal overlay.
-$reveal-overlay-bg: rgba(#000, .45) !default;
-$reveal-overlay-bg-old: #000 !default;
+$reveal-overlay-bg: rgba($black, .45) !default;
+$reveal-overlay-bg-old: $black !default;
 
 // We use these to control the style of the modal itself.
-$reveal-modal-bg: #fff !default;
+$reveal-modal-bg: $white !default;
 $reveal-position-top: rem-calc(100) !default;
 $reveal-default-width: 80% !default;
+$reveal-max-width: $row-width !default;
 $reveal-modal-padding: rem-calc(20) !default;
-$reveal-box-shadow: 0 0 10px rgba(#000,.4) !default;
+$reveal-box-shadow: 0 0 10px rgba($black,.4) !default;
 
 // We use these to style the reveal close button
 $reveal-close-font-size: rem-calc(40) !default;
 $reveal-close-top: rem-calc(8) !default;
 $reveal-close-side: rem-calc(11) !default;
-$reveal-close-color: #aaa !default;
+$reveal-close-color: $base !default;
 $reveal-close-weight: $font-weight-bold !default;
 
 // We use this to set the default radius used throughout the core.
@@ -36,7 +38,7 @@ $reveal-round: $global-rounded !default;
 // We use these to control the modal border
 $reveal-border-style: solid !default;
 $reveal-border-width: 1px !default;
-$reveal-border-color: #666 !default;
+$reveal-border-color: $steel !default;
 
 $reveal-modal-class: "reveal-modal" !default;
 $close-reveal-modal-class: "close-reveal-modal" !default;
@@ -46,15 +48,16 @@ $close-reveal-modal-class: "close-reveal-modal" !default;
 //
 
 // We use this to create the reveal background overlay styles
-@mixin reveal-bg {
+@mixin reveal-bg( $include-z-index-value: true ) {
   position: fixed;
-  height: 100%;
-  width: 100%;
-  background: $reveal-overlay-bg-old;
-  background: $reveal-overlay-bg;
-  z-index: 1004;
-  display: none;
   top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $reveal-overlay-bg-old; // Autoprefixer should be used to avoid such variables needed when Foundation for Sites can do so in the near future.
+  background: $reveal-overlay-bg;
+  z-index: if( $include-z-index-value, 1004, auto );
+  display: none;
   #{$default-float}: 0;
 }
 
@@ -63,9 +66,7 @@ $close-reveal-modal-class: "close-reveal-modal" !default;
 // $base-style - Provides reveal base styles, can be set to false to override. Default: true, Options: false
 // $width - Sets reveal width Default: $reveal-default-width || 80%
 //
-@mixin reveal-modal-base(
-  $base-style:true,
-  $width:$reveal-default-width) {
+@mixin reveal-modal-base( $base-style: true, $width:$reveal-default-width, $max-width:$reveal-max-width, $border-radius: $reveal-radius) {
   @if $base-style {
     visibility: hidden;
     display: none;
@@ -73,34 +74,36 @@ $close-reveal-modal-class: "close-reveal-modal" !default;
     z-index: 1005;
     width: 100vw;
     top:0;
+    border-radius: $border-radius;
     #{$default-float}: 0;
+
     @media #{$small-only} {
       min-height:100vh;
     }
-    @media #{$medium-up} {
-      #{$default-float}: 50%;
-    }
 
     // Make sure rows don't have a min-width on them
-    .column,
-    .columns { min-width: 0; }
+    .column, .columns { min-width: 0; }
 
     // Get rid of margin from first and last element inside modal
     & > :first-child { margin-top: 0; }
+
     & > :last-child { margin-bottom: 0; }
   }
 
   @if $width {
     @media #{$medium-up} {
-      margin-#{$default-float}: -($width / 2);
       width: $width;
+      max-width: $max-width;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
     }
   }
 }
 
 // We use this to style the reveal modal defaults
 //
-// $bg - Sets background color of reveal modal. Default: $reveal-modal-bg || #fff
+// $bg - Sets background color of reveal modal. Default: $reveal-modal-bg || $white
 // $padding - Padding to apply to reveal modal. Default: $reveal-modal-padding.
 // $border - Choose whether reveal uses a border. Default: true, Options: false
 // $border-style - Set reveal border style. Default: $reveal-border-style || solid
@@ -143,7 +146,7 @@ $close-reveal-modal-class: "close-reveal-modal" !default;
 
 // We use this to create a close button for the reveal modal
 //
-// $color - Default: $reveal-close-color || #aaa
+// $color - Default: $reveal-close-color || $base
 @mixin reveal-close($color:$reveal-close-color) {
   font-size: $reveal-close-font-size;
   line-height: 1;
@@ -161,7 +164,7 @@ $close-reveal-modal-class: "close-reveal-modal" !default;
     // Reveal Modals
     .reveal-modal-bg { @include reveal-bg; }
 
-    dialog, .#{$reveal-modal-class} {
+    .#{$reveal-modal-class} {
       @include reveal-modal-base;
       @include reveal-modal-style(
         $bg:$reveal-modal-bg,
@@ -169,32 +172,18 @@ $close-reveal-modal-class: "close-reveal-modal" !default;
         $border:true,
         $box-shadow:true,
         $radius:false,
-        $top-offset:$reveal-position-top);
-
-      .#{$close-reveal-modal-class} { @include reveal-close; }
-    }
-
-    dialog[open] {
-      display:block;
-      visibility: visible;
-    }
-
-    dialog, .#{$reveal-modal-class} {
+        $top-offset:$reveal-position-top
+      );
       @include reveal-modal-style($padding:$reveal-modal-padding * 1.5);
 
       &.radius { @include reveal-modal-style($radius:true); }
       &.round  { @include reveal-modal-style($radius:$reveal-round); }
-      
       &.collapse { @include reveal-modal-style($padding:0); }
-
       &.tiny  { @include reveal-modal-base(false, 30%); }
       &.small { @include reveal-modal-base(false, 40%); }
       &.medium  { @include reveal-modal-base(false, 60%); }
       &.large { @include reveal-modal-base(false, 70%); }
       &.xlarge { @include reveal-modal-base(false, 95%); }
-    }
-
-    dialog, .#{$reveal-modal-class} {
       &.full {
         @include reveal-modal-base(false, 100vw);
         top:0;
@@ -204,11 +193,29 @@ $close-reveal-modal-class: "close-reveal-modal" !default;
         min-height:100vh;
         margin-left: 0 !important;
       }
+
+      .#{$close-reveal-modal-class} { @include reveal-close; }
     }
 
-    // Reveal Print Styles
+    dialog {
+      @extend .#{$reveal-modal-class};
+      display: none;
+
+      &::backdrop, & + .backdrop {
+        @include reveal-bg(false);
+      }
+
+      &[open]{
+        display: block;
+      }
+    }
+
+    // Reveal Print Styles: It should be invisible, adds no value being printed.
     @media print {
-      dialog, .#{$reveal-modal-class} {background: #fff !important;}
+      dialog, .#{$reveal-modal-class} { 
+        display: none;
+        background: $white !important;
+      }
     }
   }
 }

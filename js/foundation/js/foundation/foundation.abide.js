@@ -4,7 +4,7 @@
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.4.3',
+    version : '5.4.6',
 
     settings : {
       live_validate : true,
@@ -228,8 +228,8 @@
             }
             $(el).triggerHandler('invalid');
           }
-          validations.push(el_validations[0]);
         }
+        validations.push(el_validations[0]);
       }
       validations = [validations.every(function(valid){return valid;})];
       return validations;
