@@ -1,6 +1,6 @@
 {
   "name": "foundationpress-libsass-template",
-  "version": "5.4.5",
+  "version": "5.4.6",
   "devDependencies": {
     "node-sass": "~0.7.0",
     "grunt": "~0.4.1",
