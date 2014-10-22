@@ -71,7 +71,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', ['sass']);
-  grunt.registerTask('default', ['copy', 'uglify', 'concat', 'watch']);
-
+  grunt.registerTask('build', ['sass', 'copy', 'uglify', 'concat']);
+  grunt.registerTask('default', ['watch']);
 }

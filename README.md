@@ -30,7 +30,7 @@ cd my-wordpress-folder/wp-content/themes/
 git clone git@github.com:olefredrik/FoundationPress.git
 mv FoundationPress your-theme-name
 cd your-theme-name
-npm install && bower install
+npm install && bower install && grunt build
 ```
 
 Tip: If you get an error saying Permission denied (publickey) when cloning the repository, use the https protocol instead:
