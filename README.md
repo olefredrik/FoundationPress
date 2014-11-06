@@ -86,7 +86,7 @@ Check for Foundation Updates? Run:
 * [Bristol Doors Open Day 2014](http://www.bristoldoorsopenday.org/)
 * [Franchise Career Advisors](http://franchisecareeradvisors.com)
 * [Le saint](http://www.lesaint.ca)
-
+* [Help blog](http://help.com/blog/)
 
 ## Contributing
 #### Here are ways to get involved:
