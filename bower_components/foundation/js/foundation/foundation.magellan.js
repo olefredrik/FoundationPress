@@ -4,7 +4,7 @@
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
-    version : '5.4.6',
+    version : '5.4.7',
 
     settings : {
       active_class: 'active',
