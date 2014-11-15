@@ -14,7 +14,7 @@ Back in the days we wrote all styles in the style.css file. Then we realized tha
 
 To compile SASS files into one style sheet, we use a tool called Grunt. In short, Grunt is a task runner that automates repetitive tasks like minification, compilation, linting, etc. Grunt and Grunt plugins are installed and managed via npm, the Node.js package manager. Before setting up Grunt ensure that your npm is up-to-date by running ```npm update -g npm``` (this might require ```sudo``` on certain systems)
 
-Bower is a package manager used by Zurb to distribute Foundation. When you have Bower installed, you will be able to run ```foundation update``` in the terminal to update Foundation to the latest version. (After an upgrade you must run ```grunt``` to recompile files).
+Bower is a package manager used by Zurb to distribute Foundation. When you have Bower installed, you will be able to run ```foundation update``` in the terminal to update Foundation to the latest version. (After an upgrade you must run ```grunt build``` to recompile files).
 
 
 **Okay, so you'll need to have the following items installed before continuing.**
@@ -87,6 +87,7 @@ Check for Foundation Updates? Run:
 * [Franchise Career Advisors](http://franchisecareeradvisors.com)
 * [Le saint](http://www.lesaint.ca)
 * [Help blog](http://help.com/blog/)
+* [Maren Schmidt](http://marenschmidt.com)
 
 ## Contributing
 #### Here are ways to get involved:
