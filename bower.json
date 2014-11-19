@@ -1,6 +1,6 @@
 {
-  "name": "foundation-libsass-template",
+  "name": "foundation-press",
   "dependencies": {
-    "foundation": "zurb/bower-foundation"
+    "foundation": "5.4.7"
   }
 }
