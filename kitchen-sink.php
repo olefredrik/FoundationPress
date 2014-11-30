@@ -711,14 +711,14 @@ get_header(); ?>
 			<h5 id="screen-size-visibility-control-hide-">Screen Size Visibility Control (Hide)</h5>
 			<p>The following text should describe the screen size you aren&#39;t using:</p>
 			<p class="panel">
-				<strong class="hide-for-small">You are <em>not</em> on a small screen.</strong>
-				<strong class="hide-for-medium">You are <em>not</em> on a medium screen.</strong>
-				<strong class="hide-for-medium-up">You are <em>not</em> on a medium, large or xlarge screen.</strong>
-				<strong class="hide-for-medium-down">You are <em>not</em> on a medium or small screen.</strong>
-				<strong class="hide-for-large">You are <em>not</em> on a large screen.</strong>
-				<strong class="hide-for-large-up">You are <em>not</em> on a large or xlarge screen.</strong>
-				<strong class="hide-for-large-down">You are <em>not</em> on a large, medium or small screen.</strong>
-				<strong class="hide-for-xlarge">You are <em>not</em> on a xlarge screen.</strong>
+				<strong class="hide-for-small-only">You are <em>not</em> on a small screen.</strong>
+				<strong class="hide-for-medium-up">You are <em>not</em> on a medium, large, xlarge, or xxlarge screen.</strong>
+				<strong class="hide-for-medium-only">You are <em>not</em> on a medium screen.</strong>
+				<strong class="hide-for-large-up">You are <em>not</em> on a large, xlarge, or xxlarge screen.</strong>
+				<strong class="hide-for-large-only">You are <em>not</em> on a large screen.</strong>
+				<strong class="hide-for-xlarge-up">You are <em>not</em> on an xlarge screen and up.</strong>
+				<strong class="hide-for-xlarge-only">You are <em>not</em> on an xlarge screen.</strong>
+				<strong class="hide-for-xxlarge-up">You are <em>not</em> on an xxlarge screen.</strong>
 			</p>
 
 			<h5 id="orientation-detection">Orientation Detection</h5>
