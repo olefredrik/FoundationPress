@@ -67,6 +67,7 @@ $input-error-message-font-size: rem-calc(12) !default;
 $input-error-message-font-weight: $font-weight-normal !default;
 $input-error-message-font-style: italic !default;
 $input-error-message-font-color: $white !default;
+$input-error-message-bg-color: $alert-color !default;
 $input-error-message-font-color-alt: $oil !default;
 
 // We use this to style the glowing effect of inputs when focused
@@ -86,7 +87,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
   .row { margin: 0 ((-$form-spacing) / 2);
 
     .column,
-    .columns { padding: 0 $form-spacing / 2; }
+    .columns { padding: 0 ($form-spacing / 2); }
 
     // Use this to collapse the margins of a form row
     &.collapse { margin: 0;
@@ -102,7 +103,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
   input.column,
   input.columns,
   textarea.column,
-  textarea.columns { padding-#{$default-float}: $form-spacing / 2; }
+  textarea.columns { padding-#{$default-float}: ($form-spacing / 2); }
 }
 
 // @MIXIN
@@ -224,7 +225,6 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
     padding-top: 0;
     padding-bottom: 0;
     text-align: center;
-    line-height: rem-calc(34);
     border: none;
   }
 
@@ -257,7 +257,6 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
     padding-top: 0;
     padding-bottom: 0;
     text-align: center;
-    line-height: rem-calc(34);
     border: none;
   }
 
@@ -304,7 +303,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
 //
 // We use this mixin to create error message styles
 // $bg - Default: $alert-color (Found in settings file)
-@mixin form-error-message($bg:$alert-color) {
+@mixin form-error-message($bg:$input-error-message-bg-color) {
   display: block;
   padding: $input-error-message-padding;
   margin-top: $input-error-message-top;
@@ -323,7 +322,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
 // We use this mixin to style select elements
 @mixin form-select  {
   -webkit-appearance: none !important;
-  -webkit-border-radius: 0px;
+  border-radius: 0;
   background-color: $select-bg-color;
 
   // Hide the dropdown arrow shown in newer IE versions
@@ -331,7 +330,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
     display: none;
   }
 
-  // The custom arrow have some fake horizontal padding so we can align it
+  // The custom arrow has some fake horizontal padding so we can align it
   // from the right side of the element without relying on CSS3
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+);
 
@@ -344,7 +343,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
     width: $input-border-width;
     color: $input-border-color;
   }
-  padding: $form-spacing / 2;
+  padding: ($form-spacing / 2);
   font-size: $input-font-size;
   font-family: $body-font-family;
   color: $input-font-color;
@@ -411,23 +410,9 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
     span.postfix,label.postfix { @include postfix(); }
 
     /* We use this to get basic styling on all basic form elements */
-    input[type="text"],
-    input[type="password"],
-    input[type="date"],
-    input[type="datetime"],
-    input[type="datetime-local"],
-    input[type="month"],
-    input[type="week"],
-    input[type="email"],
-    input[type="number"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="time"],
-    input[type="url"],
-    input[type="color"],
-    textarea {
+    #{text-inputs(all, 'input')} {
       -webkit-appearance: none;
-      -webkit-border-radius: 0px;
+      border-radius: 0;
       @include form-element;
       @if $input-include-glowing-effect == false {
           @include single-transition(all, 0.15s, linear);
@@ -468,7 +453,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
 
     input[type="submit"] {
       -webkit-appearance: none;
-      -webkit-border-radius: 0px;
+      border-radius: 0;
     }
 
     /* Respect enforced amount of rows for textarea */

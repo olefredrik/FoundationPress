@@ -26,8 +26,8 @@ $reveal-box-shadow: 0 0 10px rgba($black,.4) !default;
 
 // We use these to style the reveal close button
 $reveal-close-font-size: rem-calc(40) !default;
-$reveal-close-top: rem-calc(8) !default;
-$reveal-close-side: rem-calc(11) !default;
+$reveal-close-top: rem-calc(10) !default;
+$reveal-close-side: rem-calc(22) !default;
 $reveal-close-color: $base !default;
 $reveal-close-weight: $font-weight-bold !default;
 
@@ -49,7 +49,8 @@ $close-reveal-modal-class: "close-reveal-modal" !default;
 
 // We use this to create the reveal background overlay styles
 @mixin reveal-bg( $include-z-index-value: true ) {
-  position: fixed;
+  //position: fixed;
+  position: absolute; // allows modal background to extend beyond window position
   top: 0;
   bottom: 0;
   left: 0;
