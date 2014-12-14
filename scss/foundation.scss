@@ -9,6 +9,9 @@
   Reducing the number of imported components will optimize page speed.
 */
 
+@import "config/settings"; // Default settings file. Uncomment each setting you need to change
+@import "assets/icons"; // Load Foundation icon fonts
+
 @import "../bower_components/foundation/scss/foundation/components/grid";
 @import "../bower_components/foundation/scss/foundation/components/accordion";
 @import "../bower_components/foundation/scss/foundation/components/alert-boxes";
@@ -46,15 +49,6 @@
 @import "../bower_components/foundation/scss/foundation/components/type";
 @import "../bower_components/foundation/scss/foundation/components/offcanvas";
 @import "../bower_components/foundation/scss/foundation/components/visibility";
-
-
-/*  
-  Foundation icons and settings
-*/
-
-@import "assets/icons"; // Load Foundation icon fonts
-@import "config/settings"; // Default settings file. Uncomment each setting you need to change
-
 
 
 /* 
