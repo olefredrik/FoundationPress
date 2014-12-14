@@ -4,71 +4,77 @@ module.exports = function(grunt) {
 
     sass: {
       options: {
-        includePaths: ['bower_components/foundation/scss']
+        // If you can't get source maps to work, run the following command in your terminal:
+        // $ sass scss/foundation.scss:css/foundation.css --sourcemap
+        // (see this link for details: http://thesassway.com/intermediate/using-source-maps-with-sass )
+        sourceMap: true
       },
+
       dist: {
         options: {
           outputStyle: 'compressed'
         },
         files: {
-          'css/app.css': 'scss/app.scss'
-        }        
+          'css/foundation.css': 'scss/foundation.scss'
+        }
       }
     },
 
     copy: {
       scripts: {
         expand: true,
-        cwd: 'bower_components/',
-        src: '**/*.js',
-        dest: 'js'
+        cwd: 'bower_components/foundation/js/vendor/',
+        src: '**',
+        flatten: 'true',
+        dest: 'js/vendor/'
       },
 
-      maps: {
-        expand: true,
-        cwd: 'bower_components/',
-        src: '**/*.map',
-        dest: 'js'
-      }
     },
+
+    concat: {
+        options: {
+          separator: ';',
+        },
+        dist: {
+          src: [
+
+          // Foundation core
+          'bower_components/foundation/js/foundation/foundation.js',
+          
+          // Pick the componenets you need in your project
+          'bower_components/foundation/js/foundation/foundation.abide.js',
+          'bower_components/foundation/js/foundation/foundation.accordion.js',
+          'bower_components/foundation/js/foundation/foundation.alert.js',
+          'bower_components/foundation/js/foundation/foundation.clearing.js',
+          'bower_components/foundation/js/foundation/foundation.dropdown.js',
+          'bower_components/foundation/js/foundation/foundation.equalizer.js',
+          'bower_components/foundation/js/foundation/foundation.interchange.js',
+          'bower_components/foundation/js/foundation/foundation.joyride.js',
+          'bower_components/foundation/js/foundation/foundation.magellan.js',
+          'bower_components/foundation/js/foundation/foundation.offcanvas.js',
+          'bower_components/foundation/js/foundation/foundation.orbit.js',
+          'bower_components/foundation/js/foundation/foundation.reveal.js',
+          'bower_components/foundation/js/foundation/foundation.slider.js',
+          'bower_components/foundation/js/foundation/foundation.tab.js',
+          'bower_components/foundation/js/foundation/foundation.tooltip.js',
+          'bower_components/foundation/js/foundation/foundation.topbar.js',
+          
+          // Using all of your custom js files
+          'js/custom/*.js'
+          
+          ],
+          // Concat all the files above into one single file
+          dest: 'js/foundation.js',
+        },
+      },
 
     uglify: {
       dist: {
         files: {
-          'js/modernizr/modernizr.min.js': ['js/modernizr/modernizr.js']
+          // Shrink the file size by removing spaces
+          'js/foundation.js': ['js/foundation.js']
         }
       }
-    },
-
-    concat: {
-      options: {
-        separator: ';'
-      },
-      dist: {
-        src: [
-          '../bower_components/foundation/js/foundation/foundation.abide.js',
-          '../bower_components/foundation/js/foundation/foundation.accordion.js',
-          '../bower_components/foundation/js/foundation/foundation.alert.js',
-          '../bower_components/foundation/js/foundation/foundation.clearing.js',
-          '../bower_components/foundation/js/foundation/foundation.dropdown.js',
-          '../bower_components/foundation/js/foundation/foundation.equalizer.js',
-          '../bower_components/foundation/js/foundation/foundation.interchange.js',
-          '../bower_components/foundation/js/foundation/foundation.joyride.js',
-          '../bower_components/foundation/js/foundation/foundation.js',
-          '../bower_components/foundation/js/foundation/foundation.magellan.js',
-          '../bower_components/foundation/js/foundation/foundation.offcanvas.js',
-          '../bower_components/foundation/js/foundation/foundation.orbit.js',
-          '../bower_components/foundation/js/foundation/foundation.reveal.js',
-          '../bower_components/foundation/js/foundation/foundation.slider.js',
-          '../bower_components/foundation/js/foundation/foundation.tab.js',
-          '../bower_components/foundation/js/foundation/foundation.tooltip.js',
-          '../bower_components/foundation/js/foundation/foundation.topbar.js',
-          'js/custom/*.js' // including all scripts located in the custom js folder
-        ],
-
-        dest: 'js/foundation.js'
-      }
-
     },
 
     watch: {
@@ -87,6 +93,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', ['sass', 'copy', 'uglify', 'concat']);
+  grunt.registerTask('build', ['sass', 'copy', 'concat', 'uglify']);
   grunt.registerTask('default', ['watch']);
-}
+};

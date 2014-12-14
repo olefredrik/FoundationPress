@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+@import "normalize";
+
 /*  
   ZURB Foundation components:
   Import the building blocks you need for your project. 
@@ -57,8 +60,4 @@
   My custom styles
 */ 
 
-@import "site/header"; // My custom styles for header
-@import "site/sidebars"; // My custom styles for sidebars
-@import "site/content"; // My custom styles for content
-
-// ... you get the point, right?
+@import "site/base"; 
