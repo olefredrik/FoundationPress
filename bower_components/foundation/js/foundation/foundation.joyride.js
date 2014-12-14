@@ -6,7 +6,7 @@
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     defaults : {
       expose                   : false,     // turn on or off the expose feature
@@ -111,7 +111,7 @@
           this.end(this.settings.abort_on_close);
         }.bind(this))
 
-        .on("keyup.fndtn.joyride", function(e) {
+        .on('keyup.fndtn.joyride', function(e) {
           // Don't do anything if keystrokes are disabled
           // or if the joyride is not being shown
           if (!this.settings.keyboard || !this.settings.riding) return;
@@ -319,8 +319,14 @@
 
           this.settings.tip_settings.tip_location_pattern = this.settings.tip_location_patterns[this.settings.tip_settings.tip_location];
 
-          // scroll if not modal
+          // scroll and hide bg if not modal
           if (!/body/i.test(this.settings.$target.selector)) {
+            var joyridemodalbg = $('.joyride-modal-bg');
+            if (/pop/i.test(this.settings.tipAnimation)) {
+                joyridemodalbg.hide();
+            } else {
+                joyridemodalbg.fadeOut(this.settings.tipAnimationFadeSpeed);
+            }
             this.scroll_to();
           }
 
@@ -434,7 +440,7 @@
     },
 
     set_next_tip : function () {
-      this.settings.$next_tip = $(".joyride-tip-guide").eq(this.settings.$li.index());
+      this.settings.$next_tip = $('.joyride-tip-guide').eq(this.settings.$li.index());
       this.settings.$next_tip.data('closed', '');
     },
 
@@ -490,8 +496,8 @@
       }
 
       if (!/body/i.test(this.settings.$target.selector)) {
-      	  var topAdjustment = this.settings.tip_settings.tipAdjustmentY ? parseInt(this.settings.tip_settings.tipAdjustmentY) : 0,
-			        leftAdjustment = this.settings.tip_settings.tipAdjustmentX ? parseInt(this.settings.tip_settings.tipAdjustmentX) : 0;
+          var topAdjustment = this.settings.tip_settings.tipAdjustmentY ? parseInt(this.settings.tip_settings.tipAdjustmentY) : 0,
+              leftAdjustment = this.settings.tip_settings.tipAdjustmentX ? parseInt(this.settings.tip_settings.tipAdjustmentX) : 0;
 
           if (this.bottom()) {
             if (this.rtl) {
@@ -618,7 +624,8 @@
       if (!this.settings.$next_tip.data('closed')) {
         var joyridemodalbg =  $('.joyride-modal-bg');
         if (joyridemodalbg.length < 1) {
-          $('body').append(this.settings.template.modal).show();
+          var joyridemodalbg = $(this.settings.template.modal);
+          joyridemodalbg.appendTo('body');
         }
 
         if (/pop/i.test(this.settings.tip_animation)) {

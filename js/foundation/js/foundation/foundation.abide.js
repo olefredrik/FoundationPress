@@ -4,10 +4,11 @@
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     settings : {
       live_validate : true,
+      validate_on_blur: true,
       focus_on_invalid : true,
       error_labels: true, // labels with a for="inputId" will recieve an `error` class
       error_class: 'error',
@@ -27,7 +28,7 @@
 
         url: /^(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
         // abc.de
-        domain: /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/,
+        domain: /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,8}$/,
 
         datetime: /^([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])T([0-5][0-9])\:([0-5][0-9])\:([0-5][0-9])(Z|([\-\+]([0-1][0-9])\:00))$/,
         // YYYY-MM-DD
@@ -79,10 +80,12 @@
         .find('input, textarea, select')
           .off('.abide')
           .on('blur.fndtn.abide change.fndtn.abide', function (e) {
-            self.validate([this], e);
+            if (settings.validate_on_blur === true) {
+              self.validate([this], e);
+            }
           })
           .on('keydown.fndtn.abide', function (e) {
-            if (settings.live_validate === true) {
+            if (settings.live_validate === true && e.which != 9) {
               clearTimeout(self.timer);
               self.timer = setTimeout(function () {
                 self.validate([this], e);
@@ -107,14 +110,14 @@
       for (var i=0; i < validation_count; i++) {
         if (!validations[i] && (submit_event || is_ajax)) {
           if (this.settings.focus_on_invalid) els[i].focus();
-          form.trigger('invalid');
+          form.trigger('invalid').trigger('invalid.fndtn.abide');
           this.S(els[i]).closest('form').attr(this.invalid_attr, '');
           return false;
         }
       }
 
       if (submit_event || is_ajax) {
-        form.trigger('valid');
+        form.trigger('valid').trigger('valid.fndtn.abide');
       }
 
       form.removeAttr(this.invalid_attr);
@@ -156,6 +159,7 @@
       return [el, pattern, required];
     },
 
+    // TODO: Break this up into smaller methods, getting hard to read.
     check_validation_and_apply_styles : function (el_patterns) {
       var i = el_patterns.length,
           validations = [],

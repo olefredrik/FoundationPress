@@ -22,9 +22,13 @@
 
   header_helpers([
     'foundation-mq-small',
+    'foundation-mq-small-only',
     'foundation-mq-medium',
+    'foundation-mq-medium-only',
     'foundation-mq-large',
+    'foundation-mq-large-only',
     'foundation-mq-xlarge',
+    'foundation-mq-xlarge-only',
     'foundation-mq-xxlarge',
     'foundation-data-attribute-namespace']);
 
@@ -98,7 +102,6 @@
     var self = this,
         should_bind_events = !S(this).data(this.attr_name(true));
 
-
     if (S(this.scope).is('[' + this.attr_name() +']')) {
       S(this.scope).data(this.attr_name(true) + '-init', $.extend({}, this.settings, (options || method), this.data_options(S(this.scope))));
 
@@ -158,23 +161,23 @@
 
   window.matchMedia = window.matchMedia || (function( doc ) {
 
-    "use strict";
+    'use strict';
 
     var bool,
         docElem = doc.documentElement,
         refNode = docElem.firstElementChild || docElem.firstChild,
         // fakeBody required for <FF4 when executed in <head>
-        fakeBody = doc.createElement( "body" ),
-        div = doc.createElement( "div" );
+        fakeBody = doc.createElement( 'body' ),
+        div = doc.createElement( 'div' );
 
-    div.id = "mq-test-1";
-    div.style.cssText = "position:absolute;top:-100em";
-    fakeBody.style.background = "none";
+    div.id = 'mq-test-1';
+    div.style.cssText = 'position:absolute;top:-100em';
+    fakeBody.style.background = 'none';
     fakeBody.appendChild(div);
 
     return function (q) {
 
-      div.innerHTML = "&shy;<style media=\"" + q + "\"> #mq-test-1 { width: 42px; }</style>";
+      div.innerHTML = '&shy;<style media="' + q + '"> #mq-test-1 { width: 42px; }</style>';
 
       docElem.insertBefore( fakeBody, refNode );
       bool = div.offsetWidth === 42;
@@ -213,10 +216,10 @@
       jqueryFxAvailable = 'undefined' !== typeof jQuery.fx;
 
   for (; lastTime < vendors.length && !requestAnimationFrame; lastTime++) {
-    requestAnimationFrame = window[ vendors[lastTime] + "RequestAnimationFrame" ];
+    requestAnimationFrame = window[ vendors[lastTime] + 'RequestAnimationFrame' ];
     cancelAnimationFrame = cancelAnimationFrame ||
-      window[ vendors[lastTime] + "CancelAnimationFrame" ] ||
-      window[ vendors[lastTime] + "CancelRequestAnimationFrame" ];
+      window[ vendors[lastTime] + 'CancelAnimationFrame' ] ||
+      window[ vendors[lastTime] + 'CancelRequestAnimationFrame' ];
   }
 
   function raf() {
@@ -278,14 +281,18 @@
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     media_queries : {
-      small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-      medium : S('.foundation-mq-medium').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-      large : S('.foundation-mq-large').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-      xlarge: S('.foundation-mq-xlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-      xxlarge: S('.foundation-mq-xxlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, '')
+      'small'       : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'small-only'  : S('.foundation-mq-small-only').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'medium'      : S('.foundation-mq-medium').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'medium-only' : S('.foundation-mq-medium-only').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'large'       : S('.foundation-mq-large').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'large-only'  : S('.foundation-mq-large-only').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'xlarge'      : S('.foundation-mq-xlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'xlarge-only' : S('.foundation-mq-xlarge-only').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'xxlarge'     : S('.foundation-mq-xxlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, '')
     },
 
     stylesheet : $('<style></style>').appendTo('head')[0].sheet,
@@ -337,15 +344,15 @@
 
         if (args && args.hasOwnProperty(lib)) {
             if (typeof this.libs[lib].settings !== 'undefined') {
-                $.extend(true, this.libs[lib].settings, args[lib]);
+              $.extend(true, this.libs[lib].settings, args[lib]);
             }
             else if (typeof this.libs[lib].defaults !== 'undefined') {
-                $.extend(true, this.libs[lib].defaults, args[lib]);
+              $.extend(true, this.libs[lib].defaults, args[lib]);
             }
           return this.libs[lib].init.apply(this.libs[lib], [this.scope, args[lib]]);
         }
 
-        args = args instanceof Array ? args : new Array(args);    // PATCH: added this line
+        args = args instanceof Array ? args : new Array(args);
         return this.libs[lib].init.apply(this.libs[lib], args);
       }
 
@@ -504,7 +511,7 @@
         ii = opts_arr.length;
 
         function isNumber (o) {
-          return ! isNaN (o-0) && o !== null && o !== "" && o !== false && o !== true;
+          return ! isNaN (o-0) && o !== null && o !== '' && o !== false && o !== true;
         }
 
         function trim (str) {
@@ -609,6 +616,64 @@
         this.prefix = this.prefix || [(this.name || 'F'), (+new Date).toString(36)].join('-');
 
         return this.prefix + (this.fidx++).toString(36);
+      },
+
+      // Description:
+      //    Helper for window.matchMedia
+      //
+      // Arguments:
+      //    mq (String): Media query
+      //
+      // Returns:
+      //    (Boolean): Whether the media query passes or not
+      match : function (mq) {
+        return window.matchMedia(mq).matches;
+      },
+
+      // Description:
+      //    Helpers for checking Foundation default media queries with JS
+      //
+      // Returns:
+      //    (Boolean): Whether the media query passes or not
+
+      is_small_up : function () {
+        return this.match(Foundation.media_queries.small);
+      },
+
+      is_medium_up : function () {
+        return this.match(Foundation.media_queries.medium);
+      },
+
+      is_large_up : function () {
+        return this.match(Foundation.media_queries.large);
+      },
+
+      is_xlarge_up : function () {
+        return this.match(Foundation.media_queries.xlarge);
+      },
+
+      is_xxlarge_up : function () {
+        return this.match(Foundation.media_queries.xxlarge);
+      },
+
+      is_small_only : function () {
+        return !this.is_medium_up() && !this.is_large_up() && !this.is_xlarge_up() && !this.is_xxlarge_up();
+      },
+
+      is_medium_only : function () {
+        return this.is_medium_up() && !this.is_large_up() && !this.is_xlarge_up() && !this.is_xxlarge_up();
+      },
+
+      is_large_only : function () {
+        return this.is_medium_up() && this.is_large_up() && !this.is_xlarge_up() && !this.is_xxlarge_up();
+      },
+
+      is_xlarge_only : function () {
+        return this.is_medium_up() && this.is_large_up() && this.is_xlarge_up() && !this.is_xxlarge_up();
+      },
+
+      is_xxlarge_only : function () {
+        return this.is_medium_up() && this.is_large_up() && this.is_xlarge_up() && this.is_xxlarge_up();
       }
     }
   };
@@ -630,10 +695,11 @@
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     settings : {
       live_validate : true,
+      validate_on_blur: true,
       focus_on_invalid : true,
       error_labels: true, // labels with a for="inputId" will recieve an `error` class
       error_class: 'error',
@@ -653,7 +719,7 @@
 
         url: /^(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
         // abc.de
-        domain: /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/,
+        domain: /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,8}$/,
 
         datetime: /^([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])T([0-5][0-9])\:([0-5][0-9])\:([0-5][0-9])(Z|([\-\+]([0-1][0-9])\:00))$/,
         // YYYY-MM-DD
@@ -705,10 +771,12 @@
         .find('input, textarea, select')
           .off('.abide')
           .on('blur.fndtn.abide change.fndtn.abide', function (e) {
-            self.validate([this], e);
+            if (settings.validate_on_blur === true) {
+              self.validate([this], e);
+            }
           })
           .on('keydown.fndtn.abide', function (e) {
-            if (settings.live_validate === true) {
+            if (settings.live_validate === true && e.which != 9) {
               clearTimeout(self.timer);
               self.timer = setTimeout(function () {
                 self.validate([this], e);
@@ -733,14 +801,14 @@
       for (var i=0; i < validation_count; i++) {
         if (!validations[i] && (submit_event || is_ajax)) {
           if (this.settings.focus_on_invalid) els[i].focus();
-          form.trigger('invalid');
+          form.trigger('invalid').trigger('invalid.fndtn.abide');
           this.S(els[i]).closest('form').attr(this.invalid_attr, '');
           return false;
         }
       }
 
       if (submit_event || is_ajax) {
-        form.trigger('valid');
+        form.trigger('valid').trigger('valid.fndtn.abide');
       }
 
       form.removeAttr(this.invalid_attr);
@@ -782,6 +850,7 @@
       return [el, pattern, required];
     },
 
+    // TODO: Break this up into smaller methods, getting hard to read.
     check_validation_and_apply_styles : function (el_patterns) {
       var i = el_patterns.length,
           validations = [],
@@ -945,7 +1014,7 @@
   Foundation.libs.accordion = {
     name : 'accordion',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     settings : {
       content_class: 'content',
@@ -964,23 +1033,24 @@
       var S = this.S;
       S(this.scope)
       .off('.fndtn.accordion')
-      .on('click.fndtn.accordion', '[' + this.attr_name() + '] > dd > a', function (e) {
+      .on('click.fndtn.accordion', '[' + this.attr_name() + '] > .accordion-navigation > a', function (e) {
         var accordion = S(this).closest('[' + self.attr_name() + ']'),
             groupSelector = self.attr_name() + '=' + accordion.attr(self.attr_name()),
-            settings = accordion.data(self.attr_name(true) + '-init'),
+            settings = accordion.data(self.attr_name(true) + '-init') || self.settings,
             target = S('#' + this.href.split('#')[1]),
-            aunts = $('> dd', accordion),
+            aunts = $('> .accordion-navigation', accordion),
             siblings = aunts.children('.'+settings.content_class),
             active_content = siblings.filter('.' + settings.active_class);
+
         e.preventDefault();
 
         if (accordion.attr(self.attr_name())) {
-          siblings = siblings.add('[' + groupSelector + '] dd > .'+settings.content_class);
-          aunts = aunts.add('[' + groupSelector + '] dd');
+          siblings = siblings.add('[' + groupSelector + '] dd > '+'.'+settings.content_class);
+          aunts = aunts.add('[' + groupSelector + '] .accordion-navigation');
         }
 
         if (settings.toggleable && target.is(active_content)) {
-          target.parent('dd').toggleClass(settings.active_class, false);
+          target.parent('.accordion-navigation').toggleClass(settings.active_class, false);
           target.toggleClass(settings.active_class, false);
           settings.callback(target);
           target.triggerHandler('toggled', [accordion]);
@@ -1012,7 +1082,7 @@
   Foundation.libs.alert = {
     name : 'alert',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     settings : {
       callback: function (){}
@@ -1027,12 +1097,12 @@
           S = this.S;
 
       $(this.scope).off('.alert').on('click.fndtn.alert', '[' + this.attr_name() + '] .close', function (e) {
-          var alertBox = S(this).closest('[' + self.attr_name() + ']'),
-              settings = alertBox.data(self.attr_name(true) + '-init') || self.settings;
+        var alertBox = S(this).closest('[' + self.attr_name() + ']'),
+            settings = alertBox.data(self.attr_name(true) + '-init') || self.settings;
 
         e.preventDefault();
         if (Modernizr.csstransitions) {
-          alertBox.addClass("alert-close");
+          alertBox.addClass('alert-close');
           alertBox.on('transitionend webkitTransitionEnd oTransitionEnd', function(e) {
             S(this).trigger('close').trigger('close.fndtn.alert').remove();
             settings.callback();
@@ -1056,7 +1126,7 @@
   Foundation.libs.clearing = {
     name : 'clearing',
 
-    version: '5.4.7',
+    version: '5.5.0',
 
     settings : {
       templates : {
@@ -1441,10 +1511,10 @@
     load : function ($image) {
       var href;
 
-      if ($image[0].nodeName === "A") {
+      if ($image[0].nodeName === 'A') {
         href = $image.attr('href');
       } else {
-        href = $image.parent().attr('href');
+        href = $image.closest('a').attr('href');
       }
 
       this.preload($image);
@@ -1615,7 +1685,7 @@
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     settings : {
       active_class: 'open',
@@ -1623,6 +1693,7 @@
       mega_class: 'mega',
       align: 'bottom',
       is_hover: false,
+      hover_timeout: 150,
       opened: function(){},
       closed: function(){}
     },
@@ -1630,6 +1701,7 @@
     init : function (scope, method, options) {
       Foundation.inherit(this, 'throttle');
 
+      $.extend(true, this.settings, method, options);
       this.bindings(method, options);
     },
 
@@ -1643,6 +1715,9 @@
           var settings = S(this).data(self.attr_name(true) + '-init') || self.settings;
           if (!settings.is_hover || Modernizr.touch) {
             e.preventDefault();
+            if (S(this).parent('[data-reveal-id]')) {
+              e.stopPropagation();
+            }
             self.toggle($(this));
           }
         })
@@ -1658,12 +1733,12 @@
             target = $this;
           } else {
             dropdown = $this;
-            target = S("[" + self.attr_name() + "='" + dropdown.attr('id') + "']");
+            target = S('[' + self.attr_name() + '="' + dropdown.attr('id') + '"]');
           }
 
           var settings = target.data(self.attr_name(true) + '-init') || self.settings;
 
-          if(S(e.target).data(self.data_attr()) && settings.is_hover) {
+          if(S(e.currentTarget).data(self.data_attr()) && settings.is_hover) {
             self.closeall.call(self);
           }
 
@@ -1671,23 +1746,36 @@
         })
         .on('mouseleave.fndtn.dropdown', '[' + this.attr_name() + '], [' + this.attr_name() + '-content]', function (e) {
           var $this = S(this);
-          self.timeout = setTimeout(function () {
-            if ($this.data(self.data_attr())) {
-              var settings = $this.data(self.data_attr(true) + '-init') || self.settings;
-              if (settings.is_hover) self.close.call(self, S('#' + $this.data(self.data_attr())));
-            } else {
+          var settings;
+
+          if ($this.data(self.data_attr())) {
+              settings = $this.data(self.data_attr(true) + '-init') || self.settings;
+          } 
+          else {
               var target   = S('[' + self.attr_name() + '="' + S(this).attr('id') + '"]'),
                   settings = target.data(self.attr_name(true) + '-init') || self.settings;
+          }
+
+          self.timeout = setTimeout(function () {
+            if ($this.data(self.data_attr())) {
+              if (settings.is_hover) self.close.call(self, S('#' + $this.data(self.data_attr())));
+            } else {
               if (settings.is_hover) self.close.call(self, $this);
             }
-          }.bind(this), 150);
+          }.bind(this), settings.hover_timeout);
         })
         .on('click.fndtn.dropdown', function (e) {
           var parent = S(e.target).closest('[' + self.attr_name() + '-content]');
+          var links  = parent.find('a');
+
+          if (links.length > 0 && parent.attr('aria-autoclose') !== "false") {
+              self.close.call(self, S('[' + self.attr_name() + '-content]'));
+          }
 
           if (S(e.target).closest('[' + self.attr_name() + ']').length > 0) {
             return;
           }
+
           if (!(S(e.target).data('revealId')) &&
             (parent.length > 0 && (S(e.target).is('[' + self.attr_name() + '-content]') ||
               $.contains(parent.first()[0], e.target)))) {
@@ -1698,10 +1786,10 @@
           self.close.call(self, S('[' + self.attr_name() + '-content]'));
         })
         .on('opened.fndtn.dropdown', '[' + self.attr_name() + '-content]', function () {
-            self.settings.opened.call(this);
+          self.settings.opened.call(this);
         })
         .on('closed.fndtn.dropdown', '[' + self.attr_name() + '-content]', function () {
-            self.settings.closed.call(this);
+          self.settings.closed.call(this);
         });
 
       S(window)
@@ -1717,11 +1805,11 @@
       var self = this;
       dropdown.each(function () {
         var original_target = $('[' + self.attr_name() + '=' + dropdown[0].id + ']') || $('aria-controls=' + dropdown[0].id+ ']');
-        original_target.attr('aria-expanded', "false");
+        original_target.attr('aria-expanded', 'false');
         if (self.S(this).hasClass(self.settings.active_class)) {
           self.S(this)
             .css(Foundation.rtl ? 'right':'left', '-99999px')
-            .attr('aria-hidden', "true")
+            .attr('aria-hidden', 'true')
             .removeClass(self.settings.active_class)
             .prev('[' + self.attr_name() + ']')
             .removeClass(self.settings.active_class)
@@ -1730,24 +1818,26 @@
           self.S(this).trigger('closed').trigger('closed.fndtn.dropdown', [dropdown]);
         }
       });
+      dropdown.removeClass('f-open-' + this.attr_name(true));
     },
 
     closeall: function() {
       var self = this;
-      $.each(self.S('[' + this.attr_name() + '-content]'), function() {
+      $.each(self.S('.f-open-' + this.attr_name(true)), function() {
         self.close.call(self, self.S(this));
       });
     },
 
     open: function (dropdown, target) {
-        this
-          .css(dropdown
-            .addClass(this.settings.active_class), target);
-        dropdown.prev('[' + this.attr_name() + ']').addClass(this.settings.active_class);
-        dropdown.data('target', target.get(0)).trigger('opened').trigger('opened.fndtn.dropdown', [dropdown, target]);
-        dropdown.attr('aria-hidden', 'false');
-        target.attr('aria-expanded', 'true');
-        dropdown.focus();
+      this
+        .css(dropdown
+        .addClass(this.settings.active_class), target);
+      dropdown.prev('[' + this.attr_name() + ']').addClass(this.settings.active_class);
+      dropdown.data('target', target.get(0)).trigger('opened').trigger('opened.fndtn.dropdown', [dropdown, target]);
+      dropdown.attr('aria-hidden', 'false');
+      target.attr('aria-expanded', 'true');
+      dropdown.focus();
+      dropdown.addClass('f-open-' + this.attr_name(true));
     },
 
     data_attr: function () {
@@ -1781,7 +1871,7 @@
 
     resize : function () {
       var dropdown = this.S('[' + this.attr_name() + '-content].open'),
-          target = this.S("[" + this.attr_name() + "='" + dropdown.attr('id') + "']");
+          target = this.S('[' + this.attr_name() + '="' + dropdown.attr('id') + '"]');
 
       if (dropdown.length && target.length) {
         this.css(dropdown, target);
@@ -1831,14 +1921,63 @@
 
         p.top -= o.top;
         p.left -= o.left;
+        
+        //set some flags on the p object to pass along
+        p.missRight = false;
+        p.missTop = false;
+        p.missLeft = false;
+        p.leftRightFlag = false;
+    
+        //lets see if the panel will be off the screen
+        //get the actual width of the page and store it
+        var actualBodyWidth;
+        if (document.getElementsByClassName('row')[0]) {
+          actualBodyWidth = document.getElementsByClassName('row')[0].clientWidth;
+        } else {
+          actualBodyWidth = window.outerWidth;
+        }
+
+        var actualMarginWidth = (window.outerWidth - actualBodyWidth) / 2;
+        var actualBoundary = actualBodyWidth;
+    
+        if (!this.hasClass('mega')) {
+          //miss top
+          if (t.offset().top <= this.outerHeight()) {
+            p.missTop = true;
+            actualBoundary = window.outerWidth - actualMarginWidth;
+            p.leftRightFlag = true;
+          }
+          
+          //miss right
+          if (t.offset().left + this.outerWidth() > t.offset().left + actualMarginWidth && t.offset().left - actualMarginWidth > this.outerWidth()) {
+            p.missRight = true;
+            p.missLeft = false;
+          }
+          
+          //miss left
+          if (t.offset().left - this.outerWidth() <= 0) {
+            p.missLeft = true;
+            p.missRight = false;
+          }
+        }
 
         return p;
       },
+
       top: function (t, s) {
         var self = Foundation.libs.dropdown,
             p = self.dirs._base.call(this, t);
 
         this.addClass('drop-top');
+        
+        if (p.missTop == true) {
+          p.top = p.top + t.outerHeight() + this.outerHeight();
+          this.removeClass('drop-top');
+        }
+    
+        if (p.missRight == true) {
+          p.left = p.left - this.outerWidth() + t.outerWidth();
+        }
 
         if (t.outerWidth() < this.outerWidth() || self.small() || this.hasClass(s.mega_menu)) {
           self.adjust_pip(this,t,s,p);
@@ -1851,9 +1990,14 @@
 
         return {left: p.left, top: p.top - this.outerHeight()};
       },
+
       bottom: function (t,s) {
         var self = Foundation.libs.dropdown,
             p = self.dirs._base.call(this, t);
+
+        if (p.missRight == true) {
+          p.left = p.left - this.outerWidth() + t.outerWidth();
+        }
 
         if (t.outerWidth() < this.outerWidth() || self.small() || this.hasClass(s.mega_menu)) {
           self.adjust_pip(this,t,s,p);
@@ -1865,17 +2009,39 @@
 
         return {left: p.left, top: p.top + t.outerHeight()};
       },
+
       left: function (t, s) {
         var p = Foundation.libs.dropdown.dirs._base.call(this, t);
 
         this.addClass('drop-left');
+        
+        if (p.missLeft == true) {
+          p.left =  p.left + this.outerWidth();
+          p.top = p.top + t.outerHeight();
+          this.removeClass('drop-left');
+        }
 
         return {left: p.left - this.outerWidth(), top: p.top};
       },
+
       right: function (t, s) {
         var p = Foundation.libs.dropdown.dirs._base.call(this, t);
 
         this.addClass('drop-right');
+        
+        if (p.missRight == true) {
+          p.left = p.left - this.outerWidth();
+          p.top = p.top + t.outerHeight();
+          this.removeClass('drop-right');
+        } else {
+          p.triggeredRight = true;
+        }
+    
+        var self = Foundation.libs.dropdown;
+
+        if (t.outerWidth() < this.outerWidth() || self.small() || this.hasClass(s.mega_menu)) {
+          self.adjust_pip(this,t,s,p);
+        }
 
         return {left: p.left + t.outerWidth(), top: p.top};
       }
@@ -1895,10 +2061,27 @@
 
       this.rule_idx = sheet.cssRules.length;
 
+      //default
       var sel_before = '.f-dropdown.open:before',
           sel_after  = '.f-dropdown.open:after',
           css_before = 'left: ' + pip_offset_base + 'px;',
           css_after  = 'left: ' + (pip_offset_base - 1) + 'px;';
+        
+      if (position.missRight == true) {
+        pip_offset_base = dropdown.outerWidth() - 23;
+        sel_before = '.f-dropdown.open:before',
+        sel_after  = '.f-dropdown.open:after',
+        css_before = 'left: ' + pip_offset_base + 'px;',
+        css_after  = 'left: ' + (pip_offset_base - 1) + 'px;';
+      }
+    
+      //just a case where right is fired, but its not missing right
+      if (position.triggeredRight == true) {
+        sel_before = '.f-dropdown.open:before',
+        sel_after  = '.f-dropdown.open:after',
+        css_before = 'left:-12px;',
+        css_after  = 'left:-14px;';
+      }
 
       if (sheet.insertRule) {
         sheet.insertRule([sel_before, '{', css_before, '}'].join(' '), this.rule_idx);
@@ -1942,7 +2125,7 @@
   Foundation.libs.equalizer = {
     name : 'equalizer',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     settings : {
       use_tallest: true,
@@ -2010,14 +2193,13 @@
   };
 })(jQuery, window, window.document);
 
-
 ;(function ($, window, document, undefined) {
   'use strict';
 
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     cache : {},
 
@@ -2028,15 +2210,19 @@
       load_attr : 'interchange',
 
       named_queries : {
-        'default' : 'only screen',
-        small : Foundation.media_queries.small,
-        medium : Foundation.media_queries.medium,
-        large : Foundation.media_queries.large,
-        xlarge : Foundation.media_queries.xlarge,
-        xxlarge: Foundation.media_queries.xxlarge,
-        landscape : 'only screen and (orientation: landscape)',
-        portrait : 'only screen and (orientation: portrait)',
-        retina : 'only screen and (-webkit-min-device-pixel-ratio: 2),' +
+        'default'     : 'only screen',
+        'small'       : Foundation.media_queries['small'],
+        'small-only'  : Foundation.media_queries['small-only'],
+        'medium'      : Foundation.media_queries['medium'],
+        'medium-only' : Foundation.media_queries['medium-only'],
+        'large'       : Foundation.media_queries['large'],
+        'large-only'  : Foundation.media_queries['large-only'],
+        'xlarge'      : Foundation.media_queries['xlarge'],
+        'xlarge-only' : Foundation.media_queries['xlarge-only'],
+        'xxlarge'     : Foundation.media_queries['xxlarge'],
+        'landscape'   : 'only screen and (orientation: landscape)',
+        'portrait'    : 'only screen and (orientation: portrait)',
+        'retina'      : 'only screen and (-webkit-min-device-pixel-ratio: 2),' +
           'only screen and (min--moz-device-pixel-ratio: 2),' +
           'only screen and (-o-min-device-pixel-ratio: 2/1),' +
           'only screen and (min-device-pixel-ratio: 2),' +
@@ -2364,7 +2550,7 @@
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     defaults : {
       expose                   : false,     // turn on or off the expose feature
@@ -2469,7 +2655,7 @@
           this.end(this.settings.abort_on_close);
         }.bind(this))
 
-        .on("keyup.fndtn.joyride", function(e) {
+        .on('keyup.fndtn.joyride', function(e) {
           // Don't do anything if keystrokes are disabled
           // or if the joyride is not being shown
           if (!this.settings.keyboard || !this.settings.riding) return;
@@ -2677,8 +2863,14 @@
 
           this.settings.tip_settings.tip_location_pattern = this.settings.tip_location_patterns[this.settings.tip_settings.tip_location];
 
-          // scroll if not modal
+          // scroll and hide bg if not modal
           if (!/body/i.test(this.settings.$target.selector)) {
+            var joyridemodalbg = $('.joyride-modal-bg');
+            if (/pop/i.test(this.settings.tipAnimation)) {
+                joyridemodalbg.hide();
+            } else {
+                joyridemodalbg.fadeOut(this.settings.tipAnimationFadeSpeed);
+            }
             this.scroll_to();
           }
 
@@ -2792,7 +2984,7 @@
     },
 
     set_next_tip : function () {
-      this.settings.$next_tip = $(".joyride-tip-guide").eq(this.settings.$li.index());
+      this.settings.$next_tip = $('.joyride-tip-guide').eq(this.settings.$li.index());
       this.settings.$next_tip.data('closed', '');
     },
 
@@ -2848,8 +3040,8 @@
       }
 
       if (!/body/i.test(this.settings.$target.selector)) {
-      	  var topAdjustment = this.settings.tip_settings.tipAdjustmentY ? parseInt(this.settings.tip_settings.tipAdjustmentY) : 0,
-			        leftAdjustment = this.settings.tip_settings.tipAdjustmentX ? parseInt(this.settings.tip_settings.tipAdjustmentX) : 0;
+          var topAdjustment = this.settings.tip_settings.tipAdjustmentY ? parseInt(this.settings.tip_settings.tipAdjustmentY) : 0,
+              leftAdjustment = this.settings.tip_settings.tipAdjustmentX ? parseInt(this.settings.tip_settings.tipAdjustmentX) : 0;
 
           if (this.bottom()) {
             if (this.rtl) {
@@ -2976,7 +3168,8 @@
       if (!this.settings.$next_tip.data('closed')) {
         var joyridemodalbg =  $('.joyride-modal-bg');
         if (joyridemodalbg.length < 1) {
-          $('body').append(this.settings.template.modal).show();
+          var joyridemodalbg = $(this.settings.template.modal);
+          joyridemodalbg.appendTo('body');
         }
 
         if (/pop/i.test(this.settings.tip_animation)) {
@@ -3280,14 +3473,17 @@
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     settings : {
       active_class: 'active',
       threshold: 0, // pixels from the top of the expedition for it to become fixes
       destination_threshold: 20, // pixels from the top of destination for it to be considered active
       throttle_delay: 30, // calculation throttling to increase framerate
-      fixed_top: 0 // top distance in pixels assigend to the fixed element on scroll
+      fixed_top: 0, // top distance in pixels assigend to the fixed element on scroll
+      offset_by_height: true,  // whether to offset the destination by the expedition height. Usually you want this to be true, unless your expedition is on the side.
+      duration: 700, // animation duration time 
+      easing: 'swing' // animation easing
     },
 
     init : function (scope, method, options) {
@@ -3310,7 +3506,7 @@
           var expedition = $(this).closest('[' + self.attr_name() + ']'),
               settings = expedition.data('magellan-expedition-init'),
               hash = this.hash.split('#').join(''),
-              target = $("a[name='"+hash+"']");
+              target = $('a[name="'+hash+'"]');
 
           if (target.length === 0) {
             target = $('#'+hash);
@@ -3320,11 +3516,13 @@
 
           // Account for expedition height if fixed position
           var scroll_top = target.offset().top - settings.destination_threshold + 1;
-          scroll_top = scroll_top - expedition.outerHeight();
+          if (settings.offset_by_height) {
+            scroll_top = scroll_top - expedition.outerHeight();
+          }
 
           $('html, body').stop().animate({
             'scrollTop': scroll_top
-          }, 700, 'swing', function () {
+          }, settings.duration, settings.easing, function () {
             if(history.pushState) {
               history.pushState(null, null, '#'+hash);
             }
@@ -3428,7 +3626,11 @@
         var name = $(this).data(self.data_attr('magellan-arrival')),
             dest = $('[' + self.add_namespace('data-magellan-destination') + '=' + name + ']');
         if (dest.length > 0) {
-          var top_offset = Math.floor(dest.offset().top - settings.destination_threshold - expedition.outerHeight());
+          var top_offset = dest.offset().top - settings.destination_threshold;
+          if (settings.offset_by_height) {
+            top_offset = top_offset - expedition.outerHeight();
+          }
+          top_offset = Math.floor(top_offset);
           return {
             destination : dest,
             arrival : $(this),
@@ -3470,7 +3672,7 @@
   Foundation.libs.offcanvas = {
     name : 'offcanvas',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     settings : {
       open_method: 'move',
@@ -3504,7 +3706,7 @@
         .on('click.fndtn.offcanvas', '.left-off-canvas-toggle', function (e) {
           self.click_toggle_class(e, move_class + right_postfix);
           if (self.settings.open_method !== 'overlap'){
-            S(".left-submenu").removeClass(move_class + right_postfix);
+            S('.left-submenu').removeClass(move_class + right_postfix);
           }
           $('.left-off-canvas-toggle').attr('aria-expanded', 'true');
         })
@@ -3512,13 +3714,13 @@
           var settings = self.get_settings(e);
           var parent = S(this).parent();
 
-          if(settings.close_on_click && !parent.hasClass("has-submenu") && !parent.hasClass("back")){
+          if(settings.close_on_click && !parent.hasClass('has-submenu') && !parent.hasClass('back')){
             self.hide.call(self, move_class + right_postfix, self.get_wrapper(e));
             parent.parent().removeClass(move_class + right_postfix);
-          }else if(S(this).parent().hasClass("has-submenu")){
+          }else if(S(this).parent().hasClass('has-submenu')){
             e.preventDefault();
-            S(this).siblings(".left-submenu").toggleClass(move_class + right_postfix);
-          }else if(parent.hasClass("back")){
+            S(this).siblings('.left-submenu').toggleClass(move_class + right_postfix);
+          }else if(parent.hasClass('back')){
             e.preventDefault();
             parent.parent().removeClass(move_class + right_postfix);
           }
@@ -3527,7 +3729,7 @@
         .on('click.fndtn.offcanvas', '.right-off-canvas-toggle', function (e) {
           self.click_toggle_class(e, move_class + left_postfix);
           if (self.settings.open_method !== 'overlap'){
-            S(".right-submenu").removeClass(move_class + left_postfix);
+            S('.right-submenu').removeClass(move_class + left_postfix);
           }
           $('.right-off-canvas-toggle').attr('aria-expanded', 'true');
         })
@@ -3535,13 +3737,13 @@
           var settings = self.get_settings(e);
           var parent = S(this).parent();
 
-          if(settings.close_on_click && !parent.hasClass("has-submenu") && !parent.hasClass("back")){
+          if(settings.close_on_click && !parent.hasClass('has-submenu') && !parent.hasClass('back')){
             self.hide.call(self, move_class + left_postfix, self.get_wrapper(e));
             parent.parent().removeClass(move_class + left_postfix);
-          }else if(S(this).parent().hasClass("has-submenu")){
+          }else if(S(this).parent().hasClass('has-submenu')){
             e.preventDefault();
-            S(this).siblings(".right-submenu").toggleClass(move_class + left_postfix);
-          }else if(parent.hasClass("back")){
+            S(this).siblings('.right-submenu').toggleClass(move_class + left_postfix);
+          }else if(parent.hasClass('back')){
             e.preventDefault();
             parent.parent().removeClass(move_class + left_postfix);
           }
@@ -3549,10 +3751,10 @@
         })
         .on('click.fndtn.offcanvas', '.exit-off-canvas', function (e) {
           self.click_remove_class(e, move_class + left_postfix);
-          S(".right-submenu").removeClass(move_class + left_postfix);
+          S('.right-submenu').removeClass(move_class + left_postfix);
           if (right_postfix){
             self.click_remove_class(e, move_class + right_postfix);
-            S(".left-submenu").removeClass(move_class + left_postfix);
+            S('.left-submenu').removeClass(move_class + left_postfix);
           }
           $('.right-off-canvas-toggle').attr('aria-expanded', 'true');
         })
@@ -3561,7 +3763,7 @@
           $('.left-off-canvas-toggle').attr('aria-expanded', 'false');
           if (right_postfix) {
             self.click_remove_class(e, move_class + right_postfix);
-            $('.right-off-canvas-toggle').attr('aria-expanded', "false");
+            $('.right-off-canvas-toggle').attr('aria-expanded', 'false');
           }
         });
     },
@@ -3777,7 +3979,7 @@
     self.link_custom = function(e) {
       e.preventDefault();
       var link = $(this).attr('data-orbit-link');
-      if ((typeof link === 'string') && (link = $.trim(link)) != "") {
+      if ((typeof link === 'string') && (link = $.trim(link)) != '') {
         var slide = container.find('[data-orbit-slide='+link+']');
         if (slide.index() != -1) {self._goto(slide.index());}
       }
@@ -3785,7 +3987,7 @@
 
     self.link_bullet = function(e) {
       var index = $(this).attr('data-orbit-slide');
-      if ((typeof index === 'string') && (index = $.trim(index)) != "") {
+      if ((typeof index === 'string') && (index = $.trim(index)) != '') {
         if(isNaN(parseInt(index)))
         {
           var slide = container.find('[data-orbit-slide='+index+']');
@@ -4021,7 +4223,7 @@
   Foundation.libs.orbit = {
     name: 'orbit',
 
-    version: '5.4.7',
+    version: '5.5.0',
 
     settings: {
       animation: 'slide',
@@ -4096,7 +4298,7 @@
   Foundation.libs.reveal = {
     name : 'reveal',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     locked : false,
 
@@ -4107,6 +4309,7 @@
       close_on_esc: true,
       dismiss_modal_class: 'close-reveal-modal',
       bg_class: 'reveal-modal-bg',
+      bg_root_element: 'body',
       root_element: 'body',
       open: function(){},
       opened: function(){},
@@ -4285,7 +4488,8 @@
           $.extend(ajax_settings, {
             success: function (data, textStatus, jqXHR) {
               if ( $.isFunction(old_success) ) {
-                old_success(data, textStatus, jqXHR);
+                var result = old_success(data, textStatus, jqXHR);
+                if (typeof result == 'string') data = result;
               }
 
               modal.html(data);
@@ -4329,10 +4533,13 @@
       return base;
     },
 
-    toggle_bg : function (modal, state) {
+    toggle_bg : function (el, modal, state) {
+      var settings = el.data(this.attr_name(true) + '-init') || this.settings,
+            bg_root_element = settings.bg_root_element; // Adding option to specify the background root element fixes scrolling issue
+      
       if (this.S('.' + this.settings.bg_class).length === 0) {
         this.settings.bg = $('<div />', {'class': this.settings.bg_class})
-          .appendTo('body').hide();
+          .appendTo(bg_root_element).hide();
       }
 
       var visible = this.settings.bg.filter(':visible').length > 0;
@@ -4367,9 +4574,9 @@
           this.locked = false;
         }
         if (animData.pop) {
-          css.top = $(window).scrollTop() - el.data('offset') + 'px';
+          css.top = $(root_element).scrollTop() - el.data('offset') + 'px'; //adding root_element instead of window for scrolling offset if modal trigger is below the fold
           var end_css = {
-            top: $(window).scrollTop() + el.data('css-top') + 'px',
+            top: $(root_element).scrollTop() + el.data('css-top') + 'px', //adding root_element instead of window for scrolling offset if modal trigger is below the fold
             opacity: 1
           };
 
@@ -4385,7 +4592,7 @@
         }
 
         if (animData.fade) {
-          css.top = $(window).scrollTop() + el.data('css-top') + 'px';
+          css.top = $(root_element).scrollTop() + el.data('css-top') + 'px'; //adding root_element instead of window for scrolling offset if modal trigger is below the fold
           var end_css = {opacity: 1};
 
           return setTimeout(function () {
@@ -4417,8 +4624,8 @@
     hide : function (el, css) {
       // is modal
       if (css) {
-        var settings = el.data(this.attr_name(true) + '-init');
-        settings = settings || this.settings;
+        var settings = el.data(this.attr_name(true) + '-init') || this.settings,
+            root_element = settings.root_element;
 
         var animData = getAnimationData(settings.animation);
         if (!animData.animate) {
@@ -4426,7 +4633,7 @@
         }
         if (animData.pop) {
           var end_css = {
-            top: - $(window).scrollTop() - el.data('offset') + 'px',
+            top: - $(root_element).scrollTop() - el.data('offset') + 'px', //adding root_element instead of window for scrolling offset if modal trigger is below the fold
             opacity: 0
           };
 
@@ -4541,15 +4748,17 @@
   Foundation.libs.slider = {
     name : 'slider',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     settings: {
       start: 0,
       end: 100,
       step: 1,
+      precision: null,
       initial: null,
       display_selector: '',
       vertical: false,
+      trigger_input_change: false,
       on_change: function(){}
     },
 
@@ -4581,16 +4790,9 @@
               if (!e.pageY) {
                 scroll_offset = window.scrollY;
               }
-              self.calculate_position(self.cache.active, (e.pageY || 
-                                                          e.originalEvent.clientY || 
-                                                          e.originalEvent.touches[0].clientY || 
-                                                          e.currentPoint.y) 
-                                                          + scroll_offset);
+              self.calculate_position(self.cache.active, self.get_cursor_position(e, 'y') + scroll_offset);
             } else {
-              self.calculate_position(self.cache.active, e.pageX || 
-                                                         e.originalEvent.clientX || 
-                                                         e.originalEvent.touches[0].clientX || 
-                                                         e.currentPoint.x);
+              self.calculate_position(self.cache.active, self.get_cursor_position(e, 'x'));
             }
           }
         })
@@ -4605,6 +4807,26 @@
         .on('resize.fndtn.slider', self.throttle(function(e) {
           self.reflow();
         }, 300));
+    },
+
+    get_cursor_position : function(e, xy) {
+      var pageXY = 'page' + xy.toUpperCase(),
+          clientXY = 'client' + xy.toUpperCase(),
+          position;
+
+      if (typeof e[pageXY] !== 'undefined') {
+        position = e[pageXY];
+      }
+      else if (typeof e.originalEvent[clientXY] !== 'undefined') {
+        position = e.originalEvent[clientXY];
+      }
+      else if (e.originalEvent.touches && e.originalEvent.touches[0] && typeof e.originalEvent.touches[0][clientXY] !== 'undefined') {
+        position = e.originalEvent.touches[0][clientXY];
+      }
+      else if(e.currentPoint && typeof e.currentPoint[xy] !== 'undefined') {
+        position = e.currentPoint[xy];
+      }
+      return position;
     },
 
     set_active_slider : function($handle) {
@@ -4634,7 +4856,7 @@
 
         pct = settings.vertical ? 1-pct : pct;
 
-        var norm = self.normalized_value(pct, settings.start, settings.end, settings.step);
+        var norm = self.normalized_value(pct, settings.start, settings.end, settings.step, settings.precision);
 
         self.set_ui($handle, norm);
       });
@@ -4646,7 +4868,9 @@
           bar_l = $.data($handle[0], 'bar_l'),
           norm_pct = this.normalized_percentage(value, settings.start, settings.end),
           handle_offset = norm_pct*(bar_l-handle_l)-1,
-          progress_bar_length = norm_pct*100;
+          progress_bar_length = norm_pct*100,
+          $handle_parent = $handle.parent(),
+          $hidden_inputs = $handle.parent().children('input[type=hidden]');
 
       if (Foundation.rtl && !settings.vertical) {
         handle_offset = -handle_offset;
@@ -4661,14 +4885,17 @@
         $handle.siblings('.range-slider-active-segment').css('width', progress_bar_length + '%');
       }
 
-      $handle.parent().attr(this.attr_name(), value).trigger('change').trigger('change.fndtn.slider');
+      $handle_parent.attr(this.attr_name(), value).trigger('change').trigger('change.fndtn.slider');
 
-      $handle.parent().children('input[type=hidden]').val(value);
+      $hidden_inputs.val(value);
+      if (settings.trigger_input_change) {
+          $hidden_inputs.trigger('change');
+      }
 
       if (!$handle[0].hasAttribute('aria-valuemin')) {
         $handle.attr({
           'aria-valuemin': settings.start,
-          'aria-valuemax': settings.end,
+          'aria-valuemax': settings.end
         });
       }
       $handle.attr('aria-valuenow', value);
@@ -4689,13 +4916,13 @@
       return Math.min(1, (val - start)/(end - start));
     },
 
-    normalized_value : function(val, start, end, step) {
+    normalized_value : function(val, start, end, step, precision) {
       var range = end - start,
           point = val*range,
           mod = (point-(point%step)) / step,
           rem = point % step,
           round = ( rem >= step*0.5 ? step : 0);
-      return (mod*step + round) + start;
+      return ((mod*step + round) + start).toFixed(precision);
     },
 
     set_translate : function(ele, offset, vertical) {
@@ -4720,8 +4947,16 @@
       return Math.min(Math.max(val, min), max);
     },
 
+
+
     initialize_settings : function(handle) {
-      var settings = $.extend({}, this.settings, this.data_options($(handle).parent()));
+      var settings = $.extend({}, this.settings, this.data_options($(handle).parent())),
+          decimal_places_match_result;
+
+      if (settings.precision === null) {
+        decimal_places_match_result = ('' + settings.step).match(/\.([\d]*)/);
+        settings.precision = decimal_places_match_result && decimal_places_match_result[1] ? decimal_places_match_result[1].length : 0;
+      }
 
       if (settings.vertical) {
         $.data(handle, 'bar_o', $(handle).parent().offset().top);
@@ -4741,7 +4976,7 @@
 
     set_initial_position : function($ele) {
       var settings = $.data($ele.children('.range-slider-handle')[0], 'settings'),
-          initial = (!!settings.initial ? settings.initial : Math.floor((settings.end-settings.start)*0.5/settings.step)*settings.step+settings.start),
+          initial = ((typeof settings.initial == 'number' && !isNaN(settings.initial)) ? settings.initial : Math.floor((settings.end-settings.start)*0.5/settings.step)*settings.step+settings.start),
           $handle = $ele.children('.range-slider-handle');
       this.set_ui($handle, initial);
     },
@@ -4781,7 +5016,7 @@
   Foundation.libs.tab = {
     name : 'tab',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     settings : {
       active_class: 'active',
@@ -4967,11 +5202,11 @@
       // window (notably in Chrome).
       // Clean up multiple attr instances to done once
       tab.addClass(settings.active_class).triggerHandler('opened');
-      tab_link.attr({"aria-selected": "true",  tabindex: 0});
+      tab_link.attr({'aria-selected': 'true',  tabindex: 0});
       siblings.removeClass(settings.active_class)
-      siblings.find('a').attr({"aria-selected": "false",  tabindex: -1});
-      target.siblings().removeClass(settings.active_class).attr({"aria-hidden": "true",  tabindex: -1});
-      target.addClass(settings.active_class).attr('aria-hidden', 'false').removeAttr("tabindex");
+      siblings.find('a').attr({'aria-selected': 'false',  tabindex: -1});
+      target.siblings().removeClass(settings.active_class).attr({'aria-hidden': 'true',  tabindex: -1});
+      target.addClass(settings.active_class).attr('aria-hidden', 'false').removeAttr('tabindex');
       settings.callback(tab);
       target.triggerHandler('toggled', [tab]);
       tabs.triggerHandler('toggled', [target]);
@@ -4999,7 +5234,7 @@
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.4.7',
+    version : '5.5.0',
 
     settings : {
       additional_inheritable_classes : [],
@@ -5300,7 +5535,7 @@
   Foundation.libs.topbar = {
     name : 'topbar',
 
-    version: '5.4.7',
+    version: '5.5.0',
 
     settings : {
       index : 0,
@@ -5525,11 +5760,11 @@
           }
         });
 
-      S(window).off(".topbar").on("resize.fndtn.topbar", self.throttle(function() {
+      S(window).off('.topbar').on('resize.fndtn.topbar', self.throttle(function() {
           self.resize.call(self);
-      }, 50)).trigger("resize").trigger("resize.fndtn.topbar").load(function(){
+      }, 50)).trigger('resize').trigger('resize.fndtn.topbar').load(function(){
           // Ensure that the offset is calculated after all of the pages resources have loaded
-          S(this).trigger("resize.fndtn.topbar");
+          S(this).trigger('resize.fndtn.topbar');
       });
 
       S('body').off('.topbar').on('click.fndtn.topbar', function (e) {
@@ -5661,7 +5896,7 @@
         if (!$dropdown.find('.title.back').length) {
 
           if (settings.mobile_show_parent_link == true && url) {
-            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li class="parent-link show-for-small"><a class="parent-link js-generated" href="' + url + '">' + $link.html() +'</a></li>');
+            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li class="parent-link show-for-small-only"><a class="parent-link js-generated" href="' + url + '">' + $link.html() +'</a></li>');
           } else {
             $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5>');
           }
