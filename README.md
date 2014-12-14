@@ -38,7 +38,7 @@ Tip: If you get an error saying Permission denied (publickey) when cloning the r
 
 While you're working on your project, run:
 
-`grunt`
+`grunt watch`
 
 And you're set!
 
@@ -50,22 +50,23 @@ Check for Foundation Updates? Run:
 
   * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
 
-  * `scss/app.scss`: Sass imports for global config, foundation and site structure
-
-  * `scss/config/_variables.scss`: Your custom variables
-  * `scss/config/_colors.scss`: Your custom color scheme
+  * `scss/foundation.scss`: Imports for Foundation components and your custom styles.
   * `scss/config/_settings.scss`: Original Foundation 5 base settings
+  * `scss/assets/_icons.scss`: Foundation Icons
+  * `scss/site/_base.scss`: Basic styles for FoundationPress. These can be replaced by your needs.
 
-  * `scss/site/_structure`: Your custom site structure
-
-  * `css/app.css`: All Sass files are minified and compiled to this file
+  * `css/foundation.css`: All Sass files are minified and compiled to this file
+  * `css/foundation.css.map`: CSS source maps
 
 ### Script Folder Strucutre
   
-  * `bower_components/`: This is the source folder where all Foundation scripts are located. `foundation update` will check and update scripts in this folder
-  * `js/custom`: This is where you put all your custom scripts. Every .js file you put in this directory will be minified and concatinated to [app.js](https://github.com/olefredrik/FoundationPress/blob/master/js/app.js)
-  * `js/`: jQuery, Modernizr and Foundation scripts are copied from `bower_components/` to this directory, where they are minified and concatinated and enqueued in WordPress
-  * Please note that you must run `grunt` in your terminal for the scripts to be copied. See [Gruntfile.js](https://github.com/olefredrik/FoundationPress/blob/master/Gruntfile.js) for details
+  * `bower_components/`: This is the source folder where all Foundation components are located. `foundation update` will check and update scripts in this folder.
+
+  * `js/custom`: This is where you put all your custom scripts. Every .js file you put in this directory will be minified and concatinated to [foundation.js](https://github.com/olefredrik/FoundationPress/blob/master/js/foundation.js)
+
+  * `js/vendor`: Vendor scripts are copied from `bower_components/` to this directory. We use this path for enqueing the vendor scripts in WordPress.
+
+  * Please note that you must run `grunt build` in your terminal for the script to be copied and concatinated. See [Gruntfile.js](https://github.com/olefredrik/FoundationPress/blob/master/Gruntfile.js) for details
 
 ## Demo
 
