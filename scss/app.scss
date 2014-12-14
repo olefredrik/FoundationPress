@@ -1,54 +1,64 @@
-/* Global config */
-@import "config/variables"; // Your custom variables
-@import "config/colors"; // Your custom color scheme
+@charset "UTF-8";
+
+/*  
+  ZURB Foundation components:
+  Import the building blocks you need for your project. 
+  Reducing the number of imported components will optimize page speed.
+*/
+
+@import "../bower_components/foundation/scss/foundation/components/grid";
+@import "../bower_components/foundation/scss/foundation/components/accordion";
+@import "../bower_components/foundation/scss/foundation/components/alert-boxes";
+@import "../bower_components/foundation/scss/foundation/components/block-grid";
+@import "../bower_components/foundation/scss/foundation/components/breadcrumbs";
+@import "../bower_components/foundation/scss/foundation/components/button-groups";
+@import "../bower_components/foundation/scss/foundation/components/buttons";
+@import "../bower_components/foundation/scss/foundation/components/clearing";
+@import "../bower_components/foundation/scss/foundation/components/dropdown";
+@import "../bower_components/foundation/scss/foundation/components/dropdown-buttons";
+@import "../bower_components/foundation/scss/foundation/components/flex-video";
+@import "../bower_components/foundation/scss/foundation/components/forms";
+@import "../bower_components/foundation/scss/foundation/components/icon-bar";
+@import "../bower_components/foundation/scss/foundation/components/inline-lists";
+@import "../bower_components/foundation/scss/foundation/components/joyride";
+@import "../bower_components/foundation/scss/foundation/components/keystrokes";
+@import "../bower_components/foundation/scss/foundation/components/labels";
+@import "../bower_components/foundation/scss/foundation/components/magellan";
+@import "../bower_components/foundation/scss/foundation/components/orbit";
+@import "../bower_components/foundation/scss/foundation/components/pagination";
+@import "../bower_components/foundation/scss/foundation/components/panels";
+@import "../bower_components/foundation/scss/foundation/components/pricing-tables";
+@import "../bower_components/foundation/scss/foundation/components/progress-bars";
+@import "../bower_components/foundation/scss/foundation/components/range-slider";
+@import "../bower_components/foundation/scss/foundation/components/reveal";
+@import "../bower_components/foundation/scss/foundation/components/side-nav";
+@import "../bower_components/foundation/scss/foundation/components/split-buttons";
+@import "../bower_components/foundation/scss/foundation/components/sub-nav";
+@import "../bower_components/foundation/scss/foundation/components/switches";
+@import "../bower_components/foundation/scss/foundation/components/tables";
+@import "../bower_components/foundation/scss/foundation/components/tabs";
+@import "../bower_components/foundation/scss/foundation/components/thumbs";
+@import "../bower_components/foundation/scss/foundation/components/tooltips";
+@import "../bower_components/foundation/scss/foundation/components/top-bar";
+@import "../bower_components/foundation/scss/foundation/components/type";
+@import "../bower_components/foundation/scss/foundation/components/offcanvas";
+@import "../bower_components/foundation/scss/foundation/components/visibility";
+
+
+/*  
+  Foundation icons and settings
+*/
+
+@import "assets/icons"; // Load Foundation icon fonts
 @import "config/settings"; // Default settings file. Uncomment each setting you need to change
 
-/* Foundation 5 */
-@import "foundation"; // Foundation 5 by Zurb
 
-/* Behold, here are all the Foundation components. Comment out "foundation" above if you would select the parts
-of Foundation used instead.
-This can decrease the css file size drastically, and should be done before production*/
-//  @import "foundation/components/grid";
-//  @import "foundation/components/accordion";
-//  @import "foundation/components/alert-boxes";
-//  @import "foundation/components/block-grid";
-//  @import "foundation/components/breadcrumbs";
-//  @import "foundation/components/button-groups";
-//  @import "foundation/components/buttons";
-//  @import "foundation/components/clearing";
-//  @import "foundation/components/dropdown";
-//  @import "foundation/components/dropdown-buttons";
-//  @import "foundation/components/flex-video";
-//  @import "foundation/components/forms";
-//  @import "foundation/components/icon-bar";
-//  @import "foundation/components/inline-lists";
-//  @import "foundation/components/joyride";
-//  @import "foundation/components/keystrokes";
-//  @import "foundation/components/labels";
-//  @import "foundation/components/magellan";
-//  @import "foundation/components/orbit";
-//  @import "foundation/components/pagination";
-//  @import "foundation/components/panels";
-//  @import "foundation/components/pricing-tables";
-//  @import "foundation/components/progress-bars";
-//  @import "foundation/components/range-slider";
-//  @import "foundation/components/reveal";
-//  @import "foundation/components/side-nav";
-//  @import "foundation/components/split-buttons";
-//  @import "foundation/components/sub-nav";
-//  @import "foundation/components/switches";
-//  @import "foundation/components/tables";
-//  @import "foundation/components/tabs";
-//  @import "foundation/components/thumbs";
-//  @import "foundation/components/tooltips";
-//  @import "foundation/components/top-bar";
-//  @import "foundation/components/type";
-//  @import "foundation/components/offcanvas";
-//  @import "foundation/components/visibility";
+/* 
+  My custom styles
+*/ 
 
-/* Site structure */
-@import "site/structure"; // Your site structure
+@import "site/header"; // My custom styles for header
+@import "site/sidebars"; // My custom styles for sidebars
+@import "site/content"; // My custom styles for content
 
-/* Assets */
-@import "assets/icons"; // Load Foundation icon fonts
+// ... you get the point, right?
