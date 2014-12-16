@@ -1,8 +1,8 @@
 {
   "name": "foundationpress",
   "main": [
-    "css/app.css",
-    "js/app.js"
+    "css/foundation.css",
+    "js/foundation.js"
   ],
   "ignore": [
   ],
