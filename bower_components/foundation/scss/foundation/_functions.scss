@@ -10,11 +10,11 @@ $rem-base: 16px !default;
 $modules: () !default;
 @mixin exports($name) {
   // Import from global scope
-  $modules: $modules;
+  $modules: $modules !global;
   // Check if a module is already on the list
   $module_index: index($modules, $name);
   @if (($module_index == null) or ($module_index == false)) {
-    $modules: append($modules, $name);
+    $modules: append($modules, $name) !global;
     @content;
   }
 }
