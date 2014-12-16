@@ -2,7 +2,7 @@
   "name": "foundationpress",
   "version": "5.5.0",
   "devDependencies": {
-    "node-sass": "~0.7.0",
+    "node-sass" : "~1.2.3",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-sass": "~0.17.0",
