@@ -74,6 +74,10 @@ Check for Foundation Updates? Run:
 * [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
 * [FoundationPSD - Photoshop template for Foundation](http://foundationpress.olefredrik.com/downloads/foundation-psd-template/)
 
+## How to make Foundation your own
+[Learn to use the _settings file to change almost every aspect of a Foundation site](http://zurb.com/university/lessons/66)
+[Other lessons from Zurb University](http://zurb.com/university/past-lessons)
+
 ## Examples of sites built using FoundationPress
 
 * [Harvard Center for Green Buildings and Cities](http://www.harvardcgbc.org/)
@@ -89,6 +93,7 @@ Check for Foundation Updates? Run:
 * [Le saint](http://www.lesaint.ca)
 * [Help blog](http://help.com/blog/)
 * [Maren Schmidt](http://marenschmidt.com)
+* [Ciancimino Gallery](http://ciancimino.com)
 
 ## Contributing
 #### Here are ways to get involved:
