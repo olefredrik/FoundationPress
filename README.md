@@ -75,8 +75,8 @@ Check for Foundation Updates? Run:
 * [FoundationPSD - Photoshop template for Foundation](http://foundationpress.olefredrik.com/downloads/foundation-psd-template/)
 
 ## How to make Foundation your own
-[Learn to use the _settings file to change almost every aspect of a Foundation site](http://zurb.com/university/lessons/66)
-[Other lessons from Zurb University](http://zurb.com/university/past-lessons)
+* [Learn to use the _settings file to change almost every aspect of a Foundation site](http://zurb.com/university/lessons/66)
+* [Other lessons from Zurb University](http://zurb.com/university/past-lessons)
 
 ## Examples of sites built using FoundationPress
 
