@@ -41,7 +41,10 @@
 	}
 ?>
 <?php // You can start editing here. Customize the respond form below ?>
-<?php if ( have_comments() ) : ?>
+<?php 
+if ( have_comments() ) : 
+	if( (is_page() || is_single()) && (!is_home() && !is_front_page()) ) :
+?>
 	<section id="comments">
 		<h3><?php comments_number(__('No Responses to', 'FoundationPress'), __('One Response to', 'FoundationPress'), __('% Responses to', 'FoundationPress') ); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
 		<ol class="commentlist">
@@ -55,8 +58,14 @@
 			</nav>
 		</footer>
 	</section>
-<?php endif; ?>
-<?php if ( comments_open() ) : ?>
+<?php 
+	endif;
+endif;
+?>
+<?php 
+if ( comments_open() ) : 
+	if( (is_page() || is_single()) && (!is_home() && !is_front_page()) ) :
+?>
 <section id="respond">
 	<h3><?php comment_form_title( __('Leave a Reply', 'FoundationPress'), __('Leave a Reply to %s', 'FoundationPress') ); ?></h3>
 	<p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
@@ -91,4 +100,7 @@
 	</form>
 	<?php endif; // If registration required and not logged in ?>
 </section>
-<?php endif; // if you delete this the sky will fall on your head ?>
+<?php 
+	endif; // if you delete this the sky will fall on your head
+endif; // if you delete this the sky will fall on your head 
+?>
