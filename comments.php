@@ -1,5 +1,4 @@
-<?php if (!function_exists('FoundationPress_comments')) { 
-	function FoundationPress_comments($comment, $args, $depth) {
+<?php function FoundationPress_comments($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment; ?>
 	<li <?php comment_class(); ?>>
 		<article id="comment-<?php comment_ID(); ?>">
@@ -24,10 +23,7 @@
 			</section>
 
 		</article>
-<?php 
-	}	 
-}
-?>
+<?php } ?>
 
 <?php
 // Do not delete these lines
