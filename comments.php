@@ -1,29 +1,39 @@
-<?php function FoundationPress_comments($comment, $args, $depth) {
-	$GLOBALS['comment'] = $comment; ?>
-	<li <?php comment_class(); ?>>
-		<article id="comment-<?php comment_ID(); ?>">
-			<header class="comment-author">
-				<?php echo get_avatar($comment,$size='48'); ?>
-				<div class="author-meta">
-					<?php printf(__('<cite class="fn">%s</cite>', 'FoundationPress'), get_comment_author_link()) ?>
-					<time datetime="<?php echo comment_date('c') ?>"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s', 'FoundationPress'), get_comment_date(),  get_comment_time()) ?></a></time>
-					<?php edit_comment_link(__('(Edit)', 'FoundationPress'), '', '') ?>
-				</div>
-			</header>
+-<?php 
+-if ( have_comments() ) : 
+-	if( (is_page() || is_single()) && (!is_home() && !is_front_page()) ) :
+-?>
+-	<section id="comments"><?php 	
+-		
+-				
+-		wp_list_comments(
+-			
+-			array(
+-				'walker'            => new FoundationPress_comments(), 
+-				'max_depth'         => '',
+-				'style'             => 'ol',
+-				'callback'          => null,
+-				'end-callback'      => null,
+-				'type'              => 'all',
+-				'reply_text'        => __('Reply', 'FoundationPress'),
+-				'page'              => '',
+-				'per_page'          => '',
+-				'avatar_size'       => 48,
+-				'reverse_top_level' => null,
+-				'reverse_children'  => '',
+-				'format'            => 'html5', 
+-				'short_ping'        => false, 
+-				'echo'  	    => true,							
+-				'moderation' 	    => __('Your comment is awaiting moderation.', 'FoundationPress'),					
+-			)
+-		);
+-		
+-		?>
 
-			<?php if ($comment->comment_approved == '0') : ?>
-				<div class="notice">
-					<p class="bottom"><?php _e('Your comment is awaiting moderation.', 'FoundationPress') ?></p>
-				</div>
-			<?php endif; ?>
-
-			<section class="comment">
-				<?php comment_text() ?>
-				<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-			</section>
-
-		</article>
-<?php } ?>
+ 	</section>
+-<?php 
+-	endif;
+-endif;
+-?>
 
 <?php
 // Do not delete these lines
