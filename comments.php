@@ -1,39 +1,39 @@
--<?php 
--if ( have_comments() ) : 
--	if( (is_page() || is_single()) && (!is_home() && !is_front_page()) ) :
--?>
--	<section id="comments"><?php 	
--		
--				
--		wp_list_comments(
--			
--			array(
--				'walker'            => new FoundationPress_comments(), 
--				'max_depth'         => '',
--				'style'             => 'ol',
--				'callback'          => null,
--				'end-callback'      => null,
--				'type'              => 'all',
--				'reply_text'        => __('Reply', 'FoundationPress'),
--				'page'              => '',
--				'per_page'          => '',
--				'avatar_size'       => 48,
--				'reverse_top_level' => null,
--				'reverse_children'  => '',
--				'format'            => 'html5', 
--				'short_ping'        => false, 
--				'echo'  	    => true,							
--				'moderation' 	    => __('Your comment is awaiting moderation.', 'FoundationPress'),					
--			)
--		);
--		
--		?>
+<?php 
+if ( have_comments() ) : 
+	if( (is_page() || is_single()) && (!is_home() && !is_front_page()) ) :
+?>
+	<section id="comments"><?php 	
+		
+				
+		wp_list_comments(
+			
+			array(
+				'walker'            => new FoundationPress_comments(), 
+				'max_depth'         => '',
+				'style'             => 'ol',
+				'callback'          => null,
+				'end-callback'      => null,
+				'type'              => 'all',
+				'reply_text'        => __('Reply', 'FoundationPress'),
+				'page'              => '',
+				'per_page'          => '',
+				'avatar_size'       => 48,
+				'reverse_top_level' => null,
+				'reverse_children'  => '',
+				'format'            => 'html5', 
+				'short_ping'        => false, 
+				'echo'  	    => true,							
+				'moderation' 	    => __('Your comment is awaiting moderation.', 'FoundationPress'),					
+			)
+		);
+		
+		?>
 
  	</section>
--<?php 
--	endif;
--endif;
--?>
+<?php 
+	endif;
+endif;
+?>
 
 <?php
 // Do not delete these lines
