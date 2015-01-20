@@ -76,7 +76,7 @@ function FoundationPress_active_list_pages_class( $input ) {
 add_filter( 'wp_list_pages', 'FoundationPress_active_list_pages_class', 10, 2 );
 
 
-class FoundationPress_comments extends Walker_Comment {
+class FoundationPress_comments extends Walker_Comment{
      
     // init classwide variables
     var $tree_type = 'comment';
@@ -110,7 +110,7 @@ class FoundationPress_comments extends Walker_Comment {
     <?php }
      
     /** START_EL */
-    function start_el( &$output, $comment, $depth, $args, $id = 0 ) {
+    function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) {
         $depth++;
         $GLOBALS['comment_depth'] = $depth;
         $GLOBALS['comment'] = $comment; 
