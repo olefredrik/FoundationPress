@@ -29,7 +29,7 @@ if ( ! function_exists( 'foundationPress_top_bar_l' ) ) {
 	        'link_after' => '',                             // after each link text
 	        'depth' => 5,                                   // limit the depth of the nav
 	        'fallback_cb' => false,                         // fallback function (see below)
-	        'walker' => new top_bar_walker()
+	        'walker' => new FoundationPress_top_bar_walker()
 	    ));
 	}
 }
@@ -51,7 +51,7 @@ if ( ! function_exists( 'foundationPress_top_bar_r' ) ) {
 	        'link_after' => '',                             // after each link text
 	        'depth' => 5,                                   // limit the depth of the nav
 	        'fallback_cb' => false,                         // fallback function (see below)
-	        'walker' => new top_bar_walker()
+	        'walker' => new FoundationPress_top_bar_walker()
 	    ));
 	}
 }
@@ -73,7 +73,7 @@ if ( ! function_exists( 'foundationPress_mobile_off_canvas' ) ) {
 	        'link_after' => '',                             // after each link text
 	        'depth' => 5,                                   // limit the depth of the nav
 	        'fallback_cb' => false,                         // fallback function (see below)
-	        'walker' => new top_bar_walker()
+	        'walker' => new FoundationPress_top_bar_walker()
 	    ));
 	}
 }
@@ -85,14 +85,14 @@ if ( ! function_exists( 'foundationPress_mobile_off_canvas' ) ) {
  * 3) On your menu item, type 'has-form' in the CSS-classes field. Type 'button' in the XFN field
  * 4) Save Menu. Your menu item will now appear as a button in your top-menu
 */
-if ( ! function_exists( 'add_menuclass') ) {
-	function add_menuclass($ulclass) {
+if ( ! function_exists( 'FoundationPress_add_menuclass') ) {
+	function FoundationPress_add_menuclass($ulclass) {
 	    $find = array('/<a rel="button"/', '/<a title=".*?" rel="button"/');
 	    $replace = array('<a rel="button" class="button"', '<a rel="button" class="button"');
 	    
 	    return preg_replace($find, $replace, $ulclass, 1);
 	}
-	add_filter('wp_nav_menu','add_menuclass');
+	add_filter('wp_nav_menu','FoundationPress_add_menuclass');
 }
 
 ?>

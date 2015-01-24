@@ -2,8 +2,8 @@
 /**
  * Customize the output of menus for Foundation top bar
  */
-
-class top_bar_walker extends Walker_Nav_Menu {
+if (!class_exists('FoundationPress_top_bar_walker')) :
+class FoundationPress_top_bar_walker extends Walker_Nav_Menu {
 
     function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
         $element->has_children = !empty( $children_elements[$element->ID] );
@@ -38,4 +38,5 @@ class top_bar_walker extends Walker_Nav_Menu {
     }
     
 }
+endif;
 ?>
