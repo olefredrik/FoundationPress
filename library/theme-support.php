@@ -1,4 +1,6 @@
 <?php
+
+if (!function_exists('FoundationPress_theme_support')) :
 function FoundationPress_theme_support() {
     // Add language support
     load_theme_textdomain('FoundationPress', get_template_directory() . '/languages');
@@ -19,4 +21,5 @@ function FoundationPress_theme_support() {
 }
 
 add_action('after_setup_theme', 'FoundationPress_theme_support'); 
+endif;
 ?>

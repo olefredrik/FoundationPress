@@ -1,5 +1,6 @@
 <?php
 // Pagination
+if (!function_exists('FoundationPress_pagination')) :
 function FoundationPress_pagination() {
 	global $wp_query;
  
@@ -33,10 +34,13 @@ function FoundationPress_pagination() {
 		echo '</div><!--// end .pagination -->';
 	}
 }
+endif;
 
 /**
  * A fallback when no navigation is selected by default.
  */
+ 
+if (!function_exists('FoundationPress_menu_fallback')) :
 function FoundationPress_menu_fallback() {
 	echo '<div class="alert-box secondary">';
 	// Translators 1: Link to Menus, 2: Link to Customize
@@ -50,8 +54,10 @@ function FoundationPress_menu_fallback() {
   	);
   	echo '</div>';
 }
+endif;
 
 // Add Foundation 'active' class for the current menu item
+if (!function_exists('FoundationPress_active_nav_class')) :
 function FoundationPress_active_nav_class( $classes, $item ) {
     if ( $item->current == 1 || $item->current_item_ancestor == true ) {
         $classes[] = 'active';
@@ -59,11 +65,13 @@ function FoundationPress_active_nav_class( $classes, $item ) {
     return $classes;
 }
 add_filter( 'nav_menu_css_class', 'FoundationPress_active_nav_class', 10, 2 );
+endif;
 
 /**
  * Use the active class of ZURB Foundation on wp_list_pages output.
  * From required+ Foundation http://themes.required.ch
  */
+if (!function_exists('FoundationPress_active_list_pages_class')) :
 function FoundationPress_active_list_pages_class( $input ) {
 
 	$pattern = '/current_page_item/';
@@ -74,8 +82,9 @@ function FoundationPress_active_list_pages_class( $input ) {
     return $output;
 }
 add_filter( 'wp_list_pages', 'FoundationPress_active_list_pages_class', 10, 2 );
+endif;
 
-
+if (!class_exists('FoundationPress_comments')) :
 class FoundationPress_comments extends Walker_Comment{
      
     // init classwide variables
@@ -171,5 +180,6 @@ class FoundationPress_comments extends Walker_Comment{
  
     <?php }
 }
+endif;
 
 ?>
