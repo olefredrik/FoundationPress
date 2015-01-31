@@ -1,5 +1,5 @@
 <?php
-if (!function_exists('oundationpress_sidebar_widgets')) :
+if (!function_exists('foundationpress_sidebar_widgets')) :
 function foundationpress_sidebar_widgets() {
   register_sidebar(array(
       'id' => 'sidebar-widgets',
