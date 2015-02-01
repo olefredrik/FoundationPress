@@ -50,28 +50,7 @@ endif;
 		return;
 	}
 ?>
-<?php // You can start editing here. Customize the respond form below ?>
-<?php 
-if ( have_comments() ) : 
-	if( (is_page() || is_single()) && (!is_home() && !is_front_page()) ) :
-?>
-	<section id="comments">
-		<h3><?php comments_number(__('No Responses to', 'FoundationPress'), __('One Response to', 'FoundationPress'), __('% Responses to', 'FoundationPress') ); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
-		<ol class="commentlist">
-		<?php wp_list_comments('type=comment&callback=FoundationPress_comments'); ?>
 
-		</ol>
-		<footer>
-			<nav id="comments-nav">
-				<div class="comments-previous"><?php previous_comments_link( __( '&larr; Older comments', 'FoundationPress' ) ); ?></div>
-				<div class="comments-next"><?php next_comments_link( __( 'Newer comments &rarr;', 'FoundationPress' ) ); ?></div>
-			</nav>
-		</footer>
-	</section>
-<?php 
-	endif;
-endif;
-?>
 <?php 
 if ( comments_open() ) : 
 	if( (is_page() || is_single()) && (!is_home() && !is_front_page()) ) :
