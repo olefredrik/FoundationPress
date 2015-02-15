@@ -86,18 +86,19 @@ Check for Foundation Updates? Run:
 
 * [Harvard Center for Green Buildings and Cities](http://www.harvardcgbc.org/)
 * [Parent-Child Home Program](http://www.parent-child.org/)
-* [Arch Design](http://archdesign.grafique.cz/)
-* [Hip and Healthy](http://hipandhealthy.com)
+* [Hip and Healthy](http://hipandhealthy.com/)
 * [Thinx Underwear](http://www.shethinx.com/)
 * [Threadbird blog](http://blog.threadbird.com/)
 * [Code Cub](http://www.thecodecub.com/)
 * [Public House Wines](http://publichousewines.hstestsite.info/)
 * [Bristol Doors Open Day 2014](http://www.bristoldoorsopenday.org/)
-* [Franchise Career Advisors](http://franchisecareeradvisors.com)
-* [Le saint](http://www.lesaint.ca)
+* [Franchise Career Advisors](http://franchisecareeradvisors.com/)
+* [Le saint](http://www.lesaint.ca/)
 * [Help blog](http://help.com/blog/)
-* [Maren Schmidt](http://marenschmidt.com)
-* [Ciancimino Gallery](http://ciancimino.com)
+* [Maren Schmidt](http://marenschmidt.com/)
+* [Ciancimino Gallery](http://ciancimino.com/)
+* [Sokolove Law](http://www.sokolovelaw.com/)
+* [Pandora Children's Parties](http://www.pandorachildrensparties.co.uk/)
 
 ## Contributing
 #### Here are ways to get involved:
