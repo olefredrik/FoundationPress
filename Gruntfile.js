@@ -29,6 +29,13 @@ module.exports = function(grunt) {
         dest: 'js/vendor/'
       },
 
+      iconfonts: {
+        expand: true,
+        cwd: 'bower_components/fontawesome/',
+        src: ['**', '!**/less/**', '!**/css/**', '!bower.json'],
+        dest: 'assets/fontawesome/'
+      },
+
     },
 
     concat: {
