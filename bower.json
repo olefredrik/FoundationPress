@@ -4,9 +4,9 @@
     "css/foundation.css",
     "js/foundation.js"
   ],
-  "ignore": [
-  ],
+  "ignore": [],
   "dependencies": {
-    "foundation": "zurb/bower-foundation"
+    "foundation": "zurb/bower-foundation",
+    "fontawesome": "~4.3.0"
   }
 }
