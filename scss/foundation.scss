@@ -10,7 +10,6 @@
 */
 
 @import "config/settings"; // Default settings file. Uncomment each setting you need to change
-@import "assets/icons"; // Load Foundation icon fonts
 
 @import "../bower_components/foundation/scss/foundation/components/grid";
 @import "../bower_components/foundation/scss/foundation/components/accordion";
@@ -49,6 +48,13 @@
 @import "../bower_components/foundation/scss/foundation/components/type";
 @import "../bower_components/foundation/scss/foundation/components/offcanvas";
 @import "../bower_components/foundation/scss/foundation/components/visibility";
+
+/* 
+  Font Awesome - (http://fontawesome.io/) :
+  Feel free to remove the import statement below if you don't plan to use icon-fonts in your project
+*/
+
+@import "../bower_components/fontawesome/scss/font-awesome.scss";
 
 
 /* 

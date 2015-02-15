@@ -606,23 +606,23 @@ get_header(); ?>
 			<h4 id="icon-bar">Icon bar</h4>
 			<div class="icon-bar five-up" role="navigation"> 
 			  <a class="item" role="button" tabindex="0" aria-label="home"> 
-			    <i class="fi-home"></i> 
+			    <i class="fa fa-home"></i> 
 			    <label id="home">Home</label>
 			  </a> 
 			  <a class="item" role="button" tabindex="0" aria-label="Bookmark"> 
-			    <i class="fi-bookmark"></i> 
+			    <i class="fa fa-fw fa-bookmark"></i> 
 			    <label id="bookmark">Bookmark</label>
 			  </a> 
 			  <a class="item" role="button" tabindex="0" aria-label="Information"> 
-			    <i class="fi-info"></i> 
+			    <i class="fa fa-fw fa-info-circle"></i> 
 			    <label id="information">Information</label>
 			  </a> 
 			  <a class="item" role="button" tabindex="0" aria-label="Mail"> 
-			    <i class="fi-mail"></i> 
+			    <i class="fa fa-fw fa-envelope"></i> 
 			    <label id="mail">Mail</label>
 			  </a> 
 			  <a class="item" role="button" tabindex="0" aria-label="Like"> 
-			    <i class="fi-like"></i> 
+			    <i class="fa fa-fw fa-thumbs-up"></i> 
 			    <label id="like">Like</label>
 			  </a> 
 			</div>
