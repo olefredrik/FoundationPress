@@ -91,7 +91,6 @@ Check for Foundation Updates? Run:
 * [Threadbird blog](http://blog.threadbird.com/)
 * [Code Cub](http://www.thecodecub.com/)
 * [Public House Wines](http://publichousewines.hstestsite.info/)
-* [Bristol Doors Open Day 2014](http://www.bristoldoorsopenday.org/)
 * [Franchise Career Advisors](http://franchisecareeradvisors.com/)
 * [Le saint](http://www.lesaint.ca/)
 * [Help blog](http://help.com/blog/)
@@ -99,6 +98,14 @@ Check for Foundation Updates? Run:
 * [Ciancimino Gallery](http://ciancimino.com/)
 * [Sokolove Law](http://www.sokolovelaw.com/)
 * [Pandora Children's Parties](http://www.pandorachildrensparties.co.uk/)
+* [The Rainbow Venues](http://www.therainbowvenues.co.uk/)
+* [Ameronix](http://www.ameronix.com/)
+* [Finnerodja](http://www.finnerodja.se/)
+* [Nufloors](http://www.nufloors.ca/)
+* [Glossop Cartons](http://www.glossopcartons.co.uk/)
+* [Ready4Work](http://www.ready4work.my/)
+* [Process](http://www.processeq.net/)
+* [Just Legal](http://www.justlegal.co.jp/en/)
 
 ## Contributing
 #### Here are ways to get involved:
