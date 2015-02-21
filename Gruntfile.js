@@ -84,11 +84,11 @@ module.exports = function(grunt) {
           'bower_components/foundation/js/foundation/foundation.tooltip.js',
           'bower_components/foundation/js/foundation/foundation.topbar.js',
           
-          // Using all of your custom js files
+          // Include your own custom scripts (located in the custom folder)
           'js/custom/*.js'
           
           ],
-          // Concat all the files above into one single file
+          // Finally, concatinate all the files above into one single file
           dest: 'js/foundation.js',
         },
       },
