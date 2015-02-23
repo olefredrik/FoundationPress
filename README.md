@@ -82,14 +82,13 @@ Check for Foundation Updates? Run:
 * [Learn to use the _settings file to change almost every aspect of a Foundation site](http://zurb.com/university/lessons/66)
 * [Other lessons from Zurb University](http://zurb.com/university/past-lessons)
 
-## Examples of sites built using FoundationPress
+## A selection of sites built with FoundationPress
 
 * [Harvard Center for Green Buildings and Cities](http://www.harvardcgbc.org/)
 * [Parent-Child Home Program](http://www.parent-child.org/)
 * [Hip and Healthy](http://hipandhealthy.com/)
 * [Thinx Underwear](http://www.shethinx.com/)
 * [Threadbird blog](http://blog.threadbird.com/)
-* [Code Cub](http://www.thecodecub.com/)
 * [Public House Wines](http://publichousewines.hstestsite.info/)
 * [Franchise Career Advisors](http://franchisecareeradvisors.com/)
 * [Le saint](http://www.lesaint.ca/)
@@ -104,8 +103,10 @@ Check for Foundation Updates? Run:
 * [Nufloors](http://www.nufloors.ca/)
 * [Glossop Cartons](http://www.glossopcartons.co.uk/)
 * [Ready4Work](http://www.ready4work.my/)
-* [Process](http://www.processeq.net/)
 * [Just Legal](http://www.justlegal.co.jp/en/)
+* [Vintage and Stuff](http://vintageandstuff.com/)
+* [Software for FM](http://softwareforfm.co.uk/)
+
 
 ## Contributing
 #### Here are ways to get involved:
