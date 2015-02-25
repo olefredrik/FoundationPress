@@ -197,7 +197,7 @@ get_header(); ?>
 			<hr>
 			<h4 id="flex-video">Flex Video</h4>
 			<div class="flex-video">
-				<iframe width="420" height="315" src="http://www.youtube.com/embed/0_EW8aNgKlA" frameborder="0" allowfullscreen></iframe>
+				<iframe width="420" height="315" src="https://www.youtube.com/embed/s4m5wwM4BWM" frameborder="0" allowfullscreen></iframe>
 			</div>
 
 			<hr>
