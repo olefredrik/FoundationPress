@@ -1,0 +1,20 @@
+#homepage-hero {
+	background: url("http://foundation.zurb.com/assets/img/marquee-stars.svg") repeat scroll 0 0 #074E68;
+	padding: rem-calc(20) 0;
+	margin: - rem-calc(32) 0 rem-calc(32);
+	position: relative;
+	text-align: left;
+	height: auto;
+
+		h1 { font-weight: 500; }
+
+		h1 a, h4 { color: #fff; }
+
+		.floatingyeti img {
+			max-width: 30%;
+			position: absolute;
+			right: rem-calc(100);
+		}
+
+		.download { margin-top: rem-calc(20); }
+	}

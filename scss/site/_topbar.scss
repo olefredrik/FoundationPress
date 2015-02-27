@@ -1,0 +1,16 @@
+// Add some whitespace between top bar and content
+.top-bar-container, .tab-bar {
+	margin-bottom: rem-calc(32);
+}
+
+.top-bar .name {
+	h1 a { font-weight: 500; }
+}
+
+// A more subtle background color for the active menu item
+.top-bar-section li.active:not(.has-form) a:not(.button)  {
+	background: #272727;
+}
+.top-bar-section li.active:not(.has-form) a:hover:not(.button) {
+	background: #202020;
+}
