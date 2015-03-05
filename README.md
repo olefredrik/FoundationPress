@@ -83,6 +83,7 @@ Check for Foundation Updates? Run:
 
 ## Tools
 * [FoundationPSD - Foundation UI Kit for Photoshop](http://foundationpress.olefredrik.com/downloads/foundation-psd-template/)
+* [Axure UI widgets based on Foundation](https://gumroad.com/l/axure-foundation-ui)
 * [Installing FoundationPress - video tutorial](https://www.youtube.com/watch?v=s4m5wwM4BWM#t=11)
 
 ## How to make Foundation your own
