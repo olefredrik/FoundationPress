@@ -1,0 +1,273 @@
+# Copyright (C) 2015 Ole Fredrik Lie
+# This file is distributed under the MIT License.
+msgid ""
+msgstr ""
+"Project-Id-Version: FoundationPress 5.5.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/FoundationPress\n"
+"POT-Creation-Date: 2015-03-12 12:58:33+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-03-12 15:03+0100\n"
+"Last-Translator: Anders Jensen-Urstad <anders@unix.se>\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.7.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: sv_SE\n"
+
+#: 404.php:8
+msgid "File Not Found"
+msgstr "Filen kunde inte hittas"
+
+#: 404.php:12
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+"Sidan du letade efter kan ha tagits bort eller bytt namn, eller är "
+"tillfälligt otillgänglig."
+
+#: 404.php:14
+msgid "Please try the following:"
+msgstr "Vänligen prova följande:"
+
+#: 404.php:16
+msgid "Check your spelling"
+msgstr "Kontrollera din stavning"
+
+#: 404.php:17
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "Gå tillbaka till <a href=\"%s\">hemsidan</a>"
+
+#: 404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr "Klicka på knappen <a href=\"javascript:history.back()\">Tillbaka</a>"
+
+#: archive.php:21 index.php:24 search.php:25
+msgid "&larr; Older posts"
+msgstr "&larr; Äldre inlägg"
+
+#: archive.php:22 index.php:25 search.php:26
+msgid "Newer posts &rarr;"
+msgstr "Nyare inlägg &rarr;"
+
+#: comments.php:17
+msgid "Reply"
+msgstr "Svara"
+
+#: comments.php:26
+msgid "Your comment is awaiting moderation."
+msgstr "Din kommentar inväntar granskning."
+
+#: comments.php:41
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Vänligen ladda inte denna sida direkt. Tack!"
+
+#: comments.php:46
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Det här inlägget är lösenordsskyddat. Ange lösenordet för att se "
+"kommentarer."
+
+#: comments.php:59
+msgid "Leave a Reply"
+msgstr "Lämna ett svar"
+
+#: comments.php:59
+msgid "Leave a Reply to %s"
+msgstr "Lämna ett svar till %s"
+
+#: comments.php:62
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+"Du måste vara <a href=\"%s\">inloggad</a> för att skriva en kommentar."
+
+#: comments.php:66
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "Inloggad som <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: comments.php:66
+msgid "Log out of this account"
+msgstr "Logga ut från det här kontot"
+
+#: comments.php:66
+msgid "Log out &raquo;"
+msgstr "Logga ut &raquo;"
+
+#: comments.php:69
+msgid "Name"
+msgstr "Namn"
+
+#: comments.php:69 comments.php:73
+msgid " (required)"
+msgstr " (krävs)"
+
+#: comments.php:73
+msgid "Email (will not be published)"
+msgstr "E-postadress (publiceras ej)"
+
+#: comments.php:77
+msgid "Website"
+msgstr "Webbplats"
+
+#: comments.php:82
+msgid "Comment"
+msgstr "Kommentar"
+
+#: comments.php:85
+msgid "You can use these tags:"
+msgstr "Du kan använda dessa taggar:"
+
+#: comments.php:86
+msgid "Submit Comment"
+msgstr "Skicka kommentar"
+
+#: content-none.php:11
+msgid "Nothing Found"
+msgstr "Inget hittat"
+
+#: content-none.php:17
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Redo att publicera ditt första inlägg? <a href=\"%1$s\">Kom igång här</a>."
+
+#: content-none.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Tyvärr hittades inget som matchade dina söktermer. Vänligen prova igen med "
+"andra sökord."
+
+#: content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Det verkar som att vi inte kan hitta vad du letar efter. Kanske en sökning "
+"kan hjälpa."
+
+#: content.php:16
+msgid "Continue reading..."
+msgstr "Läs mer..."
+
+#: hero.php:40 kitchen-sink.php:730 page-full.php:19 page-sidebar-left.php:21
+#: page.php:18 single.php:27 woocommerce.php:18
+msgid "Pages:"
+msgstr "Sidor:"
+
+#: library/entry-meta.php:4
+msgid "Posted on %s at %s."
+msgstr "Postat den %s kl %s."
+
+#: library/entry-meta.php:5
+msgid "Written by"
+msgstr "Skrivet av"
+
+#: library/foundation.php:17
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: library/foundation.php:18
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: library/foundation.php:47
+msgid ""
+"Please assign a menu to the primary menu location under %1$s or %2$s the "
+"design."
+msgstr ""
+"Vänligen tilldela en meny till den primära menypositionen under  %1$s eller "
+"%2$s designen."
+
+#: library/foundation.php:48
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">Menyer</a>"
+
+#: library/foundation.php:51
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">Anpassa</a>"
+
+#: library/foundation.php:99
+msgid "No Responses to"
+msgstr "Inga kommentarer till"
+
+#: library/foundation.php:99
+msgid "One Response to"
+msgstr "En kommentar till"
+
+#: library/foundation.php:99
+msgid "% Responses to"
+msgstr "% kommentarer till"
+
+#: library/foundation.php:139
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn\">%s</cite>"
+
+#: library/foundation.php:140
+msgid "%1$s"
+msgstr "%1$s"
+
+#: library/widget-areas.php:6
+msgid "Sidebar widgets"
+msgstr "Sidopanelwidgets"
+
+#: library/widget-areas.php:7
+msgid "Drag widgets to this sidebar container."
+msgstr "Dra widgets till den här sidopanelsbehållaren."
+
+#: library/widget-areas.php:16
+msgid "Footer widgets"
+msgstr "Sidfotswidgets"
+
+#: library/widget-areas.php:17
+msgid "Drag widgets to this footer container"
+msgstr "Dra widgets till den här sidfotsbehållaren"
+
+#: search.php:7
+msgid "Search Results for"
+msgstr "Sökresultat för"
+
+#: searchform.php:6 searchform.php:10
+msgid "Search"
+msgstr "Sök"
+
+#. Theme Name of the plugin/theme
+msgid "FoundationPress"
+msgstr "FoundationPress"
+
+#. Theme URI of the plugin/theme
+msgid "http://foundationpress.olefredrik.com"
+msgstr "http://foundationpress.olefredrik.com"
+
+#. Description of the plugin/theme
+msgid ""
+"FoundationPress is a WordPress starter theme based on Foundation 5 by Zurb"
+msgstr ""
+"FoundationPress är ett starter-tema för Wordpress baserat på Foundation 5 "
+"av Zurb"
+
+#. Author of the plugin/theme
+msgid "Ole Fredrik Lie"
+msgstr "Ole Fredrik Lie"
+
+#. Author URI of the plugin/theme
+msgid "http://olefredrik.com/"
+msgstr "http://olefredrik.com/"
+
+#. Template Name of the plugin/theme
+msgid "Hero"
+msgstr "Hero"
+
+#. Template Name of the plugin/theme
+msgid "Kitchen Sink"
+msgstr "Kitchen sink - hela köket"
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr "Fullbredd"
+
+#. Template Name of the plugin/theme
+msgid "Left Sidebar"
+msgstr "Vänster sidopanel"
