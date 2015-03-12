@@ -176,7 +176,7 @@ class FoundationPress_comments extends Walker_Comment{
     /** DESTRUCTOR */
     function __destruct() { ?>
      
-    </ul><!-- /#comment-list -->
+    </ol><!-- /#comment-list -->
  
     <?php }
 }
