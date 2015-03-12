@@ -1,4 +1,7 @@
 module.exports = function(grunt) {
+  // time
+  require('time-grunt')(grunt);
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -65,7 +68,7 @@ module.exports = function(grunt) {
 
           // Foundation core
           'bower_components/foundation/js/foundation/foundation.js',
-          
+
           // Pick the componenets you need in your project
           'bower_components/foundation/js/foundation/foundation.abide.js',
           'bower_components/foundation/js/foundation/foundation.accordion.js',
@@ -83,10 +86,10 @@ module.exports = function(grunt) {
           'bower_components/foundation/js/foundation/foundation.tab.js',
           'bower_components/foundation/js/foundation/foundation.tooltip.js',
           'bower_components/foundation/js/foundation/foundation.topbar.js',
-          
+
           // Include your own custom scripts (located in the custom folder)
           'js/custom/*.js'
-          
+
           ],
           // Finally, concatinate all the files above into one single file
           dest: 'js/foundation.js',
@@ -107,7 +110,17 @@ module.exports = function(grunt) {
 
       sass: {
         files: 'scss/**/*.scss',
-        tasks: ['sass']
+        tasks: ['sass'],
+        options: {
+              livereload:true,
+            }
+      },
+
+       all: {
+        files: '**/*.php',
+        options: {
+            livereload:true,
+        }
       }
     }
   });
