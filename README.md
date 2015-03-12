@@ -56,9 +56,9 @@ Check for Foundation Updates? Run:
 
   * `scss/foundation.scss`: Imports for Foundation components and your custom styles.
   * `scss/config/_settings.scss`: Original Foundation 5 base settings
-  * `scss/assets/_icons.scss`: Foundation Icons
-  * `scss/site/_base.scss`: Basic styles for FoundationPress. These can be replaced by your needs.
-
+  * `scss/config/_custom-settings.scss`: Copy the settings you will modify to this file. Make it your own
+  * `scss/site/*.scss`: Unleash your creativity and make it look perfect. Create the files you need (and remember to make import statements for all your files in scss/foundation.scss)
+  
   * `css/foundation.css`: All Sass files are minified and compiled to this file
   * `css/foundation.css.map`: CSS source maps
 
