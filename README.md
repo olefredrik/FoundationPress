@@ -19,12 +19,7 @@ Bower is a package manager used by Zurb to distribute Foundation. When you have 
 
 **Okay, so you'll need to have the following items installed before continuing.**
 
-  * [Node.js](http://nodejs.org): Due to an unresolved incompability issue with node-sass, we will need to use Node v. 0.10.33 (stable). [See this issue for a more detailed description](https://github.com/zurb/foundation-libsass-template/issues/16#issuecomment-76017152)
-    * [Mac installer](https://nodejs.org/dist/v0.10.33/node-v0.10.33.pkg)
-    * [Windows installer](https://nodejs.org/dist/v0.10.33/node-v0.10.33-x86.msi)
-    * [Windows x64 installer](https://nodejs.org/dist/v0.10.33/x64/node-v0.10.33-x64.msi)
-    * [Other release files](https://nodejs.org/dist/v0.10.33/)
-    * [Documentation](https://nodejs.org/docs/v0.10.33/api/)
+  * [Node.js](http://nodejs.org)
   * [Grunt](http://gruntjs.com/): Run `[sudo] npm install -g grunt-cli`
   * [Bower](http://bower.io): Run `[sudo] npm install -g bower`
 
