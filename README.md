@@ -77,7 +77,7 @@ Check for Foundation Updates? Run:
 * [Clean FoundationPress install](http://foundationpress.olefredrik.com/)
 * [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
 
-## UI toolkits for rapid prototyping in Axure and Photoshop
+## UI toolkits for rapid prototyping
 
 * [Foundation UI Kit for Axure RP](https://gumroad.com/l/foundation-ui-kit-axure-rp)
 * [FoundationPSD - Foundation UI Kit for Photoshop](http://foundationpress.olefredrik.com/downloads/foundation-psd-template/)
