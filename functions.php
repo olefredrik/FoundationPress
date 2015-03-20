@@ -14,8 +14,9 @@ require_once('library/foundation.php');
 // Register all navigation menus
 require_once('library/navigation.php');
 
-// Add menu walker
+// Add menu walkers
 require_once('library/menu-walker.php');
+require_once('library/offcanvas-walker.php');
 
 // Create widget areas in sidebar and footer
 require_once('library/widget-areas.php');
