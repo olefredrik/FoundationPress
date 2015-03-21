@@ -73,7 +73,7 @@ if ( ! function_exists( 'foundationPress_mobile_off_canvas' ) ) {
 	        'link_after' => '',                             // after each link text
 	        'depth' => 5,                                   // limit the depth of the nav
 	        'fallback_cb' => false,                         // fallback function (see below)
-	        'walker' => new FoundationPress_top_bar_walker()
+	        'walker' => new FoundationPress_offcanvas_walker()
 	    ));
 	}
 }
