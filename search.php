@@ -2,9 +2,9 @@
 <div class="row">
 	<div class="small-12 large-8 columns" role="main">
 
-		<?php do_action('foundationPress_before_content'); ?>
+		<?php do_action( 'foundationPress_before_content' ); ?>
 
-		<h2><?php _e('Search Results for', 'FoundationPress'); ?> "<?php echo get_search_query(); ?>"</h2>
+		<h2><?php _e( 'Search Results for', 'FoundationPress' ); ?> "<?php echo get_search_query(); ?>"</h2>
 
 	<?php if ( have_posts() ) : ?>
 
@@ -17,9 +17,9 @@
 
 	<?php endif;?>
 
-	<?php do_action('foundationPress_before_pagination'); ?>
+	<?php do_action( 'foundationPress_before_pagination' ); ?>
 
-	<?php if ( function_exists('FoundationPress_pagination') ) { FoundationPress_pagination(); } else if ( is_paged() ) { ?>
+	<?php if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>
 
 		<nav id="post-nav">
 			<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'FoundationPress' ) ); ?></div>
@@ -27,7 +27,7 @@
 		</nav>
 	<?php } ?>
 
-	<?php do_action('foundationPress_after_content'); ?>
+	<?php do_action( 'foundationPress_after_content' ); ?>
 
 	</div>
 	<?php get_sidebar(); ?>
