@@ -33,12 +33,9 @@ cd your-theme-name
 npm install && bower install && grunt build
 ```
 
-**Tip 1:** 
+**Tip:** 
 If you get an error saying Permission denied (publickey) when cloning the repository, use the https protocol instead:
 ```git clone https://github.com/olefredrik/FoundationPress.git```
-
-**Tip 2:**
-If you get a fatal error during installation, it might be related to a libsass incompability issue with the latest version of nodejs. Check the guide at the bottom of this page: https://github.com/olefredrik/FoundationPress/issues/209
 
 While you're working on your project, run:
 
