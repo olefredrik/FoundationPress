@@ -146,7 +146,7 @@ function foundationpress_fixed_img_caption_shortcode($attr, $content = null) {
 		}
 	}
 	$output = apply_filters( 'img_caption_shortcode', '', $attr, $content );
-	if ( $output != '' ) {
+	if ( '' != $output ) {
 		return $output; }
 	extract(shortcode_atts(array(
 		'id'    => '',

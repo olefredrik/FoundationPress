@@ -29,7 +29,7 @@ if ( ! function_exists( 'foundationpress_top_bar_l' ) ) {
 	        'link_after' => '',                             // after each link text
 	        'depth' => 5,                                   // limit the depth of the nav
 	        'fallback_cb' => false,                         // fallback function (see below)
-	        'walker' => new FoundationPress_top_bar_walker()
+	        'walker' => new FoundationPressTopBarWalker()
 	    ));
 	}
 }
@@ -51,7 +51,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 	        'link_after' => '',                             // after each link text
 	        'depth' => 5,                                   // limit the depth of the nav
 	        'fallback_cb' => false,                         // fallback function (see below)
-	        'walker' => new FoundationPress_top_bar_walker()
+	        'walker' => new FoundationPressTopBarWalker()
 	    ));
 	}
 }
@@ -73,7 +73,7 @@ if ( ! function_exists( 'foundationpress_mobile_off_canvas' ) ) {
 	        'link_after' => '',                             // after each link text
 	        'depth' => 5,                                   // limit the depth of the nav
 	        'fallback_cb' => false,                         // fallback function (see below)
-	        'walker' => new FoundationPress_offcanvas_walker()
+	        'walker' => new FoundationPressOffcanvasWalker()
 	    ));
 	}
 }
