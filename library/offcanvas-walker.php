@@ -2,13 +2,13 @@
 /**
  * Customize the output of menus for Foundation off-canvas menu with multi-level support
  */
-if ( ! class_exists( 'FoundationPress_offcanvas_walker' ) ) :
-class FoundationPress_offcanvas_walker extends Walker_Nav_Menu {
+if ( ! class_exists( 'Foundationpress_Offcanvas_Walker' ) ) :
+class Foundationpress_Offcanvas_Walker extends Walker_Nav_Menu {
 
 	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
 		$element->has_children = ! empty( $children_elements[ $element->ID ] );
 		$element->classes[] = ( $element->current || $element->current_item_ancestor ) ? 'active' : '';
-		$element->classes[] = ( $element->has_children && $max_depth !== 1 ) ? 'has-submenu' : '';
+		$element->classes[] = ( $element->has_children && 1 !== $max_depth ) ? 'has-submenu' : '';
 
 		parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 	}

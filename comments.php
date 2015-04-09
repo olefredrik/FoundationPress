@@ -7,7 +7,7 @@ if ( have_comments() ) :
 
 		wp_list_comments(
 			array(
-				'walker'            => new FoundationPress_comments(),
+				'walker'            => new Foundationpress_Comments(),
 				'max_depth'         => '',
 				'style'             => 'ol',
 				'callback'          => null,

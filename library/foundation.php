@@ -83,8 +83,8 @@ function foundationpress_active_list_pages_class( $input ) {
 add_filter( 'wp_list_pages', 'foundationpress_active_list_pages_class', 10, 2 );
 endif;
 
-if ( ! class_exists( 'FoundationPress_comments' ) ) :
-class FoundationPress_comments extends Walker_Comment{
+if ( ! class_exists( 'Foundationpress_Comments' ) ) :
+class Foundationpress_Comments extends Walker_Comment{
 
 	// init classwide variables
 	var $tree_type = 'comment';

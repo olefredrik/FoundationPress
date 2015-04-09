@@ -1,4 +1,4 @@
-# FoundationPress
+# FoundationPress [![Build Status](https://travis-ci.org/olefredrik/FoundationPress.svg?branch=master)](https://travis-ci.org/olefredrik/FoundationPress)
 
 This is a WordPress starter theme based on Foundation 5 by Zurb. The purpose of FoundationPress, is to act as a small and handy toolbox that contains the essentials needed to build any design. FoundationPress is meant to be a starting point, not the final product. If you're looking for an all-in-one theme with built-in shortcodes, plugins, fancypancy portfolio templates or whatnot, I'm afraid you have to look elsewhere.
 
@@ -75,7 +75,7 @@ Check for Foundation Updates? Run:
 * [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
 
 ## Unit Testing With Travis CI
-FoundationPress is completely ready to be deployed to and tested by Travis CI for Wordpress Coding Standards and best practices. All you need to do to activate the test is sign up and follow the instructions to point Travis CI towards your repo.
+FoundationPress is completely ready to be deployed to and tested by Travis CI for Wordpress Coding Standards and best practices. All you need to do to activate the test is sign up and follow the instructions to point Travis CI towards your repo. Just don't forget to update the status badge to point to your repositories unit test.
 [Travis CI](https://travis-ci.org/)
 
 ## UI toolkits for rapid prototyping
