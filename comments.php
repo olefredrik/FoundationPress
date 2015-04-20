@@ -35,9 +35,10 @@ endif;
 ?>
 
 <?php
-// Do not delete these lines
-	if ( ! empty( sanitize_file_name( $_SERVER['SCRIPT_FILENAME'] ) ) && 'comments.php' == basename( sanitize_file_name( $_SERVER['SCRIPT_FILENAME'] ) ) ) {
-		die (__( 'Please do not load this page directly. Thanks!', 'FoundationPress' )); }
+	// Do not delete these lines
+	
+	// Prevent access to this file directly
+	defined( 'ABSPATH' ) or die( __( 'Please do not load this page directly. Thanks!', 'FoundationPress' ) );
 
 	if ( post_password_required() ) { ?>
 	<section id="comments">
