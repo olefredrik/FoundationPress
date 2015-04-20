@@ -75,6 +75,7 @@ Check for Foundation Updates? Run:
 * [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
 
 ## Unit Testing With Travis CI
+
 FoundationPress is completely ready to be deployed to and tested by Travis CI for Wordpress Coding Standards and best practices. All you need to do to activate the test is sign up and follow the instructions to point Travis CI towards your repo. Just don't forget to update the status badge to point to your repositories unit test.
 [Travis CI](https://travis-ci.org/)
 
@@ -83,14 +84,16 @@ FoundationPress is completely ready to be deployed to and tested by Travis CI fo
 * [Foundation UI Kit for Axure RP](https://gumroad.com/l/foundation-ui-kit-axure-rp)
 * [FoundationPSD - Foundation UI Kit for Photoshop](http://foundationpress.olefredrik.com/downloads/foundation-psd-template/)
 
-## Tutorials
+## Tutorials and reviews
 
 * [Installing FoundationPress - video tutorial](https://www.youtube.com/watch?v=s4m5wwM4BWM#t=11)
 * [Responsive images in WordPress with Interchange](http://rachievee.com/responsive-images-in-wordpress/)
 * [Integration guide for Sensei LMS plugin from WooThemes](https://support.woothemes.com/hc/en-us/articles/204125559-FoundationPress)
+* [Build a Responsive WordPress theme](http://www.webdesignermag.co.uk/build-a-responsive-wordpress-theme/)
+* [Setting Up a Blog with Foundation and WordPress](http://www.thecodecub.com/htmlcss/setting-up-a-blog-with-foundation-and-wordpress/)
+* [FoundationPress un starter theme pour WordPress (fr)](http://www.leblogduresponsivedesign.fr/developpement/foundationpress-un-starter-theme-pour-wordpress/)
 * [Learn to use the _settings file to change almost every aspect of a Foundation site](http://zurb.com/university/lessons/66)
 * [Other lessons from Zurb University](http://zurb.com/university/past-lessons)
-
 
 ## A selection of sites built with FoundationPress
 
@@ -117,6 +120,7 @@ FoundationPress is completely ready to be deployed to and tested by Travis CI fo
 * [Vintage and Stuff](http://vintageandstuff.com/)
 * [Software for FM](http://softwareforfm.co.uk/)
 * [WP Diamonds](http://www.wpdiamonds.com/)
+* [Storm Arts](http://stormarts.fi/)
 
 ## Contributing
 #### Here are ways to get involved:
@@ -129,7 +133,7 @@ FoundationPress is completely ready to be deployed to and tested by Travis CI fo
 
 #### Pull Requests
 
-Pull requests are highly appreciated. About a dozen people have written parts of FoundationPress (so far). Here are some guidelines to help:
+Pull requests are highly appreciated. More than three dozen amazing people have contributed to FoundationPress (so far). Here are some guidelines to help:
 
 1. Solve a problem. Features are great, but even better is cleaning-up and fixing issues in the code that you discover
 2. Make sure that your code is bug-free and does not introduce new bugs
@@ -139,9 +143,3 @@ Pull requests are highly appreciated. About a dozen people have written parts of
 
 * [Zurb Foundation Docs](http://foundation.zurb.com/docs/)
 * [WordPress Codex](http://codex.wordpress.org/)
-
-## Reviews
-
-* [Build a responsive WordPress theme](http://www.webdesignermag.co.uk/tutorials/build-a-responsive-wordpress-theme/)
-* [Setting Up a Blog with Foundation and WordPress](http://www.thecodecub.com/htmlcss/setting-up-a-blog-with-foundation-and-wordpress/)
-* [FoundationPress un starter theme pour WordPress (fr)](http://www.leblogduresponsivedesign.fr/developpement/foundationpress-un-starter-theme-pour-wordpress/)
