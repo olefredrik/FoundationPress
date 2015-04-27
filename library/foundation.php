@@ -14,8 +14,8 @@ function foundationpress_pagination() {
 		'total' => $wp_query->max_num_pages,
 		'mid_size' => 5,
 		'prev_next' => true,
-	    'prev_text' => __( '&laquo;', 'FoundationPress' ),
-	    'next_text' => __( '&raquo;', 'FoundationPress' ),
+	    'prev_text' => __( '&laquo;', 'foundationpress' ),
+	    'next_text' => __( '&raquo;', 'foundationpress' ),
 		'type' => 'list',
 	) );
 
@@ -43,11 +43,11 @@ if ( ! function_exists( 'foundationpress_menu_fallback' ) ) :
 function foundationpress_menu_fallback() {
 	echo '<div class="alert-box secondary">';
 	// Translators 1: Link to Menus, 2: Link to Customize
-		printf( __( 'Please assign a menu to the primary menu location under %1$s or %2$s the design.', 'FoundationPress' ),
-			sprintf(  __( '<a href="%s">Menus</a>', 'FoundationPress' ),
+		printf( __( 'Please assign a menu to the primary menu location under %1$s or %2$s the design.', 'foundationpress' ),
+			sprintf(  __( '<a href="%s">Menus</a>', 'foundationpress' ),
 				get_admin_url( get_current_blog_id(), 'nav-menus.php' )
 			),
-			sprintf(  __( '<a href="%s">Customize</a>', 'FoundationPress' ),
+			sprintf(  __( '<a href="%s">Customize</a>', 'foundationpress' ),
 				get_admin_url( get_current_blog_id(), 'customize.php' )
 			)
 		);
@@ -95,7 +95,7 @@ class Foundationpress_Comments extends Walker_Comment{
 	 * start_lvl() only goes as high as 1 deep nested comments */
 	function __construct() { ?>
          
-        <h3><?php comments_number( __( 'No Responses to', 'FoundationPress' ), __( 'One Response to', 'FoundationPress' ), __( '% Responses to', 'FoundationPress' ) ); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
+        <h3><?php comments_number( __( 'No Responses to', 'foundationpress' ), __( 'One Response to', 'foundationpress' ), __( '% Responses to', 'foundationpress' ) ); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
         <ol class="comment-list">
          
     <?php }
@@ -135,8 +135,8 @@ class Foundationpress_Comments extends Walker_Comment{
 			
 			<div class="author-meta vcard author">  
 			
-			<?php printf( __( '<cite class="fn">%s</cite>', 'FoundationPress' ), get_comment_author_link() ) ?>
-			<time datetime="<?php echo comment_date( 'c' ) ?>"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf( __( '%1$s', 'FoundationPress' ), get_comment_date(),  get_comment_time() ) ?></a></time>
+			<?php printf( __( '<cite class="fn">%s</cite>', 'foundationpress' ), get_comment_author_link() ) ?>
+			<time datetime="<?php echo comment_date( 'c' ) ?>"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf( __( '%1$s', 'foundationpress' ), get_comment_date(),  get_comment_time() ) ?></a></time>
 			
 			</div><!-- /.comment-author -->
 			
