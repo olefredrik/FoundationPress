@@ -37,7 +37,7 @@ get_header(); ?>
 					<?php the_content(); ?>
 				</div>
 				<footer>
-					<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'FoundationPress' ), 'after' => '</p></nav>' ) ); ?>
+					<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
 					<p><?php the_tags(); ?></p>
 				</footer>
 				<?php do_action( 'foundationpress_page_before_comments' ); ?>
