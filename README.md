@@ -76,7 +76,7 @@ Check for Foundation Updates? Run:
 
 ## Unit Testing With Travis CI
 
-FoundationPress is completely ready to be deployed to and tested by Travis CI for Wordpress Coding Standards and best practices. All you need to do to activate the test is sign up and follow the instructions to point Travis CI towards your repo. Just don't forget to update the status badge to point to your repositories unit test.
+FoundationPress is completely ready to be deployed to and tested by Travis CI for WordPress Coding Standards and best practices. All you need to do to activate the test is sign up and follow the instructions to point Travis CI towards your repo. Just don't forget to update the status badge to point to your repositories unit test.
 [Travis CI](https://travis-ci.org/)
 
 ## UI toolkits for rapid prototyping
