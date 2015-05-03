@@ -1,6 +1,6 @@
 {
   "name": "foundationpress",
-  "version": "5.5.1",
+  "version": "5.5.2",
   "devDependencies": {
     "node-sass" : "~2.0.1",
     "grunt": "~0.4.1",
