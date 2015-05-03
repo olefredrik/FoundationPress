@@ -47,7 +47,13 @@ $body-font-color: $jet;
 $body-font-family: $font-family-sans-serif;
 $body-font-weight: $font-weight-normal;
 $body-font-style: normal;
-
 $header-font-weight: 300;
 $header-text-rendering: optimizeLegibility;
 $topbar-link-weight: bold;
+
+// Media query breakpoints
+$small-breakpoint:  em-calc(640);
+$medium-breakpoint: em-calc(1024);
+$topbar-breakpoint: em-calc(820);
+$large-breakpoint:  em-calc(1440);
+$xlarge-breakpoint: em-calc(1920);
