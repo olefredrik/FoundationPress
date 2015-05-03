@@ -245,7 +245,7 @@ msgstr "http://foundationpress.olefredrik.com"
 msgid ""
 "FoundationPress is a WordPress starter theme based on Foundation 5 by Zurb"
 msgstr ""
-"FoundationPress är ett starter-tema för Wordpress baserat på Foundation 5 "
+"FoundationPress är ett starter-tema för WordPress baserat på Foundation 5 "
 "av Zurb"
 
 #. Author of the plugin/theme
