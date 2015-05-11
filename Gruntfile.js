@@ -116,6 +116,14 @@ module.exports = function(grunt) {
             }
       },
 
+      js: {
+        files: 'js/custom/**/*.js',
+        tasks: ['concat', 'uglify'],
+        options: {
+          livereload:true,
+        }
+      },
+
        all: {
         files: '**/*.php',
         options: {
