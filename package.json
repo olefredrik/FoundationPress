@@ -2,14 +2,16 @@
   "name": "foundationpress",
   "version": "5.5.2",
   "devDependencies": {
-    "node-sass" : "~2.0.1",
+    "bower": "^1.4.1",
     "grunt": "~0.4.1",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-sass": "~0.18.0",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-string-replace": "~0.2.7"
+    "grunt-string-replace": "~0.2.7",
+    "node-sass": "~2.0.1"
   },
   "repository": {
     "type": "git",
@@ -17,5 +19,11 @@
   },
   "dependencies": {
     "time-grunt": "^1.1.0"
+  },
+  "scripts": {
+    "build": "grunt build",
+    "grunt": "grunt",
+    "postinstall": "bower install && grunt build",
+    "watch": "grunt watch"
   }
 }
