@@ -121,7 +121,6 @@ FoundationPress is completely ready to be deployed to and tested by Travis CI fo
 
 ## Tutorials and reviews
 
-* [Installing FoundationPress - video tutorial](https://www.youtube.com/watch?v=s4m5wwM4BWM#t=11)
 * [Responsive images in WordPress with Interchange](http://rachievee.com/responsive-images-in-wordpress/)
 * [Integration guide for Sensei LMS plugin from WooThemes](https://support.woothemes.com/hc/en-us/articles/204125559-FoundationPress)
 * [Build a Responsive WordPress theme](http://www.webdesignermag.co.uk/build-a-responsive-wordpress-theme/)
