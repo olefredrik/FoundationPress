@@ -17,7 +17,7 @@ function the_post_navigation() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'FoundationPress' ); ?></h2>
+		<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'foundationpress' ); ?></h2>
 		<div class="nav-links">
 			<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
