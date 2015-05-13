@@ -4,7 +4,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
 
 	// Enqueue Main Stylesheet
-	wp_enqueue_style( 'Main Stylesheet', get_stylesheet_directory_uri() . '/css/foundation.css' );
+	wp_enqueue_style( 'main-stylesheet', get_stylesheet_directory_uri() . '/css/foundation.css' );
 
 	// Deregister the jquery version bundled with wordpress
 	wp_deregister_script( 'jquery' );
