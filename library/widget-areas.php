@@ -1,4 +1,12 @@
 <?php
+/**
+ * Register widget areas
+ *
+ * @package WordPress
+ * @subpackage FoundationPress
+ * @since FoundationPress 1.0
+ */
+
 if ( ! function_exists( 'foundationpress_sidebar_widgets' ) ) :
 function foundationpress_sidebar_widgets() {
 	register_sidebar(array(

@@ -1,9 +1,13 @@
 <?php
-
 /**
  * Register Menus
- * http://codex.wordpress.org/Function_Reference/register_nav_menus#Examples
+ *
+ * @link http://codex.wordpress.org/Function_Reference/register_nav_menus#Examples
+ * @package WordPress
+ * @subpackage FoundationPress
+ * @since FoundationPress 1.0
  */
+
 register_nav_menus(array(
 	'top-bar-l' => 'Left Top Bar', // registers the menu in the WordPress admin menu editor
 	'top-bar-r' => 'Right Top Bar',

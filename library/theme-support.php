@@ -1,4 +1,11 @@
 <?php
+/**
+ * Register theme support for languages, menus, post-thumbnails, post-formats etc.
+ *
+ * @package WordPress
+ * @subpackage FoundationPress
+ * @since FoundationPress 1.0
+ */
 
 if ( ! function_exists( 'foundationpress_theme_support' ) ) :
 function foundationpress_theme_support() {
