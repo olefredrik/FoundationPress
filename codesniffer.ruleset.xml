@@ -14,6 +14,9 @@
 		<exclude name="Generic.Formatting.DisallowMultipleStatements.SameLine" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
 
+		<exclude name="Squiz.Commenting.FileComment.WrongStyle" />
+		<exclude name="Squiz.Commenting.BlockComment.NoEmptyLineBefore" />
+
 		<exclude name="WordPress.XSS.EscapeOutput.UnsafePrintingFunction" />
 		<exclude name="WordPress.XSS.EscapeOutput.OutputNotEscaped" />
 		<exclude name="WordPress.Arrays.ArrayDeclaration.NoSpaceAfterOpenParenthesis" />
