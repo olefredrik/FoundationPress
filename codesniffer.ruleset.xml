@@ -10,6 +10,13 @@
 	<rule ref="WordPress">
 		<exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
+		<exclude name="Generic.Files.EndFileNewline.NotFound" />
+		<exclude name="Generic.Formatting.DisallowMultipleStatements.SameLine" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+
+		<exclude name="WordPress.XSS.EscapeOutput.UnsafePrintingFunction" />
+		<exclude name="WordPress.XSS.EscapeOutput.OutputNotEscaped" />
+		<exclude name="WordPress.Arrays.ArrayDeclaration.NoSpaceAfterOpenParenthesis" />
+
 	</rule>
 </ruleset>
