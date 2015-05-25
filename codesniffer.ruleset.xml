@@ -10,6 +10,7 @@
 	<rule ref="WordPress">
 		<exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
+		<exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
 		<exclude name="Generic.Files.EndFileNewline.NotFound" />
 		<exclude name="Generic.Formatting.DisallowMultipleStatements.SameLine" />
 		<exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace" />
