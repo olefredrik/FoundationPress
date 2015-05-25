@@ -46,9 +46,12 @@ endif;
 ?>
 
 <?php
+
 	/*
 	Do not delete these lines.
-	Prevent access to this file directly */
+	Prevent access to this file directly 
+	*/
+	
 	defined( 'ABSPATH' ) or die( __( 'Please do not load this page directly. Thanks!', 'foundationpress' ) );
 
 	if ( post_password_required() ) { ?>
@@ -78,7 +81,7 @@ if ( comments_open() ) :
 		<?php else : ?>
 		<p>
 			<label for="author">
-				<?php 
+				<?php
 					_e( 'Name', 'foundationpress' ); if ( $req ) { _e( ' (required)', 'foundationpress' ); } 
 				?>
 			</label>

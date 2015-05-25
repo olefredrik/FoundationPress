@@ -9,8 +9,12 @@
 	<!-- Include the WordPress ruleset, with exclusions. -->
 	<rule ref="WordPress">
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
-		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
 		<exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
+		<exclude name="Generic.Formatting.DisallowMultipleStatements.SameLine" />
+		<exclude name="Generic.Files.EndFileNewline.NotFound" />
+
+		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+		<exclude name="Squiz.Commenting.FileComment.SpacingAfterComment" />
 
 		<exclude name="WordPress.XSS.EscapeOutput" />
 		<exclude name="WordPress.WhiteSpace.ScopeIndent.Incorrect" />
