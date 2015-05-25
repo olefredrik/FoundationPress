@@ -1,3 +1,13 @@
+<?php 
+/**
+ * Template part for top bar menu
+ *
+ * @package WordPress
+ * @subpackage FoundationPress
+ * @since FoundationPress 1.0
+ */
+?>
+
 <div class="top-bar-container contain-to-grid show-for-medium-up">
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">

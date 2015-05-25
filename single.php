@@ -1,4 +1,14 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying all single posts and attachments
+ *
+ * @package WordPress
+ * @subpackage FoundationPress
+ * @since FoundationPress 1.0
+ */
+
+get_header(); ?>
+
 <div class="row">
 	<div class="small-12 large-8 columns" role="main">
 
