@@ -97,9 +97,10 @@ if ( ! function_exists( 'foundationpress_add_menuclass' ) ) {
 
 /**
  * Adapted for Foundation from http://thewebtaylor.com/articles/wordpress-creating-breadcrumbs-without-a-plugin
+ * @param bool $showhome should the breadcrumb be shown when on homepage (only one deactivated entry for home)
  * @param bool $separatorclass should a separator class be added (in case :before is not an option)
  */
-function foundationpress_breadcrumb ($separatorclass = false) {
+function foundationpress_breadcrumb ($showhome = true, $separatorclass = false) {
 
     // Settings
     $separator  = '&gt;';
@@ -240,6 +241,10 @@ function foundationpress_breadcrumb ($separatorclass = false) {
             echo '<li>' . 'Error 404' . '</li>';
         }
 
+    } else {
+        if ($showhome)
+            echo '<li class="item-home current">' . $home_title . '</li>';
+            
     }
 
     echo '</ul>';
