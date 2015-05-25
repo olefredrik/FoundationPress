@@ -732,7 +732,7 @@ get_header(); ?>
 			</footer>
 			<?php comments_template(); ?>
 		</article>
-	<?php endwhile; // End the loop ?>
+	<?php endwhile; ?>
 	</div>
 </div>
 <?php get_footer(); ?>
