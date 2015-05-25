@@ -1,6 +1,6 @@
 <?php
 
-// The Header-image
+// The Header-image.
 	$defaults = array(
 
 	'default-image'   => '',

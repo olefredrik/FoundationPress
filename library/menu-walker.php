@@ -1,7 +1,12 @@
 <?php
 /**
  * Customize the output of menus for Foundation top bar
+ *
+ * @package WordPress
+ * @subpackage FoundationPress
+ * @since FoundationPress 1.0
  */
+
 if ( ! class_exists( 'Foundationpress_Top_Bar_Walker' ) ) :
 class Foundationpress_Top_Bar_Walker extends Walker_Nav_Menu {
 

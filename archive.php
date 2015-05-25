@@ -1,4 +1,23 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying archive pages
+ *
+ * Used to display archive-type pages if nothing more specific matches a query.
+ * For example, puts together date-based pages if no date.php file exists.
+ *
+ * If you'd like to further customize these archive views, you may create a
+ * new template file for each one. For example, tag.php (Tag archives),
+ * category.php (Category archives), author.php (Author archives), etc.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage FoundationPress
+ * @since FoundationPress 1.0
+ */
+
+get_header(); ?>
+
 <div class="row">
 <!-- Row for main content area -->
 	<div class="small-12 large-8 columns" role="main">
@@ -13,7 +32,7 @@
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 
-	<?php endif; // end have_posts() check ?>
+	<?php endif; // End have_posts() check. ?>
 
 	<?php /* Display navigation to next/previous pages when applicable */ ?>
 	<?php if ( function_exists( 'foundationpress_pagination' ) ) { foundationpress_pagination(); } else if ( is_paged() ) { ?>

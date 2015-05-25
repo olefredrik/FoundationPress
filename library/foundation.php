@@ -1,5 +1,13 @@
 <?php
-// Pagination
+/**
+ * Foundation PHP template
+ *
+ * @package WordPress
+ * @subpackage FoundationPress
+ * @since FoundationPress 1.0
+ */
+
+// Pagination.
 if ( ! function_exists( 'foundationpress_pagination' ) ) :
 function foundationpress_pagination() {
 	global $wp_query;
@@ -26,7 +34,7 @@ function foundationpress_pagination() {
 	$paginate_links = str_replace( "<li><a href='#'>&hellip;</a></li>", "<li><span class='dots'>&hellip;</span></li>", $paginate_links );
 	$paginate_links = preg_replace( '/\s*page-numbers/', '', $paginate_links );
 
-	// Display the pagination if more than one page is found
+	// Display the pagination if more than one page is found.
 	if ( $paginate_links ) {
 		echo '<div class="pagination-centered">';
 		echo $paginate_links;
@@ -42,7 +50,7 @@ endif;
 if ( ! function_exists( 'foundationpress_menu_fallback' ) ) :
 function foundationpress_menu_fallback() {
 	echo '<div class="alert-box secondary">';
-	// Translators 1: Link to Menus, 2: Link to Customize
+	// Translators 1: Link to Menus, 2: Link to Customize.
 		printf( __( 'Please assign a menu to the primary menu location under %1$s or %2$s the design.', 'foundationpress' ),
 			sprintf(  __( '<a href="%s">Menus</a>', 'foundationpress' ),
 				get_admin_url( get_current_blog_id(), 'nav-menus.php' )
@@ -55,7 +63,7 @@ function foundationpress_menu_fallback() {
 }
 endif;
 
-// Add Foundation 'active' class for the current menu item
+// Add Foundation 'active' class for the current menu item.
 if ( ! function_exists( 'foundationpress_active_nav_class' ) ) :
 function foundationpress_active_nav_class( $classes, $item ) {
 	if ( 1 == $item->current || true == $item->current_item_ancestor ) {
@@ -68,7 +76,7 @@ endif;
 
 /**
  * Use the active class of ZURB Foundation on wp_list_pages output.
- * From required+ Foundation http://themes.required.ch
+ * From required+ Foundation http://themes.required.ch.
  */
 if ( ! function_exists( 'foundationpress_active_list_pages_class' ) ) :
 function foundationpress_active_list_pages_class( $input ) {
@@ -86,7 +94,7 @@ endif;
 if ( ! class_exists( 'Foundationpress_Comments' ) ) :
 class Foundationpress_Comments extends Walker_Comment{
 
-	// init classwide variables
+	// Init classwide variables.
 	var $tree_type = 'comment';
 	var $db_fields = array( 'parent' => 'comment_parent', 'id' => 'comment_ID' );
 

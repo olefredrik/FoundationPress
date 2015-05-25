@@ -1,10 +1,14 @@
 <?php
 /**
- * The template for displaying a "No posts found" message
+ * The template part for displaying a message that posts cannot be found
  *
+ * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
+ *
+ * @package WordPress
  * @subpackage FoundationPress
  * @since FoundationPress 1.0
  */
+
 ?>
 
 <header class="page-header">
