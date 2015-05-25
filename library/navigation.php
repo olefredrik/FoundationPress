@@ -9,7 +9,7 @@
  */
 
 register_nav_menus(array(
-	'top-bar-l' => 'Left Top Bar', // registers the menu in the WordPress admin menu editor
+	'top-bar-l' => 'Left Top Bar', // Registers the menu in the WordPress admin menu editor.
 	'top-bar-r' => 'Right Top Bar',
 	'mobile-off-canvas' => 'Mobile',
 ));

@@ -98,6 +98,7 @@ function foundationpress_remove_rss_version() { return ''; }
 endif;
 
 if ( ! function_exists( 'foundationpress_remove_wp_ver_css_js' ) ) :
+
 // Remove WP version from scripts.
 function foundationpress_remove_wp_ver_css_js( $src ) {
 	if ( strpos( $src, 'ver=' ) ) {
@@ -138,7 +139,6 @@ endif;
  */
 
 // Remove default inline style of wp-caption.
-
 if ( ! function_exists( 'foundationpress_fixed_img_caption_shortcode' ) ) :
 add_shortcode( 'wp_caption', 'foundationpress_fixed_img_caption_shortcode' );
 add_shortcode( 'caption', 'foundationpress_fixed_img_caption_shortcode' );
