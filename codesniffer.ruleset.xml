@@ -13,7 +13,6 @@
 		<exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
 
 		<exclude name="WordPress.XSS.EscapeOutput" />
-		<exclude name="WordPress.Functions.FunctionCallSignature" />
 		<exclude name="WordPress.WhiteSpace.ScopeIndent.Incorrect" />
 		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing" />
 		<exclude name="WordPress.Variables.GlobalVariables" />
