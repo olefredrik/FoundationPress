@@ -86,9 +86,6 @@ function foundationpress_cleanup_head() {
 	// Remove WP version from scripts.
 	add_filter( 'script_loader_src', 'foundationpress_remove_wp_ver_css_js', 9999 );
 
-	// Prevent unneccecary info from being displayed.
-	add_filter( 'login_errors',create_function( '$a', 'return null;' ) );
-
 }
 endif;
 
