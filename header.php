@@ -8,6 +8,7 @@
  * @subpackage FoundationPress
  * @since FoundationPress 1.0
  */
+
 ?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> >
@@ -15,7 +16,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>
-			<?php 
+			<?php
 				if ( is_category() ) {
 					echo 'Category Archive for &quot;'; single_cat_title(); echo '&quot; | '; bloginfo( 'name' );
 				} elseif ( is_tag() ) {
@@ -32,7 +33,7 @@
 					wp_title( '' );
 				} else {
 					echo wp_title( ' | ', 'false', 'right' ); bloginfo( 'name' );
-				} 
+				}
 			?>
 		</title>
 
