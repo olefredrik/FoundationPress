@@ -173,14 +173,13 @@ function foundationpress_breadcrumb($showhome = true, $separatorclass = false) {
                 echo '<li class="current item-' . $post->ID . '"> ' . get_the_title() . '</li>';
 
             }
-
         } else if ( is_tag() ) {
 
             // Tag page
             // Get tag information
             $term_id = get_query_var('tag_id');
             $taxonomy = 'post_tag';
-            $args ='include=' . $term_id;
+            $args = 'include=' . $term_id;
             $terms = get_terms($taxonomy, $args);
 
             // Display the tag name
@@ -246,7 +245,6 @@ function foundationpress_breadcrumb($showhome = true, $separatorclass = false) {
             // 404 page
             echo '<li>Error 404</li>';
         }
-
     } else {
         if ( $showhome ) {
             echo '<li class="item-home current">' . $home_title . '</li>';
