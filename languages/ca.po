@@ -1,0 +1,282 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FoundationPress\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-13 17:56+0200\n"
+"PO-Revision-Date: 2015-06-16 11:43+0100\n"
+"Last-Translator: \n"
+"Language-Team: Lluis Bordas <lbordas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: 404.php:8
+msgid "File Not Found"
+msgstr "Arxiu No Trobat"
+
+#: 404.php:12
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+"La pàgina que està buscantno es troba, ha canviat de nom o no està "
+"disponible temporalment."
+
+#: 404.php:14
+msgid "Please try the following:"
+msgstr "Si us plau, intenti el següent:"
+
+#: 404.php:16
+msgid "Check your spelling"
+msgstr "Revisi la seva ortografia"
+
+#: 404.php:17
+#, php-format
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "Tornar a la  <a href=\"%s\">pàgina d'inici</a>"
+
+#: 404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr "Feu clic al botó <a href=\"javascript:history.back()\">Tornar</a>"
+
+#. /previous pages when applicable
+#: archive.php:21 index.php:24 search.php:25
+msgid "&larr; Older posts"
+msgstr "&larr; Entrades més antigues"
+
+#: archive.php:22 index.php:25 search.php:26
+msgid "Newer posts &rarr;"
+msgstr "Entrades més noves &rarr;"
+
+#: comments.php:8
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn\">%s</cite>"
+
+#: comments.php:9
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#: comments.php:10
+msgid "(Edit)"
+msgstr "(Editar)"
+
+#: comments.php:16
+msgid "Your comment is awaiting moderation."
+msgstr "El seu comentari està esperant ser moderat."
+
+#: comments.php:31
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Si us plau, no carregui aquesta pàgina directament. Gràcies!"
+
+#: comments.php:36
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Aquesta entrada està protegida. Introduïu la contrasenya per veure els "
+"comentaris."
+
+#: comments.php:46
+msgid "No Responses to"
+msgstr "No hi ha respostes a"
+
+#: comments.php:46
+msgid "One Response to"
+msgstr "Una resposta a"
+
+#: comments.php:46
+msgid "% Responses to"
+msgstr "% Respostes a"
+
+#: comments.php:53
+msgid "&larr; Older comments"
+msgstr "&larr; Comentaris més antics"
+
+#: comments.php:54
+msgid "Newer comments &rarr;"
+msgstr "Comentaris més nous &rarr;"
+
+#: comments.php:61
+msgid "Leave a Reply"
+msgstr "Deixa una Resposta"
+
+#: comments.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Deixa una Resposta a %s"
+
+#: comments.php:64
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+"Has de estar <a href=\"%s\">connectat com a usuari</a> per publicar un "
+"comentari."
+
+#: comments.php:68
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "Connectat com <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: comments.php:68
+msgid "Log out of this account"
+msgstr "Sortir d'aquest compte"
+
+#: comments.php:68
+msgid "Log out &raquo;"
+msgstr "Sortir &raquo;"
+
+#: comments.php:71
+msgid "Name"
+msgstr "Nom"
+
+#: comments.php:71 comments.php:75
+msgid " (required)"
+msgstr "(necessari)"
+
+#: comments.php:75
+msgid "Email (will not be published)"
+msgstr "Email (no es publicarà)"
+
+#: comments.php:79
+msgid "Website"
+msgstr "Website"
+
+#: comments.php:84
+msgid "Comment"
+msgstr "Comentari"
+
+#: comments.php:87
+msgid "You can use these tags:"
+msgstr "Podeu fer servir aquestes etiquetes:"
+
+#: comments.php:88
+msgid "Submit Comment"
+msgstr "Enviar comentari"
+
+#: content-none.php:11
+msgid "Nothing Found"
+msgstr "No s'ha trobat res"
+
+#: content-none.php:17
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"A punt per publicar el seu primer post? <a href=\"%1$s\">Comença aquí</a>."
+
+#: content-none.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Ho sentim, però no hem trobat res. Torneu-ho de nou amb algunes paraules "
+"clau diferents."
+
+#: content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Sembla que no podem trobar el que estàs buscant. Potser la cerca pot ajudar."
+
+#. /archive/search.
+#. *
+#. * @subpackage FoundationPress
+#. * @since FoundationPress 1.0
+#.
+#: content.php:16
+msgid "Continue reading..."
+msgstr "Segueix llegint ..."
+
+#: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
+#: page.php:18 single.php:27 woocommerce.php:18
+msgid "Pages:"
+msgstr "Pàgines:"
+
+#: library/entry-meta.php:4
+#, php-format
+msgid "Posted on %s at %s."
+msgstr "Publicat el %s a les %s."
+
+#: library/entry-meta.php:5
+msgid "Written by"
+msgstr "Publicat per"
+
+#: library/foundation.php:16
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: library/foundation.php:17
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: library/foundation.php:40
+#, php-format
+msgid ""
+"Please assign a menu to the primary menu location under %1$s or %2$s the "
+"design."
+msgstr ""
+"Si us plau, assignar un menú per a la ubicació del menú principal sota %1$s "
+"o %2$s el disseny."
+
+#: library/foundation.php:41
+#, php-format
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">Menus</a>"
+
+#: library/foundation.php:44
+#, php-format
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">Personalitzar</a>"
+
+#: library/widget-areas.php:6
+msgid "Sidebar widgets"
+msgstr "Widgets de la barra lateral (Sidebar)"
+
+#: library/widget-areas.php:7
+msgid "Drag widgets to this sidebar container."
+msgstr "Arrossegueu widgets per a aquest contenidor de la barra lateral."
+
+#: library/widget-areas.php:16
+msgid "Footer widgets"
+msgstr "Widgets del peu de pàgina (Footer)"
+
+#: library/widget-areas.php:17
+msgid "Drag widgets to this footer container"
+msgstr "Arrossegueu widgets a aquest contenidor de peu de pàgina"
+
+#: node_modules/grunt-pot/test/fixtures/some-file.php:3
+msgid "I'm a translatable string."
+msgstr "Sóc una cadena traduïble."
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:4
+msgid "Me too"
+msgstr "Jo també"
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:7
+#, php-format
+msgid "I have %d apple"
+msgid_plural "I have %d apples"
+msgstr[0] "Tinc %d poma"
+msgstr[1] "Tinc %d pomes"
+
+#. / TRANSLATORS: This should be translated as a shorthand for YEAR-MONTH-DAY using 4, 2 and 2 digits.
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:16
+msgid "yyyy-mm-dd"
+msgstr "aaaa-mm-dd"
+
+#: search.php:7
+msgid "Search Results for"
+msgstr "Cercar resultats per"
+
+#: searchform.php:6 searchform.php:10
+msgid "Search"
+msgstr "Cerca"
