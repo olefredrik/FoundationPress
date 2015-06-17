@@ -134,7 +134,6 @@ FoundationPress is completely ready to be deployed to and tested by Travis CI fo
 * [Harvard Center for Green Buildings and Cities](http://www.harvardcgbc.org/)
 * [Parent-Child Home Program](http://www.parent-child.org/)
 * [Hip and Healthy](http://hipandhealthy.com/)
-* [Thinx Underwear](http://www.shethinx.com/)
 * [Threadbird blog](http://blog.threadbird.com/)
 * [Public House Wines](http://publichousewines.hstestsite.info/)
 * [Franchise Career Advisors](http://franchisecareeradvisors.com/)
@@ -155,6 +154,8 @@ FoundationPress is completely ready to be deployed to and tested by Travis CI fo
 * [Software for FM](http://softwareforfm.co.uk/)
 * [WP Diamonds](http://www.wpdiamonds.com/)
 * [Storm Arts](http://stormarts.fi/)
+* [USS Illinois](http://ussillinois.org/)
+* [INTI International University & Colleges](http://international.newinti.edu.my/)
 
 ## Contributing
 #### Here are ways to get involved:
