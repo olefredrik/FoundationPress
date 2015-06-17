@@ -15,6 +15,9 @@ function foundationpress_theme_support() {
 	// Add menu support
 	add_theme_support( 'menus' );
 
+	// Let WordPress manage the document title
+	add_theme_support( 'title-tag' );
+
 	// Add post thumbnail support: http://codex.wordpress.org/Post_Thumbnails
 	add_theme_support( 'post-thumbnails' );
 
