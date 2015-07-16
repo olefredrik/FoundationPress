@@ -148,13 +148,13 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 
 	  public function recreate_img_tag( $tag ) {
 	    // Supress SimpleXML errors
-	    libxml_use_internal_errors( TRUE );
+	    libxml_use_internal_errors( true );
 
 	    try {
 	      $x = new SimpleXMLElement( $tag );
 
 	      // We only want to rebuild img tags
-	      if( $x->getName() == 'img' ) {
+	      if ( $x->getName() == 'img' ) {
 
 	        // Get the attributes I'll use in the new tag
 	        $alt        = (string) $x->attributes()->alt;
@@ -166,7 +166,7 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 	        $img = '<img src="' . $src . '"';
 
 	        // If alt not empty, add it
-	        if( ! empty( $alt ) ) {
+	        if ( ! empty( $alt ) ) {
 	          $img .= ' alt="' . $alt . '"';
 	        }
 
@@ -175,10 +175,10 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 	          'alignleft',
 	          'alignright',
 	          'alignnone',
-	          'aligncenter'
+	          'aligncenter',
 	        );
 
-	        if( in_array( $class_segs[0], $allowed_classes ) ) {
+	        if ( in_array( $class_segs[0], $allowed_classes ) ) {
 	          $img .= ' class="' . $class_segs[0] . '"';
 	        }
 
@@ -188,7 +188,8 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 	        return $img;
 	      }
 	    }
-	    catch ( Exception $e ){
+
+	    catch ( Exception $e ) {
 				echo 'Caught exception: ',  $e->getMessage(), "\n";
 			}
 
@@ -219,14 +220,15 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 	   */
 	  public function img_caption_shortcode( $output, $attr, $content ) {
 	    // Not for feed
-	    if ( is_feed() )
+	    if ( is_feed() ) {
 	      return $output;
+      }
 
 	    // Set up shortcode atts
-	    $attr = shortcode_atts( array (
+	    $attr = shortcode_atts( array(
 	      'align'   => 'alignnone',
 	      'caption' => '',
-	      'width'   => ''
+	      'width'   => '',
 	    ), $attr );
 
 	    // Add id and classes to caption
@@ -256,6 +258,6 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 
 	$Foundationpress_img_rebuilder = new Foundationpress_img_rebuilder;
 
-endif; 
+endif;
 
 ?>
