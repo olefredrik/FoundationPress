@@ -195,7 +195,7 @@ function foundationpress_image_editor($html, $id, $alt, $title) {
 endif;
 
 // Wrap images with figure tag - Credit: Robert O'Rourke - http://bit.ly/1q0WHFs .
-if ( ! function_exists( 'img_unauto' ) ) :
+if ( ! function_exists( 'img_unautop' ) ) :
 function img_unautop($pee) {
 	$pee = preg_replace( '/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '<figure>$1</figure>', $pee );
 	return $pee;
