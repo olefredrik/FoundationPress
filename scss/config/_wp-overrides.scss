@@ -1,0 +1,13 @@
+.wp-caption{
+  padding:rem-calc(4);
+}
+
+.wp-caption img{
+  max-width:100%;
+}
+
+p.wp-caption-text{
+  font-size:90%;
+  color: $charcoal;
+  padding:rem-calc(10) 0;
+}
