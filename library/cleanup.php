@@ -190,8 +190,10 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 	    }
 
 	    catch ( Exception $e ) {
-				if (defined('WP_DEBUG') && WP_DEBUG) {
-				        echo 'Caught exception: ',  $e->getMessage(), "\n";
+				if ( defined('WP_DEBUG') && WP_DEBUG ) {
+				        if ( defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY ) {
+				        	echo 'Caught exception: ',  $e->getMessage(), "\n";
+				        }
 				}
 			}
 
