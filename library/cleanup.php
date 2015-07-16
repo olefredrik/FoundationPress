@@ -190,7 +190,9 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 	    }
 
 	    catch ( Exception $e ) {
-				echo 'Caught exception: ',  $e->getMessage(), "\n";
+				if (defined('WP_DEBUG') && WP_DEBUG) {
+				        echo 'Caught exception: ',  $e->getMessage(), "\n";
+				}
 			}
 
 	    // Tag not an img, so just return it untouched
