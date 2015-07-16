@@ -25,11 +25,6 @@ function foundationpress_start_cleanup() {
 	// Clean up gallery output in wp.
 	add_filter( 'foundationpress_gallery_style', 'foundationpress_gallery_style' );
 
-	// Additional post related cleaning.
-	add_filter( 'get_foundationpress_image_tag_class', 'foundationpress_image_tag_class', 0, 4 );
-	add_filter( 'get_image_tag', 'foundationpress_image_editor', 0, 4 );
-	add_filter( 'the_content', 'img_unautop', 30 );
-
 }
 add_action( 'after_setup_theme','foundationpress_start_cleanup' );
 endif;
@@ -130,76 +125,139 @@ function foundationpress_gallery_style($css) {
 }
 endif;
 
-/**
- * Clean up image tags
- * ----------------------------------------------------------------------------
- */
 
-// Remove default inline style of wp-caption.
-if ( ! function_exists( 'foundationpress_fixed_img_caption_shortcode' ) ) :
-add_shortcode( 'wp_caption', 'foundationpress_fixed_img_caption_shortcode' );
-add_shortcode( 'caption', 'foundationpress_fixed_img_caption_shortcode' );
-function foundationpress_fixed_img_caption_shortcode($attr, $content = null) {
-	if ( ! isset( $attr['caption'] ) ) {
-		if ( preg_match( '#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches ) ) {
-			$content = $matches[1];
-			$attr['caption'] = trim( $matches[2] );
-		}
+/*
+	Rebuild the image tag with only the stuff we want
+	Credit: Brian Gottie
+	Source: http://blog.skunkbad.com/wordpress/another-look-at-rebuilding-image-tags
+*/
+
+if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
+	class Foundationpress_img_rebuilder {
+
+	  public $caption_class   = 'wp-caption';
+	  public $caption_p_class = 'wp-caption-text';
+	  public $caption_id_attr = false;
+	  public $caption_padding = 8; // Double of the padding on $caption_class
+
+	  public function __construct() {
+	    add_filter( 'img_caption_shortcode', array( $this, 'img_caption_shortcode' ), 1, 3 );
+	    add_filter( 'get_avatar', array( $this, 'recreate_img_tag' ) );
+	    add_filter( 'the_content', array( $this, 'the_content') );
+	  }
+
+	  public function recreate_img_tag( $tag ) {
+	    // Supress SimpleXML errors
+	    libxml_use_internal_errors( true );
+
+	    try {
+	      $x = new SimpleXMLElement( $tag );
+
+	      // We only want to rebuild img tags
+	      if ( $x->getName() == 'img' ) {
+
+	        // Get the attributes I'll use in the new tag
+	        $alt        = (string) $x->attributes()->alt;
+	        $src        = (string) $x->attributes()->src;
+	        $classes    = (string) $x->attributes()->class;
+	        $class_segs = explode(' ', $classes);
+
+	        // All images have a source
+	        $img = '<img src="' . $src . '"';
+
+	        // If alt not empty, add it
+	        if ( ! empty( $alt ) ) {
+	          $img .= ' alt="' . $alt . '"';
+	        }
+
+	        // Only alignment classes are allowed
+	        $allowed_classes = array(
+	          'alignleft',
+	          'alignright',
+	          'alignnone',
+	          'aligncenter',
+	        );
+
+	        if ( in_array( $class_segs[0], $allowed_classes ) ) {
+	          $img .= ' class="' . $class_segs[0] . '"';
+	        }
+
+	        // Finish up the img tag
+	        $img .= ' />';
+
+	        return $img;
+	      }
+	    }
+
+	    catch ( Exception $e ) {
+				echo 'Caught exception: ',  $e->getMessage(), "\n";
+			}
+
+	    // Tag not an img, so just return it untouched
+	    return $tag;
+	  }
+
+	  /**
+	   * Search post content for images to rebuild
+	   */
+	  public function the_content( $html ) {
+	    return preg_replace_callback(
+	      '|(<img.*/>)|',
+	      array( $this, 'the_content_callback' ),
+	      $html
+	    );
+	  }
+
+	  /**
+	   * Rebuild an image in post content
+	   */
+	  private function the_content_callback( $match ) {
+	    return $this->recreate_img_tag( $match[0] );
+	  }
+
+	  /**
+	   * Customize caption shortcode
+	   */
+	  public function img_caption_shortcode( $output, $attr, $content ) {
+	    // Not for feed
+	    if ( is_feed() ) {
+	      return $output;
+      }
+
+	    // Set up shortcode atts
+	    $attr = shortcode_atts( array(
+	      'align'   => 'alignnone',
+	      'caption' => '',
+	      'width'   => '',
+	    ), $attr );
+
+	    // Add id and classes to caption
+	    $attributes = '';
+			$caption_id_attr = '';
+
+	    if ( $caption_id_attr && ! empty( $attr['id'] ) ) {
+	      $attributes .= ' id="' . esc_attr( $attr['id'] ) . '"';
+	    }
+
+	    $attributes .= ' class="' . $this->caption_class . ' ' . esc_attr( $attr['align'] ) . '"';
+
+	    // Set the max-width of the caption
+	    $attributes .= ' style="max-width:' . ( $attr['width'] + $this->caption_padding ) . 'px;"';
+
+	    // Create caption HTML
+	    $output = '
+	      <div' . $attributes .'>' .
+	        do_shortcode( $content ) .
+	        '<p class="' . $this->caption_p_class . '">' . $attr['caption'] . '</p>' .
+	      '</div>
+	    ';
+
+	    return $output;
+	  }
 	}
-	$output = apply_filters( 'img_caption_shortcode', '', $attr, $content );
-	if ( '' != $output ) {
-		return $output; }
-	extract(shortcode_atts(array(
-		'id'    => '',
-		'align' => 'alignnone',
-		'width' => '',
-		'caption' => '',
-		'class'   => '',
-	), $attr));
-	if ( 1 > (int) $width || empty($caption) ) {
-		return $content; }
 
-	$markup = '<figure';
-	if ( $id ) { $markup .= ' id="' . esc_attr( $id ) . '"'; }
-	if ( $class ) { $markup .= ' class="' . esc_attr( $class ) . '"'; }
-	$markup .= '>';
-	$markup .= do_shortcode( $content ) . '<figcaption>' . $caption . '</figcaption></figure>';
-	return $markup;
-}
-endif;
+	$Foundationpress_img_rebuilder = new Foundationpress_img_rebuilder;
 
-// Clean the output of attributes of images in editor.
-if ( ! function_exists( 'foundationpress_image_tag_class' ) ) :
-function foundationpress_image_tag_class($class, $id, $align, $size) {
-	$align = 'align' . esc_attr( $align );
-	return $align;
-}
-endif;
-
-// Remove width and height in editor, for a better responsive world.
-if ( ! function_exists( 'foundationpress_image_editor' ) ) :
-function foundationpress_image_editor($html, $id, $alt, $title) {
-	return preg_replace(array(
-			'/\s+width="\d+"/i',
-			'/\s+height="\d+"/i',
-			'/alt=""/i',
-		),
-		array(
-			'',
-			'',
-			'',
-			'alt="' . $title . '"',
-		),
-		$html);
-}
-endif;
-
-// Wrap images with figure tag - Credit: Robert O'Rourke - http://bit.ly/1q0WHFs .
-if ( ! function_exists( 'img_unautop' ) ) :
-function img_unautop($pee) {
-	$pee = preg_replace( '/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '<figure>$1</figure>', $pee );
-	return $pee;
-}
 endif;
 
 ?>
