@@ -27,6 +27,7 @@
 		<exclude name="Squiz.Commenting.FunctionComment.WrongStyle" />
 		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
 		<exclude name="Squiz.Commenting.ClassComment.Missing" />
+		<exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace" />
 
 		<exclude name="WordPress.XSS.EscapeOutput.UnsafePrintingFunction" />
 		<exclude name="WordPress.XSS.EscapeOutput.OutputNotEscaped" />
