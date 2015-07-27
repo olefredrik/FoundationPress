@@ -1,0 +1,16 @@
+{
+    "name": "olefredrik/foundationpress",
+    "description": "FoundationPress is a WordPress starter theme based on Foundation 5 by Zurb",
+    "type": "wordpress-theme",
+    "minimum-stability" : "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ole Fredrik Lie",
+            "email": "mail@olefredrik.com"
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
