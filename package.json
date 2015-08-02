@@ -9,16 +9,14 @@
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-sass": "~0.18.0",
+    "grunt-sass": "1.0.0",
     "grunt-string-replace": "~0.2.7",
-    "node-sass": "~2.0.1"
+    "node-sass": "3.2.0",
+    "time-grunt": "^1.1.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/olefredrik/FoundationPress.git"
-  },
-  "dependencies": {
-    "time-grunt": "^1.1.0"
   },
   "scripts": {
     "build": "grunt build",
