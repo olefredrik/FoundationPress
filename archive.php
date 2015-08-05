@@ -13,7 +13,7 @@
  *
  * @package WordPress
  * @subpackage FoundationPress
- * @since FoundationPress 1.0
+ * @since FoundationPress 1.0.0
  */
 
 get_header(); ?>

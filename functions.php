@@ -12,7 +12,7 @@
  * @link https://codex.wordpress.org/Theme_Development
  * @package WordPress
  * @subpackage FoundationPress
- * @since FoundationPress 1.0
+ * @since FoundationPress 1.0.0
  */
 
 /** Various clean up functions */

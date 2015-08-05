@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage FoundationPress
- * @since FoundationPress 1.0
+ * @since FoundationPress 1.0.0
  */
 
 if ( ! class_exists( 'Foundationpress_Offcanvas_Walker' ) ) :

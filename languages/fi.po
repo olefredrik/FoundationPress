@@ -179,7 +179,7 @@ msgstr "Näyttää siltä että emme löydä etsimääsi. Kokeile hakutoimintoa.
 #. /archive/search.
 #. *
 #. * @subpackage FoundationPress
-#. * @since FoundationPress 1.0
+#. * @since FoundationPress 1.0.0
 #.
 #: content.php:16
 msgid "Continue reading..."

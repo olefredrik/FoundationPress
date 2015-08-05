@@ -1,6 +1,6 @@
 {
   "name": "foundationpress",
-  "version": "5.5.2",
+  "version": "1.0.0",
   "devDependencies": {
     "bower": "^1.4.1",
     "grunt": "~0.4.1",
