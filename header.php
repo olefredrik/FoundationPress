@@ -33,7 +33,7 @@
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
 
-	<?php $GLOBALS['offcanvasposition'] = 'left';  // can be 'left' or 'right'?>
+	<?php $GLOBALS['offcanvasposition'] = 'left';  // Can be 'left' or 'right'?>
 	<nav class="tab-bar">
 		<section class="<?php $GLOBALS['offcanvasposition'];?>-small">
 			<a class="<?php $GLOBALS['offcanvasposition'];?>-off-canvas-toggle menu-icon" href="#"><span></span></a>

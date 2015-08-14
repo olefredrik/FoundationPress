@@ -9,8 +9,8 @@
 
 ?>
 <?php
-    // position can be 'left' or 'right', the variable can also be set in the header.php
-    if (!isset($GLOBALS['offcanvasposition'])) {
+    // Position can be 'left' or 'right', the variable can also be set in the header.php
+    if ( ! isset($GLOBALS['offcanvasposition'] ) ) {
         $GLOBALS['offcanvasposition'] = 'left';
     }
 ?>
