@@ -10,6 +10,12 @@
 if ( ! class_exists( 'Foundationpress_Offcanvas_Walker' ) ) :
 class Foundationpress_Offcanvas_Walker extends Walker_Nav_Menu {
 
+	private $direction = '';
+
+	public function __construct($direction = 'left') {
+		$this->direction = $direction;
+	}
+
 	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
 		$element->has_children = ! empty( $children_elements[ $element->ID ] );
 		$element->classes[] = ( $element->current || $element->current_item_ancestor ) ? 'active' : '';
@@ -32,7 +38,7 @@ class Foundationpress_Offcanvas_Walker extends Walker_Nav_Menu {
 	}
 
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
-		$output .= "\n<ul class=\"left-submenu\">\n<li class=\"back\"><a href=\"#\">". __( 'Back', 'foundationpress' ) ."</a></li>\n";
+		$output .= "\n<ul class=\"{$this->direction}-submenu\">\n<li class=\"back\"><a href=\"#\">". __( 'Back', 'foundationpress' ) ."</a></li>\n";
 	}
 
 }

@@ -31,10 +31,12 @@
 	<div class="inner-wrap">
 	
 	<?php do_action( 'foundationpress_layout_start' ); ?>
-	
+
+
+	<?php $GLOBALS['offcanvasposition'] = 'left';  // can be 'left' or 'right'?>
 	<nav class="tab-bar">
-		<section class="left-small">
-			<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+		<section class="<?php $GLOBALS['offcanvasposition'];?>-small">
+			<a class="<?php $GLOBALS['offcanvasposition'];?>-off-canvas-toggle menu-icon" href="#"><span></span></a>
 		</section>
 		<section class="middle tab-bar-section">
 			

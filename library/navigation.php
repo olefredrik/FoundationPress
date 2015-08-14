@@ -64,7 +64,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
  * Mobile off-canvas
  */
 if ( ! function_exists( 'foundationpress_mobile_off_canvas' ) ) {
-	function foundationpress_mobile_off_canvas() {
+	function foundationpress_mobile_off_canvas($direction = 'left') {
 	    wp_nav_menu(array(
 	        'container' => false,                           // Remove nav container
 	        'container_class' => '',                        // Class of container
@@ -77,7 +77,7 @@ if ( ! function_exists( 'foundationpress_mobile_off_canvas' ) ) {
 	        'link_after' => '',                             // After each link text
 	        'depth' => 5,                                   // Limit the depth of the nav
 	        'fallback_cb' => false,                         // Fallback function (see below)
-	        'walker' => new Foundationpress_Offcanvas_Walker(),
+	        'walker' => new Foundationpress_Offcanvas_Walker($direction),
 	    ));
 	}
 }
