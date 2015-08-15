@@ -178,9 +178,9 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 	          'aligncenter',
 	        );
 
-	        if ( in_array( $class_segs[0], $allowed_classes ) ) {
-	          $img .= ' class="' . $class_segs[0] . '"';
-	        }
+		if ( $filtered_classes = array_intersect( $class_segs, $allowed_classes ) ) {
+			$img .= ' class="' . implode(' ', $filtered_classes) . '"';
+		}
 
 	        // Finish up the img tag
 	        $img .= ' />';
