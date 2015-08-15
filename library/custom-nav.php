@@ -6,6 +6,8 @@
  * @subpackage FoundationPress
  * @since FoundationPress 1.0.0
  */
+
+if ( ! function_exists( 'wpt_register_theme_customizer' ) ) :
 function wpt_register_theme_customizer( $wp_customize ) {
 	// Create custom panels
 	$wp_customize->add_panel( 'mobile_menu_settings', array(
@@ -60,4 +62,5 @@ function mobile_nav_class( $classes ) {
 	endif;
 	return $classes;
 }
+endif;
 ?>
