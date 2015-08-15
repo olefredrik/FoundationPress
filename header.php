@@ -27,7 +27,7 @@
 	<body <?php body_class(); ?>>
 	<?php do_action( 'foundationpress_after_body' ); ?>
 	
-	<?php if ( get_theme_mod ( 'wpt_mobile_menu' ) == 'offcanvas' ) : ?>
+	<?php if ( get_theme_mod( 'wpt_mobile_menu' ) == 'offcanvas' ) : ?>
 	<div class="off-canvas-wrap" data-offcanvas>
 	<div class="inner-wrap">
 	<?php endif; ?>
@@ -35,7 +35,7 @@
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
 
-	<?php if ( get_theme_mod ( 'wpt_mobile_menu' ) == 'offcanvas' ) : ?>
+	<?php if ( get_theme_mod( 'wpt_mobile_menu' ) == 'offcanvas' ) : ?>
 	<?php $GLOBALS['offcanvasposition'] = 'right';  // Can be 'left' or 'right'?>
 	<nav class="tab-bar">
 		<section class="<?php echo $GLOBALS['offcanvasposition'];?>-small">
