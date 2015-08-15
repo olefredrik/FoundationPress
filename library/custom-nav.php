@@ -1,4 +1,11 @@
-<?php 
+<?php
+/**
+ * Allow users to select Topbar or Offcanvas menu. Adds body class of offcanvas or topbar based on which they choose. 
+ *
+ * @package WordPress
+ * @subpackage FoundationPress
+ * @since FoundationPress 1.0.0
+ */
 
 function wpt_register_theme_customizer( $wp_customize ) {
 
@@ -8,14 +15,13 @@ function wpt_register_theme_customizer( $wp_customize ) {
 	  'theme_supports' => '',
 	  'title' => __( 'Mobile Menu Settings', 'foundationpress' ),
 	  'description' => __( 'Controls the mobile menu', 'foundationpress' ),
-	) );	
-
+	) );
 
 	// Create custom nav field
 	$wp_customize->add_section ( 'mobile_menu_layout' , array (
 		'title'	=> __('Offcanvas or Topbar','foundationpress'),
 		'panel' => 'mobile_menu_settings',
-		'priority' => 1000
+		'priority' => 1000,
 	));
 
 	// Set default
@@ -29,19 +35,19 @@ function wpt_register_theme_customizer( $wp_customize ) {
 	// Add radio button options
 	$wp_customize->add_control (
 		new WP_Customize_Control(
-				$wp_customize,
-				'mobile_menu_layout',
-				array (
-					'type'		=> 'radio',
-					'label'		=> __('Offcanvas or Topbar', 'foundationpress'),
-					'section' 	=> 'mobile_menu_layout',
-					'settings' 	=> 'wpt_mobile_menu',
-			        'choices' => array(
-			            'offcanvas' => 'Offcanvas',
-			            'topbar' => 'Topbar',
-			        ),
-				)
+			$wp_customize,
+			'mobile_menu_layout',
+			array (
+				'type'		=> 'radio',
+				'label'		=> __('Offcanvas or Topbar', 'foundationpress'),
+				'section' 	=> 'mobile_menu_layout',
+				'settings' 	=> 'wpt_mobile_menu',
+		        'choices' => array(
+		            'offcanvas' => 'Offcanvas',
+		            'topbar' => 'Topbar',
+		        ),
 			)
+		)
 	);
 }
 add_action( 'customize_register', 'wpt_register_theme_customizer' );
@@ -50,12 +56,11 @@ add_action( 'customize_register', 'wpt_register_theme_customizer' );
 add_filter( 'body_class', 'mobile_nav_class' );
 function mobile_nav_class( $classes ) {
 	
-	if ( get_theme_mod( 'wpt_mobile_menu' ) == 'offcanvas' ) :		
-		$classes[] = 'offcanvas';		
-	elseif ( get_theme_mod( 'wpt_mobile_menu' ) == 'topbar' ) :		
-		$classes[] = 'topbar';				
+	if ( get_theme_mod( 'wpt_mobile_menu' ) == 'offcanvas' ) :
+		$classes[] = 'offcanvas';
+	elseif ( get_theme_mod( 'wpt_mobile_menu' ) == 'topbar' ) :
+		$classes[] = 'topbar';
 	endif;
 	return $classes;
 }
-
 ?>
