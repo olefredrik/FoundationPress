@@ -6,7 +6,6 @@
  * @subpackage FoundationPress
  * @since FoundationPress 1.0.0
  */
-
 function wpt_register_theme_customizer( $wp_customize ) {
 	// Create custom panels
 	$wp_customize->add_panel( 'mobile_menu_settings', array(
@@ -17,7 +16,7 @@ function wpt_register_theme_customizer( $wp_customize ) {
 	) );
 
 	// Create custom nav field
-	$wp_customize->add_section( 'mobile_menu_layout' , array (
+	$wp_customize->add_section( 'mobile_menu_layout' , array(
 		'title'	=> __('Offcanvas or Topbar','foundationpress'),
 		'panel' => 'mobile_menu_settings',
 		'priority' => 1000,
