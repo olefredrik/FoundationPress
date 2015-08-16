@@ -80,9 +80,8 @@ function wpt_register_theme_customizer( $wp_customize ) {
 			)
 		)
 	);
-
-
 }
+
 add_action( 'customize_register', 'wpt_register_theme_customizer' );
 
 // Return the mobile nav position
