@@ -85,6 +85,17 @@ function wpt_register_theme_customizer( $wp_customize ) {
 }
 add_action( 'customize_register', 'wpt_register_theme_customizer' );
 
+// Return the mobile nav position
+add_filter( 'filter_mobile_nav_position', 'mobile_nav_position' );
+function mobile_nav_position( $position ) {
+	if ( get_theme_mod( 'wpt_mobile_menu_position' ) == 'left' ) :
+		$position = 'left';
+	elseif ( get_theme_mod( 'wpt_mobile_menu_position' ) == 'right' ) :
+		$position = 'right';
+	endif;
+	return $position;
+}
+
 // Add class to body to help w/ CSS
 add_filter( 'body_class', 'mobile_nav_class' );
 function mobile_nav_class( $classes ) {

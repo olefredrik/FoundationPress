@@ -7,17 +7,15 @@
  * @since FoundationPress 1.0.0
  */
 
-$GLOBALS['offcanvasposition'] = 'right';  // Can be 'left' or 'right'
-
 if ( ! class_exists( 'Foundationpress_Offcanvas_Walker' ) ) :
 class Foundationpress_Offcanvas_Walker extends Walker_Nav_Menu {
 
 	/**
-	 * Side on which the off_canvas nav will be shown ('left' or 'right')
+	 * Set the side on which the child elements will slide in from ('left' or 'right')
 	 * @var string
 	 */
 
-	private $direction = offcanvasposition;
+	private $direction = left;
 
 	public function __construct($direction) {
 		$this->direction = $direction;
