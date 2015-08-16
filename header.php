@@ -27,29 +27,18 @@
 	<body <?php body_class(); ?>>
 	<?php do_action( 'foundationpress_after_body' ); ?>
 
-	<?php if ( get_theme_mod( 'wpt_mobile_menu' ) == 'offcanvas' ) : ?>
+	<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
 	<div class="off-canvas-wrap" data-offcanvas>
 	<div class="inner-wrap">
 	<?php endif; ?>
 
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
-	<?php if ( get_theme_mod( 'wpt_mobile_menu' ) == 'offcanvas' ) : ?>
-	<nav class="tab-bar">
-		<section class="<?php echo $GLOBALS['offcanvasposition'];?>-small">
-			<a class="<?php echo $GLOBALS['offcanvasposition'];?>-off-canvas-toggle menu-icon" href="#"><span></span></a>
-		</section>
-		<section class="middle tab-bar-section">
-
-			<h1 class="title">
-				<?php bloginfo( 'name' ); ?>
-			</h1>
-
-		</section>
-	</nav>
-
-	<?php get_template_part( 'parts/off-canvas-menu' ); ?>
-	<?php endif; ?>
+	<?php
+		if ( get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) :
+		get_template_part( 'parts/off-canvas-menu' );
+		endif;
+	?>
 
 	<?php get_template_part( 'parts/top-bar' ); ?>
 
