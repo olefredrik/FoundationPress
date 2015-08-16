@@ -21,28 +21,26 @@
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icons/apple-touch-icon-114x114-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icons/apple-touch-icon-72x72-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icons/apple-touch-icon-precomposed.png">
-		
+
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
 	<?php do_action( 'foundationpress_after_body' ); ?>
-	
+
 	<?php if ( get_theme_mod( 'wpt_mobile_menu' ) == 'offcanvas' ) : ?>
 	<div class="off-canvas-wrap" data-offcanvas>
 	<div class="inner-wrap">
 	<?php endif; ?>
-	
+
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
-
 	<?php if ( get_theme_mod( 'wpt_mobile_menu' ) == 'offcanvas' ) : ?>
-	<?php $GLOBALS['offcanvasposition'] = 'right';  // Can be 'left' or 'right'?>
 	<nav class="tab-bar">
 		<section class="<?php echo $GLOBALS['offcanvasposition'];?>-small">
 			<a class="<?php echo $GLOBALS['offcanvasposition'];?>-off-canvas-toggle menu-icon" href="#"><span></span></a>
 		</section>
 		<section class="middle tab-bar-section">
-			
+
 			<h1 class="title">
 				<?php bloginfo( 'name' ); ?>
 			</h1>
