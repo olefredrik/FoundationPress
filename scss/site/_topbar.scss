@@ -2,28 +2,26 @@
 .top-bar-container, .tab-bar {
 	margin-bottom: rem-calc(32);
 
-	.top-bar-left {
-		li.name {
-			padding-left: rem-calc(50);
+	@media only screen and (max-width: ($topbar-breakpoint)) {
+		.top-bar-left {
+			li.name {
+				padding-left: rem-calc(50);
+			}
+
+			li.toggle-topbar a, li.menu-icon {
+				position: absolute;
+				left: 0;
+			}
+
 		}
 
-		li.toggle-topbar a, li.menu-icon {
-			position: absolute;
-			left: 0;
+		.top-bar-right {
+			li.toggle-topbar a, li.menu-icon {
+				position: absolute;
+				right: 0;
+			}
 		}
-
 	}
-
-
-	.top-bar-right {
-
-		li.toggle-topbar a, li.menu-icon {
-			position: absolute;
-			right: 0;
-		}
-
-	}
-
 }
 
 .left-small {
