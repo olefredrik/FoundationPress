@@ -23,5 +23,5 @@
 </nav>
 
 <aside class="<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>-off-canvas-menu" aria-hidden="true">
-    <?php foundationpress_mobile_off_canvas('left'); ?>
+    <?php foundationpress_mobile_off_canvas(); ?>
 </aside>
