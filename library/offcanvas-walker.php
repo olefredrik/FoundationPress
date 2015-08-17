@@ -15,7 +15,7 @@ class Foundationpress_Offcanvas_Walker extends Walker_Nav_Menu {
 	 * @var string
 	 */
 
-	private $direction = left;
+	private $direction = 'left';
 
 	public function __construct($direction) {
 		$this->direction = $direction;
