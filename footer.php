@@ -6,7 +6,7 @@
  *
  * @package WordPress
  * @subpackage FoundationPress
- * @since FoundationPress 1.0.0.0
+ * @since FoundationPress 1.0.0
  */
 
 ?>
@@ -18,13 +18,13 @@
 	<?php do_action( 'foundationpress_after_footer' ); ?>
 </footer>
 
-<?php if ( get_theme_mod( 'wpt_mobile_menu' ) == 'offcanvas' ) : ?>
+<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
 <a class="exit-off-canvas"></a>
 <?php endif; ?>
 
 	<?php do_action( 'foundationpress_layout_end' ); ?>
 
-<?php if ( get_theme_mod( 'wpt_mobile_menu' ) == 'offcanvas' ) : ?>	
+<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
 	</div>
 </div>
 <?php endif; ?>

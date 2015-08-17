@@ -11,12 +11,13 @@ if ( ! class_exists( 'Foundationpress_Offcanvas_Walker' ) ) :
 class Foundationpress_Offcanvas_Walker extends Walker_Nav_Menu {
 
 	/**
-	 * Side on which the off_canvas nav will be shown ('left' or 'right')
+	 * Set the side on which the child elements will slide in from ('left' or 'right')
 	 * @var string
 	 */
-	private $direction = '';
 
-	public function __construct($direction = 'left') {
+	private $direction = 'left';
+
+	public function __construct($direction) {
 		$this->direction = $direction;
 	}
 
