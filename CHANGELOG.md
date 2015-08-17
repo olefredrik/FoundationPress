@@ -1,5 +1,26 @@
 # Change Log
 
+## [v1.1.0](https://github.com/olefredrik/FoundationPress/tree/v1.1.0) (2015-08-17)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.0.0...v1.1.0)
+
+**Closed issues:**
+
+- How to NOT install local bower & grunt? [\#405](https://github.com/olefredrik/FoundationPress/issues/405)
+- Error with "npm run watch" [\#399](https://github.com/olefredrik/FoundationPress/issues/399)
+- Semantic Versioning [\#395](https://github.com/olefredrik/FoundationPress/issues/395)
+- Megamenu in TopBar [\#353](https://github.com/olefredrik/FoundationPress/issues/353)
+- PHPCS gives different results than Travis CI when run locally with codesniffer ruleset [\#352](https://github.com/olefredrik/FoundationPress/issues/352)
+- top-bar [\#277](https://github.com/olefredrik/FoundationPress/issues/277)
+
+**Merged pull requests:**
+
+- Feature/improve mobile navigation customizer [\#413](https://github.com/olefredrik/FoundationPress/pull/413) ([olefredrik](https://github.com/olefredrik))
+- Add Customizer Option for Topbar or Offcanvas Mobile Menu [\#411](https://github.com/olefredrik/FoundationPress/pull/411) ([AdamChlan](https://github.com/AdamChlan))
+- solve image aligment in posts [\#410](https://github.com/olefredrik/FoundationPress/pull/410) ([alexpetroni](https://github.com/alexpetroni))
+- Added the possibility to show the off\_canvas navigation on the right side [\#407](https://github.com/olefredrik/FoundationPress/pull/407) ([Larzans](https://github.com/Larzans))
+- Added changelog [\#404](https://github.com/olefredrik/FoundationPress/pull/404) ([olefredrik](https://github.com/olefredrik))
+- check if function exists [\#389](https://github.com/olefredrik/FoundationPress/pull/389) ([Stevie-Ray](https://github.com/Stevie-Ray))
+
 ## [v1.0.0](https://github.com/olefredrik/FoundationPress/tree/v1.0.0) (2015-08-05)
 **Implemented enhancements:**
 
