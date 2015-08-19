@@ -4,3 +4,5 @@ node_modules/
 bower_components/
 *.log
 vendor/
+css/*
+js/foundation.js
