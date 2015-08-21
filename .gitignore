@@ -3,6 +3,6 @@ node_modules/
 *.sass-cache*
 bower_components/
 *.log
-vendor/
-css/*
+css/
+js/vendor
 js/foundation.js
