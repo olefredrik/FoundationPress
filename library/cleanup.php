@@ -206,7 +206,7 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 	   */
 	  public function the_content( $html ) {
 	    return preg_replace_callback(
-	      '|(<img.*/>)|',
+	      '|(<img[^>]*>)|',
 	      array( $this, 'the_content_callback' ),
 	      $html
 	    );
