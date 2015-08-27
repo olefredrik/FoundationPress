@@ -1,5 +1,31 @@
 # Change Log
 
+## [v1.2.0](https://github.com/olefredrik/FoundationPress/tree/v1.2.0) (2015-08-27)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.1.0...v1.2.0)
+
+**Implemented enhancements:**
+
+- Off canvas or top-bar [\#210](https://github.com/olefredrik/FoundationPress/issues/210)
+- Hooks overview [\#140](https://github.com/olefredrik/FoundationPress/issues/140)
+
+**Closed issues:**
+
+- How to understand the current version? [\#423](https://github.com/olefredrik/FoundationPress/issues/423)
+- Sub-menus not working properly [\#417](https://github.com/olefredrik/FoundationPress/issues/417)
+- Sub-menus not working properly [\#416](https://github.com/olefredrik/FoundationPress/issues/416)
+
+**Merged pull requests:**
+
+- Feature/protocol relative theme assets [\#430](https://github.com/olefredrik/FoundationPress/pull/430) ([olefredrik](https://github.com/olefredrik))
+- Declare WooCommerce support [\#428](https://github.com/olefredrik/FoundationPress/pull/428) ([cyberscribe](https://github.com/cyberscribe))
+- Add WooCommerce support [\#427](https://github.com/olefredrik/FoundationPress/pull/427) ([cyberscribe](https://github.com/cyberscribe))
+- Correct typo in documentation [\#425](https://github.com/olefredrik/FoundationPress/pull/425) ([olefredrik](https://github.com/olefredrik))
+- Feature/gitignore [\#424](https://github.com/olefredrik/FoundationPress/pull/424) ([olefredrik](https://github.com/olefredrik))
+- Better pattern match for images to rebuild [\#421](https://github.com/olefredrik/FoundationPress/pull/421) ([cyberscribe](https://github.com/cyberscribe))
+- Feature/gitignore [\#419](https://github.com/olefredrik/FoundationPress/pull/419) ([olefredrik](https://github.com/olefredrik))
+- Add info to package.json [\#418](https://github.com/olefredrik/FoundationPress/pull/418) ([noskov](https://github.com/noskov))
+- Updated changelog with v1.1.0 details [\#414](https://github.com/olefredrik/FoundationPress/pull/414) ([olefredrik](https://github.com/olefredrik))
+
 ## [v1.1.0](https://github.com/olefredrik/FoundationPress/tree/v1.1.0) (2015-08-17)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.0.0...v1.1.0)
 
