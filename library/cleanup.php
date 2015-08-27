@@ -120,7 +120,7 @@ endif;
 
 // Remove injected CSS from gallery.
 if ( ! function_exists( 'foundationpress_gallery_style' ) ) :
-function foundationpress_gallery_style($css) {
+function foundationpress_gallery_style( $css ) {
 	return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
 }
 endif;

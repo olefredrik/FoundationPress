@@ -1,7 +1,7 @@
 {
   "name": "foundationpress",
   "title": "FoundationPress",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "FoundationPress is a WordPress starter theme based on Foundation 5 by Zurb",
   "keywords": [ "FoundationPress", "WordPress", "starter theme", "Foundation", "semantic", "mobile first", "customizable", "responsive" ],
   "homepage": "http://foundationpress.olefredrik.com/",
