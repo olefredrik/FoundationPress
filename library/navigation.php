@@ -64,7 +64,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
  * Mobile off-canvas
  */
 if ( ! function_exists( 'foundationpress_mobile_off_canvas' ) ) {
-	function foundationpress_mobile_off_canvas( $direction = 'left') {
+	function foundationpress_mobile_off_canvas( $direction = 'left' ) {
 	    wp_nav_menu(array(
 	        'container' => false,                           // Remove nav container
 	        'container_class' => '',                        // Class of container
