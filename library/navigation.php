@@ -64,7 +64,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
  * Mobile off-canvas
  */
 if ( ! function_exists( 'foundationpress_mobile_off_canvas' ) ) {
-	function foundationpress_mobile_off_canvas($direction = 'left') {
+	function foundationpress_mobile_off_canvas( $direction = 'left') {
 	    wp_nav_menu(array(
 	        'container' => false,                           // Remove nav container
 	        'container_class' => '',                        // Class of container
@@ -90,7 +90,7 @@ if ( ! function_exists( 'foundationpress_mobile_off_canvas' ) ) {
  * 4) Save Menu. Your menu item will now appear as a button in your top-menu
 */
 if ( ! function_exists( 'foundationpress_add_menuclass' ) ) {
-	function foundationpress_add_menuclass($ulclass) {
+	function foundationpress_add_menuclass( $ulclass ) {
 	    $find = array('/<a rel="button"/', '/<a title=".*?" rel="button"/');
 	    $replace = array('<a rel="button" class="button"', '<a rel="button" class="button"');
 
@@ -107,7 +107,7 @@ if ( ! function_exists( 'foundationpress_add_menuclass' ) ) {
  */
 
 if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
-    function foundationpress_breadcrumb($showhome = true, $separatorclass = false) {
+    function foundationpress_breadcrumb( $showhome = true, $separatorclass = false ) {
 
         // Settings
         $separator  = '&gt;';

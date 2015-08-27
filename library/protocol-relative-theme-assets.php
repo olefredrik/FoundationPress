@@ -20,7 +20,7 @@ if ( ! class_exists( 'Foundationpress_protocol_relative_theme_assets' ) ) :
 		 *
 		 * @access  public
 		 * @since   1.0
-		*/
+		 */
 		public function __construct() {
 			add_filter( 'style_loader_src', array( $this, 'style_loader_src' ), 10, 2 );
 			add_filter( 'script_loader_src', array( $this, 'script_loader_src' ), 10, 2 );
@@ -35,7 +35,7 @@ if ( ! class_exists( 'Foundationpress_protocol_relative_theme_assets' ) ) :
 		 * @access  private
 		 * @return  string
 		 * @since   1.0
-		*/
+		 */
 		private function make_protocol_relative_url( $url ) {
 			return preg_replace( '(https?://)', '//', $url );
 		}
@@ -46,7 +46,7 @@ if ( ! class_exists( 'Foundationpress_protocol_relative_theme_assets' ) ) :
 		 * @access  public
 		 * @return  string
 		 * @since   1.0
-		*/
+		 */
 		public function style_loader_src( $src, $handle ) {
 			return $this->make_protocol_relative_url( $src );
 		}
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Foundationpress_protocol_relative_theme_assets' ) ) :
 		 * @access  public
 		 * @return  string
 		 * @since   1.0
-		*/
+		 */
 		public function script_loader_src( $src, $handle ) {
 			return $this->make_protocol_relative_url( $src );
 		}
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Foundationpress_protocol_relative_theme_assets' ) ) :
 		 * @return  string
 		 * @since   1.0
 		 * @link    http://codex.wordpress.org/Function_Reference/get_template_directory_uri
-		*/
+		 */
 		public function template_directory_uri( $template_dir_uri, $template, $theme_root_uri ) {
 			return $this->make_protocol_relative_url( $template_dir_uri );
 		}
@@ -81,7 +81,7 @@ if ( ! class_exists( 'Foundationpress_protocol_relative_theme_assets' ) ) :
 		 * @return  string
 		 * @since   1.0
 		 * @link    http://codex.wordpress.org/Function_Reference/get_stylesheet_directory_uri
-		*/
+		 */
 		public function stylesheet_directory_uri( $stylesheet_dir_uri, $stylesheet, $theme_root_uri ) {
 			return $this->make_protocol_relative_url( $stylesheet_dir_uri );
 		}

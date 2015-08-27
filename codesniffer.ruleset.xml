@@ -33,5 +33,7 @@
 		<exclude name="WordPress.XSS.EscapeOutput.OutputNotEscaped" />
 		<exclude name="WordPress.Arrays.ArrayDeclaration.NoSpaceAfterOpenParenthesis" />
 		<exclude name="WordPress.Variables.GlobalVariables" />
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterOpenParenthesis" />
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceBeforeCloseParenthesis)" />
 	</rule>
 </ruleset>

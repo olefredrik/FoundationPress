@@ -17,7 +17,7 @@ class Foundationpress_Offcanvas_Walker extends Walker_Nav_Menu {
 
 	private $direction = 'left';
 
-	public function __construct($direction) {
+	public function __construct( $direction ) {
 		$this->direction = $direction;
 	}
 
@@ -45,7 +45,6 @@ class Foundationpress_Offcanvas_Walker extends Walker_Nav_Menu {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$output .= "\n<ul class=\"{$this->direction}-submenu\">\n<li class=\"back\"><a href=\"#\">". __( 'Back', 'foundationpress' ) ."</a></li>\n";
 	}
-
 }
 endif;
 ?>
