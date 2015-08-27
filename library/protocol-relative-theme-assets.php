@@ -11,10 +11,10 @@ if ( ! class_exists( 'Foundationpress_protocol_relative_theme_assets' ) ) :
 	class Foundationpress_protocol_relative_theme_assets {
 		/**
 		 * Plugin URI: https://github.com/ryanjbonnell/Protocol-Relative-Theme-Assets
-	   * Description: Transforms enqueued CSS and JavaScript theme URLs to use protocol-relative paths.
-	   * Version: 1.0
-	   * Author: Ryan J. Bonnell
-	   * Author URI: https://github.com/ryanjbonnell
+		 * Description: Transforms enqueued CSS and JavaScript theme URLs to use protocol-relative paths.
+		 * Version: 1.0
+		 * Author: Ryan J. Bonnell
+		 * Author URI: https://github.com/ryanjbonnell
 		 *
 		 * Class Constructor
 		 *
