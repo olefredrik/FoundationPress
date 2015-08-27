@@ -8,100 +8,63 @@ All contributions are welcome!
 
 ## Requirements
 
-**A brief explanation to the requirements** (feel free to skip this if you're a pro):
+**Please read this. It's totally worth it. **
 
-Back in the days we wrote all styles in the style.css file. Then we realized that this could quickly create clutter and confusion, especially in larger projects. Foundation uses SASS (equivalent to LESS, used in Bootstrap). In short, SASS is a CSS pre-processor that allows you to write styles more effectively and tidy.
+FoundationPress uses [SASS](http://sass-lang.com/) (CSS with superpowers). In short, SASS is a CSS pre-processor that allows you to write styles more effectively and tidy.
 
-To compile SASS files into one style sheet, we use a tool called Grunt. In short, Grunt is a task runner that automates repetitive tasks like minification, compilation, linting, etc. Grunt and Grunt plugins are installed and managed via npm, the Node.js package manager. Before setting up Grunt ensure that your npm is up-to-date by running ```npm update -g npm``` (this might require ```sudo``` on certain systems)
+All the SASS (.scss) files are compiled into one single css file. To make this happen, we use a tool called Grunt; a task runner that automates repetitive tasks like minification, compilation, linting, etc.
 
-Bower is a package manager used by Zurb to distribute Foundation. When you have Bower installed, you will be able to run ```foundation update``` in the terminal to update Foundation to the latest version. (After an upgrade you must run ```npm run build``` to recompile files).
-
-
-**Okay, so you'll need to have [Node.js](http://nodejs.org) installed before continuing.**
-
-**And that is it.**
-
-Many project force their users to install [Bower](http://bower.io) and [Grunt](http://gruntjs.com/) globally. We don't like that and decided to use them via `npm scripts` which means, that Grunt and Bower are installed in your `node_modules` folder and we'll call them there.
-
-Haven't used this approach yet? Read on.
+**You'll need to have [Node.js](http://nodejs.org) installed before continuing.**
 
 ## Quickstart
 
+### 1. Clone the repository and install dependencies with npm
 ```bash
 $ cd my-wordpress-folder/wp-content/themes/
 $ git clone git@github.com:olefredrik/FoundationPress.git
 $ mv FoundationPress your-theme-name
 $ cd your-theme-name
 
-# will call:
-# bower install && grunt build
-# afterwards
-# check `package.json` `scripts`
-# for further information
 $ npm install
+# bower install && grunt build will be called via npm scripts when you run npm install.
 ```
 
-**Tip:**
-If you get an error saying Permission denied (publickey) when cloning the repository, use the https protocol instead:
-```git clone https://github.com/olefredrik/FoundationPress.git```
+(Many project force their users to install [Bower](http://bower.io) and [Grunt](http://gruntjs.com/) globally. We don't like that and decided to use them via `npm scripts` which means, that Grunt and Bower are installed in your `node_modules` folder and we'll call them there.)
 
-While you're working on your project, run:
+
+
+### 2. While you're working on your project, run:
 
 ```bash
-# will call:
-# grunt watch
-#
-# predefined in `package.json`
 $ npm run watch
 ```
 
-For building all the assets, run:
+### 3. For building all the assets, run:
 
 ```bash
-# will call:
-# grunt build
-#
-# predefined in `package.json`
 $ npm run build
 ```
 
 And you're set!
 
-Check for Foundation Updates? Run:
-`$ foundation update`
-(this requires the foundation gem to be installed in order to work. Please see the [docs](http://foundation.zurb.com/docs/sass.html) for details.)
-
-Wanna run a custom grunt task? Run:
-```bash
-# will call:
-# grunt sass
-$ npm run grunt -- sass
-
-# will call:
-# grunt copy
-$ npm run grunt -- copy
-```
-
-### Stylesheet Folder Structure
+### How to structure your styles
 
   * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
 
   * `scss/foundation.scss`: Imports for Foundation components and your custom styles.
   * `scss/config/_settings.scss`: Original Foundation 5 base settings
   * `scss/config/_custom-settings.scss`: Copy the settings you will modify to this file. Make it your own
-  * `scss/site/*.scss`: Unleash your creativity and make it look perfect. Create the files you need (and remember to make import statements for all your files in scss/foundation.scss)
+  * `scss/site/*.scss`: Unleash your creativity. Create the files you need (and remember to make import statements for all your files in scss/foundation.scss)
 
-Please note that you must run `npm run build` in your terminal for the styles to be copied and concatinated. See [Gruntfile.js](https://github.com/olefredrik/FoundationPress/blob/master/Gruntfile.js) for details
+Please note that you **must** run `$npm run build` in your terminal for the styles to be copied and concatinated. See [Gruntfile.js](https://github.com/olefredrik/FoundationPress/blob/master/Gruntfile.js) for details
 
-### Script Folder Strucutre
+### How to structure your scripts
 
-  * `bower_components/`: This is the source folder where all Foundation components are located. `foundation update` will check and update scripts in this folder.
-
-* `js/custom`: This is where you put all your custom scripts. Every .js file you put in this directory will be minified and concatinated one single .js file.
+* `js/custom`: This is the folder where you put all your custom scripts. Every .js file you put in this directory will be minified and concatinated one single .js file. (This is good for site speed and performance)
 
 Please note that you must run `npm run build` in your terminal for the scripts to be copied and concatinated. See [Gruntfile.js](https://github.com/olefredrik/FoundationPress/blob/master/Gruntfile.js) for details
 
-### Styles and scripts generated by the build
+### The styles and scripts generated by the build
 
 Version control on these files are turned off because they are automatically generated as part of the build process.
 
@@ -138,6 +101,7 @@ FoundationPress is completely ready to be deployed to and tested by Travis CI fo
 ## A selection of sites built with FoundationPress
 
 * [Harvard Center for Green Buildings and Cities](http://www.harvardcgbc.org/)
+* [Conservative Leadership Conference](http://civitasclc.com/)
 * [Parent-Child Home Program](http://www.parent-child.org/)
 * [Hip and Healthy](http://hipandhealthy.com/)
 * [Threadbird blog](http://blog.threadbird.com/)
@@ -179,6 +143,7 @@ Pull requests are highly appreciated. More than three dozen amazing people have 
 1. Solve a problem. Features are great, but even better is cleaning-up and fixing issues in the code that you discover
 2. Make sure that your code is bug-free and does not introduce new bugs
 3. Create a [pull request](https://help.github.com/articles/creating-a-pull-request)
+4. Verify that all the checks have passed
 
 ## Documentation
 
