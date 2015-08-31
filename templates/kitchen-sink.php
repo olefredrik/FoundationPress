@@ -42,10 +42,10 @@ get_header(); ?>
 			<hr>
 			<h4 id="block-grid">Block Grid</h4>
 			<ul class="small-block-grid-2 large-block-grid-4">
-				<li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/comet-th.jpg" alt=""></li>
-				<li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/launch-th.jpg" alt=""></li>
-				<li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/space-th.jpg" alt=""></li>
-				<li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/spacewalk-th.jpg" alt=""></li>
+				<li><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/comet-th.jpg" alt=""></li>
+				<li><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/launch-th.jpg" alt=""></li>
+				<li><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/space-th.jpg" alt=""></li>
+				<li><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/spacewalk-th.jpg" alt=""></li>
 			</ul>
 
 			<hr>
@@ -124,11 +124,11 @@ get_header(); ?>
 			<h4 id="clearing">Clearing</h4>
 			<div>
 				<ul class="clearing-thumbs" data-clearing>
-					<li><a class="th" href="http://foundation.zurb.com/docs/assets/img/examples/comet.jpg"><img data-caption="Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum." src="http://foundation.zurb.com/docs/assets/img/examples/comet-th-sm.jpg" alt=""></a></li>
-					<li><a class="th" href="http://foundation.zurb.com/docs/assets/img/examples/earth.jpg"><img src="http://foundation.zurb.com/docs/assets/img/examples/earth-th-sm.jpg" alt=""></a></li>
-					<li><a class="th" href="http://foundation.zurb.com/docs/assets/img/examples/launch.jpg"><img data-caption="Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus." src="http://foundation.zurb.com/docs/assets/img/examples/launch-th-sm.jpg" alt=""></a></li>
-					<li><a class="th" href="http://foundation.zurb.com/docs/assets/img/examples/satelite.jpg"><img src="http://foundation.zurb.com/docs/assets/img/examples/satelite-th-sm.jpg" alt=""></a></li>
-					<li><a class="th" href="http://foundation.zurb.com/docs/assets/img/examples/space.jpg"><img data-caption="Integer posuere erat a ante venenatis dapibus posuere velit aliquet." src="http://foundation.zurb.com/docs/assets/img/examples/space-th-sm.jpg" alt=""></a></li>
+					<li><a class="th" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/comet.jpg"><img data-caption="Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum." src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/comet-th-sm.jpg" alt=""></a></li>
+					<li><a class="th" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/earth.jpg"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/earth-th-sm.jpg" alt=""></a></li>
+					<li><a class="th" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/launch.jpg"><img data-caption="Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus." src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/launch-th-sm.jpg" alt=""></a></li>
+					<li><a class="th" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/satelite.jpg"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/satelite-th-sm.jpg" alt=""></a></li>
+					<li><a class="th" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/space.jpg"><img data-caption="Integer posuere erat a ante venenatis dapibus posuere velit aliquet." src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/space-th-sm.jpg" alt=""></a></li>
 				</ul>
 			</div>
 
@@ -190,7 +190,7 @@ get_header(); ?>
 
 			<div class="f-dropdown content medium" data-dropdown-content="" id= "contentDrop">
 				<h4>Title</h4>
-				<p>Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!</p><img src="http://foundation.zurb.com/docs/assets/img/examples/launch.jpg" alt="">
+				<p>Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!</p><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/launch.jpg" alt="">
 				<p>Launching a Discovery Mission</p><a class="button" href="#">Button</a>
 			</div>
 
@@ -271,19 +271,19 @@ get_header(); ?>
 				<div class="large-12 columns">
 					<ul id="featured1" data-orbit data-options="timer_speed:5000;">
 						<li>
-							<img src="http://foundation.zurb.com/docs/assets/img/examples/satelite-orbit.jpg" alt=""/>
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/satelite-orbit.jpg" alt=""/>
 							<div class="orbit-caption">
 								Caption One. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 							</div>
 						</li>
 						<li>
-							<img src="http://foundation.zurb.com/docs/assets/img/examples/andromeda-orbit.jpg" alt=""/>
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/andromeda-orbit.jpg" alt=""/>
 							<div class="orbit-caption">
 								Caption Two. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 							</div>
 						</li>
 						<li>
-							<img src="http://foundation.zurb.com/docs/assets/img/examples/launch-orbit.jpg" alt=""/>
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/launch-orbit.jpg" alt=""/>
 							<div class="orbit-caption">
 								Caption Three. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 							</div>
@@ -403,9 +403,9 @@ get_header(); ?>
     <a href="#panel1a">Accordion 1</a>
     <div id="panel1a" class="content active">
       <ul class="small-block-grid-2 large-block-grid-3 ">
-        <li><img src="http://placehold.it/350x150"></li>
-        <li><img src="http://placehold.it/350x150"></li>
-        <li><img src="http://placehold.it/350x150"></li>
+        <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/350x150.png" alt="placeholder image"></li>
+        <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/350x150.png" alt="placeholder image"></li>
+        <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/350x150.png" alt="placeholder image"></li>
       </ul>
     </div>
   </li>
@@ -417,7 +417,7 @@ get_header(); ?>
           <p>Panel 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
       <div class="small-6 columns">
-        <img src="http://placehold.it/350x150">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/350x150.png" alt="placeholder image">
       </div>
     </div>
   </div></li>
@@ -536,7 +536,7 @@ get_header(); ?>
 
 			<hr>
 			<h4 id="thumbnails">Thumbnails</h4>
-			<p><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/earth-th-sm.jpg" alt=""><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/space-th-sm.jpg" alt=""></p>
+			<p><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/earth-th-sm.jpg" alt=""><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/space-th-sm.jpg" alt=""></p>
 
 			<hr>
 			<h4 id="tooltips">Tooltips</h4>
@@ -604,27 +604,27 @@ get_header(); ?>
 
 			<hr>
 			<h4 id="icon-bar">Icon bar</h4>
-			<div class="icon-bar five-up" role="navigation"> 
-			  <a class="item" role="button" tabindex="0" aria-label="home"> 
-			    <i class="fa fa-home"></i> 
+			<div class="icon-bar five-up" role="navigation">
+			  <a class="item" role="button" tabindex="0" aria-label="home">
+			    <i class="fa fa-home"></i>
 			    <label id="home">Home</label>
-			  </a> 
-			  <a class="item" role="button" tabindex="0" aria-label="Bookmark"> 
-			    <i class="fa fa-fw fa-bookmark"></i> 
+			  </a>
+			  <a class="item" role="button" tabindex="0" aria-label="Bookmark">
+			    <i class="fa fa-fw fa-bookmark"></i>
 			    <label id="bookmark">Bookmark</label>
-			  </a> 
-			  <a class="item" role="button" tabindex="0" aria-label="Information"> 
-			    <i class="fa fa-fw fa-info-circle"></i> 
+			  </a>
+			  <a class="item" role="button" tabindex="0" aria-label="Information">
+			    <i class="fa fa-fw fa-info-circle"></i>
 			    <label id="information">Information</label>
-			  </a> 
-			  <a class="item" role="button" tabindex="0" aria-label="Mail"> 
-			    <i class="fa fa-fw fa-envelope"></i> 
+			  </a>
+			  <a class="item" role="button" tabindex="0" aria-label="Mail">
+			    <i class="fa fa-fw fa-envelope"></i>
 			    <label id="mail">Mail</label>
-			  </a> 
-			  <a class="item" role="button" tabindex="0" aria-label="Like"> 
-			    <i class="fa fa-fw fa-thumbs-up"></i> 
+			  </a>
+			  <a class="item" role="button" tabindex="0" aria-label="Like">
+			    <i class="fa fa-fw fa-thumbs-up"></i>
 			    <label id="like">Like</label>
-			  </a> 
+			  </a>
 			</div>
 
 			<hr>
