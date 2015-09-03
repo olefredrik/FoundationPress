@@ -16,8 +16,7 @@ get_header(); ?>
 <?php get_template_part( 'parts/featured-image' ); ?>
 
 <div class="row">
-	<div class="small-12 large-8 columns" role="main">
-
+	<?php get_template_part( 'parts/check-if-sidebar-exist' ); ?>
 	<?php do_action( 'foundationpress_before_content' ); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
