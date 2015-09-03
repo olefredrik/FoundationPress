@@ -13,6 +13,8 @@
 
 get_header(); ?>
 
+<?php get_template_part( 'parts/featured-image' ); ?>
+
 <div class="row">
 	<div class="small-12 large-8 columns" role="main">
 

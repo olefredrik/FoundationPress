@@ -1,0 +1,18 @@
+@media #{$small-up} {
+	#featured-hero {
+		background-size: cover;
+		margin: - rem-calc(32) 0 rem-calc(32);
+		position: relative;
+		height: rem-calc(200);
+		}
+
+		.no-featured-image-set {
+			height: rem-calc(16) !important;
+		}
+}
+
+@media #{$medium-up} {
+	#featured-hero {
+		height: rem-calc(400);
+		}
+}
