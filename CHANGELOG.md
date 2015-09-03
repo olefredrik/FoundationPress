@@ -1,5 +1,39 @@
 # Change Log
 
+## [v1.3.0](https://github.com/olefredrik/FoundationPress/tree/v1.3.0) (2015-09-03)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.2.0...v1.3.0)
+
+**Implemented enhancements:**
+
+- Main content columns dependent on existence of sidebar [\#325](https://github.com/olefredrik/FoundationPress/issues/325)
+
+**Fixed bugs:**
+
+- Unable to change bg color of topbar from settings [\#377](https://github.com/olefredrik/FoundationPress/issues/377)
+- Main content columns dependent on existence of sidebar [\#325](https://github.com/olefredrik/FoundationPress/issues/325)
+- Post Image Aligment [\#110](https://github.com/olefredrik/FoundationPress/issues/110)
+
+**Closed issues:**
+
+- Issues with WordPress Admin Panel [\#441](https://github.com/olefredrik/FoundationPress/issues/441)
+- Download \(zip\) not working [\#437](https://github.com/olefredrik/FoundationPress/issues/437)
+- Customising the Offcanvas Menu Walker [\#434](https://github.com/olefredrik/FoundationPress/issues/434)
+- foundation not a function \(offcanvas\) [\#393](https://github.com/olefredrik/FoundationPress/issues/393)
+- Top Bar and Tab Bar Sticky [\#328](https://github.com/olefredrik/FoundationPress/issues/328)
+
+**Merged pull requests:**
+
+- Update version number to v1.3.0 [\#446](https://github.com/olefredrik/FoundationPress/pull/446) ([olefredrik](https://github.com/olefredrik))
+- Main content columns no longer dependent on existence of sidebar [\#445](https://github.com/olefredrik/FoundationPress/pull/445) ([olefredrik](https://github.com/olefredrik))
+- Fix topbar styling bug [\#444](https://github.com/olefredrik/FoundationPress/pull/444) ([olefredrik](https://github.com/olefredrik))
+- Add background position to featured image [\#443](https://github.com/olefredrik/FoundationPress/pull/443) ([olefredrik](https://github.com/olefredrik))
+- Add support for featured image on pages [\#442](https://github.com/olefredrik/FoundationPress/pull/442) ([olefredrik](https://github.com/olefredrik))
+- Self host static content to be used for demo purposes [\#440](https://github.com/olefredrik/FoundationPress/pull/440) ([olefredrik](https://github.com/olefredrik))
+- Add correct svg path [\#439](https://github.com/olefredrik/FoundationPress/pull/439) ([olefredrik](https://github.com/olefredrik))
+- Host graphics in assets folder instead of pointing to external ref at… [\#438](https://github.com/olefredrik/FoundationPress/pull/438) ([olefredrik](https://github.com/olefredrik))
+- Update and simplify the readme file [\#433](https://github.com/olefredrik/FoundationPress/pull/433) ([olefredrik](https://github.com/olefredrik))
+- Updated changelog [\#432](https://github.com/olefredrik/FoundationPress/pull/432) ([olefredrik](https://github.com/olefredrik))
+
 ## [v1.2.0](https://github.com/olefredrik/FoundationPress/tree/v1.2.0) (2015-08-27)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.1.0...v1.2.0)
 
