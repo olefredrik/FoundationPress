@@ -36,14 +36,6 @@
 	h1 a { font-weight: 500; }
 }
 
-// A more subtle background color for the active menu item
-.top-bar-section li.active:not(.has-form) a:not(.button)  {
-	background: #272727;
-}
-.top-bar-section li.active:not(.has-form) a:hover:not(.button) {
-	background: #202020;
-}
-
 // Switch between the mobile menu (tab-bar) and desktop menu (topbar) based on a custom $topbar-breakpoint value.
 // The $topbar-breakpoint can be edited in _custom-settings.scss.
 

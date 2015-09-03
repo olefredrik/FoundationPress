@@ -1,4 +1,4 @@
-/* 
+/*
 	My custom settings. These variables are copied from _settings.css
 	This file will only contain uncommented settings that are actually used in the theme.
 */
@@ -49,7 +49,19 @@ $body-font-weight: $font-weight-normal;
 $body-font-style: normal;
 $header-font-weight: 300;
 $header-text-rendering: optimizeLegibility;
+
+// Set the link colors and styles for top-level nav
 $topbar-link-weight: bold;
+$topbar-link-color: $white;
+$topbar-link-color-hover: $white;
+$topbar-link-color-active: $white;
+$topbar-link-color-active-hover: $white;
+
+//$topbar-link-bg: $topbar-bg;
+$topbar-link-bg-hover: $jet;
+$topbar-link-bg-color-hover: $jet;
+$topbar-link-bg-active: $jet;
+$topbar-link-bg-active-hover: scale-color($jet, $lightness: -14%);
 
 // Media query breakpoints
 $small-breakpoint:  em-calc(640);
