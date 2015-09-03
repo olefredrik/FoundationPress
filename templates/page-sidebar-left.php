@@ -3,6 +3,9 @@
 Template Name: Left Sidebar
 */
 get_header(); ?>
+
+<?php get_template_part( 'parts/featured-image' ); ?>
+
 <div class="row">
     <div class="small-12 large-8 large-push-4 columns" role="main">
 
