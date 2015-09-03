@@ -4,6 +4,6 @@
     echo '<div class="small-12 large-8 columns" role="main">';
 
   else :
-    echo '<div class="small-12 large-12 columns" role="main">';
+    echo '<div class="small-12 columns" role="main">';
   endif;
 ?>
