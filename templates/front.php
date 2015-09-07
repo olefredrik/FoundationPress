@@ -16,7 +16,7 @@ get_header(); ?>
 		</div>
 
 		<div class="floatingyeti show-for-medium-up">
-			<img data-cfsrc="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/hero-image.svg" alt="Foundation Yeti" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/demo/hero-image.svg">
+			<img data-cfsrc="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/hero-image.svg" alt="Foundation Yeti" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/hero-image.svg">
 		</div>
 	</div>
 

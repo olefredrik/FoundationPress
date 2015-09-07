@@ -51,16 +51,16 @@ And you're set!
 
   * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
 
-  * `scss/foundation.scss`: Imports for Foundation components and your custom styles.
-  * `scss/config/_settings.scss`: Original Foundation 5 base settings
-  * `scss/config/_custom-settings.scss`: Copy the settings you will modify to this file. Make it your own
-  * `scss/site/*.scss`: Unleash your creativity. Create the files you need (and remember to make import statements for all your files in scss/foundation.scss)
+  * `assets/scss/foundation.scss`: Imports for Foundation components and your custom styles.
+  * `assets/scss/config/_settings.scss`: Original Foundation 5 base settings
+  * `assets/scss/config/_custom-settings.scss`: Copy the settings you will modify to this file. Make it your own
+  * `assets/scss/site/*.scss`: Unleash your creativity. Create the files you need (and remember to make import statements for all your files in assets/scss/foundation.scss)
 
 Please note that you **must** run `$npm run build` in your terminal for the styles to be copied and concatinated. See [Gruntfile.js](https://github.com/olefredrik/FoundationPress/blob/master/Gruntfile.js) for details
 
 ### How to structure your scripts
 
-* `js/custom`: This is the folder where you put all your custom scripts. Every .js file you put in this directory will be minified and concatinated one single .js file. (This is good for site speed and performance)
+* `assets/javascript/custom`: This is the folder where you put all your custom scripts. Every .js file you put in this directory will be minified and concatinated one single .js file. (This is good for site speed and performance)
 
 Please note that you must run `npm run build` in your terminal for the scripts to be copied and concatinated. See [Gruntfile.js](https://github.com/olefredrik/FoundationPress/blob/master/Gruntfile.js) for details
 
@@ -68,10 +68,10 @@ Please note that you must run `npm run build` in your terminal for the scripts t
 
 Version control on these files are turned off because they are automatically generated as part of the build process.
 
-* `css/foundation.css`: All Sass files are minified and compiled to this file
-* `css/foundation.css.map`: CSS source maps
+* `assets/stylesheets/foundation.css`: All Sass files are minified and compiled to this file
+* `assets/stylesheets/foundation.css.map`: CSS source maps
 
-* `js/vendor`: Vendor scripts are copied from `bower_components/` to this directory. We use this path for enqueing the vendor scripts in WordPress.
+* `assets/javascript/vendor`: Vendor scripts are copied from `assets/javascript/components/` to this directory. We use this path for enqueing the vendor scripts in WordPress.
 
 ## Demo
 
