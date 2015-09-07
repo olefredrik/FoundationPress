@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+// Normalize.css
+@import "../components/foundation/scss/normalize";
+
+/*
+  ZURB Foundation components:
+  Import the building blocks you need for your project.
+  Reducing the number of imported components will optimize page speed.
+*/
+
+@import "config/settings"; // Default settings file. Uncomment each setting you need to change
+@import "config/custom-settings"; // Or copy the stuff you need to change to this file and uncomment
+@import "config/wp-overrides"; // Override the default WordPress styling for some elements
+
+@import "../components/foundation/scss/foundation/components/grid";
+@import "../components/foundation/scss/foundation/components/accordion";
+@import "../components/foundation/scss/foundation/components/alert-boxes";
+@import "../components/foundation/scss/foundation/components/block-grid";
+@import "../components/foundation/scss/foundation/components/breadcrumbs";
+@import "../components/foundation/scss/foundation/components/button-groups";
+@import "../components/foundation/scss/foundation/components/buttons";
+@import "../components/foundation/scss/foundation/components/clearing";
+@import "../components/foundation/scss/foundation/components/dropdown";
+@import "../components/foundation/scss/foundation/components/dropdown-buttons";
+@import "../components/foundation/scss/foundation/components/flex-video";
+@import "../components/foundation/scss/foundation/components/forms";
+@import "../components/foundation/scss/foundation/components/icon-bar";
+@import "../components/foundation/scss/foundation/components/inline-lists";
+@import "../components/foundation/scss/foundation/components/joyride";
+@import "../components/foundation/scss/foundation/components/keystrokes";
+@import "../components/foundation/scss/foundation/components/labels";
+@import "../components/foundation/scss/foundation/components/magellan";
+@import "../components/foundation/scss/foundation/components/orbit";
+@import "../components/foundation/scss/foundation/components/pagination";
+@import "../components/foundation/scss/foundation/components/panels";
+@import "../components/foundation/scss/foundation/components/pricing-tables";
+@import "../components/foundation/scss/foundation/components/progress-bars";
+@import "../components/foundation/scss/foundation/components/range-slider";
+@import "../components/foundation/scss/foundation/components/reveal";
+@import "../components/foundation/scss/foundation/components/side-nav";
+@import "../components/foundation/scss/foundation/components/split-buttons";
+@import "../components/foundation/scss/foundation/components/sub-nav";
+@import "../components/foundation/scss/foundation/components/switches";
+@import "../components/foundation/scss/foundation/components/tables";
+@import "../components/foundation/scss/foundation/components/tabs";
+@import "../components/foundation/scss/foundation/components/thumbs";
+@import "../components/foundation/scss/foundation/components/tooltips";
+@import "../components/foundation/scss/foundation/components/top-bar";
+@import "../components/foundation/scss/foundation/components/type";
+@import "../components/foundation/scss/foundation/components/offcanvas";
+@import "../components/foundation/scss/foundation/components/visibility";
+
+/*
+  Font Awesome - (http://fontawesome.io/) :
+  Feel free to remove the import statement below if you don't plan to use icon-fonts in your project
+*/
+
+@import "../components/fontawesome/scss/font-awesome.scss";
+
+
+/*
+  My custom styles:
+  Add your scss files below to structure your project styles
+*/
+
+@import "site/global";
+@import "site/wp-admin";
+@import "site/topbar";
+@import "site/front";
+@import "site/featured";
+@import "site/footer";
