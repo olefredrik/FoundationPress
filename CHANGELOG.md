@@ -1,5 +1,27 @@
 # Change Log
 
+## [v1.4.0](https://github.com/olefredrik/FoundationPress/tree/v1.4.0) (2015-09-07)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.3.0...v1.4.0)
+
+**Implemented enhancements:**
+
+- Isolating frontend dependencies. [\#396](https://github.com/olefredrik/FoundationPress/issues/396)
+
+**Fixed bugs:**
+
+- Sticky bar and Admin Bar [\#452](https://github.com/olefredrik/FoundationPress/issues/452)
+- Off-canvas menu defaults not set properly [\#447](https://github.com/olefredrik/FoundationPress/issues/447)
+
+**Merged pull requests:**
+
+- Updated version number to v1.4.0 [\#457](https://github.com/olefredrik/FoundationPress/pull/457) ([olefredrik](https://github.com/olefredrik))
+- Fix issue with wpadminbar overlap sticky topbar [\#456](https://github.com/olefredrik/FoundationPress/pull/456) ([olefredrik](https://github.com/olefredrik))
+- Feature/gitignore [\#455](https://github.com/olefredrik/FoundationPress/pull/455) ([olefredrik](https://github.com/olefredrik))
+- Folder Structure [\#454](https://github.com/olefredrik/FoundationPress/pull/454) ([THEBRANDYMAN](https://github.com/THEBRANDYMAN))
+- Changed wp\_register\_script to wp\_enqueue\_script [\#450](https://github.com/olefredrik/FoundationPress/pull/450) ([JeremyEnglert](https://github.com/JeremyEnglert))
+- Fixed: The off-canvas mobile menu was not working correctly [\#449](https://github.com/olefredrik/FoundationPress/pull/449) ([Larzans](https://github.com/Larzans))
+- Updated changelog [\#448](https://github.com/olefredrik/FoundationPress/pull/448) ([olefredrik](https://github.com/olefredrik))
+
 ## [v1.3.0](https://github.com/olefredrik/FoundationPress/tree/v1.3.0) (2015-09-03)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.2.0...v1.3.0)
 
