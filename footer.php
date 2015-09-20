@@ -18,13 +18,13 @@
 	<?php do_action( 'foundationpress_after_footer' ); ?>
 </footer>
 
-<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
+<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
 <a class="exit-off-canvas"></a>
 <?php endif; ?>
 
 	<?php do_action( 'foundationpress_layout_end' ); ?>
 
-<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
+<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
 	</div>
 </div>
 <?php endif; ?>
