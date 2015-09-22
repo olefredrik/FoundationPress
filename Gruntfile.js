@@ -5,6 +5,29 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
+		    // Compress and zip only the files required for deployment to the server. Exclude all dev dependencies.
+		    compress: {
+		      main: {
+		        options: {
+		          archive: 'packaged/<%= pkg.name %>.zip'
+		        },
+		        expand: true,
+		        cwd: '.',
+		        src: [
+							'**/*',
+							'!**/node_modules/**',
+							'!**/components/**',
+							'!**/scss/**',
+							'!**/bower.json',
+							'!**/Gruntfile.js',
+							'!**/package.json',
+							'!**/composer.json',
+							'!**/composer.lock',
+							'!**/codesniffer.ruleset.xml'
+						],
+		        dest: '<%= pkg.name %>'
+		      },
+		    },
 		sass: {
 
 			options: {
@@ -153,7 +176,9 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-contrib-compress');
 
+	grunt.registerTask('package', ['compress:main']);
 	grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'concat', 'uglify']);
 	grunt.registerTask('default', ['watch']);
 };
