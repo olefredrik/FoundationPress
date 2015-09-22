@@ -39,6 +39,7 @@
     "build": "grunt build",
     "grunt": "grunt",
     "postinstall": "bower install && grunt build",
-    "watch": "grunt watch"
+    "watch": "grunt watch",
+    "package": "grunt package"
   }
 }

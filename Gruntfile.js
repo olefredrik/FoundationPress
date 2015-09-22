@@ -5,7 +5,7 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
-		    //package the theme as zipe file so it can be uploaded as a theme and remove folders
+		    // Compress and zip only the files required for deployment to the server. Exclude all dev dependencies.
 		    compress: {
 		      main: {
 		        options: {
@@ -13,7 +13,18 @@ module.exports = function (grunt) {
 		        },
 		        expand: true,
 		        cwd: '.',
-		        src: ['**/*','!**/node_modules/**','!**/bower_components/**','!**/scss/**','!**/deploy/**','!**/bower.json','!**/Gruntfile.js','!**/package.json','!**/composer.json','!**/composer.lock','!**/codesniffer.rulese.xml'],
+		        src: [
+							'**/*',
+							'!**/node_modules/**',
+							'!**/components/**',
+							'!**/scss/**',
+							'!**/bower.json',
+							'!**/Gruntfile.js',
+							'!**/package.json',
+							'!**/composer.json',
+							'!**/composer.lock',
+							'!**/codesniffer.ruleset.xml'
+						],
 		        dest: '<%= pkg.name %>'
 		      },
 		    },
@@ -165,8 +176,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-string-replace');
-  	grunt.loadNpmTasks('grunt-contrib-compress'); 	
-	
+  grunt.loadNpmTasks('grunt-contrib-compress');
+
 	grunt.registerTask('package', ['compress:main']);
 	grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'concat', 'uglify']);
 	grunt.registerTask('default', ['watch']);
