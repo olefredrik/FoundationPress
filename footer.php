@@ -19,6 +19,7 @@
 </footer>
 
 <?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
+
 <a class="exit-off-canvas"></a>
 <?php endif; ?>
 
