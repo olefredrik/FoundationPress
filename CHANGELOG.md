@@ -1,5 +1,31 @@
 # Change Log
 
+## [v1.5.0](https://github.com/olefredrik/FoundationPress/tree/v1.5.0) (2015-09-23)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.4.0...v1.5.0)
+
+**Fixed bugs:**
+
+- Off-canvas menu defaults not set properly [\#447](https://github.com/olefredrik/FoundationPress/issues/447)
+- Woocommerce styles overwriting Foundations [\#263](https://github.com/olefredrik/FoundationPress/issues/263)
+
+**Closed issues:**
+
+- Clearly state what files are needed on server [\#472](https://github.com/olefredrik/FoundationPress/issues/472)
+- Search for pages [\#469](https://github.com/olefredrik/FoundationPress/issues/469)
+- Error on npm install [\#465](https://github.com/olefredrik/FoundationPress/issues/465)
+- npm run watch fails [\#460](https://github.com/olefredrik/FoundationPress/issues/460)
+- Files missing from Theme folder? [\#459](https://github.com/olefredrik/FoundationPress/issues/459)
+
+**Merged pull requests:**
+
+- Update/dev dependencies [\#478](https://github.com/olefredrik/FoundationPress/pull/478) ([olefredrik](https://github.com/olefredrik))
+- Feature/package theme for deployment [\#474](https://github.com/olefredrik/FoundationPress/pull/474) ([olefredrik](https://github.com/olefredrik))
+- Added the package command [\#473](https://github.com/olefredrik/FoundationPress/pull/473) ([clearsitedesigns](https://github.com/clearsitedesigns))
+- Fix out-of-the-box behavior of mobile layout [\#471](https://github.com/olefredrik/FoundationPress/pull/471) ([skoldin](https://github.com/skoldin))
+- Feature/featured image [\#470](https://github.com/olefredrik/FoundationPress/pull/470) ([olefredrik](https://github.com/olefredrik))
+- Tweaked the visual apperance of the front template [\#463](https://github.com/olefredrik/FoundationPress/pull/463) ([olefredrik](https://github.com/olefredrik))
+- Updated changelog [\#458](https://github.com/olefredrik/FoundationPress/pull/458) ([olefredrik](https://github.com/olefredrik))
+
 ## [v1.4.0](https://github.com/olefredrik/FoundationPress/tree/v1.4.0) (2015-09-07)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.3.0...v1.4.0)
 
@@ -10,7 +36,6 @@
 **Fixed bugs:**
 
 - Sticky bar and Admin Bar [\#452](https://github.com/olefredrik/FoundationPress/issues/452)
-- Off-canvas menu defaults not set properly [\#447](https://github.com/olefredrik/FoundationPress/issues/447)
 
 **Merged pull requests:**
 
