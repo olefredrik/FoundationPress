@@ -12,11 +12,13 @@
 ?>
 
 </section>
-<footer class="row">
-	<?php do_action( 'foundationpress_before_footer' ); ?>
-	<?php dynamic_sidebar( 'footer-widgets' ); ?>
-	<?php do_action( 'foundationpress_after_footer' ); ?>
-</footer>
+<div id="footer-container">
+	<footer id="footer">
+		<?php do_action( 'foundationpress_before_footer' ); ?>
+		<?php dynamic_sidebar( 'footer-widgets' ); ?>
+		<?php do_action( 'foundationpress_after_footer' ); ?>
+	</footer>
+</div>
 
 <?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
 
