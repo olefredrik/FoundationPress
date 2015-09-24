@@ -22,7 +22,9 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
   such as variables, nested selectors and loops. It's also
   the easiest way to customize Foundation.
 
-  All Sass files are located in the /scss folder.
+  All Sass files are located in the /assets/scss folder.
+  Please note that none of your scss files will be compiled to /stylesheets/foundation.css before you run
+  'npm run watch' or 'npm run build'.
 
   Please read the README.md file before getting started. More info on how
   to use Sass with Foundation can be found here:
