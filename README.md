@@ -104,25 +104,24 @@ FoundationPress is completely ready to be deployed to and tested by Travis-CI fo
 * [Learn to use the _settings file to change almost every aspect of a Foundation site](http://zurb.com/university/lessons/66)
 * [Other lessons from Zurb University](http://zurb.com/university/past-lessons)
 
-## A selection of sites built with FoundationPress
+## Showcase
 
 * [Harvard Center for Green Buildings and Cities](http://www.harvardcgbc.org/)
+* [INTI International University & Colleges](http://international.newinti.edu.my/)
 * [Conservative Leadership Conference](http://civitasclc.com/)
+* [The New Tropic](http://thenewtropic.com/)
 * [Parent-Child Home Program](http://www.parent-child.org/)
 * [Hip and Healthy](http://hipandhealthy.com/)
 * [Threadbird blog](http://blog.threadbird.com/)
-* [Public House Wines](http://publichousewines.hstestsite.info/)
+* [Public House Wines](http://publichousewine.com/)
 * [Franchise Career Advisors](http://franchisecareeradvisors.com/)
 * [Le saint](http://www.lesaint.ca/)
 * [Help blog](http://help.com/blog/)
 * [Maren Schmidt](http://marenschmidt.com/)
 * [Ciancimino Gallery](http://ciancimino.com/)
-* [Sokolove Law](http://www.sokolovelaw.com/)
-* [Pandora Children's Parties](http://www.pandorachildrensparties.co.uk/)
 * [The Rainbow Venues](http://www.therainbowvenues.co.uk/)
 * [Ameronix](http://www.ameronix.com/)
 * [Finnerodja](http://www.finnerodja.se/)
-* [Nufloors](http://www.nufloors.ca/)
 * [Glossop Cartons](http://www.glossopcartons.co.uk/)
 * [Ready4Work](http://www.ready4work.my/)
 * [Just Legal](http://www.justlegal.co.jp/en/)
@@ -131,7 +130,8 @@ FoundationPress is completely ready to be deployed to and tested by Travis-CI fo
 * [WP Diamonds](http://www.wpdiamonds.com/)
 * [Storm Arts](http://stormarts.fi/)
 * [USS Illinois](http://ussillinois.org/)
-* [INTI International University & Colleges](http://international.newinti.edu.my/)
+
+>Credit goes to all the brilliant designers and developers out there. Have **you** made a site that should be on this list? [Please let me know](https://twitter.com/olefredrik)
 
 ## Contributing
 #### Here are ways to get involved:
