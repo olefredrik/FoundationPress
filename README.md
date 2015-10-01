@@ -10,9 +10,9 @@ All contributions are welcome!
 
 **Please read this. It's totally worth it.**
 
-FoundationPress uses [SASS](http://sass-lang.com/) (CSS with superpowers). In short, SASS is a CSS pre-processor that allows you to write styles more effectively and tidy.
+FoundationPress uses [Sass](http://Sass-lang.com/) (CSS with superpowers). In short, Sass is a CSS pre-processor that allows you to write styles more effectively and tidy.
 
-All the SASS (.scss) files are compiled into one single css file. To make this happen, we use a tool called Grunt; a task runner that automates repetitive tasks like minification, compilation, linting, etc.
+All the Sass (.scss) files are compiled into one single css file. To make this happen, we use a tool called Grunt; a task runner that automates repetitive tasks like minification, compilation, linting, etc.
 
 **NOTE: You'll need to have [Node.js](http://nodejs.org) installed before continuing.**
 
