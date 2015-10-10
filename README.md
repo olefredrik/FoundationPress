@@ -18,19 +18,15 @@ All the SASS (.scss) files are compiled into one single css file. To make this h
 
 ## Quickstart
 
-### 1. Clone the repository and install dependencies with npm
+### 1. Clone the repository and install with npm
 ```bash
 $ cd my-wordpress-folder/wp-content/themes/
-$ git clone git@github.com:olefredrik/FoundationPress.git
-$ mv FoundationPress your-theme-name
-$ cd your-theme-name
-
+$ git clone https://github.com/olefredrik/FoundationPress.git
+$ cd FoundationPress
 $ npm install
-# bower install && grunt build will be called via npm scripts when you run npm install.
 ```
 
-(Many project force their users to install [Bower](http://bower.io) and [Grunt](http://gruntjs.com/) globally. We don't like that and decided to use them via `npm scripts` which means, that Grunt and Bower are installed in your `node_modules` folder and we'll call them there.)
-
+(Many project force their users to install [Bower](http://bower.io) and [Grunt](http://gruntjs.com/) globally. We don't like that and decided to use them via `npm scripts` which means, that Grunt and Bower are installed in your `node_modules` folder and we'll call them there. Bower install and grunt build will be called via npm scripts when you run npm install.)
 
 
 ### 2. While you're working on your project, run:
