@@ -1,12 +1,7 @@
 {
   "name": "foundationpress",
-  "main": [
-    "assets/stylesheets/foundation.css",
-    "assets/javascript/foundation.js"
-  ],
-  "ignore": [],
+
   "dependencies": {
-    "foundation": "zurb/bower-foundation",
-    "fontawesome": "~4.4.0"
+    "foundationpress": "git@github.com:olefredrik/FoundationPress.git"
   }
 }
