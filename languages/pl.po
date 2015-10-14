@@ -1,0 +1,275 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-13 19:26+0200\n"
+"PO-Revision-Date: 2015-10-13 19:47+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#: 404.php:8
+msgid "File Not Found"
+msgstr "Nie znaleziono"
+
+#: 404.php:12
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+"Strona, której szukasz mogła zostać usunięta, przeniesiona, lub jest "
+"tymczasowo niedostępna."
+
+#: 404.php:14
+msgid "Please try the following:"
+msgstr "Oto co możesz zrobić:"
+
+#: 404.php:16
+msgid "Check your spelling"
+msgstr "sprawdź, czy wpisano poprawną nazwę"
+
+#: 404.php:17
+#, php-format
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "zacząć od <a href=\"%s\">strony głównej</a>"
+
+#: 404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr "wrócić do <a href=\"javascript:history.back()\">poprzedniej strony</a>"
+
+#. /previous pages when applicable
+#: archive.php:21 index.php:24 search.php:25
+msgid "&larr; Older posts"
+msgstr "&larr; Starsze posty"
+
+#: archive.php:22 index.php:25 search.php:26
+msgid "Newer posts &rarr;"
+msgstr "Nowsze posty &rarr;"
+
+#: comments.php:8
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn\">%s</cite>"
+
+#: comments.php:9
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#: comments.php:10
+msgid "(Edit)"
+msgstr "(Edytuj)"
+
+#: comments.php:16
+msgid "Your comment is awaiting moderation."
+msgstr "Twój komentarz czeka na moderację."
+
+#: comments.php:31
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Nie wczytuj tej strony bezpośrednio!"
+
+#: comments.php:36
+msgid "This post is password protected. Enter the password to view comments."
+msgstr "Ten wpis jest chroniony hasłem Wpisz je by zobaczyć komentarze."
+
+#: comments.php:46
+msgid "No Responses to"
+msgstr "Brak odpowiedzi na"
+
+#: comments.php:46
+msgid "One Response to"
+msgstr "Jedna odpowiedź na"
+
+#: comments.php:46
+msgid "% Responses to"
+msgstr "% Odpowiedzi na"
+
+#: comments.php:53
+msgid "&larr; Older comments"
+msgstr "&larr; Starsze komentarze"
+
+#: comments.php:54
+msgid "Newer comments &rarr;"
+msgstr "Nowsze komentarze &rarr;"
+
+#: comments.php:61
+msgid "Leave a Reply"
+msgstr "Dodaj odpowiedź"
+
+#: comments.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Dodaj odpowiedź na %s"
+
+#: comments.php:64
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Musisz być <a href=\"%s\">zalogowany</a> by dodać komentarz."
+
+#: comments.php:68
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "Zalogowany jako <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: comments.php:68
+msgid "Log out of this account"
+msgstr "Wyloguj się z tego konta"
+
+#: comments.php:68
+msgid "Log out &raquo;"
+msgstr "Wyloguj &raquo;"
+
+#: comments.php:71
+msgid "Name"
+msgstr "Imię"
+
+#: comments.php:71 comments.php:75
+msgid " (required)"
+msgstr " (wymagane)"
+
+#: comments.php:75
+msgid "Email (will not be published)"
+msgstr "Email (nie zostanie opublikowany)"
+
+#: comments.php:79
+msgid "Website"
+msgstr "Strona internetowa"
+
+#: comments.php:84
+msgid "Comment"
+msgstr "Komentarz"
+
+#: comments.php:87
+msgid "You can use these tags:"
+msgstr "Możesz użyć tych tagów:"
+
+#: comments.php:88
+msgid "Submit Comment"
+msgstr "Wyślij komentarz"
+
+#: content-none.php:11
+msgid "Nothing Found"
+msgstr "Nie znaleziono"
+
+#: content-none.php:17
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Gotowy do opublikowania pierwszego postu? <a href=\"%1$s\">Zacznij tutaj</a>."
+
+#: content-none.php:21
+#, fuzzy
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Przepraszamy, ale nie znaleziono niczego, co spełnia kryteria wyszukiwania. "
+"Użyj innych słów kluczowych."
+
+#: content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Wygląda na to, że nie możemy znaleźć tego elementu. Może te wskazówki pomogą."
+
+#. /archive/search.
+#. *
+#. * @subpackage FoundationPress
+#. * @since FoundationPress 1.0.0
+#.
+#: content.php:16
+msgid "Continue reading..."
+msgstr "Czytaj dalej..."
+
+#: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
+#: page.php:18 single.php:27 woocommerce.php:18
+msgid "Pages:"
+msgstr "Strony:"
+
+#: library/entry-meta.php:4
+#, php-format
+msgid "Posted on %s at %s."
+msgstr "Opublikowano %s o %s."
+
+#: library/entry-meta.php:5
+msgid "Written by"
+msgstr "Napisane przez"
+
+#: library/foundation.php:16
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: library/foundation.php:17
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: library/foundation.php:40
+#, php-format
+msgid ""
+"Please assign a menu to the primary menu location under %1$s or %2$s the "
+"design."
+msgstr "Prosimy o dodanie menu do głównaj nawigacji w %1$s lub %2$s projekcie."
+
+#: library/foundation.php:41
+#, php-format
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">Menu</a>"
+
+#: library/foundation.php:44
+#, php-format
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">Dostosuj</a>"
+
+#: library/widget-areas.php:6
+msgid "Sidebar widgets"
+msgstr "Panel boczny"
+
+#: library/widget-areas.php:7
+msgid "Drag widgets to this sidebar container."
+msgstr "Przeciągnij widget do panelu bocznego."
+
+#: library/widget-areas.php:16
+msgid "Footer widgets"
+msgstr "Stopka"
+
+#: library/widget-areas.php:17
+msgid "Drag widgets to this footer container"
+msgstr "Przeciągnij widget do panelu stopki."
+
+#: node_modules/grunt-pot/test/fixtures/some-file.php:3
+msgid "I'm a translatable string."
+msgstr "Ten tekst można przetłumaczyć."
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:4
+msgid "Me too"
+msgstr "Ja też"
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:7
+#, php-format
+msgid "I have %d apple"
+msgid_plural "I have %d apples"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#. / TRANSLATORS: This should be translated as a shorthand for YEAR-MONTH-DAY using 4, 2 and 2 digits.
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:16
+msgid "yyyy-mm-dd"
+msgstr "yyyy-mm-dd"
+
+#: search.php:7
+msgid "Search Results for"
+msgstr "Wyniki wyszukiwania dla"
+
+#: searchform.php:6 searchform.php:10
+msgid "Search"
+msgstr "Wyszukiwanie"
