@@ -123,7 +123,7 @@ module.exports = function (grunt) {
 
 				],
 
-				// Finally, concatinate all the files above into one single file
+				// Finally, concatenate all the files above into one single file
 				dest: 'assets/javascript/foundation.js'
 
 			}
