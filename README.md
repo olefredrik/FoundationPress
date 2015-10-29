@@ -44,7 +44,7 @@ $ npm run build
 ### 4. Compress all files required for deployment:
 It is not recommended that you deploy the entire theme folder to your webserver. There is no danger associated with doing this, but it is a waste of disk space and bandwidth. The node_modules and components for instance is only required during theme development.
 
-By executing the command below, you will compress only the files that are required for deployment. The file will be available as a .zip inside the folder named '/package'.
+By executing the command below, you will compress only the files that are required for deployment. The file will be available as a .zip inside the folder named '/packaged'.
 
 ```bash
 $ npm run package

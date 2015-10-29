@@ -100,7 +100,7 @@ module.exports = function (grunt) {
 					// Foundation core
 					'assets/components/foundation/js/foundation/foundation.js',
 
-					// Pick the componenets you need in your project
+					// Pick the components you need in your project
 					'assets/components/foundation/js/foundation/foundation.abide.js',
 					'assets/components/foundation/js/foundation/foundation.accordion.js',
 					'assets/components/foundation/js/foundation/foundation.alert.js',
@@ -123,7 +123,7 @@ module.exports = function (grunt) {
 
 				],
 
-				// Finally, concatinate all the files above into one single file
+				// Finally, concatenate all the files above into one single file
 				dest: 'assets/javascript/foundation.js'
 
 			}
