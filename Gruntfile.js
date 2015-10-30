@@ -198,5 +198,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('package', ['compress:main']);
 	grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'concat', 'uglify']);
-	grunt.registerTask('default', ['browserSync', 'watch']);
+	grunt.registerTask('browser-sync', ['browserSync', 'watch']);
+	grunt.registerTask('default', ['watch']);
 };
