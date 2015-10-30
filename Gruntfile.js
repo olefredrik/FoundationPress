@@ -167,7 +167,24 @@ module.exports = function (grunt) {
 				}
 			}
 
-		}
+		},
+
+		browserSync: {
+            dev: {
+                bsFiles: {
+                    src : [
+                        'assets/stylesheets/*.css',
+                        '**/*.php',
+                        'assets/javascript/**/*.js'
+                    ]
+                },
+                options: {
+                    watchTask: true,
+                    // fill in proxy address of local WP server
+                    proxy: ""
+                }
+            }
+        }
 	});
 
 	grunt.loadNpmTasks('grunt-sass');
@@ -176,9 +193,11 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-string-replace');
-  grunt.loadNpmTasks('grunt-contrib-compress');
+	grunt.loadNpmTasks('grunt-contrib-compress');
+	grunt.loadNpmTasks('grunt-browser-sync');
 
 	grunt.registerTask('package', ['compress:main']);
 	grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'concat', 'uglify']);
+	grunt.registerTask('browser-sync', ['browserSync', 'watch']);
 	grunt.registerTask('default', ['watch']);
 };
