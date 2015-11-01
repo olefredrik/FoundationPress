@@ -1,5 +1,65 @@
 # Change Log
 
+## [v1.6.0](https://github.com/olefredrik/FoundationPress/tree/v1.6.0) (2015-11-01)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.5.1...v1.6.0)
+
+**Closed issues:**
+
+- Stripping Image Classes [\#532](https://github.com/olefredrik/FoundationPress/issues/532)
+- npm commands = compilation errors [\#530](https://github.com/olefredrik/FoundationPress/issues/530)
+- Uncaught TypeError: $ is not a function [\#526](https://github.com/olefredrik/FoundationPress/issues/526)
+- NPM recommended version? [\#525](https://github.com/olefredrik/FoundationPress/issues/525)
+- Missing CSS/JS files when installed on Wordpress version 4.3.1 [\#523](https://github.com/olefredrik/FoundationPress/issues/523)
+- Demo seems broken on IE9 [\#519](https://github.com/olefredrik/FoundationPress/issues/519)
+- Grid not working perfectly... [\#516](https://github.com/olefredrik/FoundationPress/issues/516)
+- Npm package [\#514](https://github.com/olefredrik/FoundationPress/issues/514)
+- npm install errors [\#512](https://github.com/olefredrik/FoundationPress/issues/512)
+- Theme not reading css [\#511](https://github.com/olefredrik/FoundationPress/issues/511)
+- Button height problem [\#506](https://github.com/olefredrik/FoundationPress/issues/506)
+- npm install completion blocked by Windows Firewall [\#495](https://github.com/olefredrik/FoundationPress/issues/495)
+- Custom Grids? [\#486](https://github.com/olefredrik/FoundationPress/issues/486)
+
+**Merged pull requests:**
+
+- Feature/browser sync [\#535](https://github.com/olefredrik/FoundationPress/pull/535) ([olefredrik](https://github.com/olefredrik))
+- Updated dependencies [\#533](https://github.com/olefredrik/FoundationPress/pull/533) ([olefredrik](https://github.com/olefredrik))
+- Translation for Galician [\#529](https://github.com/olefredrik/FoundationPress/pull/529) ([lauantai](https://github.com/lauantai))
+- Added grunt-browser-sync [\#528](https://github.com/olefredrik/FoundationPress/pull/528) ([colin-marshall](https://github.com/colin-marshall))
+- Fix typo [\#522](https://github.com/olefredrik/FoundationPress/pull/522) ([noskov](https://github.com/noskov))
+- Update requirements description in readme [\#515](https://github.com/olefredrik/FoundationPress/pull/515) ([olefredrik](https://github.com/olefredrik))
+- Polish i18n [\#513](https://github.com/olefredrik/FoundationPress/pull/513) ([Tymek](https://github.com/Tymek))
+- Feature/documentation [\#509](https://github.com/olefredrik/FoundationPress/pull/509) ([olefredrik](https://github.com/olefredrik))
+- Reset changes in bower json [\#508](https://github.com/olefredrik/FoundationPress/pull/508) ([olefredrik](https://github.com/olefredrik))
+
+## [v1.5.1](https://github.com/olefredrik/FoundationPress/tree/v1.5.1) (2015-10-10)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.5.0...v1.5.1)
+
+**Implemented enhancements:**
+
+- Feature/sticky footer [\#483](https://github.com/olefredrik/FoundationPress/pull/483) ([olefredrik](https://github.com/olefredrik))
+
+**Fixed bugs:**
+
+- FoundationPress will not install with Node.js version 4.0 [\#461](https://github.com/olefredrik/FoundationPress/issues/461)
+
+**Closed issues:**
+
+- npm run package takes long time an failed [\#497](https://github.com/olefredrik/FoundationPress/issues/497)
+- Installed w/ No Issues, but Styling/Layout Not Showing [\#493](https://github.com/olefredrik/FoundationPress/issues/493)
+- Installation issues? [\#481](https://github.com/olefredrik/FoundationPress/issues/481)
+- posts per page function not working on archive [\#477](https://github.com/olefredrik/FoundationPress/issues/477)
+- Incompability issues with Node v.4.x.x [\#475](https://github.com/olefredrik/FoundationPress/issues/475)
+- NPM build error [\#468](https://github.com/olefredrik/FoundationPress/issues/468)
+
+**Merged pull requests:**
+
+- Update bower.json [\#507](https://github.com/olefredrik/FoundationPress/pull/507) ([olefredrik](https://github.com/olefredrik))
+- Sass not SASS [\#492](https://github.com/olefredrik/FoundationPress/pull/492) ([jpdevries](https://github.com/jpdevries))
+-  On pages that have the comments activated an additional JS file is ne… [\#488](https://github.com/olefredrik/FoundationPress/pull/488) ([Larzans](https://github.com/Larzans))
+- Update foundation.php [\#487](https://github.com/olefredrik/FoundationPress/pull/487) ([alexbohariuc](https://github.com/alexbohariuc))
+- Feature/documentation [\#484](https://github.com/olefredrik/FoundationPress/pull/484) ([olefredrik](https://github.com/olefredrik))
+- Updated changelog [\#479](https://github.com/olefredrik/FoundationPress/pull/479) ([olefredrik](https://github.com/olefredrik))
+
 ## [v1.5.0](https://github.com/olefredrik/FoundationPress/tree/v1.5.0) (2015-09-23)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.4.0...v1.5.0)
 
@@ -36,6 +96,7 @@
 **Fixed bugs:**
 
 - Sticky bar and Admin Bar [\#452](https://github.com/olefredrik/FoundationPress/issues/452)
+- Fixed: The off-canvas mobile menu was not working correctly [\#449](https://github.com/olefredrik/FoundationPress/pull/449) ([Larzans](https://github.com/Larzans))
 
 **Merged pull requests:**
 
@@ -44,7 +105,6 @@
 - Feature/gitignore [\#455](https://github.com/olefredrik/FoundationPress/pull/455) ([olefredrik](https://github.com/olefredrik))
 - Folder Structure [\#454](https://github.com/olefredrik/FoundationPress/pull/454) ([THEBRANDYMAN](https://github.com/THEBRANDYMAN))
 - Changed wp\_register\_script to wp\_enqueue\_script [\#450](https://github.com/olefredrik/FoundationPress/pull/450) ([JeremyEnglert](https://github.com/JeremyEnglert))
-- Fixed: The off-canvas mobile menu was not working correctly [\#449](https://github.com/olefredrik/FoundationPress/pull/449) ([Larzans](https://github.com/Larzans))
 - Updated changelog [\#448](https://github.com/olefredrik/FoundationPress/pull/448) ([olefredrik](https://github.com/olefredrik))
 
 ## [v1.3.0](https://github.com/olefredrik/FoundationPress/tree/v1.3.0) (2015-09-03)
