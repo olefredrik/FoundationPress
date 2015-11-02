@@ -24,7 +24,8 @@ module.exports = function (grunt) {
 							'!**/package.json',
 							'!**/composer.json',
 							'!**/composer.lock',
-							'!**/codesniffer.ruleset.xml'
+							'!**/codesniffer.ruleset.xml',
+							'!**/packaged/*'
 						],
 		        dest: '<%= pkg.name %>'
 		      },
