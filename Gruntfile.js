@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 		    compress: {
 		      main: {
 		        options: {
-		          archive: 'packaged/<%= pkg.name %>' + grunt.template.today('-yyyy-mm-dd') + '.zip',
+		          archive: 'packaged/<%= pkg.name %>' + grunt.template.today('_yyyy-mm-dd_HH-MM') + '.zip',
 							mode: 'zip'
 		        },
 		        expand: true,
