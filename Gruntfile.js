@@ -171,6 +171,18 @@ module.exports = function (grunt) {
 
 		},
 
+		postcss: {
+      options: {
+        map: true,
+        processors: [
+          require('autoprefixer')({browsers: 'last 2 versions'})
+        ]
+      },
+      dist: {
+        src: 'assets/stylesheets/foundation.css'
+      }
+		},
+
 		browserSync: {
             dev: {
                 bsFiles: {
@@ -190,6 +202,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-sass');
+	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
@@ -199,7 +212,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-browser-sync');
 
 	grunt.registerTask('package', ['compress:main']);
-	grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'concat', 'uglify']);
+	grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'postcss', 'concat', 'uglify']);
 	grunt.registerTask('browser-sync', ['browserSync', 'watch']);
 	grunt.registerTask('default', ['watch']);
 };
