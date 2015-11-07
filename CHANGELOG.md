@@ -1,5 +1,25 @@
 # Change Log
 
+## [v1.7.0](https://github.com/olefredrik/FoundationPress/tree/v1.7.0) (2015-11-07)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.6.0...v1.7.0)
+
+**Fixed bugs:**
+
+- npm run package is taking very long time [\#538](https://github.com/olefredrik/FoundationPress/issues/538)
+
+**Closed issues:**
+
+- Home page button highlighted as active [\#537](https://github.com/olefredrik/FoundationPress/issues/537)
+- Sourcemaps in chrome not correct [\#521](https://github.com/olefredrik/FoundationPress/issues/521)
+- Cannot Clone the repository and install with npm [\#510](https://github.com/olefredrik/FoundationPress/issues/510)
+- npm ERR! code ELIFECYCLE / Failed at postinstall script [\#501](https://github.com/olefredrik/FoundationPress/issues/501)
+
+**Merged pull requests:**
+
+- Feature/autoprefixer [\#544](https://github.com/olefredrik/FoundationPress/pull/544) ([olefredrik](https://github.com/olefredrik))
+- Feature/package [\#539](https://github.com/olefredrik/FoundationPress/pull/539) ([olefredrik](https://github.com/olefredrik))
+- Update changelog [\#536](https://github.com/olefredrik/FoundationPress/pull/536) ([olefredrik](https://github.com/olefredrik))
+
 ## [v1.6.0](https://github.com/olefredrik/FoundationPress/tree/v1.6.0) (2015-11-01)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.5.1...v1.6.0)
 
