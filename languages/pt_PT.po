@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-10 16:12+0000\n"
-"PO-Revision-Date: 2015-11-11 00:40+0000\n"
+"PO-Revision-Date: 2015-11-11 00:59+0000\n"
 "Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_PT\n"
@@ -209,13 +209,11 @@ msgid "&raquo;"
 msgstr "&raquo;"
 
 #: library/foundation.php:54
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Please assign a menu to the primary menu location under %1$s or %2$s the "
 "design."
-msgstr ""
-"Por favor escolha um menu  para  localização primaria do menu debaixo  %1$s "
-"ou %2$s do design."
+msgstr "Por favor, seleccione um Menu primário em %1$s ou em %2$s o design."
 
 #: library/foundation.php:55
 #, php-format
