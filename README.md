@@ -35,7 +35,7 @@ $ npm install
 $ npm run watch
 ```
 
-If you want to take advantage of browser-sync (automatic browser refresh when a file is saved), simply enter the URL of your local WP-server in Gruntfile.js line 184, save and run
+If you want to take advantage of browser-sync (automatic browser refresh when a file is saved), simply enter the URL of your local WP-server in Gruntfile.js line 200, save and run
 ```bash
 $ npm run browsersync
 ```
