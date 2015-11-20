@@ -52,12 +52,20 @@ module.exports = function (grunt) {
 
     copy: {
 
+      modernizr: {
+        expand: true,
+        cwd: 'assets/components/modernizr/',
+        src: '**',
+        flatten: 'true',
+        dest: 'assets/javascript/vendor/modernizr/'
+      },
+
       motionUi: {
         expand: true,
         cwd: 'assets/components/motion-ui/',
         src: '**',
         flatten: 'true',
-        dest: 'assets/javascript/motion-ui/'
+        dest: 'assets/javascript/vendor/motion-ui/'
       },
 
       whatInput: {
@@ -65,7 +73,7 @@ module.exports = function (grunt) {
         cwd: 'assets/components/what-input/',
         src: '**',
         flatten: 'true',
-        dest: 'assets/javascript/what-input/'
+        dest: 'assets/javascript/vendor/what-input/'
       },
 
       iconfonts: {
@@ -107,10 +115,21 @@ module.exports = function (grunt) {
 
         src: [
 
+          /*
           // Foundation core
           'assets/components/foundation-sites/js/foundation-core.js',
 
-          // Pick the components you need in your project
+          // Foundation utils
+          'assets/components/foundation-sites/js/foundation.util.box.js',
+          'assets/components/foundation-sites/js/foundation.util.keyboard.js',
+          'assets/components/foundation-sites/js/foundation.util.mediaQuery.js',
+          'assets/components/foundation-sites/js/foundation.util.motion.js',
+          'assets/components/foundation-sites/js/foundation.util.nest.js',
+          'assets/components/foundation-sites/js/foundation.util.timerAndImageLoader.js',
+          'assets/components/foundation-sites/js/foundation.util.touch.js',
+          'assets/components/foundation-sites/js/foundation.util.triggers.js',
+
+          // Foundation components -> Comment out the components you don't need in your project
           'assets/components/foundation-sites/js/foundation.abide.js',
           'assets/components/foundation-sites/js/foundation.accordion.js',
           'assets/components/foundation-sites/js/foundation.accordionMenu.js',
@@ -130,17 +149,12 @@ module.exports = function (grunt) {
           'assets/components/foundation-sites/js/foundation.tabs.js',
           'assets/components/foundation-sites/js/foundation.toggler.js',
           'assets/components/foundation-sites/js/foundation.tooltip.js',
-          'assets/components/foundation-sites/js/foundation.util.box.js',
-          'assets/components/foundation-sites/js/foundation.util.keyboard.js',
-          'assets/components/foundation-sites/js/foundation.util.mediaQuery.js',
-          'assets/components/foundation-sites/js/foundation.util.motion.js',
-          'assets/components/foundation-sites/js/foundation.util.nest.js',
-          'assets/components/foundation-sites/js/foundation.util.timerAndImageLoader.js',
-          'assets/components/foundation-sites/js/foundation.util.touch.js',
-          'assets/components/foundation-sites/js/foundation.util.triggers.js',
 
           // Motion UI
           'assets/components/foundation-sites/js/motion-ui.js',
+          */
+
+          'assets/components/foundation-sites/dist/foundation.js',
 
           // Include your own custom scripts (located in the custom folder)
           'assets/javascript/custom/*.js'
