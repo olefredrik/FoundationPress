@@ -9,7 +9,7 @@ All contributions are welcome!
 
 ## Requirements
 
-This project requires [NodeJS](http://nodejs.org) to be installed on your machine.
+This project requires [Node.js](http://nodejs.org) v4.x.x  to be installed on your machine. Please be aware that you may encounter problems with the installation if you are using v5.1.0 with all the latest features.
 
 FoundationPress uses [Sass](http://Sass-lang.com/) (CSS with superpowers). In short, Sass is a CSS pre-processor that allows you to write styles more effectively and tidy.
 
