@@ -1,4 +1,4 @@
-@media #{$small-up} {
+@include breakpoint(small) {
 	#featured-hero {
 		background-size: cover;
 		background-position: center;
@@ -13,7 +13,7 @@
 		}
 }
 
-@media #{$medium-up} {
+@include breakpoint(medium) {
 	#featured-hero {
 		height: rem-calc(400);
 		}
