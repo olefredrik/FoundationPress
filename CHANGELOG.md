@@ -1,5 +1,45 @@
 # Change Log
 
+## [v1.7.2](https://github.com/olefredrik/FoundationPress/tree/v1.7.2) (2015-11-20)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.7.1...v1.7.2)
+
+**Fixed bugs:**
+
+- Protocol Relative URL not compatible with CDN Rewrites [\#546](https://github.com/olefredrik/FoundationPress/issues/546)
+
+**Merged pull requests:**
+
+- Specify required version of Node.js [\#564](https://github.com/olefredrik/FoundationPress/pull/564) ([olefredrik](https://github.com/olefredrik))
+
+## [v1.7.1](https://github.com/olefredrik/FoundationPress/tree/v1.7.1) (2015-11-20)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.7.0...v1.7.1)
+
+**Implemented enhancements:**
+
+- Let's use autoprefixer for prefixing [\#453](https://github.com/olefredrik/FoundationPress/issues/453)
+
+**Fixed bugs:**
+
+- 1px to much page height \(also in demo\) [\#557](https://github.com/olefredrik/FoundationPress/issues/557)
+
+**Closed issues:**
+
+- Walker\_Nav\_Menu &  Top\_Bar\_Walker class [\#555](https://github.com/olefredrik/FoundationPress/issues/555)
+- Major struggles with npm / grunt / node-sass when working with old and new FP projects simultaneously [\#553](https://github.com/olefredrik/FoundationPress/issues/553)
+- WooCommerce Login Issue [\#551](https://github.com/olefredrik/FoundationPress/issues/551)
+- bower install not running [\#550](https://github.com/olefredrik/FoundationPress/issues/550)
+- Different page layouts [\#548](https://github.com/olefredrik/FoundationPress/issues/548)
+
+**Merged pull requests:**
+
+- Fix the +1px page height issue caused by stickyfooter [\#563](https://github.com/olefredrik/FoundationPress/pull/563) ([olefredrik](https://github.com/olefredrik))
+- Disable protocol relative theme assets [\#562](https://github.com/olefredrik/FoundationPress/pull/562) ([olefredrik](https://github.com/olefredrik))
+- Add Gitter chat icon to README [\#561](https://github.com/olefredrik/FoundationPress/pull/561) ([olefredrik](https://github.com/olefredrik))
+- Exclude WP VIP Restricted Functions in Codesniffer ruleset [\#559](https://github.com/olefredrik/FoundationPress/pull/559) ([olefredrik](https://github.com/olefredrik))
+- Update readme: browsersync gruntfile line number [\#552](https://github.com/olefredrik/FoundationPress/pull/552) ([rasmuserik](https://github.com/rasmuserik))
+- Portuguese \(pt\_PT\) translation update [\#549](https://github.com/olefredrik/FoundationPress/pull/549) ([pedro-mendonca](https://github.com/pedro-mendonca))
+- Update changelog [\#545](https://github.com/olefredrik/FoundationPress/pull/545) ([olefredrik](https://github.com/olefredrik))
+
 ## [v1.7.0](https://github.com/olefredrik/FoundationPress/tree/v1.7.0) (2015-11-07)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.6.0...v1.7.0)
 
@@ -25,7 +65,6 @@
 
 **Closed issues:**
 
-- Stripping Image Classes [\#532](https://github.com/olefredrik/FoundationPress/issues/532)
 - npm commands = compilation errors [\#530](https://github.com/olefredrik/FoundationPress/issues/530)
 - Uncaught TypeError: $ is not a function [\#526](https://github.com/olefredrik/FoundationPress/issues/526)
 - NPM recommended version? [\#525](https://github.com/olefredrik/FoundationPress/issues/525)
