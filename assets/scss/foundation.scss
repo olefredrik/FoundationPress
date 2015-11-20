@@ -96,6 +96,9 @@
   @include foundation-top-bar;
 }
 
+// Include all foundation components
+@include foundation-everything;
+
 //  Settings and wp-override styles:
 @import "config/settings"; // Default settings file. Uncomment each setting you need to change
 @import "config/wp-overrides"; // Override the default WordPress styling for some elements
