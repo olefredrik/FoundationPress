@@ -52,17 +52,17 @@ module.exports = function (grunt) {
 
     copy: {
 
-      motion-ui: {
+      motionUi: {
         expand: true,
-        cwd: 'assets/components/foundation-sites/motion-ui/',
+        cwd: 'assets/components/motion-ui/',
         src: '**',
         flatten: 'true',
         dest: 'assets/javascript/motion-ui/'
       },
 
-      what-input: {
+      whatInput: {
         expand: true,
-        cwd: 'assets/components/foundation-sites/what-input/',
+        cwd: 'assets/components/what-input/',
         src: '**',
         flatten: 'true',
         dest: 'assets/javascript/what-input/'
