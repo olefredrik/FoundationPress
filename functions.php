@@ -46,6 +46,6 @@ require_once( 'library/theme-support.php' );
 require_once( 'library/custom-nav.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
-/** require_once( 'library/protocol-relative-theme-assets.php' ); */
+// require_once( 'library/protocol-relative-theme-assets.php' );
 
 ?>
