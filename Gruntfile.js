@@ -54,7 +54,7 @@ module.exports = function (grunt) {
 
       motion-ui: {
         expand: true,
-        cwd: 'assets/components/foundation-sites/js/motion-ui/',
+        cwd: 'assets/components/foundation-sites/motion-ui/',
         src: '**',
         flatten: 'true',
         dest: 'assets/javascript/motion-ui/'
@@ -62,7 +62,7 @@ module.exports = function (grunt) {
 
       what-input: {
         expand: true,
-        cwd: 'assets/components/foundation-sites/js/what-input/',
+        cwd: 'assets/components/foundation-sites/what-input/',
         src: '**',
         flatten: 'true',
         dest: 'assets/javascript/what-input/'
