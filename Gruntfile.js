@@ -52,12 +52,20 @@ module.exports = function (grunt) {
 
 		copy: {
 
-			scripts: {
+			motion-ui: {
 				expand: true,
-				cwd: 'assets/components/foundation/js/vendor/',
+				cwd: 'assets/components/foundation-sites/js/motion-ui/',
 				src: '**',
 				flatten: 'true',
-				dest: 'assets/javascript/vendor/'
+				dest: 'assets/javascript/motion-ui/'
+			},
+
+			what-input: {
+				expand: true,
+				cwd: 'assets/components/foundation-sites/js/what-input/',
+				src: '**',
+				flatten: 'true',
+				dest: 'assets/javascript/what-input/'
 			},
 
 			iconfonts: {
@@ -100,25 +108,39 @@ module.exports = function (grunt) {
 				src: [
 
 					// Foundation core
-					'assets/components/foundation/js/foundation/foundation.js',
+					'assets/components/foundation-sites/js/foundation-core.js',
 
 					// Pick the components you need in your project
-					'assets/components/foundation/js/foundation/foundation.abide.js',
-					'assets/components/foundation/js/foundation/foundation.accordion.js',
-					'assets/components/foundation/js/foundation/foundation.alert.js',
-					'assets/components/foundation/js/foundation/foundation.clearing.js',
-					'assets/components/foundation/js/foundation/foundation.dropdown.js',
-					'assets/components/foundation/js/foundation/foundation.equalizer.js',
-					'assets/components/foundation/js/foundation/foundation.interchange.js',
-					'assets/components/foundation/js/foundation/foundation.joyride.js',
-					'assets/components/foundation/js/foundation/foundation.magellan.js',
-					'assets/components/foundation/js/foundation/foundation.offcanvas.js',
-					'assets/components/foundation/js/foundation/foundation.orbit.js',
-					'assets/components/foundation/js/foundation/foundation.reveal.js',
-					'assets/components/foundation/js/foundation/foundation.slider.js',
-					'assets/components/foundation/js/foundation/foundation.tab.js',
-					'assets/components/foundation/js/foundation/foundation.tooltip.js',
-					'assets/components/foundation/js/foundation/foundation.topbar.js',
+					'assets/components/foundation-sites/js/foundation.abide.js',
+					'assets/components/foundation-sites/js/foundation.accordion.js',
+					'assets/components/foundation-sites/js/foundation.accordionMenu.js',
+					'assets/components/foundation-sites/js/foundation.drilldown.js',
+					'assets/components/foundation-sites/js/foundation.dropdown.js',
+					'assets/components/foundation-sites/js/foundation.dropdownMenu.js',
+					'assets/components/foundation-sites/js/foundation.equalizer.js',
+					'assets/components/foundation-sites/js/foundation.interchange.js',
+					'assets/components/foundation-sites/js/foundation.magellan.js',
+					'assets/components/foundation-sites/js/foundation.offcanvas.js',
+					'assets/components/foundation-sites/js/foundation.orbit.js',
+					'assets/components/foundation-sites/js/foundation.responsiveMenu.js',
+					'assets/components/foundation-sites/js/foundation.responsiveToggle.js',
+					'assets/components/foundation-sites/js/foundation.reveal.js',
+					'assets/components/foundation-sites/js/foundation.slider.js',
+					'assets/components/foundation-sites/js/foundation.sticky.js',
+					'assets/components/foundation-sites/js/foundation.tabs.js',
+					'assets/components/foundation-sites/js/foundation.toggler.js',
+					'assets/components/foundation-sites/js/foundation.tooltip.js',
+					'assets/components/foundation-sites/js/foundation.util.box.js',
+					'assets/components/foundation-sites/js/foundation.util.keyboard.js',
+					'assets/components/foundation-sites/js/foundation.util.mediaQuery.js',
+					'assets/components/foundation-sites/js/foundation.util.motion.js',
+					'assets/components/foundation-sites/js/foundation.util.nest.js',
+					'assets/components/foundation-sites/js/foundation.util.timerAndImageLoader.js',
+					'assets/components/foundation-sites/js/foundation.util.touch.js',
+					'assets/components/foundation-sites/js/foundation.util.triggers.js',
+
+					// Motion UI
+					'assets/components/foundation-sites/js/motion-ui.js',
 
 					// Include your own custom scripts (located in the custom folder)
 					'assets/javascript/custom/*.js'
