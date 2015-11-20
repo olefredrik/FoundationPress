@@ -6,7 +6,8 @@
   ],
   "ignore": [],
   "dependencies": {
-    "foundation": "zurb/bower-foundation",
+    "foundation-sites": "~6.0.1",
+    "motion-ui" : "~1.1.0",
     "fontawesome": "~4.4.0"
   }
 }
