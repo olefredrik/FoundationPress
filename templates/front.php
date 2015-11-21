@@ -23,7 +23,9 @@ get_header(); ?>
 
 
 		<div class="fpmock">
-			<img data-interchange="[<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/fpmock.png, (default)]" alt="FoundationPress - the ultimate WordPress starter theme">
+			<!-- <img data-interchange="[<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/fpmock.png, (default)]" alt="FoundationPress - the ultimate WordPress starter theme"> -->
+			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/fpmock.png" alt="FoundationPress - the ultimate WordPress starter theme">
+
 		</div>
 	</div>
 
