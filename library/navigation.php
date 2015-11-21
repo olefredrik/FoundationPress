@@ -69,7 +69,7 @@ if ( ! function_exists( 'foundationpress_mobile_off_canvas' ) ) {
 	        'container' => false,                           // Remove nav container
 	        'container_class' => '',                        // Class of container
 	        'menu' => '',                                   // Menu name
-	        'menu_class' => 'off-canvas-list',              // Adding custom nav class
+	        'menu_class' => 'menu vertical nested',              // Adding custom nav class
 	        'theme_location' => 'mobile-off-canvas',        // Where it's located in the theme
 	        'before' => '',                                 // Before each link <a>
 	        'after' => '',                                  // After each link </a>
