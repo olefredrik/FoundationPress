@@ -7,14 +7,14 @@
 	@include breakpoint(small) {
 		background: url("../images/demo/marquee-stars.svg") repeat scroll 0 0 #074E68;
 		padding: rem-calc(65%) 0;
-		margin: - rem-calc(32) 0 rem-calc(32);
+		margin: 0 0 rem-calc(32);
 		position: relative;
 		text-align: left;
 	}
 
 	@include breakpoint(medium) {
 		height: rem-calc(400);
-		margin: - rem-calc(32) 0 rem-calc(72);
+		margin: 0 0 rem-calc(72);
 	}
 
 	#watch {

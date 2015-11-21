@@ -8,7 +8,7 @@
  */
 
 ?>
-
+<!--
 <nav class="tab-bar">
   <section class="<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>-small">
     <a class="<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>-off-canvas-toggle menu-icon" href="#"><span></span></a>
@@ -22,6 +22,10 @@
   </section>
 </nav>
 
-<aside class="<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>-off-canvas-menu" aria-hidden="true">
+<aside id="offCanvasLeft" class="<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>-off-canvas-menu" aria-hidden="true" data-offcanvas-content>
     <?php foundationpress_mobile_off_canvas( apply_filters('filter_mobile_nav_position', 'mobile_nav_position') ); ?>
 </aside>
+-->
+<div class="off-canvas position-<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>" id="offCanvas<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>" data-off-canvas data-position="<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>" aria-hidden="false"">
+  <?php foundationpress_mobile_off_canvas( apply_filters('filter_mobile_nav_position', 'mobile_nav_position') ); ?>
+</div>
