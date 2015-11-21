@@ -9,7 +9,7 @@ get_header(); ?>
 		<div class="tagline">
 			<h1><a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 			<h4 class="subheader"><?php bloginfo( 'description' ); ?></h4>
-			<a role="button" class="download large button show-for-medium-up" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
+			<a role="button" class="download large button hide-for-small-only" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
 		</div>
 
 		<div id="watch" class="small-12 columns">
@@ -19,13 +19,6 @@ get_header(); ?>
 			<section id="twitter">
 				<a href="https://twitter.com/olefredrik">@olefredrik</a>
 			</section>
-		</div>
-
-
-		<div class="fpmock">
-			<!-- <img data-interchange="[<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/fpmock.png, (default)]" alt="FoundationPress - the ultimate WordPress starter theme"> -->
-			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/fpmock.png" alt="FoundationPress - the ultimate WordPress starter theme">
-
 		</div>
 	</div>
 

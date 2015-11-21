@@ -1,19 +1,24 @@
 #front-hero {
 
+
 	.marketing {
 		@include grid-row();
 	}
 
 	@include breakpoint(small) {
-		background: url("../images/demo/marquee-stars.svg") repeat scroll 0 0 #074E68;
+		background: url('../images/demo/hero-bg-foundation-6.svg') bottom center;
+		background-size: cover;
+		background-position: center;
+		//background: url("../images/demo/marquee-stars.svg") repeat scroll 0 0 #074E68;
 		padding: rem-calc(65%) 0;
 		margin: 0 0 rem-calc(32);
+		height: auto;
 		position: relative;
 		text-align: left;
 	}
 
 	@include breakpoint(medium) {
-		height: rem-calc(400);
+		height: rem-calc(650);
 		margin: 0 0 rem-calc(72);
 	}
 
