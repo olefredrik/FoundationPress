@@ -107,9 +107,8 @@ module.exports = function (grunt) {
 
         src: [
 
-          /*
           // Foundation core
-          'assets/components/foundation-sites/js/foundation-core.js',
+          'assets/components/foundation-sites/js/foundation.core.js',
 
           // Foundation utils
           'assets/components/foundation-sites/js/foundation.util.box.js',
@@ -142,16 +141,11 @@ module.exports = function (grunt) {
           'assets/components/foundation-sites/js/foundation.toggler.js',
           'assets/components/foundation-sites/js/foundation.tooltip.js',
 
-          */
-
           // Motion UI
           'assets/components/motion-ui/motion-ui.js',
 
           // What-input
           'assets/components/what-input/what-input.js',
-
-          // Foundation everything
-          'assets/components/foundation-sites/dist/foundation.js',
 
           // Include your own custom scripts (located in the custom folder)
           'assets/javascript/custom/*.js'
@@ -170,7 +164,7 @@ module.exports = function (grunt) {
       dist: {
         files: {
           // Shrink the file size by removing spaces
-          'assets/javascript/foundation.js': ['assets/javascript/foundation.js']
+          'assets/javascript/foundation.min.js': ['assets/javascript/foundation.js']
         }
       }
 
