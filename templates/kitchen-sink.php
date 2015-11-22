@@ -16,10 +16,9 @@ get_header(); ?>
 				<?php the_content(); ?>
 			</div>
 
-			<h3 class="subheader">This page includes every single Foundation element so that we can make sure things work together smoothly.</h3>
+			<h3 class="subheader" data-sticky>This page includes every single Foundation element so that we can make sure things work together smoothly.</h3>
 
 			<div class="row">
-
 				<!-- Main wrapper for the components in the kitchen-sink -->
 				<div class="large-9 columns" id="docs">
 
@@ -54,7 +53,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Accordion Menu -->
-					<h2 id="accordion-menu" class="docs-heading" data-magellan-target="accordion-menu"><a class="docs-heading-icon" href="#accordion-menu"></a>Accordion Menu</h2>
+					<h2 id="accordion-menu" class="docs-heading" data-magellan-target="accordion-menu"><a href="#accordion-menu"></a>Accordion Menu</h2>
 					<ul class="vertical menu" data-accordion-menu>
 					  <li>
 					    <a href="#">Item 1</a>
@@ -66,12 +65,26 @@ get_header(); ?>
 					          <li><a href="#">Item 1Aii</a></li>
 					          <li><a href="#">Item 1Aiii</a></li>
 					        </ul>
+					      </li>
+					      <li><a href="#">Item 1B</a></li>
+					      <li><a href="#">Item 1C</a></li>
+					    </ul>
 					  </li>
+					  <li>
+					    <a href="#">Item 2</a>
+					    <ul class="menu vertical nested">
+					      <li><a href="#">Item 2A</a></li>
+					      <li><a href="#">Item 2B</a></li>
+					    </ul>
+					  </li>
+					  <li><a href="#">Item 3</a></li>
+					</ul>
 					<hr>
 
 					<!-- Badge -->
-					<h2 id="badge" class="docs-heading" data-magellan-target="badge"><a class="docs-heading-icon" href="#badge"></a>Badge</h2>
-					<div class="docs-code-live"><span class="secondary badge">2</span>
+					<h2 id="badge" class="docs-heading" data-magellan-target="badge"><a href="#badge"></a>Badge</h2>
+					<div class="docs-code-live">
+						<span class="secondary badge">2</span>
 						<span class="success badge">3</span>
 						<span class="alert badge">A</span>
 						<span class="warning badge">B</span>
@@ -79,7 +92,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Breadcrumbs -->
-					<h2 id="breadcrumbs" class="docs-heading" data-magellan-target="breadcrumbs"><a class="docs-heading-icon" href="#breadcrumbs"></a>Breadcrumbs</h2>
+					<h2 id="breadcrumbs" class="docs-heading" data-magellan-target="breadcrumbs"><a href="#breadcrumbs"></a>Breadcrumbs</h2>
 					<div class="docs-code-live">
 						<nav aria-label="You are here:" role="navigation">
 	  					<ul class="breadcrumbs">
@@ -93,9 +106,9 @@ get_header(); ?>
 					<hr>
 
 					<!-- Button -->
-					<h2 id="button" class="docs-heading" data-magellan-target="button"><a class="docs-heading-icon" href="#button"></a>Button</h2>
+					<h2 id="button" class="docs-heading" data-magellan-target="button"><a href="#button"></a>Button</h2>
 					<div class="docs-code-live">
-						
+
 						<a href="about.html" class="button">Learn More</a>
 						<a href="#features" class="button">View All Features</a>
 
@@ -118,7 +131,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Callout -->
-					<h2 id="callout" class="docs-heading" data-magellan-target="callout"><a class="docs-heading-icon" href="#callout"></a>Callout</h2>
+					<h2 id="callout" class="docs-heading" data-magellan-target="callout"><a href="#callout"></a>Callout</h2>
 					<div class="docs-code-live">
 						<div class="callout">
 						  <h5>This is a callout.</h5>
@@ -153,7 +166,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Close Button -->
-					<h2 id="close-button" class="docs-heading" data-magellan-target="close-button"><a class="docs-heading-icon" href="#close-button"></a>Close Button</h2>
+					<h2 id="close-button" class="docs-heading" data-magellan-target="close-button"><a href="#close-button"></a>Close Button</h2>
 					<div class="docs-code-live">
 						<div class="callout">
 						  <button class="close-button" aria-label="Close alert" type="button">
@@ -165,7 +178,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Drilldown Menu -->
-					<h2 id="drilldown-menu" class="docs-heading" data-magellan-target="drilldown-menu"><a class="docs-heading-icon" href="#drilldown-menu"></a>Drilldown Menu</h2>
+					<h2 id="drilldown-menu" class="docs-heading" data-magellan-target="drilldown-menu"><a href="#drilldown-menu"></a>Drilldown Menu</h2>
 					<div class="docs-code-live">
 						<ul class="vertical menu" data-drilldown style="width: 200px" id="m1">
 						  <li>
@@ -213,7 +226,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Dropdown Menu -->
-					<h2 id="dropdown-menu" class="docs-heading" data-magellan-target="dropdown-menu"><a class="docs-heading-icon" href="#dropdown-menu"></a>Dropdown Menu</h2>
+					<h2 id="dropdown-menu" class="docs-heading" data-magellan-target="dropdown-menu"><a href="#dropdown-menu"></a>Dropdown Menu</h2>
 					<div class="docs-code-live">
 						<ul class="dropdown menu" data-dropdown-menu>
 						  <li>
@@ -257,7 +270,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Dropdown Pane -->
-					<h2 id="dropdown-pane" class="docs-heading" data-magellan-target="dropdown-pane"><a class="docs-heading-icon" href="#dropdown-pane"></a>Dropdown Pane</h2>
+					<h2 id="dropdown-pane" class="docs-heading" data-magellan-target="dropdown-pane"><a href="#dropdown-pane"></a>Dropdown Pane</h2>
 					<div class="docs-code-live">
 						<button class="button" type="button" data-toggle="example-dropdown">Toggle Dropdown</button>
 						<div class="dropdown-pane" id="example-dropdown" data-dropdown>
@@ -266,9 +279,8 @@ get_header(); ?>
 					</div>
 					<hr>
 
-
 					<!-- Flex Video -->
-					<h2 id="flex-video" class="docs-heading" data-magellan-target="flex-video"><a class="docs-heading-icon" href="#flex-video"></a>Flex Video</h2>
+					<h2 id="flex-video" class="docs-heading" data-magellan-target="flex-video"><a href="#flex-video"></a>Flex Video</h2>
 					<div class="docs-code-live">
 						<div class="flex-video">
 						  <iframe width="420" height="315" src="https://www.youtube.com/embed/V9gkYw35Vws" frameborder="0" allowfullscreen></iframe>
@@ -277,7 +289,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Float Classes -->
-					<h2 id="float-classes" class="docs-heading" data-magellan-target="float-classes"><a class="docs-heading-icon" href="#float-classes"></a>Float Classes</h2>
+					<h2 id="float-classes" class="docs-heading" data-magellan-target="float-classes"><a href="#float-classes"></a>Float Classes</h2>
 					<div class="docs-code-live">
 						<div class="callout clearfix">
 						  <a class="button float-left">Left</a>
@@ -287,7 +299,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Forms -->
-					<h2 id="forms" class="docs-heading" data-magellan-target="forms"><a class="docs-heading-icon" href="#forms"></a>Forms</h2>
+					<h2 id="forms" class="docs-heading" data-magellan-target="forms"><a  href="#forms"></a>Forms</h2>
 					<div class="docs-code-live">
 						<form>
 						  <label>Input Label
@@ -342,7 +354,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Label -->
-					<h2 id="label" class="docs-heading" data-magellan-target="label"><a class="docs-heading-icon" href="#label"></a>Label</h2>
+					<h2 id="label" class="docs-heading" data-magellan-target="label"><a href="#label"></a>Label</h2>
 					<div class="docs-code-live">
 						<span class="secondary label">Secondary Label</span>
 						<span class="success label">Success Label</span>
@@ -352,7 +364,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Media Object -->
-					<h2 id="media-object" class="docs-heading" data-magellan-target="media-object"><a class="docs-heading-icon" href="#media-object"></a>Media Object</h2>
+					<h2 id="media-object" class="docs-heading" data-magellan-target="media-object"><a href="#media-object"></a>Media Object</h2>
 					<div class="docs-code-live">
 						<div class="media-object">
 						  <div class="media-object-section">
@@ -367,7 +379,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Menu -->
-					<h2 id="menu" class="docs-heading" data-magellan-target="menu"><a class="docs-heading-icon" href="#menu"></a>Menu</h2>
+					<h2 id="menu" class="docs-heading" data-magellan-target="menu"><a href="#menu"></a>Menu</h2>
 					<div class="docs-code-live">
 						<ul class="menu">
 						  <li><a href="#">One</a></li>
@@ -386,7 +398,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Orbit -->
-					<h2 id="orbit" class="docs-heading" data-magellan-target="orbit"><a class="docs-heading-icon" href="#orbit"></a>Orbit</h2>
+					<h2 id="orbit" class="docs-heading" data-magellan-target="orbit"><a href="#orbit"></a>Orbit</h2>
 					<div class="docs-code-live">
 						<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
 						  <ul class="orbit-container">
@@ -432,7 +444,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Pagination -->
-					<h2 id="pagination" class="docs-heading" data-magellan-target="pagination"><a class="docs-heading-icon" href="#pagination"></a>Pagination</h2>
+					<h2 id="pagination" class="docs-heading" data-magellan-target="pagination"><a href="#pagination"></a>Pagination</h2>
 					<div class="docs-code-live">
 						<ul class="pagination" role="navigation" aria-label="Pagination">
 						  <li class="disabled">Previous <span class="show-for-sr">page</span></li>
@@ -449,7 +461,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Slider -->
-					<h2 id="slider" class="docs-heading" data-magellan-target="slider"><a class="docs-heading-icon" href="#slider"></a>Slider</h2>
+					<h2 id="slider" class="docs-heading" data-magellan-target="slider"><a href="#slider"></a>Slider</h2>
 					<div class="docs-code-live">
 						<div class="slider" data-slider data-initial-start='50' data-end='200'>
 						  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
@@ -467,7 +479,7 @@ get_header(); ?>
 
 
 					<!-- Switch -->
-					<h2 id="switch" class="docs-heading" data-magellan-target="switch"><a class="docs-heading-icon" href="#switch"></a>Switch</h2>
+					<h2 id="switch" class="docs-heading" data-magellan-target="switch"><a href="#switch"></a>Switch</h2>
 					<div class="docs-code-live">
 						<div class="switch tiny">
 						  <input class="switch-input" id="tinySwitch" type="checkbox" name="exampleSwitch">
@@ -493,7 +505,7 @@ get_header(); ?>
 					<hr>
 
 					<!-- Table -->
-					<h2 id="table" class="docs-heading" data-magellan-target="table"><a class="docs-heading-icon" href="#table"></a>Table</h2>
+					<h2 id="table" class="docs-heading" data-magellan-target="table"><a href="#table"></a>Table</h2>
 					<div class="docs-code-live">
 						<table>
 						  <thead>
@@ -529,63 +541,65 @@ get_header(); ?>
 					<hr>
 
 					<!-- Tabs -->
-					<h2 id="tabs" class="docs-heading" data-magellan-target="tabs"><a class="docs-heading-icon" href="#tabs"></a>Tabs</h2>
-					<ul class="tabs" data-tabs id="example-tabs">
-					  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
-					  <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
-					  <li class="tabs-title"><a href="#panel3">Tab 3</a></li>
-					  <li class="tabs-title"><a href="#panel4">Tab 4</a></li>
-					  <li class="tabs-title"><a href="#panel5">Tab 5</a></li>
-					  <li class="tabs-title"><a href="#panel6">Tab 6</a></li>
-					</ul>
+					<h2 id="tabs" class="docs-heading" data-magellan-target="tabs"><a href="#tabs"></a>Tabs</h2>
+					<div class="docs-code-live">
+						<ul class="tabs" data-tabs id="example-tabs">
+						  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
+						  <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
+						  <li class="tabs-title"><a href="#panel3">Tab 3</a></li>
+						  <li class="tabs-title"><a href="#panel4">Tab 4</a></li>
+						  <li class="tabs-title"><a href="#panel5">Tab 5</a></li>
+						  <li class="tabs-title"><a href="#panel6">Tab 6</a></li>
+						</ul>
 
-					<div class="tabs-content" data-tabs-content="example-tabs">
-					  <div class="tabs-panel is-active" id="panel1">
-					    <p>one</p>
-					    <p>Check me out! I'm a super cool Tab panel with text content!</p>
-					  </div>
-					  <div class="tabs-panel" id="panel2">
-					    <p>two</p>
-					    <img class="thumbnail" src="http://placehold.it/300x50">
-					  </div>
-					  <div class="tabs-panel" id="panel3">
-					    <p>three</p>
-					    <p>Check me out! I'm a super cool Tab panel with text content!</p>
-					  </div>
-					  <div class="tabs-panel" id="panel4">
-					    <p>four</p>
-					    <img class="thumbnail" src="http://placehold.it/300x50">
-					  </div>
-					  <div class="tabs-panel" id="panel5">
-					    <p>five</p>
-					    <p>Check me out! I'm a super cool Tab panel with text content!</p>
-					  </div>
-					  <div class="tabs-panel" id="panel6">
-					    <p>six</p>
-					    <img class="thumbnail" src="http://placehold.it/300x50">
-					  </div>
+						<div class="tabs-content" data-tabs-content="example-tabs">
+						  <div class="tabs-panel is-active" id="panel1">
+						    <p>one</p>
+						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
+						  </div>
+						  <div class="tabs-panel" id="panel2">
+						    <p>two</p>
+						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+						  </div>
+						  <div class="tabs-panel" id="panel3">
+						    <p>three</p>
+						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
+						  </div>
+						  <div class="tabs-panel" id="panel4">
+						    <p>four</p>
+						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+						  </div>
+						  <div class="tabs-panel" id="panel5">
+						    <p>five</p>
+						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
+						  </div>
+						  <div class="tabs-panel" id="panel6">
+						    <p>six</p>
+						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+						  </div>
+						</div>
 					</div>
 					<hr>
 
 					<!-- Thumbnail -->
-					<h2 id="thumbnail" class="docs-heading" data-magellan-target="thumbnail"><a class="docs-heading-icon" href="#thumbnail"></a>Thumbnail</h2>
+					<h2 id="thumbnail" class="docs-heading" data-magellan-target="thumbnail"><a href="#thumbnail"></a>Thumbnail</h2>
 					<div class="docs-code-live">
 						<div class="row">
 						  <div class="small-4 columns">
-						    <img class="thumbnail" src="http://placehold.it/300x300" alt="Placeholder image.">
+						    <img class="thumbnail" src="http://placeimg.com/200/200/nature" alt="Placeholder image.">
 						  </div>
 						  <div class="small-4 columns">
-						    <img class="thumbnail" src="http://placehold.it/300x300" alt="Placeholder image.">
+						    <img class="thumbnail" src="http://placeimg.com/200/200/nature" alt="Placeholder image.">
 						  </div>
 						  <div class="small-4 columns">
-						    <img class="thumbnail" src="http://placehold.it/300x300" alt="Placeholder image.">
+						    <img class="thumbnail" src="http://placeimg.com/200/200/nature" alt="Placeholder image.">
 						  </div>
 						</div>
 					</div>
 					<hr>
 
 					<!-- Title Bar -->
-					<h2 id="title-bar" class="docs-heading" data-magellan-target="title-bar"><a class="docs-heading-icon" href="#title-bar"></a>Title Bar</h2>
+					<h2 id="title-bar" class="docs-heading" data-magellan-target="title-bar"><a href="#title-bar"></a>Title Bar</h2>
 					<div class="docs-code-live">
 						<div class="title-bar">
 						  <div class="title-bar-left">
@@ -600,13 +614,13 @@ get_header(); ?>
 					<hr>
 
 					<!-- Tooltip -->
-					<h2 id="tooltip" class="docs-heading" data-magellan-target="tooltip"><a class="docs-heading-icon" href="#tooltip"></a>Tooltip</h2>
+					<h2 id="tooltip" class="docs-heading" data-magellan-target="tooltip"><a href="#tooltip"></a>Tooltip</h2>
 						<div class="docs-code-live">
 							<p>The <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover='false' tabindex=1 title="Fancy word for a beetle.">scarabaeus</span> hung quite clear of any branches, and, if allowed to fall, would have fallen at our feet. Legrand immediately took the scythe, and cleared with it a circular space, three or four yards in diameter, just beneath the insect, and, having accomplished this, ordered Jupiter to let go the string and come down from the tree.</p>
 						</div>
 					<hr>
 
-					<h2 id="top-bar" class="docs-heading" data-magellan-target="top-bar"><a class="docs-heading-icon" href="#top-bar"></a>Top Bar</h2>
+					<h2 id="top-bar" class="docs-heading" data-magellan-target="top-bar"><a href="#top-bar"></a>Top Bar</h2>
 					<div class="docs-code-live">
 						<div class="top-bar">
 
@@ -639,10 +653,10 @@ get_header(); ?>
 				</div>
 
 				<!-- On this page - sidebar nav container -->
-				<div class="large-3 columns sticky-container" data-sticky-container>
-					<nav class="columns sticky">
+				<div class="large-3 columns" data-sticky-container>
+					<nav class="columns" data-sticky>
 						<div class="docs-toc" id="docsTOC">
-							<ul class="vertical menu docs-sub-menu">
+							<ul class="vertical menu docs-sub-menu" data-magellan>
 								<li class="docs-menu-title">On this page:</li>
 								<li><a href="#accordion">Accordion</a></li>
 								<li><a href="#accordion-menu">Accordion Menu</a></li>
@@ -677,12 +691,6 @@ get_header(); ?>
 
 			</div>
 
-
-			<footer>
-				<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
-				<p><?php the_tags(); ?></p>
-			</footer>
-			<?php comments_template(); ?>
 		</article>
 	<?php endwhile; ?>
 	</div>
