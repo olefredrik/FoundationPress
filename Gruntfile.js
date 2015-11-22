@@ -150,10 +150,15 @@ module.exports = function (grunt) {
           'assets/components/foundation-sites/js/foundation.toggler.js',
           'assets/components/foundation-sites/js/foundation.tooltip.js',
 
-          // Motion UI
-          'assets/components/foundation-sites/js/motion-ui.js',
           */
 
+          // Motion UI
+          'assets/components/motion-ui/motion-ui.js',
+
+          // What-input
+          'assets/components/what-input/what-input.js',
+
+          // Foundation everything
           'assets/components/foundation-sites/dist/foundation.js',
 
           // Include your own custom scripts (located in the custom folder)
