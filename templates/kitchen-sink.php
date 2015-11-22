@@ -3,29 +3,26 @@
 Template Name: Kitchen Sink
 */
 get_header(); ?>
-<div class="row">
-	<div class="small-12 large-12 columns" role="main">
+
 
 	<?php /* Start loop */ ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
+
+		<div id="kitchen-sink" role="main">
 			<header>
-				<h1 class="entry-title"><?php the_title(); ?></h1>
+				<h1 class="entry-title"><?php the_title(); ?></h1><hr>
+				<p class="lead">This page includes every single Foundation element so that we can make sure things work together smoothly.</p><hr>
 			</header>
-			<div class="entry-content">
-				<?php the_content(); ?>
-			</div>
 
-			<h3 class="subheader" data-sticky>This page includes every single Foundation element so that we can make sure things work together smoothly.</h3>
+			<!-- Main wrapper for the components in the kitchen-sink -->
+			<div id="components">
 
-			<div class="row">
-				<!-- Main wrapper for the components in the kitchen-sink -->
-				<div class="large-9 columns" id="docs">
+				<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
 					<!-- Accordion -->
-					<h2 id="accordion" class="docs-heading" data-magellan-target="accordion">Accordion</h2>
+					<h2 id="accordion" class="docs-heading" data-magellan-target="accordion"><a href="#accordion"></a>Accordion</h2>
 					<ul class="accordion" data-accordion role="tablist">
-					  <li class="accordion-item is-active">
+					  <li class="accordion-item">
 					    <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
 					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 1</a>
 					    <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
@@ -54,46 +51,43 @@ get_header(); ?>
 
 					<!-- Accordion Menu -->
 					<h2 id="accordion-menu" class="docs-heading" data-magellan-target="accordion-menu"><a href="#accordion-menu"></a>Accordion Menu</h2>
-					<ul class="vertical menu" data-accordion-menu>
-					  <li>
-					    <a href="#">Item 1</a>
-					    <ul class="menu vertical nested is-active">
-					      <li>
-					        <a href="#">Item 1A</a>
-					        <ul class="menu vertical nested">
-					          <li><a href="#">Item 1Ai</a></li>
-					          <li><a href="#">Item 1Aii</a></li>
-					          <li><a href="#">Item 1Aiii</a></li>
-					        </ul>
-					      </li>
-					      <li><a href="#">Item 1B</a></li>
-					      <li><a href="#">Item 1C</a></li>
-					    </ul>
-					  </li>
-					  <li>
-					    <a href="#">Item 2</a>
-					    <ul class="menu vertical nested">
-					      <li><a href="#">Item 2A</a></li>
-					      <li><a href="#">Item 2B</a></li>
-					    </ul>
-					  </li>
-					  <li><a href="#">Item 3</a></li>
-					</ul>
+						<ul class="vertical menu" data-accordion-menu>
+						  <li>
+						    <a href="#">Item 1</a>
+						    <ul class="menu vertical nested is-active">
+						      <li>
+						        <a href="#">Item 1A</a>
+						        <ul class="menu vertical nested">
+						          <li><a href="#">Item 1Ai</a></li>
+						          <li><a href="#">Item 1Aii</a></li>
+						          <li><a href="#">Item 1Aiii</a></li>
+						        </ul>
+						      </li>
+						      <li><a href="#">Item 1B</a></li>
+						      <li><a href="#">Item 1C</a></li>
+						    </ul>
+						  </li>
+						  <li>
+						    <a href="#">Item 2</a>
+						    <ul class="menu vertical nested">
+						      <li><a href="#">Item 2A</a></li>
+						      <li><a href="#">Item 2B</a></li>
+						    </ul>
+						  </li>
+						  <li><a href="#">Item 3</a></li>
+						</ul>
 					<hr>
 
 					<!-- Badge -->
 					<h2 id="badge" class="docs-heading" data-magellan-target="badge"><a href="#badge"></a>Badge</h2>
-					<div class="docs-code-live">
 						<span class="secondary badge">2</span>
 						<span class="success badge">3</span>
 						<span class="alert badge">A</span>
 						<span class="warning badge">B</span>
-					</div>
 					<hr>
 
 					<!-- Breadcrumbs -->
 					<h2 id="breadcrumbs" class="docs-heading" data-magellan-target="breadcrumbs"><a href="#breadcrumbs"></a>Breadcrumbs</h2>
-					<div class="docs-code-live">
 						<nav aria-label="You are here:" role="navigation">
 	  					<ul class="breadcrumbs">
 						    <li><a href="#">Home</a></li>
@@ -102,13 +96,10 @@ get_header(); ?>
 						    <li><span class="show-for-sr">Current: </span> Cloning</li>
 	  					</ul>
 						</nav>
-					</div>
 					<hr>
 
 					<!-- Button -->
 					<h2 id="button" class="docs-heading" data-magellan-target="button"><a href="#button"></a>Button</h2>
-					<div class="docs-code-live">
-
 						<a href="about.html" class="button">Learn More</a>
 						<a href="#features" class="button">View All Features</a>
 
@@ -126,13 +117,10 @@ get_header(); ?>
 						  <a class="button">Two</a>
 						  <a class="button">Three</a>
 						</div>
-
-					</div>
 					<hr>
 
 					<!-- Callout -->
 					<h2 id="callout" class="docs-heading" data-magellan-target="callout"><a href="#callout"></a>Callout</h2>
-					<div class="docs-code-live">
 						<div class="callout">
 						  <h5>This is a callout.</h5>
 						  <p>It has an easy to override visual style, and is appropriately subdued.</p>
@@ -162,24 +150,20 @@ get_header(); ?>
 						  <p>It has an easy to override visual style, and is appropriately subdued.</p>
 						  <a href="#">It's dangerous to go alone, take this.</a>
 						</div>
-					</div>
 					<hr>
 
 					<!-- Close Button -->
 					<h2 id="close-button" class="docs-heading" data-magellan-target="close-button"><a href="#close-button"></a>Close Button</h2>
-					<div class="docs-code-live">
 						<div class="callout">
 						  <button class="close-button" aria-label="Close alert" type="button">
 						    <span aria-hidden="true">&times;</span>
 						  </button>
 						  <p>You can so totally close this!</p>
 						</div>
-					</div>
 					<hr>
 
 					<!-- Drilldown Menu -->
 					<h2 id="drilldown-menu" class="docs-heading" data-magellan-target="drilldown-menu"><a href="#drilldown-menu"></a>Drilldown Menu</h2>
-					<div class="docs-code-live">
 						<ul class="vertical menu" data-drilldown style="width: 200px" id="m1">
 						  <li>
 						    <a href="#">Item 1</a>
@@ -222,12 +206,10 @@ get_header(); ?>
 						  </li>
 						  <li><a href='#'> Item 4</a></li>
 						</ul>
-					</div>
 					<hr>
 
 					<!-- Dropdown Menu -->
 					<h2 id="dropdown-menu" class="docs-heading" data-magellan-target="dropdown-menu"><a href="#dropdown-menu"></a>Dropdown Menu</h2>
-					<div class="docs-code-live">
 						<ul class="dropdown menu" data-dropdown-menu>
 						  <li>
 						    <a>Item 1</a>
@@ -266,41 +248,33 @@ get_header(); ?>
 						  <li><a href="#">Item 3</a></li>
 						  <li><a href='#'>Item 4</a></li>
 						</ul>
-					</div>
 					<hr>
 
 					<!-- Dropdown Pane -->
 					<h2 id="dropdown-pane" class="docs-heading" data-magellan-target="dropdown-pane"><a href="#dropdown-pane"></a>Dropdown Pane</h2>
-					<div class="docs-code-live">
 						<button class="button" type="button" data-toggle="example-dropdown">Toggle Dropdown</button>
 						<div class="dropdown-pane" id="example-dropdown" data-dropdown>
 						  Just some junk that needs to be said. Or not. Your choice.
 						</div>
-					</div>
 					<hr>
 
 					<!-- Flex Video -->
 					<h2 id="flex-video" class="docs-heading" data-magellan-target="flex-video"><a href="#flex-video"></a>Flex Video</h2>
-					<div class="docs-code-live">
 						<div class="flex-video">
 						  <iframe width="420" height="315" src="https://www.youtube.com/embed/V9gkYw35Vws" frameborder="0" allowfullscreen></iframe>
 						</div>
-					</div>
 					<hr>
 
 					<!-- Float Classes -->
 					<h2 id="float-classes" class="docs-heading" data-magellan-target="float-classes"><a href="#float-classes"></a>Float Classes</h2>
-					<div class="docs-code-live">
 						<div class="callout clearfix">
 						  <a class="button float-left">Left</a>
 						  <a class="button float-right">Right</a>
 						</div>
-					</div>
 					<hr>
 
 					<!-- Forms -->
 					<h2 id="forms" class="docs-heading" data-magellan-target="forms"><a  href="#forms"></a>Forms</h2>
-					<div class="docs-code-live">
 						<form>
 						  <label>Input Label
 						    <input type="text" placeholder=".small-12.columns" aria-describedby="exampleHelpText">
@@ -350,22 +324,18 @@ get_header(); ?>
 						    <a class="input-group-button button">Submit</a>
 						  </div>
 						</form>
-					</div>
 					<hr>
 
 					<!-- Label -->
 					<h2 id="label" class="docs-heading" data-magellan-target="label"><a href="#label"></a>Label</h2>
-					<div class="docs-code-live">
 						<span class="secondary label">Secondary Label</span>
 						<span class="success label">Success Label</span>
 						<span class="alert label">Alert Label</span>
 						<span class="warning label">Warning Label</span>
-					</div>
 					<hr>
 
 					<!-- Media Object -->
 					<h2 id="media-object" class="docs-heading" data-magellan-target="media-object"><a href="#media-object"></a>Media Object</h2>
-					<div class="docs-code-live">
 						<div class="media-object">
 						  <div class="media-object-section">
 						    <img src= "http://placeimg.com/200/200/people">
@@ -375,12 +345,10 @@ get_header(); ?>
 						    <p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
 						  </div>
 						</div>
-					</div>
 					<hr>
 
 					<!-- Menu -->
 					<h2 id="menu" class="docs-heading" data-magellan-target="menu"><a href="#menu"></a>Menu</h2>
-					<div class="docs-code-live">
 						<ul class="menu">
 						  <li><a href="#">One</a></li>
 						  <li><a href="#">Two</a></li>
@@ -394,12 +362,10 @@ get_header(); ?>
 						  <li><a href="#"><i class="fi-list"></i> <span>Three</span></a></li>
 						  <li><a href="#"><i class="fi-list"></i> <span>Four</span></a></li>
 						</ul>
-					</div>
 					<hr>
 
 					<!-- Orbit -->
 					<h2 id="orbit" class="docs-heading" data-magellan-target="orbit"><a href="#orbit"></a>Orbit</h2>
-					<div class="docs-code-live">
 						<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
 						  <ul class="orbit-container">
 						    <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
@@ -440,12 +406,10 @@ get_header(); ?>
 						   <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
 						 </nav>
 						</div>
-					</div>
 					<hr>
 
 					<!-- Pagination -->
 					<h2 id="pagination" class="docs-heading" data-magellan-target="pagination"><a href="#pagination"></a>Pagination</h2>
-					<div class="docs-code-live">
 						<ul class="pagination" role="navigation" aria-label="Pagination">
 						  <li class="disabled">Previous <span class="show-for-sr">page</span></li>
 						  <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
@@ -457,12 +421,10 @@ get_header(); ?>
 						  <li><a href="#" aria-label="Page 13">13</a></li>
 						  <li><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
 						</ul>
-					</div>
 					<hr>
 
 					<!-- Slider -->
 					<h2 id="slider" class="docs-heading" data-magellan-target="slider"><a href="#slider"></a>Slider</h2>
-					<div class="docs-code-live">
 						<div class="slider" data-slider data-initial-start='50' data-end='200'>
 						  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
 						  <span class="slider-fill" data-slider-fill></span>
@@ -474,13 +436,11 @@ get_header(); ?>
 						  <span class="slider-fill" data-slider-fill></span>
 						  <input type="hidden">
 						</div>
-					</div>
 					<hr>
 
 
 					<!-- Switch -->
 					<h2 id="switch" class="docs-heading" data-magellan-target="switch"><a href="#switch"></a>Switch</h2>
-					<div class="docs-code-live">
 						<div class="switch tiny">
 						  <input class="switch-input" id="tinySwitch" type="checkbox" name="exampleSwitch">
 						  <label class="switch-paddle" for="tinySwitch">
@@ -501,12 +461,10 @@ get_header(); ?>
 						    <span class="show-for-sr">Show Large Elephants</span>
 						  </label>
 						</div>
-					</div>
 					<hr>
 
 					<!-- Table -->
 					<h2 id="table" class="docs-heading" data-magellan-target="table"><a href="#table"></a>Table</h2>
-					<div class="docs-code-live">
 						<table>
 						  <thead>
 						    <tr>
@@ -537,12 +495,10 @@ get_header(); ?>
 						    </tr>
 						  </tbody>
 						</table>
-					</div>
 					<hr>
 
 					<!-- Tabs -->
 					<h2 id="tabs" class="docs-heading" data-magellan-target="tabs"><a href="#tabs"></a>Tabs</h2>
-					<div class="docs-code-live">
 						<ul class="tabs" data-tabs id="example-tabs">
 						  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
 						  <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
@@ -578,12 +534,10 @@ get_header(); ?>
 						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
 						  </div>
 						</div>
-					</div>
 					<hr>
 
 					<!-- Thumbnail -->
 					<h2 id="thumbnail" class="docs-heading" data-magellan-target="thumbnail"><a href="#thumbnail"></a>Thumbnail</h2>
-					<div class="docs-code-live">
 						<div class="row">
 						  <div class="small-4 columns">
 						    <img class="thumbnail" src="http://placeimg.com/200/200/nature" alt="Placeholder image.">
@@ -595,12 +549,10 @@ get_header(); ?>
 						    <img class="thumbnail" src="http://placeimg.com/200/200/nature" alt="Placeholder image.">
 						  </div>
 						</div>
-					</div>
 					<hr>
 
 					<!-- Title Bar -->
 					<h2 id="title-bar" class="docs-heading" data-magellan-target="title-bar"><a href="#title-bar"></a>Title Bar</h2>
-					<div class="docs-code-live">
 						<div class="title-bar">
 						  <div class="title-bar-left">
 						    <button class="menu-icon" type="button"></button>
@@ -610,18 +562,14 @@ get_header(); ?>
 						    <button class="menu-icon" type="button"></button>
 						  </div>
 						</div>
-					</div>
 					<hr>
 
 					<!-- Tooltip -->
 					<h2 id="tooltip" class="docs-heading" data-magellan-target="tooltip"><a href="#tooltip"></a>Tooltip</h2>
-						<div class="docs-code-live">
 							<p>The <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover='false' tabindex=1 title="Fancy word for a beetle.">scarabaeus</span> hung quite clear of any branches, and, if allowed to fall, would have fallen at our feet. Legrand immediately took the scythe, and cleared with it a circular space, three or four yards in diameter, just beneath the insect, and, having accomplished this, ordered Jupiter to let go the string and come down from the tree.</p>
-						</div>
 					<hr>
 
 					<h2 id="top-bar" class="docs-heading" data-magellan-target="top-bar"><a href="#top-bar"></a>Top Bar</h2>
-					<div class="docs-code-live">
 						<div class="top-bar">
 
 							<div class="top-bar-left">
@@ -647,52 +595,51 @@ get_header(); ?>
 						    </ul>
 						  </div>
 						</div>
-					</div>
 					<hr>
-
+					</article>
 				</div>
 
 				<!-- On this page - sidebar nav container -->
-				<div class="large-3 columns" data-sticky-container>
-					<nav class="columns" data-sticky>
-						<div class="docs-toc" id="docsTOC">
-							<ul class="vertical menu docs-sub-menu" data-magellan>
-								<li class="docs-menu-title">On this page:</li>
-								<li><a href="#accordion">Accordion</a></li>
-								<li><a href="#accordion-menu">Accordion Menu</a></li>
-								<li><a href="#badge">Badge</a></li>
-								<li><a href="#breadcrumbs">Breadcrumbs</a></li>
-								<li><a href="#button">Button<a></li>
-								<li><a href="#callout">Callout</a></li>
-								<li><a href="#close-button">Close button</a></li>
-								<li><a href="#drilldown-menu">Drilldown Menu</a></li>
-								<li><a href="#dropdown-menu">Dropdown Menu</a></li>
-								<li><a href="#dropdown-pane">Dropdown Pane</a></li>
-								<li><a href="#flex-video">Flex Video</a></li>
-								<li><a href="#float-classes">Float Classes</a></li>
-								<li><a href="#forms">Forms</a></li>
-								<li><a href="#label">Label</a></li>
-								<li><a href="#media-object">Media Object</a></li>
-								<li><a href="#menu">Menu</a></li>
-								<li><a href="#orbit">Orbit</a></li>
-								<li><a href="#pagination">Pagination</a></li>
-								<li><a href="#slider">Slider</a></li>
-								<li><a href="#switch">Switch</a></li>
-								<li><a href="#table">Table</a></li>
-								<li><a href="#tabs">Tabs</a></li>
-								<li><a href="#thumbnail">Thumbnail</a></li>
-								<li><a href="#title-bar">Title Bar</a></li>
-								<li><a href="#tooltip">Tooltip</a></li>
-								<li><a href="#top-bar">Top Bar</a></li>
-							</ul>
-						</div>
-					</nav>
-				</div>
+				<nav id="kitchen-sink-nav">
+					<div class="docs-toc">
+						<ul class="vertical menu docs-sub-menu" data-magellan>
+							<li class="docs-menu-title">On this page:</li>
+							<li><a href="#accordion">Accordion</a></li>
+							<li><a href="#accordion-menu">Accordion Menu</a></li>
+							<li><a href="#badge">Badge</a></li>
+							<li><a href="#breadcrumbs">Breadcrumbs</a></li>
+							<li><a href="#button">Button</a></li>
+							<li><a href="#callout">Callout</a></li>
+							<li><a href="#close-button">Close button</a></li>
+							<li><a href="#drilldown-menu">Drilldown Menu</a></li>
+							<li><a href="#dropdown-menu">Dropdown Menu</a></li>
+							<li><a href="#dropdown-pane">Dropdown Pane</a></li>
+							<li><a href="#flex-video">Flex Video</a></li>
+							<li><a href="#float-classes">Float Classes</a></li>
+							<li><a href="#forms">Forms</a></li>
+							<li><a href="#label">Label</a></li>
+							<li><a href="#media-object">Media Object</a></li>
+							<li><a href="#menu">Menu</a></li>
+							<li><a href="#orbit">Orbit</a></li>
+							<li><a href="#pagination">Pagination</a></li>
+							<li><a href="#slider">Slider</a></li>
+							<li><a href="#switch">Switch</a></li>
+							<li><a href="#table">Table</a></li>
+							<li><a href="#tabs">Tabs</a></li>
+							<li><a href="#thumbnail">Thumbnail</a></li>
+							<li><a href="#title-bar">Title Bar</a></li>
+							<li><a href="#tooltip">Tooltip</a></li>
+							<li><a href="#top-bar">Top Bar</a></li>
+						</ul>
+					</div>
+				</nav>
 
 			</div>
 
-		</article>
+		<div class="entry-content">
+			<?php the_content(); ?>
+		</div>
+
+	</div><!-- Close kitchen-sink-page-wrapper -->
 	<?php endwhile; ?>
-	</div>
-</div>
 <?php get_footer(); ?>

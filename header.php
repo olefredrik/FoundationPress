@@ -27,15 +27,11 @@
 	<body <?php body_class(); ?>>
 	<?php do_action( 'foundationpress_after_body' ); ?>
 
-	<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
-
 	<div class="off-canvas-wrapper">
 		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
 			<?php do_action( 'foundationpress_layout_start' ); ?>
 			<?php get_template_part( 'parts/off-canvas-menu' ); ?>
-	<?php endif; ?>
+			<?php get_template_part( 'parts/top-bar' ); ?>
 
-	<?php get_template_part( 'parts/top-bar' ); ?>
-
-<section class="container" role="document">
-	<?php do_action( 'foundationpress_after_header' ); ?>
+		<section class="container" role="document">
+			<?php do_action( 'foundationpress_after_header' ); ?>
