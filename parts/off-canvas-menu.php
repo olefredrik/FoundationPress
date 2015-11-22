@@ -8,24 +8,9 @@
  */
 
 ?>
-<!--
-<nav class="tab-bar">
-  <section class="<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>-small">
-    <a class="<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>-off-canvas-toggle menu-icon" href="#"><span></span></a>
-  </section>
-  <section class="middle tab-bar-section">
 
-    <h1 class="title">
-      <?php bloginfo( 'name' ); ?>
-    </h1>
-
-  </section>
-</nav>
-
-<aside id="offCanvasLeft" class="<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>-off-canvas-menu" aria-hidden="true" data-offcanvas-content>
-    <?php foundationpress_mobile_off_canvas( apply_filters('filter_mobile_nav_position', 'mobile_nav_position') ); ?>
-</aside>
--->
+<div class="off-cancas-content" off-canvas-content>
 <ul class="vertical menu off-canvas position-<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>" id="offCanvas<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>" data-off-canvas data-position="<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>" data-accordion-menu>
   <?php foundationpress_mobile_off_canvas( apply_filters('filter_mobile_nav_position', 'mobile_nav_position') ); ?>
 </ul>
+</div>

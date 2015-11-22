@@ -15,6 +15,10 @@
 // Sass utilities
 @import '../components/foundation-sites/scss/util/util';
 
+//  Settings and wp-override styles:
+@import "config/wp-overrides"; // Override the default WordPress styling for some elements
+@import "config/settings"; // Default settings file. Uncomment each setting you need to change
+
 // Global variables and styles
 @import '../components/foundation-sites/scss/global';
 
@@ -100,16 +104,11 @@
 // Include all foundation components
 @include foundation-everything;
 
-//  Settings and wp-override styles:
-@import "config/settings"; // Default settings file. Uncomment each setting you need to change
-@import "config/wp-overrides"; // Override the default WordPress styling for some elements
-
 /*
   My custom styles:
   Add your scss files below to structure your project styles
 */
 
-@import "site/global";
 @import "site/wp-admin";
 @import "site/topbar";
 @import "site/front";
