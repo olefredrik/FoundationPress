@@ -94,7 +94,8 @@ get_header(); ?>
 
 					<!-- Button -->
 					<h2 id="button" class="docs-heading" data-magellan-target="button"><a class="docs-heading-icon" href="#button"></a>Button</h2>
-					<div class="docs-code-live"><!-- Anchors (links) -->
+					<div class="docs-code-live">
+						
 						<a href="about.html" class="button">Learn More</a>
 						<a href="#features" class="button">View All Features</a>
 
@@ -112,6 +113,7 @@ get_header(); ?>
 						  <a class="button">Two</a>
 						  <a class="button">Three</a>
 						</div>
+
 					</div>
 					<hr>
 
