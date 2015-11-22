@@ -27,7 +27,6 @@
   </div>
 
   <div class="top-bar-right show-for-medium">
-      <?php foundationpress_top_bar_l(); ?>
       <?php foundationpress_top_bar_r(); ?>
   </div>
 
