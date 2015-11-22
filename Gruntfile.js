@@ -52,14 +52,6 @@ module.exports = function (grunt) {
 
     copy: {
 
-      modernizr: {
-        expand: true,
-        cwd: 'assets/components/modernizr/',
-        src: '**',
-        flatten: 'true',
-        dest: 'assets/javascript/vendor/modernizr/'
-      },
-
       motionUi: {
         expand: true,
         cwd: 'assets/components/motion-ui/',

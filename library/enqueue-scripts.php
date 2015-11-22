@@ -19,9 +19,6 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	// Deregister the jquery version bundled with WordPress.
 	wp_deregister_script( 'jquery' );
 
-	// Modernizr is used for polyfills and feature detection. Must be placed in header. (Not required).
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/javascript/vendor/modernizr/modernizr.js', array(), '2.8.3', false );
-
 	// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
 	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js', array(), '2.1.0', false );
 
