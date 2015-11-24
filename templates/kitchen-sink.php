@@ -601,7 +601,7 @@ get_header(); ?>
 
 				<!-- On this page - sidebar nav container -->
 				<nav id="kitchen-sink-nav" data-sticky-container>
-					<div class="docs-toc" data-sticky="sidebar">
+					<div class="docs-toc" data-sticky="sidebar" data-anchor="components">
 						<ul class="vertical menu docs-sub-menu" data-magellan>
 							<li class="docs-menu-title">On this page:</li>
 							<li><a href="#accordion">Accordion</a></li>
