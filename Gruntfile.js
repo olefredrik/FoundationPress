@@ -77,26 +77,6 @@ module.exports = function (grunt) {
 
     },
 
-    'string-replace': {
-
-      fontawesome: {
-        files: {
-          'assets/fontawesome/scss/_variables.scss': 'assets/fontawesome/scss/_variables.scss'
-        },
-
-        options: {
-          replacements: [
-            {
-              pattern: '../fonts',
-              replacement: '../assets/fonts'
-            }
-          ]
-        }
-
-      }
-
-    },
-
     concat: {
 
       options: {
@@ -241,7 +221,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-browser-sync');
 
   grunt.registerTask('package', ['compress:main']);
-  grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'postcss', 'concat', 'uglify']);
+  grunt.registerTask('build', ['copy', 'sass', 'postcss', 'concat', 'uglify']);
   grunt.registerTask('browser-sync', ['browserSync', 'watch']);
   grunt.registerTask('default', ['watch']);
 };
