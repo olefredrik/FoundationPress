@@ -15,7 +15,7 @@ register_nav_menus(array(
 
 
 /**
- * Right top bar
+ * Desktop navigation - right top bar
  * http://codex.wordpress.org/Function_Reference/wp_nav_menu
  */
 if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
@@ -34,7 +34,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 
 
 /**
- * Mobile top-bar
+ * Mobile navigation - topbar (default) or offcanvas
  */
 if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 	function foundationpress_mobile_nav() {
@@ -45,7 +45,7 @@ if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 				'theme_location' => 'mobile-nav',
 				'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-small-only" data-accordion-menu%3$s</ul>',
 				'fallback_cb'    => false,
-        'walker' => new Foundationpress_Offcanvas_Walker(),
+        'walker' => new Foundationpress_Mobile_Walker(),
 	    ));
 	}
 }

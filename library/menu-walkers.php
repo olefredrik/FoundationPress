@@ -14,13 +14,13 @@
 
  	function start_lvl(&$output, $depth = 0, $args = Array() ) {
  			$indent = str_repeat("\t", $depth);
-      $output .= "\n$indent<ul class=\"submenu menu vertical\" data-submenu>\n";
+      $output .= "\n$indent<ul class=\"dropdown menu vertical\" data-dropdown-menu>\n";
  	}
  }
 
 
- if ( ! class_exists( 'Foundationpress_Offcanvas_Walker' ) ) :
- class Foundationpress_Offcanvas_Walker extends Walker_Nav_Menu {
+ if ( ! class_exists( 'Foundationpress_Mobile_Walker' ) ) :
+ class Foundationpress_Mobile_Walker extends Walker_Nav_Menu {
  	function start_lvl(&$output, $depth = 0, $args = Array() ) {
  			$indent = str_repeat("\t", $depth);
  			$output .= "\n$indent<ul class=\"vertical nested menu\">\n";
