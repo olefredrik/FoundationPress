@@ -10,8 +10,7 @@
 
 register_nav_menus(array(
 	'top-bar-r' => 'Right Top Bar',
-	'mobile-top-bar' => 'Mobile Top Bar',
-	'mobile-off-canvas' => 'Mobile Off-Canvas',
+	'mobile-nav' => 'Mobile',
 ));
 
 
@@ -33,40 +32,18 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 	}
 }
 
-/**
- * Mobile off-canvas
- */
-if ( ! function_exists( 'foundationpress_mobile_off_canvas' ) ) {
-	function foundationpress_mobile_off_canvas( $direction = 'left' ) {
-	    wp_nav_menu(array(
-				'container' => false,                           // Remove nav container
-				'container_class' => '',                        // Class of container
-				'menu' => '',                                   // Menu name
-				'menu_class' => 'menu vertical nested',              // Adding custom nav class
-				'theme_location' => 'mobile-off-canvas',        // Where it's located in the theme
-				'before' => '',                                 // Before each link <a>
-				'after' => '',                                  // After each link </a>
-				'link_before' => '',                            // Before each link text
-				'link_after' => '',                             // After each link text
-				'depth' => 5,                                   // Limit the depth of the nav
-				'fallback_cb' => false,                         // Fallback function (see below)
-				'walker' => new Foundationpress_Offcanvas_Walker($direction),
-	    ));
-	}
-}
-
 
 /**
  * Mobile top-bar
  */
-if ( ! function_exists( 'foundationpress_mobile_top_bar' ) ) {
-	function foundationpress_mobile_top_bar() {
+if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
+	function foundationpress_mobile_nav() {
 	    wp_nav_menu(array(
         'container' => false,                           // Remove nav container
-				'menu'           => __( 'mobile-off-canvas', 'foundationpress' ),
+				'menu'           => __( 'mobile-nav', 'foundationpress' ),
 				'menu_class'     => 'vertical menu',
-				'theme_location' => 'mobile-top-bar',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-small-only" data-responsive-menu="drilldown medium-dropdown">%3$s</ul>',
+				'theme_location' => 'mobile-nav',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-small-only" data-accordion-menu%3$s</ul>',
 				'fallback_cb'    => false,
         'walker' => new Foundationpress_Offcanvas_Walker(),
 	    ));
