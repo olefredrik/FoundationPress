@@ -178,7 +178,7 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
             }
 
             // Add Rebuilt Classes and Close The Tag
-            $new_classes = count( $new_classes ) ? implode( $new_classes, ' ' ) : ''; 
+            $new_classes = count( $new_classes ) ? implode( $new_classes, ' ' ) : '';
             $img .= ' class="' . $new_classes . '" />';
 
 	        return $img;
