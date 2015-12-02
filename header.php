@@ -34,13 +34,6 @@
 
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
-	<?php
-		if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) :
-		get_template_part( 'parts/off-canvas-menu' );
-		endif;
-	?>
-
-
 	<header id="masthead" class="site-header" role="banner">
 		<div class="title-bar" data-responsive-toggle="site-navigation" data-hide-for="medium">
 			<button class="menu-icon" type="button" data-toggle></button>
@@ -57,7 +50,7 @@
 			</div>
 			<div class="top-bar-right">
 				<?php foundationpress_top_bar_r(); ?>
-				<?php foundationpress_mobile_off_canvas(); ?>
+				<?php foundationpress_mobile_top_bar(); ?>
 			</div>
 		</nav>
 	</header>
