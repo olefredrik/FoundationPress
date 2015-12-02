@@ -14,7 +14,7 @@
 
  	function start_lvl(&$output, $depth = 0, $args = Array() ) {
  			$indent = str_repeat("\t", $depth);
- 			$output .= "\n$indent<ul class=\"menu\">\n";
+      $output .= "\n$indent<ul class=\"submenu menu vertical\" data-submenu>\n";
  	}
  }
 

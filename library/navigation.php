@@ -9,7 +9,6 @@
  */
 
 register_nav_menus(array(
-	'top-bar-l' => 'Left Top Bar', // Registers the menu in the WordPress admin menu editor.
 	'top-bar-r' => 'Right Top Bar',
 	'mobile-off-canvas' => 'Mobile',
 ));
@@ -24,9 +23,9 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 	    wp_nav_menu(array(
 	        'container' => false,                           // Remove nav container
 	        'menu_class' => 'dropdown menu',           			// Adding custom nav class
-					'items_wrap' => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
+					'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-medium" data-dropdown-menu>%3$s</ul>',
 	        'theme_location' => 'top-bar-r',                // Where it's located in the theme
-	        'depth' => 5,                                   // Limit the depth of the nav
+	        'depth' => 3,                                   // Limit the depth of the nav
 	        'fallback_cb' => false,                         // Fallback function (see below)
 	        'walker' => new Foundationpress_Top_Bar_Walker(),
 	    ));
@@ -40,16 +39,11 @@ if ( ! function_exists( 'foundationpress_mobile_off_canvas' ) ) {
 	function foundationpress_mobile_off_canvas( $direction = 'left' ) {
 	    wp_nav_menu(array(
 	        'container' => false,                           // Remove nav container
-	        'container_class' => '',                        // Class of container
-	        'menu' => '',                                   // Menu name
-	        'menu_class' => 'menu vertical nested',              // Adding custom nav class
-	        'theme_location' => 'mobile-off-canvas',        // Where it's located in the theme
-	        'before' => '',                                 // Before each link <a>
-	        'after' => '',                                  // After each link </a>
-	        'link_before' => '',                            // Before each link text
-	        'link_after' => '',                             // After each link text
-	        'depth' => 5,                                   // Limit the depth of the nav
-	        'fallback_cb' => false,                         // Fallback function (see below)
+					'menu'           => __( 'mobile-off-canvas', 'foundationpress' ),
+					'menu_class'     => 'vertical menu',
+					'theme_location' => 'primary',
+					'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-small-only" data-responsive-menu="drilldown medium-dropdown">%3$s</ul>',
+					'fallback_cb'    => false,
 	        'walker' => new Foundationpress_Offcanvas_Walker($direction),
 	    ));
 	}

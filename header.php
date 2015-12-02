@@ -26,12 +26,28 @@
 	</head>
 	<body <?php body_class(); ?>>
 	<?php do_action( 'foundationpress_after_body' ); ?>
+	<?php do_action( 'foundationpress_layout_start' ); ?>
 
-	<div class="off-canvas-wrapper">
-		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-			<?php do_action( 'foundationpress_layout_start' ); ?>
-			<?php get_template_part( 'parts/off-canvas-menu' ); ?>
-			<?php get_template_part( 'parts/top-bar' ); ?>
+	<header id="masthead" class="site-header" role="banner">
+		<div class="title-bar" data-responsive-toggle="site-navigation" data-hide-for="medium">
+			<button class="menu-icon" type="button" data-toggle></button>
+			<div class="title-bar-title">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+			</div>
+		</div>
 
-		<section class="container" role="document">
-			<?php do_action( 'foundationpress_after_header' ); ?>
+		<nav id="site-navigation" class="main-navigation top-bar" role="navigation">
+			<div class="top-bar-left show-for-medium">
+				<ul class="menu">
+					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
+				</ul>
+			</div>
+			<div class="top-bar-right">
+				<?php foundationpress_top_bar_r(); ?>
+				<?php foundationpress_mobile_off_canvas(); ?>
+			</div>
+		</nav>
+	</header>
+
+	<section class="container" role="main">
+		<?php do_action( 'foundationpress_after_header' ); ?>
