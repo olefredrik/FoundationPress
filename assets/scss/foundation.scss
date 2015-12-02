@@ -16,8 +16,9 @@
 @import '../components/foundation-sites/scss/util/util';
 
 //  Settings and wp-override styles:
-@import "config/wp-overrides"; // Override the default WordPress styling for some elements
-@import "config/settings"; // Default settings file. Uncomment each setting you need to change
+@import "global/settings"; // Default settings file. Uncomment each setting you need to change
+@import "global/wp-admin"; // Fix issues with wp-admin bar positioning
+@import "global/wp-overrides"; // Override the default WordPress styling for some elements
 
 // Global variables and styles
 @import '../components/foundation-sites/scss/global';
@@ -109,9 +110,13 @@
   Add your scss files below to structure your project styles
 */
 
-@import "site/wp-admin";
-@import "site/topbar";
-@import "site/front";
-@import "site/featured";
-@import "site/footer";
-@import "site/kitchen-sink";
+// Modules
+@import "modules/topbar";
+@import "modules/footer";
+
+// Components
+@import "components/featured-image";
+
+// Templates
+@import "templates/front";
+@import "templates/kitchen-sink";
