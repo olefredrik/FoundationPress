@@ -65,7 +65,7 @@ if ( ! function_exists( 'foundationpress_mobile_top_bar' ) ) {
         'container' => false,                           // Remove nav container
 				'menu'           => __( 'mobile-off-canvas', 'foundationpress' ),
 				'menu_class'     => 'vertical menu',
-				'theme_location' => 'primary',
+				'theme_location' => 'mobile-top-bar',
 				'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-small-only" data-responsive-menu="drilldown medium-dropdown">%3$s</ul>',
 				'fallback_cb'    => false,
         'walker' => new Foundationpress_Offcanvas_Walker(),

@@ -30,6 +30,7 @@
 	<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
 	<div class="off-canvas-wrapper">
 		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+		<?php get_template_part( 'parts/off-canvas-menu' ); ?>
 	<?php endif; ?>
 
 	<?php do_action( 'foundationpress_layout_start' ); ?>
@@ -50,7 +51,10 @@
 			</div>
 			<div class="top-bar-right">
 				<?php foundationpress_top_bar_r(); ?>
-				<?php foundationpress_mobile_top_bar(); ?>
+
+				<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'topbar' ) : ?>
+					<?php foundationpress_mobile_top_bar(); ?>
+				<?php endif; ?>
 			</div>
 		</nav>
 	</header>
