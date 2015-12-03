@@ -12,6 +12,10 @@
     padding-bottom: 0;
     font-weight: bold;
     font-size: 0.8rem;
+
+    &:hover:not(.button) {
+      background-color: #2a2a2a;
+    }
   }
 
   .menu li:not(:last-child) {
