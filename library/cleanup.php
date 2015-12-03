@@ -183,8 +183,8 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
             } else {
                 $img .= ' />';
             }
-              
-            return $img;  
+
+            return $img;
 	      }
 	    }
 
