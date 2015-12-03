@@ -1,8 +1,7 @@
 #front-hero {
-
-
 	.marketing {
 		@include grid-row();
+		max-width: 55rem;
 	}
 
 	@include breakpoint(small) {
@@ -93,5 +92,30 @@
 		}
 
 		.download { margin-top: rem-calc(20); }
+	}
+
+#front {
+	@include grid-row();
+
+	.fp-intro {
+
+		@include breakpoint(medium) {
+		@include grid-column(10);
+		@include grid-column-offset(1);
+
+			h2 {
+				font-weight: 300;
+				margin-bottom: 1.5rem;
+			}
+
+			h4 {
+				font-size: 1.125rem;
+				line-height: 1.6;
+				color: #777;
+				margin-bottom: 4rem;
+			}
+
+		}
 
 	}
+}
