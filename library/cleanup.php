@@ -170,7 +170,7 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 	          $img .= ' alt="' . $alt . '"';
 	        }
 
-	        // Filter Through Class Segments & Find Alignment Classes and Size Classes
+            // Filter Through Class Segments & Find Alignment Classes and Size Classes
             foreach ( $class_segs as $class_seg ) {
                 if ( substr( $class_seg, 0, 5 ) === 'align' || substr( $class_seg, 0, 4 ) === 'size' ) {
                     $filtered_classes[] = $class_seg;
