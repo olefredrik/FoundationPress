@@ -1,9 +1,9 @@
 #kitchen-sink {
   @include grid-row();
+  margin-top: 3rem;
 
   header {
     @include grid-column(12);
-    margin-top: 3rem;
 
       .lead {
         font-size: 125%;
