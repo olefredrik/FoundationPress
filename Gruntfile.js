@@ -144,7 +144,7 @@ module.exports = function (grunt) {
       dist: {
         files: {
           // Shrink the file size by removing spaces
-          'assets/javascript/foundation.min.js': ['assets/javascript/foundation.js']
+          'assets/javascript/foundation.js': ['assets/javascript/foundation.js']
         }
       }
 
