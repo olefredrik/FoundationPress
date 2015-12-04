@@ -5,6 +5,8 @@
     color: #B9B9B9;
   }
 
+
+
   .menu a {
     height: 45px;
     line-height: 45px;
@@ -19,6 +21,10 @@
     }
   }
 
+  .menu>li:not(.menu-text)>a {
+    padding: 1rem;
+  }
+  
   .menu li:not(:last-child) {
       border-right: 1px solid #4e4e4e;
   }
