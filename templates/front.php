@@ -46,9 +46,10 @@ get_header(); ?>
 <?php endwhile;?>
 <?php do_action( 'foundationpress_after_content' ); ?>
 
-<div class="row column">
-	<hr class="dotted">
+<div class="section-divider">
+	<hr />
 </div>
+
 
 <section class="benefits">
 	<header>

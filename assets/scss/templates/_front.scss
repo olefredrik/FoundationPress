@@ -129,6 +129,17 @@
 	}
 }
 
+// Section divider
+.section-divider {
+	@include grid-row();
+
+	hr {
+		@include grid-column(12);
+		@extend .dotted;
+	}
+}
+
+
 // Benefits
 .benefits {
 	@include grid-row();
