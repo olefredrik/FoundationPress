@@ -113,6 +113,7 @@
 // Modules
 @import "modules/topbar";
 @import "modules/footer";
+@import "modules/sidebar";
 
 // Components
 @import "components/buttons";
@@ -125,3 +126,4 @@
 @import "templates/page-default";
 @import "templates/page-sidebar-left";
 @import "templates/page-full-width";
+@import "templates/single-post";
