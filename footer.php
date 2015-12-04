@@ -24,6 +24,12 @@
 	<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
 		</div><!-- Close off-canvas wrapper inner -->
 	</div><!-- Close off-canvas wrapper -->
+
+	<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
+	<!-- Close off-canvas content wrapper -->
+	</div>
+	<?php endif; ?>
+	
 	<?php endif; ?>
 
 <?php wp_footer(); ?>

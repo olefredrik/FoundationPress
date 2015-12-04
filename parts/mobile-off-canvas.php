@@ -9,6 +9,8 @@
 
 ?>
 
-<nav class="vertical menu off-canvas position-left" id="offCanvasleft" data-off-canvas data-position="left" data-accordion-menu role="navigation">
+<nav class="off-canvas position-left" id="offCanvas" data-off-canvas data-position="left" data-accordion-menu role="navigation">
   <?php foundationpress_mobile_nav(); ?>
 </nav>
+
+<div class="off-canvas-content" data-off-canvas-content>
