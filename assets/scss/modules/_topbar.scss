@@ -24,7 +24,9 @@
   }
 
   .menu li:not(:last-child) {
+    @include breakpoint(medium) {
       border-right: 1px solid #4e4e4e;
+    }
   }
 
   .dropdown.menu .submenu {
@@ -42,6 +44,10 @@
   }
 
 
+}
+
+.vertical &.menu {
+  padding: 1rem;
 }
 
 .title-bar {
