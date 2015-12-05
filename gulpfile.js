@@ -11,10 +11,10 @@ var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
 
 // File paths to various assets are defined here.
 var PATHS = {
-  assets: [
-    'src/assets/**/*',
-    '!src/assets/{!img,js,scss}/**/*'
-  ],
+  // assets: [
+  //   'src/assets/**/*',
+  //   '!src/assets/{!img,js,scss}/**/*'
+  // ],
   sass: [
     'assets/components/foundation-sites/scss',
     'assets/components/motion-ui/src/'
@@ -99,12 +99,37 @@ gulp.task('javascript', function() {
     .pipe(gulp.dest('assets/javascript'));
 });
 
-// Build the Sass & JS 
-gulp.task('build', ['sass', 'javascript'], function() {
-	// nothing to do
+// Copy tasks
+gulp.task('copy', ['copy-mui', 'copy-wi', 'copy-fa'],function() {
+  // Just the dependency tasks, nothing else to do here
 });
 
-// Default Gulp Task
+// Copy Motion-UI
+gulp.task('copy-mui', function() {
+  return gulp.src('assets/components/motion-ui/**/*.*')
+    .pipe($.flatten())
+    .pipe(gulp.dest('assets/javascript/vendor/motion-ui'));
+});
+
+// Copy What-Input
+gulp.task('copy-wi', function() {
+  return gulp.src('assets/components/what-input/**/*.*')
+    .pipe($.flatten())
+    .pipe(gulp.dest('assets/javascript/vendor/what-input'));
+});
+
+// Copy Font Awesome
+gulp.task('copy-fa', function() {
+  return gulp.src('assets/components/fontawesome/fonts/**/*.*')
+    .pipe(gulp.dest('assets/fonts'));
+});
+
+// Build the Sass & JS 
+gulp.task('build', ['sass', 'javascript'], function() {
+	// Just the dependency tasks, nothing else to do here
+});
+
+// Default gulp task
 // Run build task and watch for file changes
 gulp.task('default', ['build'], function() {
   gulp.watch(['assets/scss/**/*.scss'], ['sass', browser.reload]);
