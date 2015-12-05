@@ -1,5 +1,24 @@
 # Change Log
 
+## [v2.0.0](https://github.com/olefredrik/FoundationPress/tree/v2.0.0) (2015-12-05)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.7.2...v2.0.0)
+
+**Fixed bugs:**
+
+- Gruntfile and fontawesome [\#568](https://github.com/olefredrik/FoundationPress/issues/568)
+
+**Closed issues:**
+
+- Initial Build Erroring [\#558](https://github.com/olefredrik/FoundationPress/issues/558)
+- Trouble with the installation process [\#547](https://github.com/olefredrik/FoundationPress/issues/547)
+
+**Merged pull requests:**
+
+- Foundation 6 [\#580](https://github.com/olefredrik/FoundationPress/pull/580) ([olefredrik](https://github.com/olefredrik))
+- Add OffGrid Magazine site to showcase [\#579](https://github.com/olefredrik/FoundationPress/pull/579) ([KLVTZ](https://github.com/KLVTZ))
+- Remove string replace task [\#569](https://github.com/olefredrik/FoundationPress/pull/569) ([olefredrik](https://github.com/olefredrik))
+- Update changelog [\#565](https://github.com/olefredrik/FoundationPress/pull/565) ([olefredrik](https://github.com/olefredrik))
+
 ## [v1.7.2](https://github.com/olefredrik/FoundationPress/tree/v1.7.2) (2015-11-20)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.7.1...v1.7.2)
 

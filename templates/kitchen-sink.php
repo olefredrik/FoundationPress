@@ -364,6 +364,20 @@ get_header(); ?>
 						</ul>
 					<hr>
 
+					<!-- Motion UI -->
+					<h2 id="motion-ui" class="docs-heading" data-magellan-target="motion-ui"><a href="#motion-ui"></a>Motion UI</h2>
+						<div id="motion-example-1" data-toggler data-animate="fade-in fade-out" data-toggle="motion-example-1" class="callout secondary">
+					  	<p>This panel fades.</p>
+						</div>
+
+						<div id="motion-example-2" data-toggler data-animate="slide-in-down slide-out-up" data-toggle="motion-example-2" class="callout secondary">
+						  <p>This panel slides.</p>
+						</div>
+
+						<button type="button" class="button" data-toggle="motion-example-1">Fade</button>
+						<button type="button" class="button" data-toggle="motion-example-2">Slide</button>
+					<hr>
+
 					<!-- Orbit -->
 					<h2 id="orbit" class="docs-heading" data-magellan-target="orbit"><a href="#orbit"></a>Orbit</h2>
 						<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
@@ -620,6 +634,7 @@ get_header(); ?>
 							<li><a href="#label">Label</a></li>
 							<li><a href="#media-object">Media Object</a></li>
 							<li><a href="#menu">Menu</a></li>
+							<li><a href="#motion-ui">Motion UI</a></li>
 							<li><a href="#orbit">Orbit</a></li>
 							<li><a href="#pagination">Pagination</a></li>
 							<li><a href="#slider">Slider</a></li>

@@ -7,7 +7,7 @@ get_header(); ?>
 <header id="front-hero" role="banner">
 	<div class="marketing">
 		<div class="tagline">
-			<h1><a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+			<h1><?php bloginfo( 'name' ); ?></h1>
 			<h4 class="subheader"><?php bloginfo( 'description' ); ?></h4>
 			<a role="button" class="download large button sites-button hide-for-small-only" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
 		</div>

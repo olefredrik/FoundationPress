@@ -5,8 +5,6 @@
     color: #B9B9B9;
   }
 
-
-
   .menu a {
     height: 45px;
     line-height: 45px;
@@ -24,9 +22,11 @@
   .menu>li:not(.menu-text)>a {
     padding: 1rem;
   }
-  
+
   .menu li:not(:last-child) {
+    @include breakpoint(medium) {
       border-right: 1px solid #4e4e4e;
+    }
   }
 
   .dropdown.menu .submenu {
@@ -46,7 +46,17 @@
 
 }
 
-.title-bar-title a, {
-  font-size: 1rem;
-  color: #B9B9B9;
+.vertical &.menu {
+  padding: 1rem;
+}
+
+.title-bar {
+  @include breakpoint(medium) {
+    display: none;
+  }
+
+  .title a {
+    font-size: 1rem;
+    color: #B9B9B9;
+  }
 }
