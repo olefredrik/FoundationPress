@@ -52,6 +52,7 @@
     "motion-ui": "^1.1.0",
     "node-sass": "~3.4.1",
     "pixrem": "^3.0.0",
+    "run-sequence": "^1.1.5",
     "time-grunt": "~1.1.0",
     "yargs": "^3.31.0"
   },

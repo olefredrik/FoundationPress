@@ -3,6 +3,7 @@ var argv     = require('yargs').argv;
 var	gulp	   = require('gulp');
 var browser  = require('browser-sync');
 var merge    = require('merge-stream');
+var sequence = require('run-sequence');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -100,7 +101,7 @@ gulp.task('javascript', function() {
     .pipe(gulp.dest('assets/javascript'));
 });
 
-// Copy tasks
+// Copy task
 gulp.task('copy', function() {
   // Motion UI
   var motionUi = gulp.src('assets/components/motion-ui/**/*.*')
@@ -119,9 +120,12 @@ gulp.task('copy', function() {
   return merge(motionUi, whatInput, fontAwesome);
 });
 
-// Build the Sass & JS 
-gulp.task('build', ['sass', 'javascript'], function() {
-	// Just the dependency tasks, nothing else to do here
+// Build task
+// Runs copy then runs sass & javascript in parallel
+gulp.task('build', function(done) {
+  sequence('copy',
+          ['sass', 'javascript'],
+          done);
 });
 
 // Default gulp task
