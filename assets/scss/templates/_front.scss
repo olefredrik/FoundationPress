@@ -79,7 +79,7 @@
 		}
 	}
 
-	h1 a {
+	h1 {
 		color: #fff;
 		font-weight: 500;
 	}
@@ -112,7 +112,7 @@
 		@include breakpoint(small) {
 			@include grid-column(12);
 		}
-		
+
 		@include breakpoint(medium) {
 			@include grid-column(10);
 			@include grid-column-offset(1);
