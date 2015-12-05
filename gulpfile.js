@@ -2,6 +2,7 @@ var $        = require('gulp-load-plugins')();
 var argv     = require('yargs').argv;
 var	gulp	 = require('gulp');
 var browser  = require('browser-sync');
+var sequence = require('run-sequence');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -97,4 +98,16 @@ gulp.task('javascript', function() {
     .pipe(uglify)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('assets/javascript'));
+});
+
+// Build the Sass & JS 
+gulp.task('build', ['sass', 'javascript'], function() {
+	// nothing to do
+});
+
+// Default Gulp Task
+// Run build task and watch for file changes
+gulp.task('default', ['build'], function() {
+  gulp.watch(['assets/scss/**/*.scss'], ['sass', browser.reload]);
+  gulp.watch(['assets/javascript/**/*.js'], ['javascript', browser.reload]);
 });
