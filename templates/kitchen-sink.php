@@ -649,12 +649,11 @@ get_header(); ?>
 					</div>
 				</nav>
 
-			</div>
+			</div><!-- Close kitchen-sink-page-wrapper -->
 
 		<div class="entry-content">
 			<?php the_content(); ?>
 		</div>
 
-	</div><!-- Close kitchen-sink-page-wrapper -->
 	<?php endwhile; ?>
 <?php get_footer(); ?>
