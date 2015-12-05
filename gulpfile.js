@@ -1,13 +1,16 @@
 var $           = require('gulp-load-plugins')();
 var argv        = require('yargs').argv;
 var	gulp	      = require('gulp');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 var merge       = require('merge-stream');
 var sequence    = require('run-sequence');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var url = '';
+var URL = 'http://eldiablomissoula.dev';
+
+// Port # for Browsersync Server
+var PORT = 3000;
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -47,6 +50,12 @@ var PATHS = {
     'assets/components/foundation-sites/js/foundation.tabs.js',
     'assets/components/foundation-sites/js/foundation.toggler.js',
     'assets/components/foundation-sites/js/foundation.tooltip.js',
+
+    // Motion UI
+    'assets/components/motion-ui/motion-ui.js',
+
+    // What-input
+    'assets/components/what-input/what-input.js',
     
     // Include your own custom scripts (located in the custom folder)
     'assets/javascript/custom/*.js'
@@ -54,20 +63,21 @@ var PATHS = {
 };
 
 // Browsersync task
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', ['build'], function() {
   var files = [
-          '**/*.php',
-          'assets/images/*.{png,jpg,gif}'
-        ];
+            '**/*.php',
+            '**/*.{png,jpg,gif}'
+          ];
+
   browserSync.init(files, {
     // Proxy address
-    proxy: url,
+    proxy: URL,
     
     // Port # 
-    // port: 8080,
+    port: PORT,
 
     // Inject CSS changes
-    injectChanges: true
+    // injectChanges: true
   });
 });
 
@@ -89,7 +99,7 @@ gulp.task('sass', function() {
     .pipe(minifycss)
     .pipe($.if(!isProduction, $.sourcemaps.write('.')))
     .pipe(gulp.dest('assets/stylesheets'))
-    .pipe(browserSync.reload({stream:true}));
+    .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
 // Combine JavaScript into one file
@@ -106,7 +116,8 @@ gulp.task('javascript', function() {
     .pipe($.concat('foundation.js'))
     .pipe(uglify)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('assets/javascript'));
+    .pipe(gulp.dest('assets/javascript'))
+    .pipe(browserSync.stream());
 });
 
 // Copy task
@@ -139,7 +150,18 @@ gulp.task('build', function(done) {
 // Default gulp task
 // Run build task and watch for file changes
 gulp.task('default', ['build', 'browser-sync'], function() {
-  gulp.watch(['assets/scss/**/*.scss'], ['sass', browserSync.reload]);
-  gulp.watch(['assets/javascript/**/*.js'], ['javascript', browserSync.reload]);
-  // gulp.watch(['**/*.php'], [browserSync.reload]);
+  // Sass Watch
+  gulp.watch(['assets/scss/**/*.scss'], ['sass'])
+    .on('change', function(event) {
+      var fileName = require('path').relative(__dirname, event.path);
+      console.log('[WATCH] ' + fileName + ' was ' + event.type + ', running tasks...');
+    });
+
+  // JS Watch
+  gulp.watch(['assets/javascript/custom/**/*.js'], ['javascript'])
+    .on('change', function(event) {
+      var fileName = require('path').relative(__dirname, event.path);
+      console.log('[WATCH] ' + fileName + ' was ' + event.type + ', running tasks...');
+    });
+
 });
