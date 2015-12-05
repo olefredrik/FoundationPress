@@ -9,75 +9,43 @@
  */
 
 register_nav_menus(array(
-	'top-bar-l' => 'Left Top Bar', // Registers the menu in the WordPress admin menu editor.
 	'top-bar-r' => 'Right Top Bar',
-	'mobile-off-canvas' => 'Mobile',
+	'mobile-nav' => 'Mobile',
 ));
 
 
 /**
- * Left top bar
+ * Desktop navigation - right top bar
  * http://codex.wordpress.org/Function_Reference/wp_nav_menu
- */
-if ( ! function_exists( 'foundationpress_top_bar_l' ) ) {
-	function foundationpress_top_bar_l() {
-	    wp_nav_menu(array(
-	        'container' => false,                           // Remove nav container
-	        'container_class' => '',                        // Class of container
-	        'menu' => '',                                   // Menu name
-	        'menu_class' => 'top-bar-menu left',            // Adding custom nav class
-	        'theme_location' => 'top-bar-l',                // Where it's located in the theme
-	        'before' => '',                                 // Before each link <a>
-	        'after' => '',                                  // After each link </a>
-	        'link_before' => '',                            // Before each link text
-	        'link_after' => '',                             // After each link text
-	        'depth' => 5,                                   // Limit the depth of the nav
-	        'fallback_cb' => false,                         // Fallback function (see below)
-	        'walker' => new Foundationpress_Top_Bar_Walker(),
-	    ));
-	}
-}
-
-/**
- * Right top bar
  */
 if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 	function foundationpress_top_bar_r() {
 	    wp_nav_menu(array(
-	        'container' => false,                           // Remove nav container
-	        'container_class' => '',                        // Class of container
-	        'menu' => '',                                   // Menu name
-	        'menu_class' => 'top-bar-menu right',           // Adding custom nav class
-	        'theme_location' => 'top-bar-r',                // Where it's located in the theme
-	        'before' => '',                                 // Before each link <a>
-	        'after' => '',                                  // After each link </a>
-	        'link_before' => '',                            // Before each link text
-	        'link_after' => '',                             // After each link text
-	        'depth' => 5,                                   // Limit the depth of the nav
-	        'fallback_cb' => false,                         // Fallback function (see below)
-	        'walker' => new Foundationpress_Top_Bar_Walker(),
+        'container' => false,                           // Remove nav container
+        'menu_class' => 'dropdown menu',           			// Adding custom nav class
+				'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-medium" data-dropdown-menu>%3$s</ul>',
+        'theme_location' => 'top-bar-r',                // Where it's located in the theme
+        'depth' => 3,                                   // Limit the depth of the nav
+        'fallback_cb' => false,                         // Fallback function (see below)
+        'walker' => new Foundationpress_Top_Bar_Walker(),
 	    ));
 	}
 }
 
+
 /**
- * Mobile off-canvas
+ * Mobile navigation - topbar (default) or offcanvas
  */
-if ( ! function_exists( 'foundationpress_mobile_off_canvas' ) ) {
-	function foundationpress_mobile_off_canvas( $direction = 'left' ) {
+if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
+	function foundationpress_mobile_nav() {
 	    wp_nav_menu(array(
-	        'container' => false,                           // Remove nav container
-	        'container_class' => '',                        // Class of container
-	        'menu' => '',                                   // Menu name
-	        'menu_class' => 'off-canvas-list',              // Adding custom nav class
-	        'theme_location' => 'mobile-off-canvas',        // Where it's located in the theme
-	        'before' => '',                                 // Before each link <a>
-	        'after' => '',                                  // After each link </a>
-	        'link_before' => '',                            // Before each link text
-	        'link_after' => '',                             // After each link text
-	        'depth' => 5,                                   // Limit the depth of the nav
-	        'fallback_cb' => false,                         // Fallback function (see below)
-	        'walker' => new Foundationpress_Offcanvas_Walker($direction),
+        'container' => false,                           // Remove nav container
+				'menu'           => __( 'mobile-nav', 'foundationpress' ),
+				'menu_class'     => 'vertical menu',
+				'theme_location' => 'mobile-nav',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-small-only" data-accordion-menu%3$s</ul>',
+				'fallback_cb'    => false,
+        'walker' => new Foundationpress_Mobile_Walker(),
 	    ));
 	}
 }

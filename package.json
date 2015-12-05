@@ -1,8 +1,8 @@
 {
   "name": "foundationpress",
   "title": "FoundationPress",
-  "version": "1.7.2",
-  "description": "FoundationPress is a WordPress starter theme based on Foundation 5 by Zurb",
+  "version": "2.0.0",
+  "description": "FoundationPress is a WordPress starter theme based on Foundation 6 by Zurb",
   "keywords": [
     "FoundationPress",
     "WordPress",
@@ -25,6 +25,7 @@
     "autoprefixer": "^6.1.0",
     "bower": "~1.6.4",
     "cssnano": "^3.3.2",
+    "motion-ui": "^1.1.0",
     "grunt": "~0.4.5",
     "grunt-browser-sync": "^2.1.3",
     "grunt-cli": "^0.1.13",

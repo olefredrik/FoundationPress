@@ -1,0 +1,80 @@
+#kitchen-sink {
+  @include grid-row();
+  margin-top: 3rem;
+
+  header {
+    @include grid-column(12);
+
+      .lead {
+        font-size: 125%;
+        line-height: 1.6;
+      }
+    }
+
+  #components{
+
+    hr {
+      margin: 3rem 0;
+    }
+
+    @include breakpoint(small) {
+      @include grid-column(12);
+    }
+
+    @include breakpoint(large) {
+      @include grid-column(9);
+    }
+
+  }
+
+  #kitchen-sink-nav {
+
+    @include breakpoint(small) {
+      display: none;
+    }
+
+    @include breakpoint(large) {
+      @include grid-column(3);
+      display: block;
+      float: right;
+
+      .docs-sub-menu {
+          font-size: 0.85rem;
+          margin-top: 1rem;
+      }
+
+      .docs-menu-title {
+          text-transform: uppercase;
+          font-size: 0.75rem;
+          color: #999;
+          font-weight: bold;
+          line-height: 1;
+          padding-left: 0.9rem;
+          margin-bottom: 0.5rem;
+          border-top: 1px solid #e9e9e9;
+          margin-top: 1rem;
+          padding-top: 1.5rem;
+      }
+
+      .docs-toc {
+        width: 100%;
+        padding-left: 4rem;
+        padding-right: 1rem;
+      }
+
+      .docs-toc .active {
+          background: #2199e8;
+          color: white;
+      }
+
+      .docs-toc .docs-sub-menu:first-child .docs-menu-title {
+          margin-top: 0;
+          border-top: 0;
+          padding-top: 0;
+      }
+
+    }
+
+  }
+
+}

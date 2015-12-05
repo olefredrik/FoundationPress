@@ -3,736 +3,658 @@
 Template Name: Kitchen Sink
 */
 get_header(); ?>
-<div class="row">
-	<div class="small-12 large-12 columns" role="main">
+
 
 	<?php /* Start loop */ ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
+
+		<div id="kitchen-sink" role="main">
 			<header>
-				<h1 class="entry-title"><?php the_title(); ?></h1>
+				<h1 class="entry-title"><?php the_title(); ?></h1><hr>
+				<p class="lead">This page includes every single Foundation element so that we can make sure things work together smoothly.</p><hr>
 			</header>
-			<div class="entry-content">
-				<?php the_content(); ?>
-			</div>
 
-			<h3 class="subheader">This page includes every single Foundation element so that we can make sure things work together smoothly.</h3>
+			<!-- Main wrapper for the components in the kitchen-sink -->
+			<div id="components">
 
-			<h4 id="alert-boxes">Alert Boxes</h4>
-			<div data-alert class="alert-box radius">
-				This is a standard alert (div.alert-box).
-				<a href="" class="close">&times;</a>
-			</div>
+				<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
-			<div data-alert class="alert-box success">
-				This is a success alert (div.alert-box.success).
-				<a href="" class="close">&times;</a>
-			</div>
-
-			<div data-alert class="alert-box alert round">
-				This is an alert (div.alert-box.alert.round).
-				<a href="" class="close">&times;</a>
-			</div>
-
-			<div data-alert class="alert-box secondary">
-				This is a secondary alert (div.alert-box.secondary).
-				<a href="" class="close">&times;</a>
-			</div>
-
-			<hr>
-			<h4 id="block-grid">Block Grid</h4>
-			<ul class="small-block-grid-2 large-block-grid-4">
-				<li><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/comet-th.jpg" alt=""></li>
-				<li><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/launch-th.jpg" alt=""></li>
-				<li><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/space-th.jpg" alt=""></li>
-				<li><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/spacewalk-th.jpg" alt=""></li>
-			</ul>
-
-			<hr>
-			<h4 id="breadcrumbs">Breadcrumbs</h4>
-			<ul class="breadcrumbs">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Features</a></li>
-				<li class="unavailable"><a href="#">Gene Splicing</a></li>
-				<li class="current"><a href="#">Cloning</a></li>
-			</ul>
-
-			<hr>
-			<h4 id="buttons">Buttons</h4>
-			<div class="row">
-				<div class="small-6 large-6 columns">
-					<a href="#" class="tiny button">.tiny.button</a><br>
-					<a href="#" class="small button">.small.button</a><br>
-					<a href="#" class="button">.button</a><br>
-					<a href="#" class="button expand">.expand</a><br>
-				</div>
-				<div class="small-6 large-6 columns">
-					<a href="#" class="tiny button secondary">.tiny.secondary</a><br>
-					<a href="#" class="small button success radius">.small.success.radius</a><br>
-					<a href="#" class="button alert round disabled">.round.disabled</a><br>
-				</div>
-			</div>
-
-			<hr>
-			<h4 id="button-groups">Button Groups</h4>
-			<ul class="button-group">
-				<li><a href="#" class="small button">Button 1</a></li>
-				<li><a href="#" class="small button">Button 2</a></li>
-				<li><a href="#" class="small button">Button 3</a></li>
-			</ul>
-			<ul class="button-group radius">
-				<li><a href="#" class="button secondary">Button 1</a></li>
-				<li><a href="#" class="button secondary">Button 2</a></li>
-				<li><a href="#" class="button secondary">Button 3</a></li>
-				<li><a href="#" class="button secondary">Button 4</a></li>
-			</ul>
-			<ul class="button-group round even-3">
-				<li><a href="#" class="button alert">Button 1</a></li>
-				<li><a href="#" class="button alert">Button 2</a></li>
-				<li><a href="#" class="button alert">Button 3</a></li>
-			</ul>
-			<ul class="button-group round even-3">
-				<li><input type="submit" class="button success" value="Button 1"></li>
-				<li><input type="submit" class="button success" value="Button 2"></li>
-				<li><input type="submit" class="button success" value="Button 3"></li>
-			</ul>
-
-			<hr>
-			<h4 id="dropdown-buttons">Dropdown Buttons</h4>
-			<ul id="drop" class="f-dropdown content" data-dropdown-content>
-				<li><a href="#">This is a link</a></li>
-				<li><a href="#">This is another</a></li>
-				<li><a href="#">Yet another</a></li>
-			</ul>
-
-			<a href="#" data-dropdown="drop" class="tiny button dropdown">Dropdown Button</a><br>
-			<a href="#" data-dropdown="drop" class="small secondary radius button dropdown">Dropdown Button</a><br>
-			<a href="#" data-dropdown="drop" class="button alert round dropdown">Dropdown Button</a><br>
-			<a href="#" data-dropdown="drop" class="large success button dropdown">Dropdown Button</a><br>
-			<a href="#" data-dropdown="drop" class="large button dropdown expand">Dropdown Button</a>
-
-			<hr>
-			<h4 id="split-buttons">Split Buttons</h4>
-			<p>
-				<a href="#" class="tiny button split">Split Button <span data-dropdown="drop"></span></a><br>
-				<a href="#" class="small secondary radius button split">Split Button <span data-dropdown="drop"></span></a><br>
-				<a href="#" class="button alert round split">Split Button <span data-dropdown="drop"></span></a><br>
-				<a href="#" class="large success button split">Split Button <span data-dropdown="drop"></span></a>
-			</p>
-
-			<hr>
-			<h4 id="clearing">Clearing</h4>
-			<div>
-				<ul class="clearing-thumbs" data-clearing>
-					<li><a class="th" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/comet.jpg"><img data-caption="Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum." src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/comet-th-sm.jpg" alt=""></a></li>
-					<li><a class="th" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/earth.jpg"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/earth-th-sm.jpg" alt=""></a></li>
-					<li><a class="th" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/launch.jpg"><img data-caption="Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus." src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/launch-th-sm.jpg" alt=""></a></li>
-					<li><a class="th" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/satelite.jpg"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/satelite-th-sm.jpg" alt=""></a></li>
-					<li><a class="th" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/space.jpg"><img data-caption="Integer posuere erat a ante venenatis dapibus posuere velit aliquet." src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/space-th-sm.jpg" alt=""></a></li>
-				</ul>
-			</div>
-
-			<hr>
-			<h4 id="forms">Forms</h4>
-			<form>
-				<fieldset>
-					<legend>Fieldset</legend>
-
-					<div class="row">
-						<div class="large-12 columns">
-							<label>Input Label</label>
-							<input type="text" placeholder="large-12.columns">
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="large-4 columns">
-							<label>Input Label</label>
-							<input type="text" placeholder="large-4.columns">
-						</div>
-						<div class="large-4 columns">
-							<label>Input Label</label>
-							<input type="text" placeholder="large-4.columns">
-						</div>
-						<div class="large-4 columns">
-							<div class="row collapse">
-								<label>Input Label</label>
-								<div class="small-9 columns">
-									<input type="text" placeholder="small-9.columns">
-								</div>
-								<div class="small-3 columns">
-									<span class="postfix">.com</span>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="large-12 columns">
-							<label>Textarea Label</label>
-							<textarea placeholder="small-12.columns"></textarea>
-						</div>
-					</div>
-
-				</fieldset>
-			</form>
-
-			<hr>
-			<h4 id="dropdowns">Dropdowns</h4>
-			<a class="button" data-dropdown="tinyDrop" href="#">Link Dropdown &raquo;</a>
-			<a class="button" data-dropdown="contentDrop" href="#">Content Dropdown &raquo;</a>
-			<!-- Dropdowns -->
-			<ul class="f-dropdown" data-dropdown-content="" id="tinyDrop">
-				<li><a href="#">This is a link</a></li>
-				<li><a href="#">This is another</a></li>
-				<li><a href="#">Yet another</a></li>
-			</ul>
-
-			<div class="f-dropdown content medium" data-dropdown-content="" id= "contentDrop">
-				<h4>Title</h4>
-				<p>Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!</p><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/launch.jpg" alt="">
-				<p>Launching a Discovery Mission</p><a class="button" href="#">Button</a>
-			</div>
-
-			<hr>
-			<h4 id="flex-video">Flex Video</h4>
-			<div class="flex-video">
-				<iframe width="420" height="315" src="https://www.youtube.com/embed/Ogmrl9Yu9sQ" frameborder="0" allowfullscreen></iframe>
-			</div>
-
-			<hr>
-			<h4 id="inline-lists">Inline Lists</h4>
-			<ul class="inline-list">
-				<li><a href="#">Link 1</a></li>
-				<li><a href="#">Link 2</a></li>
-				<li><a href="#">Link 3</a></li>
-				<li><a href="#">Link 4</a></li>
-				<li><a href="#">Link 5</a></li>
-			</ul>
-
-			<hr>
-			<h4 id="joyride">Joyride</h4>
-			<div>
-				<a class="secondary button" id="start-jr">Start Joyride</a>
-
-				<h5 class="so-awesome" id="numero1">Build Joyride with HTML</h5>
-
-				<p class="so-awesome" id="numero2">Stop Number 2 for You!</p><!--stops-->
-
-				<ol class="joyride-list" data-joyride="">
-					<li data-class="custom so-awesome" data-id="numero1" data-text="Next">
-						<h4>Stop #1</h4>
-						<p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
-					</li>
-					<li data-button="Next" data-id="numero2">
-						<h4>Stop #2</h4>
-						<p>Get the details right by styling Joyride with a custom stylesheet!</p>
-					</li>
-					<li data-button="Next">
-						<h4>Stop #3</h4>
-						<p>It works as a modal too!</p>
-					</li>
-				</ol>
-			</div>
-
-			<hr>
-			<h4 id="keystroke">Keystroke</h4>
-			<p>To make something pretty, press and hold <kbd>cmd + alt + shift + w + a + !</kbd></p>
-
-			<hr>
-			<h4 id="labels">Labels</h4>
-			<p>
-				<span class="label">Regular Label</span><br>
-				<span class="radius secondary label">Radius Secondary Label</span><br>
-				<span class="round alert label">Round Alert Label</span><br>
-				<span class="success label">Success Label</span><br>
-			</p>
-
-			<hr>
-			<h4 id="magellan">Magellan</h4>
-			<div data-magellan-expedition="fixed">
-				<dl class="sub-nav">
-					<dd data-magellan-arrival="build"><a href="#build">Build with HTML</a></dd>
-					<dd data-magellan-arrival="js"><a href="#js">Using Javascript</a></dd>
-				</dl>
-			</div>
-
-			<a name="build"></a>
-			<h5 data-magellan-destination="build">Build With Predefined HTML Structure</h5>
-			<p>Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis euismod semper.</p>
-
-			<a name="js"></a>
-			<h5 data-magellan-destination="js">Awesome JS Goodness</h5>
-			<p>Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis euismod semper.</p>
-
-			<hr>
-			<h4 id="orbit">Orbit</h4>
-			<div class="row">
-				<div class="large-12 columns">
-					<ul id="featured1" data-orbit data-options="timer_speed:5000;">
-						<li>
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/satelite-orbit.jpg" alt=""/>
-							<div class="orbit-caption">
-								Caption One. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-							</div>
-						</li>
-						<li>
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/andromeda-orbit.jpg" alt=""/>
-							<div class="orbit-caption">
-								Caption Two. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-							</div>
-						</li>
-						<li>
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/launch-orbit.jpg" alt=""/>
-							<div class="orbit-caption">
-								Caption Three. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-							</div>
-						</li>
+					<!-- Accordion -->
+					<h2 id="accordion" class="docs-heading" data-magellan-target="accordion"><a href="#accordion"></a>Accordion</h2>
+					<ul class="accordion" data-accordion role="tablist">
+					  <li class="accordion-item">
+					    <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
+					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 1</a>
+					    <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
+					    <div id="panel1d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel1d-heading">
+					      Panel 1. Lorem ipsum dolor
+					    </div>
+					  </li>
+					  <li class="accordion-item">
+					    <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
+					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 1</a>
+					    <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
+					    <div id="panel1d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel1d-heading">
+					      Panel 2. Lorem ipsum dolor
+					    </div>
+					  </li>
+					  <li class="accordion-item">
+					    <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
+					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 1</a>
+					    <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
+					    <div id="panel1d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel1d-heading">
+					      Panel 3. Lorem ipsum dolor
+					    </div>
+					  </li>
 					</ul>
+					<hr>
+
+					<!-- Accordion Menu -->
+					<h2 id="accordion-menu" class="docs-heading" data-magellan-target="accordion-menu"><a href="#accordion-menu"></a>Accordion Menu</h2>
+						<ul class="vertical menu" data-accordion-menu>
+						  <li>
+						    <a href="#">Item 1</a>
+						    <ul class="menu vertical nested is-active">
+						      <li>
+						        <a href="#">Item 1A</a>
+						        <ul class="menu vertical nested">
+						          <li><a href="#">Item 1Ai</a></li>
+						          <li><a href="#">Item 1Aii</a></li>
+						          <li><a href="#">Item 1Aiii</a></li>
+						        </ul>
+						      </li>
+						      <li><a href="#">Item 1B</a></li>
+						      <li><a href="#">Item 1C</a></li>
+						    </ul>
+						  </li>
+						  <li>
+						    <a href="#">Item 2</a>
+						    <ul class="menu vertical nested">
+						      <li><a href="#">Item 2A</a></li>
+						      <li><a href="#">Item 2B</a></li>
+						    </ul>
+						  </li>
+						  <li><a href="#">Item 3</a></li>
+						</ul>
+					<hr>
+
+					<!-- Badge -->
+					<h2 id="badge" class="docs-heading" data-magellan-target="badge"><a href="#badge"></a>Badge</h2>
+						<span class="secondary badge">2</span>
+						<span class="success badge">3</span>
+						<span class="alert badge">A</span>
+						<span class="warning badge">B</span>
+					<hr>
+
+					<!-- Breadcrumbs -->
+					<h2 id="breadcrumbs" class="docs-heading" data-magellan-target="breadcrumbs"><a href="#breadcrumbs"></a>Breadcrumbs</h2>
+						<nav aria-label="You are here:" role="navigation">
+	  					<ul class="breadcrumbs">
+						    <li><a href="#">Home</a></li>
+						    <li><a href="#">Features</a></li>
+						    <li class="disabled">Gene Splicing</li>
+						    <li><span class="show-for-sr">Current: </span> Cloning</li>
+	  					</ul>
+						</nav>
+					<hr>
+
+					<!-- Button -->
+					<h2 id="button" class="docs-heading" data-magellan-target="button"><a href="#button"></a>Button</h2>
+						<a href="about.html" class="button">Learn More</a>
+						<a href="#features" class="button">View All Features</a>
+
+						<!-- Buttons (actions) -->
+						<button type="button" class="success button">Save</button>
+						<button type="button" class="alert button">Delete</button>
+
+						<a class="tiny button" href="#">So Tiny</a>
+						<a class="small button" href="#">So Small</a>
+						<a class="large button" href="#">So Large</a>
+						<a class="expanded button" href="#">Such Expand</a>
+
+						<div class="button-group">
+						  <a class="button">One</a>
+						  <a class="button">Two</a>
+						  <a class="button">Three</a>
+						</div>
+					<hr>
+
+					<!-- Callout -->
+					<h2 id="callout" class="docs-heading" data-magellan-target="callout"><a href="#callout"></a>Callout</h2>
+						<div class="callout">
+						  <h5>This is a callout.</h5>
+						  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+						  <a href="#">It's dangerous to go alone, take this.</a>
+						</div>
+
+						<div class="callout secondary">
+						  <h5>This is a secondary callout</h5>
+						  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+						  <a href="#">It's dangerous to go alone, take this.</a>
+						</div>
+
+						<div class="callout success">
+						  <h5>This is a success callout</h5>
+						  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+						  <a href="#">It's dangerous to go alone, take this.</a>
+						</div>
+
+						<div class="callout warning">
+						  <h5>This is a warning callout</h5>
+						  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+						  <a href="#">It's dangerous to go alone, take this.</a>
+						</div>
+
+						<div class="callout alert">
+						  <h5>This is an alert callout</h5>
+						  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+						  <a href="#">It's dangerous to go alone, take this.</a>
+						</div>
+					<hr>
+
+					<!-- Close Button -->
+					<h2 id="close-button" class="docs-heading" data-magellan-target="close-button"><a href="#close-button"></a>Close Button</h2>
+						<div class="callout">
+						  <button class="close-button" aria-label="Close alert" type="button">
+						    <span aria-hidden="true">&times;</span>
+						  </button>
+						  <p>You can so totally close this!</p>
+						</div>
+					<hr>
+
+					<!-- Drilldown Menu -->
+					<h2 id="drilldown-menu" class="docs-heading" data-magellan-target="drilldown-menu"><a href="#drilldown-menu"></a>Drilldown Menu</h2>
+						<ul class="vertical menu" data-drilldown style="width: 200px" id="m1">
+						  <li>
+						    <a href="#">Item 1</a>
+						    <ul class="vertical menu" id="m2">
+						      <li>
+						        <a href="#">Item 1A</a>
+						        <ul class="vertical menu" id="m3">
+						          <li><a href="#">Item 1Aa</a></li>
+						          <li><a href="#">Item 1Ba</a></li>
+						          <li><a href="#">Item 1Ca</a></li>
+						          <li><a href="#">Item 1Da</a></li>
+						          <li><a href="#">Item 1Ea</a></li>
+						        </ul>
+						      </li>
+						      <li><a href="#">Item 1B</a></li>
+						      <li><a href="#">Item 1C</a></li>
+						      <li><a href="#">Item 1D</a></li>
+						      <li><a href="#">Item 1E</a></li>
+						    </ul>
+						  </li>
+						  <li>
+						    <a href="#">Item 2</a>
+						    <ul class="vertical menu">
+						      <li><a href="#">Item 2A</a></li>
+						      <li><a href="#">Item 2B</a></li>
+						      <li><a href="#">Item 2C</a></li>
+						      <li><a href="#">Item 2D</a></li>
+						      <li><a href="#">Item 2E</a></li>
+						    </ul>
+						  </li>
+						  <li>
+						    <a href="#">Item 3</a>
+						    <ul class="vertical menu">
+						      <li><a href="#">Item 3A</a></li>
+						      <li><a href="#">Item 3B</a></li>
+						      <li><a href="#">Item 3C</a></li>
+						      <li><a href="#">Item 3D</a></li>
+						      <li><a href="#">Item 3E</a></li>
+						    </ul>
+						  </li>
+						  <li><a href='#'> Item 4</a></li>
+						</ul>
+					<hr>
+
+					<!-- Dropdown Menu -->
+					<h2 id="dropdown-menu" class="docs-heading" data-magellan-target="dropdown-menu"><a href="#dropdown-menu"></a>Dropdown Menu</h2>
+						<ul class="dropdown menu" data-dropdown-menu>
+						  <li>
+						    <a>Item 1</a>
+						    <ul class="menu">
+						      <li><a href="#">Item 1A Loooong</a></li>
+						      <li>
+						        <a href='#'> Item 1 sub</a>
+						        <ul class='menu'>
+						          <li><a href='#'>Item 1 subA</a></li>
+						          <li><a href='#'>Item 1 subB</a></li>
+						          <li>
+						            <a href='#'> Item 1 sub</a>
+						            <ul class='menu'>
+						              <li><a href='#'>Item 1 subA</a></li>
+						              <li><a href='#'>Item 1 subB</a></li>
+						            </ul>
+						          </li>
+						          <li>
+						            <a href='#'> Item 1 sub</a>
+						            <ul class='menu'>
+						              <li><a href='#'>Item 1 subA</a></li>
+						            </ul>
+						          </li>
+						        </ul>
+						      </li>
+						      <li><a href="#">Item 1B</a></li>
+						    </ul>
+						  </li>
+						  <li>
+						    <a href="#">Item 2</a>
+						    <ul class="menu">
+						      <li><a href="#">Item 2A</a></li>
+						      <li><a href="#">Item 2B</a></li>
+						    </ul>
+						  </li>
+						  <li><a href="#">Item 3</a></li>
+						  <li><a href='#'>Item 4</a></li>
+						</ul>
+					<hr>
+
+					<!-- Dropdown Pane -->
+					<h2 id="dropdown-pane" class="docs-heading" data-magellan-target="dropdown-pane"><a href="#dropdown-pane"></a>Dropdown Pane</h2>
+						<button class="button" type="button" data-toggle="example-dropdown">Toggle Dropdown</button>
+						<div class="dropdown-pane" id="example-dropdown" data-dropdown>
+						  Just some junk that needs to be said. Or not. Your choice.
+						</div>
+					<hr>
+
+					<!-- Flex Video -->
+					<h2 id="flex-video" class="docs-heading" data-magellan-target="flex-video"><a href="#flex-video"></a>Flex Video</h2>
+						<div class="flex-video">
+						  <iframe width="420" height="315" src="https://www.youtube.com/embed/V9gkYw35Vws" frameborder="0" allowfullscreen></iframe>
+						</div>
+					<hr>
+
+					<!-- Float Classes -->
+					<h2 id="float-classes" class="docs-heading" data-magellan-target="float-classes"><a href="#float-classes"></a>Float Classes</h2>
+						<div class="callout clearfix">
+						  <a class="button float-left">Left</a>
+						  <a class="button float-right">Right</a>
+						</div>
+					<hr>
+
+					<!-- Forms -->
+					<h2 id="forms" class="docs-heading" data-magellan-target="forms"><a  href="#forms"></a>Forms</h2>
+						<form>
+						  <label>Input Label
+						    <input type="text" placeholder=".small-12.columns" aria-describedby="exampleHelpText">
+						  </label>
+						  <p class="help-text" id="exampleHelpText">Here's how you use this input field!</p>
+						  <label>
+						    How many puppies?
+						    <input type="number" value="100">
+						  </label>
+						  <label>
+						    What books did you read over summer break?
+						    <textarea placeholder="None"></textarea>
+						  </label>
+						  <label>Select Menu
+						    <select>
+						      <option value="husker">Husker</option>
+						      <option value="starbuck">Starbuck</option>
+						      <option value="hotdog">Hot Dog</option>
+						      <option value="apollo">Apollo</option>
+						    </select>
+						  </label>
+						  <div class="row">
+						    <fieldset class="large-6 columns">
+						      <legend>Choose Your Favorite</legend>
+						      <input type="radio" name="pokemon" value="Red" id="pokemonRed" required><label for="pokemonRed">Red</label>
+						      <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
+						      <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"><label for="pokemonYellow">Yellow</label>
+						    </fieldset>
+						    <fieldset class="large-6 columns">
+						      <legend>Check these out</legend>
+						      <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+						      <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+						      <input id="checkbox3" type="checkbox"><label for="checkbox3">Checkbox 3</label>
+						    </fieldset>
+						  </div>
+						  <div class="row">
+						    <div class="small-3 columns">
+						      <label for="middle-label" class="right middle">Label</label>
+						    </div>
+						    <div class="small-9 columns">
+						      <input type="text" id="middle-label" placeholder="Right- and middle-aligned text input">
+						    </div>
+						  </div>
+						  <div class="input-group">
+						    <span class="input-group-label">$</span>
+						    <input class="input-group-field" type="url">
+						    <a class="input-group-button button">Submit</a>
+						  </div>
+						</form>
+					<hr>
+
+					<!-- Label -->
+					<h2 id="label" class="docs-heading" data-magellan-target="label"><a href="#label"></a>Label</h2>
+						<span class="secondary label">Secondary Label</span>
+						<span class="success label">Success Label</span>
+						<span class="alert label">Alert Label</span>
+						<span class="warning label">Warning Label</span>
+					<hr>
+
+					<!-- Media Object -->
+					<h2 id="media-object" class="docs-heading" data-magellan-target="media-object"><a href="#media-object"></a>Media Object</h2>
+						<div class="media-object">
+						  <div class="media-object-section">
+						    <img src= "http://placeimg.com/200/200/people">
+						  </div>
+						  <div class="media-object-section">
+						    <h4>Dreams feel real while we're in them.</h4>
+						    <p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
+						  </div>
+						</div>
+					<hr>
+
+					<!-- Menu -->
+					<h2 id="menu" class="docs-heading" data-magellan-target="menu"><a href="#menu"></a>Menu</h2>
+						<ul class="menu">
+						  <li><a href="#">One</a></li>
+						  <li><a href="#">Two</a></li>
+						  <li><a href="#">Three</a></li>
+						  <li><a href="#">Four</a></li>
+						</ul>
+
+						<ul class="menu icon-top">
+						  <li><a href="#"><i class="fi-list"></i> <span>One</span></a></li>
+						  <li><a href="#"><i class="fi-list"></i> <span>Two</span></a></li>
+						  <li><a href="#"><i class="fi-list"></i> <span>Three</span></a></li>
+						  <li><a href="#"><i class="fi-list"></i> <span>Four</span></a></li>
+						</ul>
+					<hr>
+
+					<!-- Motion UI -->
+					<h2 id="motion-ui" class="docs-heading" data-magellan-target="motion-ui"><a href="#motion-ui"></a>Motion UI</h2>
+						<div id="motion-example-1" data-toggler data-animate="fade-in fade-out" data-toggle="motion-example-1" class="callout secondary">
+					  	<p>This panel fades.</p>
+						</div>
+
+						<div id="motion-example-2" data-toggler data-animate="slide-in-down slide-out-up" data-toggle="motion-example-2" class="callout secondary">
+						  <p>This panel slides.</p>
+						</div>
+
+						<button type="button" class="button" data-toggle="motion-example-1">Fade</button>
+						<button type="button" class="button" data-toggle="motion-example-2">Slide</button>
+					<hr>
+
+					<!-- Orbit -->
+					<h2 id="orbit" class="docs-heading" data-magellan-target="orbit"><a href="#orbit"></a>Orbit</h2>
+						<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+						  <ul class="orbit-container">
+						    <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
+						    <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
+						    <li class="is-active orbit-slide">
+						      <div>
+						        <h3 class="text-center">You can also throw some text in here!</h3>
+						        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
+						        <h3 class="text-center">This Orbit slide has chill</h3>
+						      </div>
+						    </li>
+						    <li class="orbit-slide">
+						      <div>
+						        <h3 class="text-center">You can also throw some text in here!</h3>
+						        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
+						        <h3 class="text-center">This Orbit slide has chill</h3>
+						      </div>
+						    </li>
+						    <li class="orbit-slide">
+						      <div>
+						        <h3 class="text-center">You can also throw some text in here!</h3>
+						        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
+						        <h3 class="text-center">This Orbit slide has chill</h3>
+						      </div>
+						    </li>
+						    <li class="orbit-slide">
+						      <div>
+						        <h3 class="text-center">You can also throw some text in here!</h3>
+						        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
+						        <h3 class="text-center">This Orbit slide has chill</h3>
+						      </div>
+						    </li>
+						  </ul>
+						  <nav class="orbit-bullets">
+						   <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+						   <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+						   <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+						   <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+						 </nav>
+						</div>
+					<hr>
+
+					<!-- Pagination -->
+					<h2 id="pagination" class="docs-heading" data-magellan-target="pagination"><a href="#pagination"></a>Pagination</h2>
+						<ul class="pagination" role="navigation" aria-label="Pagination">
+						  <li class="disabled">Previous <span class="show-for-sr">page</span></li>
+						  <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+						  <li><a href="#" aria-label="Page 2">2</a></li>
+						  <li><a href="#" aria-label="Page 3">3</a></li>
+						  <li><a href="#" aria-label="Page 4">4</a></li>
+						  <li class="ellipsis" aria-hidden="true"></li>
+						  <li><a href="#" aria-label="Page 12">12</a></li>
+						  <li><a href="#" aria-label="Page 13">13</a></li>
+						  <li><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+						</ul>
+					<hr>
+
+					<!-- Slider -->
+					<h2 id="slider" class="docs-heading" data-magellan-target="slider"><a href="#slider"></a>Slider</h2>
+						<div class="slider" data-slider data-initial-start='50' data-end='200'>
+						  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
+						  <span class="slider-fill" data-slider-fill></span>
+						  <input type="hidden">
+						</div>
+
+						<div class="slider vertical" data-slider data-initial-start='25' data-end='200' data-vertical="true">
+						  <span class="slider-handle" data-slider-handle role="slider" tabindex="1"></span>
+						  <span class="slider-fill" data-slider-fill></span>
+						  <input type="hidden">
+						</div>
+					<hr>
+
+
+					<!-- Switch -->
+					<h2 id="switch" class="docs-heading" data-magellan-target="switch"><a href="#switch"></a>Switch</h2>
+						<div class="switch tiny">
+						  <input class="switch-input" id="tinySwitch" type="checkbox" name="exampleSwitch">
+						  <label class="switch-paddle" for="tinySwitch">
+						    <span class="show-for-sr">Tiny Sandwiches Enabled</span>
+						  </label>
+						</div>
+
+						<div class="switch small">
+						  <input class="switch-input" id="smallSwitch" type="checkbox" name="exampleSwitch">
+						  <label class="switch-paddle" for="smallSwitch">
+						    <span class="show-for-sr">Small Portions Only</span>
+						  </label>
+						</div>
+
+						<div class="switch large">
+						  <input class="switch-input" id="largeSwitch" type="checkbox" name="exampleSwitch">
+						  <label class="switch-paddle" for="largeSwitch">
+						    <span class="show-for-sr">Show Large Elephants</span>
+						  </label>
+						</div>
+					<hr>
+
+					<!-- Table -->
+					<h2 id="table" class="docs-heading" data-magellan-target="table"><a href="#table"></a>Table</h2>
+						<table>
+						  <thead>
+						    <tr>
+						      <th width="200">Table Header</th>
+						      <th>Table Header</th>
+						      <th width="150">Table Header</th>
+						      <th width="150">Table Header</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td>Content Goes Here</td>
+						      <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+						      <td>Content Goes Here</td>
+						      <td>Content Goes Here</td>
+						    </tr>
+						    <tr>
+						      <td>Content Goes Here</td>
+						      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+						      <td>Content Goes Here</td>
+						      <td>Content Goes Here</td>
+						    </tr>
+						    <tr>
+						      <td>Content Goes Here</td>
+						      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+						      <td>Content Goes Here</td>
+						      <td>Content Goes Here</td>
+						    </tr>
+						  </tbody>
+						</table>
+					<hr>
+
+					<!-- Tabs -->
+					<h2 id="tabs" class="docs-heading" data-magellan-target="tabs"><a href="#tabs"></a>Tabs</h2>
+						<ul class="tabs" data-tabs id="example-tabs">
+						  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
+						  <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
+						  <li class="tabs-title"><a href="#panel3">Tab 3</a></li>
+						  <li class="tabs-title"><a href="#panel4">Tab 4</a></li>
+						  <li class="tabs-title"><a href="#panel5">Tab 5</a></li>
+						  <li class="tabs-title"><a href="#panel6">Tab 6</a></li>
+						</ul>
+
+						<div class="tabs-content" data-tabs-content="example-tabs">
+						  <div class="tabs-panel is-active" id="panel1">
+						    <p>one</p>
+						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
+						  </div>
+						  <div class="tabs-panel" id="panel2">
+						    <p>two</p>
+						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+						  </div>
+						  <div class="tabs-panel" id="panel3">
+						    <p>three</p>
+						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
+						  </div>
+						  <div class="tabs-panel" id="panel4">
+						    <p>four</p>
+						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+						  </div>
+						  <div class="tabs-panel" id="panel5">
+						    <p>five</p>
+						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
+						  </div>
+						  <div class="tabs-panel" id="panel6">
+						    <p>six</p>
+						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+						  </div>
+						</div>
+					<hr>
+
+					<!-- Thumbnail -->
+					<h2 id="thumbnail" class="docs-heading" data-magellan-target="thumbnail"><a href="#thumbnail"></a>Thumbnail</h2>
+						<div class="row">
+						  <div class="small-4 columns">
+						    <img class="thumbnail" src="http://placeimg.com/200/200/nature" alt="Placeholder image.">
+						  </div>
+						  <div class="small-4 columns">
+						    <img class="thumbnail" src="http://placeimg.com/200/200/nature" alt="Placeholder image.">
+						  </div>
+						  <div class="small-4 columns">
+						    <img class="thumbnail" src="http://placeimg.com/200/200/nature" alt="Placeholder image.">
+						  </div>
+						</div>
+					<hr>
+
+					<!-- Title Bar -->
+					<h2 id="title-bar" class="docs-heading" data-magellan-target="title-bar"><a href="#title-bar"></a>Title Bar</h2>
+						<div class="title-bar">
+						  <div class="title-bar-left">
+						    <button class="menu-icon" type="button"></button>
+						    <span class="title-bar-title">FoundationPress</span>
+						  </div>
+						  <div class="title-bar-right">
+						    <button class="menu-icon" type="button"></button>
+						  </div>
+						</div>
+					<hr>
+
+					<!-- Tooltip -->
+					<h2 id="tooltip" class="docs-heading" data-magellan-target="tooltip"><a href="#tooltip"></a>Tooltip</h2>
+							<p>The <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover='false' tabindex=1 title="Fancy word for a beetle.">scarabaeus</span> hung quite clear of any branches, and, if allowed to fall, would have fallen at our feet. Legrand immediately took the scythe, and cleared with it a circular space, three or four yards in diameter, just beneath the insect, and, having accomplished this, ordered Jupiter to let go the string and come down from the tree.</p>
+					<hr>
+
+					<h2 id="top-bar" class="docs-heading" data-magellan-target="top-bar"><a href="#top-bar"></a>Top Bar</h2>
+						<div class="top-bar">
+
+							<div class="top-bar-left">
+						    <ul class="dropdown menu" data-dropdown-menu>
+						      <li class="menu-text">Site Title</li>
+						      <li class="has-submenu">
+						        <a href="#">One</a>
+						        <ul class="submenu menu vertical" data-submenu>
+						          <li><a href="#">One</a></li>
+						          <li><a href="#">Two</a></li>
+						          <li><a href="#">Three</a></li>
+						        </ul>
+						      </li>
+						      <li><a href="#">Two</a></li>
+						      <li><a href="#">Three</a></li>
+						    </ul>
+						  </div>
+
+							<div class="top-bar-right">
+						    <ul class="menu">
+						      <li><input type="search" placeholder="Search"></li>
+						      <li><button type="button" class="button">Search</button></li>
+						    </ul>
+						  </div>
+						</div>
+					<hr>
+					</article>
 				</div>
-			</div>
 
-			<hr>
-			<h4 id="pagination">Pagination</h4>
-			<ul class="pagination">
-				<li class="arrow unavailable"><a href="">&laquo;</a></li>
-				<li class="current"><a href="">1</a></li>
-				<li><a href="">2</a></li>
-				<li><a href="">3</a></li>
-				<li><a href="">4</a></li>
-				<li class="unavailable"><a href="">&hellip;</a></li>
-				<li><a href="">12</a></li>
-				<li><a href="">13</a></li>
-				<li class="arrow"><a href="">&raquo;</a></li>
-			</ul>
-
-			<hr>
-			<h4 id="panels">Panels</h4>
-			<div class="row">
-				<div class="large-6 columns">
-					<div class="panel">
-						<h5>This is a regular panel.</h5>
-						<p>It has an easy to override visual style, and is appropriately subdued.</p>
+				<!-- On this page - sidebar nav container -->
+				<nav id="kitchen-sink-nav" data-sticky-container>
+					<div class="docs-toc" data-sticky="sidebar" data-anchor="components">
+						<ul class="vertical menu docs-sub-menu" data-magellan>
+							<li class="docs-menu-title">On this page:</li>
+							<li><a href="#accordion">Accordion</a></li>
+							<li><a href="#accordion-menu">Accordion Menu</a></li>
+							<li><a href="#badge">Badge</a></li>
+							<li><a href="#breadcrumbs">Breadcrumbs</a></li>
+							<li><a href="#button">Button</a></li>
+							<li><a href="#callout">Callout</a></li>
+							<li><a href="#close-button">Close button</a></li>
+							<li><a href="#drilldown-menu">Drilldown Menu</a></li>
+							<li><a href="#dropdown-menu">Dropdown Menu</a></li>
+							<li><a href="#dropdown-pane">Dropdown Pane</a></li>
+							<li><a href="#flex-video">Flex Video</a></li>
+							<li><a href="#float-classes">Float Classes</a></li>
+							<li><a href="#forms">Forms</a></li>
+							<li><a href="#label">Label</a></li>
+							<li><a href="#media-object">Media Object</a></li>
+							<li><a href="#menu">Menu</a></li>
+							<li><a href="#motion-ui">Motion UI</a></li>
+							<li><a href="#orbit">Orbit</a></li>
+							<li><a href="#pagination">Pagination</a></li>
+							<li><a href="#slider">Slider</a></li>
+							<li><a href="#switch">Switch</a></li>
+							<li><a href="#table">Table</a></li>
+							<li><a href="#tabs">Tabs</a></li>
+							<li><a href="#thumbnail">Thumbnail</a></li>
+							<li><a href="#title-bar">Title Bar</a></li>
+							<li><a href="#tooltip">Tooltip</a></li>
+							<li><a href="#top-bar">Top Bar</a></li>
+						</ul>
 					</div>
-				</div>
-				<div class="large-6 columns">
-					<div class="panel callout radius">
-						<h5>This is a callout panel with radiused edges.</h5>
-						<p>It&#39;s a little ostentatious, but useful for important content.</p>
-					</div>
-				</div>
+				</nav>
+
 			</div>
 
-			<h4 id="pricing-tables">Pricing Tables</h4>
-			<div class="row">
-				<div class="large-4 columns">
-					<ul class="pricing-table">
-						<li class="title">Standard</li>
-						<li class="price">$99.99</li>
-						<li class="description">An awesome description</li>
-						<li class="bullet-item">1 Database</li>
-						<li class="bullet-item">5GB Storage</li>
-						<li class="bullet-item">20 Users</li>
-						<li class="cta-button"><a class="button" href="#">Buy Now</a></li>
-					</ul>
-				</div>
-			</div>
+		<div class="entry-content">
+			<?php the_content(); ?>
+		</div>
 
-			<hr>
-			<h4 id="progress-bars">Progress Bars</h4>
-			<div class="progress large-6"><span class="meter" style="width: 40%"></span></div>
-			<div class="radius progress success large-8"><span class="meter" style="width: 80%"></span></div>
-			<div class="nice round progress alert large-10"><span class="meter" style="width: 30%"></span></div>
-			<div class="nice secondary progress"><span class="meter" style="width: 50%"></span></div>
-
-			<hr>
-			<h4 id="reveal">Reveal</h4>
-			<a href="#" data-reveal-id="firstModal" class="radius button">Example Modal&hellip;</a>
-			<a href="#" data-reveal-id="videoModal" class="radius button">Example Modal w/Video&hellip;</a>
-			<!-- Reveal Modals begin -->
-			<div id="firstModal" class="reveal-modal" data-reveal>
-				<h2>This is a modal.</h2>
-				<p>Reveal makes these very easy to summon and dismiss. The close button is simply an anchor with a unicode character icon and a class of <code>close-reveal-modal</code>. Clicking anywhere outside the modal will also dismiss it.</p>
-				<p>Finally, if your modal summons another Reveal modal, the plugin will handle that for you gracefully.</p>
-				<a href="#" data-reveal-id="secondModal" class="secondary button">Second Modal...</a>
-				<a class="close-reveal-modal">&#215;</a>
-			</div>
-
-			<div id="secondModal" class="reveal-modal" data-reveal>
-				<h2>This is a second modal.</h2>
-				<p>See? It just slides into place after the other first modal. Very handy when you need subsequent dialogs, or when a modal option impacts or requires another decision.</p>
-				<a class="close-reveal-modal">&#215;</a>
-			</div>
-
-			<div id="videoModal" class="reveal-modal large" data-reveal>
-				<h2>This modal has video</h2>
-				<div class="flex-video">
-						<iframe width="420" height="315" src="//www.youtube.com/embed/aiBt44rrslw" frameborder="0" allowfullscreen></iframe>
-				</div>
-				<a class="close-reveal-modal">&#215;</a>
-			</div>
-			<!-- Reveal Modals end -->
-
-			<hr>
-			<h4 id="sliders">Sliders</h4>
-			<div class="range-slider" data-slider>
-				<span class="range-slider-handle"></span>
-				<span class="range-slider-active-segment"></span>
-				<input type="hidden">
-			</div>
-			<div class="range-slider radius" data-slider>
-				<span class="range-slider-handle"></span>
-				<span class="range-slider-active-segment"></span>
-				<input type="hidden">
-			</div>
-			<div class="range-slider round" data-slider>
-				<span class="range-slider-handle"></span>
-				<span class="range-slider-active-segment"></span>
-				<input type="hidden">
-			</div>
-			<div class="range-slider" data-slider data-options="step: 20;">
-				<span class="range-slider-handle"></span>
-				<span class="range-slider-active-segment"></span>
-				<input type="hidden">
-			</div>
-
-			<hr>
-			<h4 id="accordion">Accordion</h4>
-			<ul class="accordion" data-accordion="">
-  <li class="accordion-navigation active">
-    <a href="#panel1a">Accordion 1</a>
-    <div id="panel1a" class="content active">
-      <ul class="small-block-grid-2 large-block-grid-3 ">
-        <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/350x150.png" alt="placeholder image"></li>
-        <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/350x150.png" alt="placeholder image"></li>
-        <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/350x150.png" alt="placeholder image"></li>
-      </ul>
-    </div>
-  </li>
-  <li class="accordion-navigation">
-    <a href="#panel2a">Accordion 2</a>
-    <div id="panel2a" class="content">
-      <div class="row">
-        <div class="small-6 columns">
-          <p>Panel 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-      <div class="small-6 columns">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/350x150.png" alt="placeholder image">
-      </div>
-    </div>
-  </div></li>
-  <li class="accordion-navigation">
-    <a href="#panel3a">Accordion 3</a>
-    <div id="panel3a" class="content">
-      Panel 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </div>
-  </li>
-</ul>
-
-			<hr>
-			<h4 id="tabs">Tabs</h4>
-			<dl class="tabs" data-tab>
-				<dd class="active"><a href="#panel2-1">Tab 1</a></dd>
-				<dd><a href="#panel2-2">Tab 2</a></dd>
-				<dd><a href="#panel2-3">Tab 3</a></dd>
-				<dd><a href="#panel2-4">Tab 4</a></dd>
-			</dl>
-			<div class="tabs-content">
-				<div class="content active" id="panel2-1">
-					<p>First panel content goes here...</p>
-				</div>
-				<div class="content" id="panel2-2">
-					<p>Second panel content goes here...</p>
-				</div>
-				<div class="content" id="panel2-3">
-					<p>Third panel content goes here...</p>
-				</div>
-				<div class="content" id="panel2-4">
-					<p>Fourth panel content goes here...</p>
-				</div>
-			</div>
-
-			<dl class="tabs vertical" data-tab="">
-				<dd class="active"><a href="#panel1a">Tab 1</a></dd>
-				<dd><a href="#panel2a">Tab 2</a></dd>
-				<dd><a href="#panel3a">Tab 3</a></dd>
-				<dd><a href="#panel4a">Tab 4</a></dd>
-			</dl>
-
-			<div class="tabs-content vertical">
-				<div class="content active" id="panel1a">
-					<p>Panel 1 content goes here.</p>
-				</div>
-
-				<div class="content" id="panel2a">
-					<p>Panel 2 content goes here.</p>
-				</div>
-
-				<div class="content" id="panel3a">
-					<p>Panel 3 content goes here.</p>
-				</div>
-
-				<div class="content" id="panel4a">
-					<p>Panel 4 content goes here.</p>
-				</div>
-			</div>
-
-			<hr>
-			<h4 id="side-nav">Side Nav</h4>
-			<div class="row">
-				<div class="large-4 columns end">
-					<ul class="side-nav">
-						<li class="active"><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-					</ul>
-				</div>
-			</div>
-
-			<hr>
-			<h4 id="sub-nav">Sub Nav</h4>
-			<dl class="sub-nav">
-				<dt>Filter:</dt>
-				<dd class="active"><a href="#">All</a></dd>
-				<dd><a href="#">Active</a></dd>
-				<dd><a href="#">Pending</a></dd>
-				<dd><a href="#">Suspended</a></dd>
-			</dl>
-
-			<hr>
-			<h4 id="tables">Tables</h4>
-			<table>
-				<thead>
-					<tr>
-						<th width="200">Table Header</th>
-						<th>Table Header</th>
-						<th width="150">Table Header</th>
-						<th width="150">Table Header</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Content Goes Here</td>
-						<td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-						<td>Content Goes Here</td>
-						<td>Content Goes Here</td>
-					</tr>
-					<tr>
-						<td>Content Goes Here</td>
-						<td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-						<td>Content Goes Here</td>
-						<td>Content Goes Here</td>
-					</tr>
-					<tr>
-						<td>Content Goes Here</td>
-						<td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-						<td>Content Goes Here</td>
-						<td>Content Goes Here</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<hr>
-			<h4 id="thumbnails">Thumbnails</h4>
-			<p><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/earth-th-sm.jpg" alt=""><img class="th" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/space-th-sm.jpg" alt=""></p>
-
-			<hr>
-			<h4 id="tooltips">Tooltips</h4>
-			<p>The tooltips can be positioned on the <span data-tooltip class="has-tip" data-width="210" title="I'm on bottom and the default position.">&quot;tip-bottom&quot;</span>, which is the default position, <span data-tooltip class="has-tip tip-top noradius" data-width="210" title="I'm on the top and I'm not rounded!">&quot;tip-top&quot; (hehe)</span>, <span data-tooltip="left" class="has-tip tip-left" data-width="90" title="I'm on the left!">&quot;tip-left&quot;</span>, or <span data-tooltip="right" class="has-tip tip-right" data-width="120" title="I'm on the right!">&quot;tip-right&quot;</span> of the target element by adding the appropriate class to them. You can even add your own custom class to style each tip differently. On a small device, the tooltips are full width and bottom aligned.</p>
-
-			<hr>
-			<h4 id="top-bar">Top Bar</h4>
-			 <nav class="top-bar" data-topbar>
-				<ul class="title-area">
-					<!-- Title Area -->
-					<li class="name">
-						<h1>
-							<a href="#">
-								Top Bar Title
-							</a>
-						</h1>
-					</li>
-					<li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-				</ul>
-
-				<section class="top-bar-section">
-					<!-- Right Nav Section -->
-					<ul class="right">
-						<li class="divider"></li>
-						<li class="has-dropdown">
-							<a href="#">Main Item 1</a>
-							<ul class="dropdown">
-								<li><label>Section Name</label></li>
-								<li class="has-dropdown">
-									<a href="#" class="">Has Dropdown, Level 1</a>
-									<ul class="dropdown">
-										<li><a href="#">Dropdown Options</a></li>
-										<li><a href="#">Dropdown Options</a></li>
-										<li><a href="#">Level 2</a></li>
-										<li><a href="#">Subdropdown Option</a></li>
-										<li><a href="#">Subdropdown Option</a></li>
-										<li><a href="#">Subdropdown Option</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Dropdown Option</a></li>
-								<li><a href="#">Dropdown Option</a></li>
-								<li class="divider"></li>
-								<li><label>Section Name</label></li>
-								<li><a href="#">Dropdown Option</a></li>
-								<li><a href="#">Dropdown Option</a></li>
-								<li><a href="#">Dropdown Option</a></li>
-								<li class="divider"></li>
-								<li><a href="#">See all &rarr;</a></li>
-							</ul>
-						</li>
-						<li class="divider"></li>
-						<li class="has-dropdown">
-							<a href="#">Main Item 2</a>
-							<ul class="dropdown">
-								<li><a href="#">Dropdown Option</a></li>
-								<li><a href="#">Dropdown Option</a></li>
-								<li><a href="#">Dropdown Option</a></li>
-								<li class="divider"></li>
-								<li><a href="#">See all &rarr;</a></li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-			</nav>
-
-			<hr>
-			<h4 id="icon-bar">Icon bar</h4>
-			<div class="icon-bar five-up" role="navigation">
-			  <a class="item" role="button" tabindex="0" aria-label="home">
-			    <i class="fa fa-home"></i>
-			    <label id="home">Home</label>
-			  </a>
-			  <a class="item" role="button" tabindex="0" aria-label="Bookmark">
-			    <i class="fa fa-fw fa-bookmark"></i>
-			    <label id="bookmark">Bookmark</label>
-			  </a>
-			  <a class="item" role="button" tabindex="0" aria-label="Information">
-			    <i class="fa fa-fw fa-info-circle"></i>
-			    <label id="information">Information</label>
-			  </a>
-			  <a class="item" role="button" tabindex="0" aria-label="Mail">
-			    <i class="fa fa-fw fa-envelope"></i>
-			    <label id="mail">Mail</label>
-			  </a>
-			  <a class="item" role="button" tabindex="0" aria-label="Like">
-			    <i class="fa fa-fw fa-thumbs-up"></i>
-			    <label id="like">Like</label>
-			  </a>
-			</div>
-
-			<hr>
-			<h4 id="type">Type</h4>
-			<h1>h1. This is a very large header.</h1>
-			<h2>h2. This is a large header.</h2>
-			<h3>h3. This is a medium header.</h3>
-			<h4>h4. This is a moderate header.</h4>
-			<h5>h5. This is a small header.</h5>
-			<h6>h6. This is a tiny header.</h6>
-
-			<h1 class="subheader">h1.subheader</h1>
-			<h2 class="subheader">h2.subheader</h2>
-			<h3 class="subheader">h3.subheader</h3>
-			<h4 class="subheader">h4.subheader</h4>
-			<h5 class="subheader">h5.subheader</h5>
-			<h6 class="subheader">h6.subheader</h6>
-
-			<p><br></p>
-			<ul class="disc">
-				<li>List item with a much longer description or more content.</li>
-				<li>List item</li>
-				<li>List item
-				<ul>
-					<li>Nested List Item</li>
-					<li>Nested List Item</li>
-					<li>Nested List Item</li>
-				</ul>
-				</li>
-				<li>List item</li>
-				<li>List item</li>
-				<li>List item</li>
-			</ul>
-
-			<h5>Ordered lists are great for lists that need order, duh.</h5>
-			<ol>
-				<li>List Item 1</li>
-				<li>List Item 2</li>
-				<li>List Item 3</li>
-			</ol>
-
-			<h5>Definition lists are great for small block of copy that describe the header</h5>
-			<dl>
-				<dt>Definition List</dt>
-				<dd>Definition Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit.</dd>
-			</dl>
-
-			<h5>Blockquote</h5>
-			<blockquote>I do not fear computers. I fear the lack of them. Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur.<cite>Isaac Asimov</cite></blockquote>
-
-			<h5>Vcard</h5>
-			<ul class="vcard">
-				<li class="fn">Gaius Baltar</li>
-				<li class="street-address">123 Colonial Ave.</li>
-				<li class="locality">Caprica City</li>
-				<li><span class="state">Caprica</span>, <span class="zip">12345</span></li>
-				<li class="email"><a href="#">g.baltar@example.com</a></li>
-			</ul>
-
-			<hr>
-			<h4 id="visibility-classes">Visibility Classes</h4>
-			<h5 id="screen-size-visibility-control-show-">Screen Size Visibility Control (Show)</h5>
-			<p>The following text should describe the screen size you&#39;re using:</p>
-			<p class="panel">
-				<strong class="show-for-small">You are on a small screen.</strong>
-				<strong class="show-for-medium">You are on a medium screen.</strong>
-				<strong class="show-for-medium-up">You are on a medium, large or xlarge screen.</strong>
-				<strong class="show-for-medium-down">You are on a medium or small screen.</strong>
-				<strong class="show-for-large">You are on a large screen.</strong>
-				<strong class="show-for-large-up">You are on a large or xlarge screen.</strong>
-				<strong class="show-for-large-down">You are on a large, medium or small screen.</strong>
-				<strong class="show-for-xlarge">You are on a xlarge screen.</strong>
-			</p>
-
-			<h5 id="screen-size-visibility-control-hide-">Screen Size Visibility Control (Hide)</h5>
-			<p>The following text should describe the screen size you aren&#39;t using:</p>
-			<p class="panel">
-				<strong class="hide-for-small-only">You are <em>not</em> on a small screen.</strong>
-				<strong class="hide-for-medium-up">You are <em>not</em> on a medium, large, xlarge, or xxlarge screen.</strong>
-				<strong class="hide-for-medium-only">You are <em>not</em> on a medium screen.</strong>
-				<strong class="hide-for-large-up">You are <em>not</em> on a large, xlarge, or xxlarge screen.</strong>
-				<strong class="hide-for-large-only">You are <em>not</em> on a large screen.</strong>
-				<strong class="hide-for-xlarge-up">You are <em>not</em> on an xlarge screen and up.</strong>
-				<strong class="hide-for-xlarge-only">You are <em>not</em> on an xlarge screen.</strong>
-				<strong class="hide-for-xxlarge-up">You are <em>not</em> on an xxlarge screen.</strong>
-			</p>
-
-			<h5 id="orientation-detection">Orientation Detection</h5>
-			<p>The following text should describe the device orientation you&#39;re using:</p>
-			<p class="panel">
-				<strong class="show-for-landscape">You are in landscape orientation.</strong>
-				<strong class="show-for-portrait">You are in portrait orientation.</strong>
-			</p>
-
-			<h5 id="touch-detection">Touch Detection</h5>
-			<p>The following text should describe if you&#39;re using a touch device:</p>
-			<p class="panel">
-				<strong class="show-for-touch">You are on a touch-enabled device.</strong>
-				<strong class="hide-for-touch">You are not on a touch-enabled device.</strong>
-			</p>
-
-			<footer>
-				<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
-				<p><?php the_tags(); ?></p>
-			</footer>
-			<?php comments_template(); ?>
-		</article>
+	</div><!-- Close kitchen-sink-page-wrapper -->
 	<?php endwhile; ?>
-	</div>
-</div>
 <?php get_footer(); ?>
