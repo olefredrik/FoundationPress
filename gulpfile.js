@@ -1,7 +1,8 @@
 var $        = require('gulp-load-plugins')();
 var argv     = require('yargs').argv;
-var	gulp	 = require('gulp');
+var	gulp	   = require('gulp');
 var browser  = require('browser-sync');
+var merge    = require('merge-stream');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -100,28 +101,22 @@ gulp.task('javascript', function() {
 });
 
 // Copy tasks
-gulp.task('copy', ['copy-mui', 'copy-wi', 'copy-fa'],function() {
-  // Just the dependency tasks, nothing else to do here
-});
-
-// Copy Motion-UI
-gulp.task('copy-mui', function() {
-  return gulp.src('assets/components/motion-ui/**/*.*')
+gulp.task('copy', function() {
+  // Motion UI
+  var motionUi = gulp.src('assets/components/motion-ui/**/*.*')
     .pipe($.flatten())
     .pipe(gulp.dest('assets/javascript/vendor/motion-ui'));
-});
 
-// Copy What-Input
-gulp.task('copy-wi', function() {
-  return gulp.src('assets/components/what-input/**/*.*')
-    .pipe($.flatten())
-    .pipe(gulp.dest('assets/javascript/vendor/what-input'));
-});
+  // What Input
+  var whatInput = gulp.src('assets/components/what-input/**/*.*')
+      .pipe($.flatten())
+      .pipe(gulp.dest('assets/javascript/vendor/what-input'));
 
-// Copy Font Awesome
-gulp.task('copy-fa', function() {
-  return gulp.src('assets/components/fontawesome/fonts/**/*.*')
-    .pipe(gulp.dest('assets/fonts'));
+  // Font Awesome
+  var fontAwesome = gulp.src('assets/components/fontawesome/fonts/**/*.*')
+      .pipe(gulp.dest('assets/fonts'));
+
+  return merge(motionUi, whatInput, fontAwesome);
 });
 
 // Build the Sass & JS 
