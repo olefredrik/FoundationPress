@@ -2,7 +2,6 @@ var $        = require('gulp-load-plugins')();
 var argv     = require('yargs').argv;
 var	gulp	 = require('gulp');
 var browser  = require('browser-sync');
-var sequence = require('run-sequence');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
