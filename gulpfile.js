@@ -1,9 +1,13 @@
-var $        = require('gulp-load-plugins')();
-var argv     = require('yargs').argv;
-var	gulp	   = require('gulp');
-var browser  = require('browser-sync');
-var merge    = require('merge-stream');
-var sequence = require('run-sequence');
+var $           = require('gulp-load-plugins')();
+var argv        = require('yargs').argv;
+var	gulp	      = require('gulp');
+var browserSync = require('browser-sync');
+var merge       = require('merge-stream');
+var sequence    = require('run-sequence');
+
+// Enter URL of your local server here
+// Example: 'http://localwebsite.dev'
+var url = '';
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -13,10 +17,6 @@ var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
 
 // File paths to various assets are defined here.
 var PATHS = {
-  // assets: [
-  //   'src/assets/**/*',
-  //   '!src/assets/{!img,js,scss}/**/*'
-  // ],
   sass: [
     'assets/components/foundation-sites/scss',
     'assets/components/motion-ui/src/'
@@ -50,21 +50,30 @@ var PATHS = {
     
     // Include your own custom scripts (located in the custom folder)
     'assets/javascript/custom/*.js'
-    // 'src/assets/js/app.js'
   ]
 };
 
+// Browsersync task
+gulp.task('browser-sync', function() {
+  var files = [
+          '**/*.php',
+          'assets/images/*.{png,jpg,gif}'
+        ];
+  browserSync.init(files, {
+    // Proxy address
+    proxy: url,
+    
+    // Port # 
+    // port: 8080,
+
+    // Inject CSS changes
+    injectChanges: true
+  });
+});
+
 // Compile Sass into CSS
 // In production, the CSS is compressed
-gulp.task('sass', function() {
-  
-  // var uncss = $.if(isProduction, $.uncss({
-  //   html: ['src/**/*.html'],
-  //   ignore: [
-  //     new RegExp('^meta\..*'),
-  //     new RegExp('^\.is-.*')
-  //   ]
-  // }));
+gulp.task('sass', function() {  
 
   var minifycss = $.if(isProduction, $.minifyCss());
 
@@ -77,11 +86,10 @@ gulp.task('sass', function() {
     .pipe($.autoprefixer({
       browsers: COMPATIBILITY
     }))
-    //.pipe(uncss)
     .pipe(minifycss)
-    //.pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe($.if(!isProduction, $.sourcemaps.write('.')))
-    .pipe(gulp.dest('assets/stylesheets'));
+    .pipe(gulp.dest('assets/stylesheets'))
+    .pipe(browserSync.reload({stream:true}));
 });
 
 // Combine JavaScript into one file
@@ -130,7 +138,8 @@ gulp.task('build', function(done) {
 
 // Default gulp task
 // Run build task and watch for file changes
-gulp.task('default', ['build'], function() {
-  gulp.watch(['assets/scss/**/*.scss'], ['sass', browser.reload]);
-  gulp.watch(['assets/javascript/**/*.js'], ['javascript', browser.reload]);
+gulp.task('default', ['build', 'browser-sync'], function() {
+  gulp.watch(['assets/scss/**/*.scss'], ['sass', browserSync.reload]);
+  gulp.watch(['assets/javascript/**/*.js'], ['javascript', browserSync.reload]);
+  // gulp.watch(['**/*.php'], [browserSync.reload]);
 });
