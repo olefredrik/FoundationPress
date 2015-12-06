@@ -1,0 +1,283 @@
+# Romanian translation for FoundationPress.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Alex Bohariuc <alex.bohariuc@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-06 02:25+0200\n"
+"PO-Revision-Date: 2015-12-06 02:40+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!"
+"=0)))?2:1));\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: \n"
+"Language: ro\n"
+
+#: 404.php:8
+msgid "File Not Found"
+msgstr ""
+
+#: 404.php:12
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+"Pagina pe care o cauți nu există. Aceasta a fost mutată, i s-a schimbat "
+"numele sau nu este disponibilă în acest moment."
+
+#: 404.php:14
+msgid "Please try the following:"
+msgstr "Te rugăm să încerci următoarele:"
+
+#: 404.php:16
+msgid "Check your spelling"
+msgstr "Uită-te atent la ortografie."
+
+#: 404.php:17
+#, php-format
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "Întoarce-te la <a href=\"%s\">prima pagină</a>"
+
+#: 404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr "Dă click pe butonul<a href=\"javascript:history.back()\">Înapoi</a>"
+
+#. /previous pages when applicable
+#: archive.php:21 index.php:24 search.php:25
+msgid "&larr; Older posts"
+msgstr "&larr; Articole mai vechi"
+
+#: archive.php:22 index.php:25 search.php:26
+msgid "Newer posts &rarr;"
+msgstr "Articole mai noi &rarr;"
+
+#: comments.php:8
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn”>%s</cite>"
+
+#: comments.php:9
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#: comments.php:10
+msgid "(Edit)"
+msgstr "(Editare)"
+
+#: comments.php:16
+msgid "Your comment is awaiting moderation."
+msgstr "Comentariul tău este în moderare."
+
+#: comments.php:31
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Te rugăm să nu accesezi direct această pagină."
+
+#: comments.php:36
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Acest articol este protejat cu o parolă. Pentru a vede comentariile te "
+"rugăm să o introduci."
+
+#: comments.php:46
+msgid "No Responses to"
+msgstr "Nici un răspuns la"
+
+#: comments.php:46
+msgid "One Response to"
+msgstr "Un răspuns la"
+
+#: comments.php:46
+msgid "% Responses to"
+msgstr "% răspunsuri la"
+
+#: comments.php:53
+msgid "&larr; Older comments"
+msgstr "&larr; Comentarii mai vechi"
+
+#: comments.php:54
+msgid "Newer comments &rarr;"
+msgstr "Comentarii mai noi &rarr;"
+
+#: comments.php:61
+msgid "Leave a Reply"
+msgstr "Lasă un răspuns"
+
+#: comments.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "La un răspuns la %s"
+
+#: comments.php:64
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+"Trebuie să fii <a href=\"%s\">autentificat</a> pentru a posta un comentariu."
+
+#: comments.php:68
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "Ești logat ca <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: comments.php:68
+msgid "Log out of this account"
+msgstr "Ieși din acest cont."
+
+#: comments.php:68
+msgid "Log out &raquo;"
+msgstr "Deautentificare"
+
+#: comments.php:71
+msgid "Name"
+msgstr "Nume"
+
+#: comments.php:71 comments.php:75
+msgid " (required)"
+msgstr "(obligatoriu)"
+
+#: comments.php:75
+msgid "Email (will not be published)"
+msgstr "Email (nu va fi făcut public)"
+
+#: comments.php:79
+msgid "Website"
+msgstr "Website"
+
+#: comments.php:84
+msgid "Comment"
+msgstr "Comentariu"
+
+#: comments.php:87
+msgid "You can use these tags:"
+msgstr "Poți folosi următoarele etichete"
+
+#: comments.php:88
+msgid "Submit Comment"
+msgstr "Trimite comentariu"
+
+#: content-none.php:11
+msgid "Nothing Found"
+msgstr "Nu am găsit nimic"
+
+#: content-none.php:17
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Ești gata să publici primul tău articol? <a href=\"%1$s\">Începe de aici</"
+"a>."
+
+#: content-none.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Ne pare rău, dar nu am găsit nimic pentru termenii de căutare introduși. "
+"Încearcă cu alte cuvinte cheie."
+
+#: content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "Nu am găsit ceea ce căutai. Folosește formularul de căutare."
+
+#. /archive/search.
+#. *
+#. * @subpackage FoundationPress
+#. * @since FoundationPress 1.0.0
+#.
+#: content.php:16
+msgid "Continue reading..."
+msgstr "Continuă…"
+
+#: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
+#: page.php:18 single.php:27 woocommerce.php:18
+msgid "Pages:"
+msgstr "Pagini:"
+
+#: library/entry-meta.php:4
+#, php-format
+msgid "Posted on %s at %s."
+msgstr "Postat în %s la %s."
+
+#: library/entry-meta.php:5
+msgid "Written by"
+msgstr "Scris de"
+
+#: library/foundation.php:16
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: library/foundation.php:17
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: library/foundation.php:40
+#, php-format
+msgid ""
+"Please assign a menu to the primary menu location under %1$s or %2$s the "
+"design."
+msgstr ""
+"Te rugăm să atribui un meniu pentru secțiunea principală sub  %1$s sau %2$s "
+"la design."
+
+#: library/foundation.php:41
+#, php-format
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">Meniuri</a>"
+
+#: library/foundation.php:44
+#, php-format
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">Personalizare</a>"
+
+#: library/widget-areas.php:6
+msgid "Sidebar widgets"
+msgstr "Elemente sidebar"
+
+#: library/widget-areas.php:7
+msgid "Drag widgets to this sidebar container."
+msgstr "Trage elementele în secțiunea acestui sidebar"
+
+#: library/widget-areas.php:16
+msgid "Footer widgets"
+msgstr "Elemente footer"
+
+#: library/widget-areas.php:17
+msgid "Drag widgets to this footer container"
+msgstr "Trage elementele în secțiunea acestui footer"
+
+#: node_modules/grunt-pot/test/fixtures/some-file.php:3
+msgid "I'm a translatable string."
+msgstr "String care poate fi tradus"
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:4
+msgid "Me too"
+msgstr "Și eu"
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:7
+#, php-format
+msgid "I have %d apple"
+msgid_plural "I have %d apples"
+msgstr[0] "Am un măr"
+msgstr[1] "Am %d mere"
+msgstr[2] "Am %d de mere"
+
+#. / TRANSLATORS: This should be translated as a shorthand for YEAR-MONTH-DAY using 4, 2 and 2 digits.
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:16
+msgid "yyyy-mm-dd"
+msgstr "dd-mm-yyyy"
+
+#: search.php:7
+msgid "Search Results for"
+msgstr "Rezultate pentru căutarea"
+
+#: searchform.php:6 searchform.php:10
+msgid "Search"
+msgstr "Căutare"
