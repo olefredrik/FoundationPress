@@ -4,13 +4,11 @@ var	gulp	      = require('gulp');
 var browserSync = require('browser-sync').create();
 var merge       = require('merge-stream');
 var sequence    = require('run-sequence');
+var colors      = require('colors');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
 var URL = 'http://eldiablomissoula.dev';
-
-// Port # for Browsersync Server
-var PORT = 3000;
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -64,9 +62,10 @@ var PATHS = {
 
 // Browsersync task
 gulp.task('browser-sync', ['build'], function() {
+  
   var files = [
             '**/*.php',
-            '**/*.{png,jpg,gif}'
+            'assets/images/**/*.{png,jpg,gif}'
           ];
 
   browserSync.init(files, {
@@ -74,17 +73,14 @@ gulp.task('browser-sync', ['build'], function() {
     proxy: URL,
     
     // Port # 
-    port: PORT,
-
-    // Inject CSS changes
-    // injectChanges: true
+    // port: PORT
   });
 });
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
 gulp.task('sass', function() {  
-
+  // Minify CSS if run wtih --production flag
   var minifycss = $.if(isProduction, $.minifyCss());
 
   return gulp.src('assets/scss/foundation.scss')
@@ -150,18 +146,21 @@ gulp.task('build', function(done) {
 // Default gulp task
 // Run build task and watch for file changes
 gulp.task('default', ['build', 'browser-sync'], function() {
+  // Log file changes to console
+  function logFileChange(event) {
+    var fileName = require('path').relative(__dirname, event.path);
+    console.log('[' + 'WATCH'.green + '] ' + fileName.magenta + ' was ' + event.type + ', running tasks...');
+  }
+
   // Sass Watch
   gulp.watch(['assets/scss/**/*.scss'], ['sass'])
     .on('change', function(event) {
-      var fileName = require('path').relative(__dirname, event.path);
-      console.log('[WATCH] ' + fileName + ' was ' + event.type + ', running tasks...');
+      logFileChange(event);
     });
 
   // JS Watch
   gulp.watch(['assets/javascript/custom/**/*.js'], ['javascript'])
     .on('change', function(event) {
-      var fileName = require('path').relative(__dirname, event.path);
-      console.log('[WATCH] ' + fileName + ' was ' + event.type + ', running tasks...');
+      logFileChange(event);
     });
-
 });
