@@ -8,7 +8,7 @@ var colors      = require('colors');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = 'http://eldiablomissoula.dev';
+var URL = '';
 
 // Check for --production flag
 var isProduction = !!(argv.production);
