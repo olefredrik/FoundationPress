@@ -3,6 +3,11 @@
 	if ( has_post_thumbnail( $post->ID ) ) :
 		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
 		$image = $image[0];
-		echo '<header id="featured-hero" role="banner" style="background-image: url(\'' . $image .  '\')" ></header>';
-	endif;
-?>
+		$title = get_the_title();
+		?>
+
+	<header id="featured-hero" role="banner" style="background-image: url('<?php echo $image ?>')">
+		<div class="small-12 columns single-title zero"><?php echo $title ?></div>
+	</header>';
+	<?php endif; ?>
+
