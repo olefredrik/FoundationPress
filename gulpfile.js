@@ -110,7 +110,7 @@ gulp.task('javascript', function() {
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
     .pipe($.concat('foundation.js'))
-    .pipe(uglify)
+    .pipe($.if(isProduction, uglify))
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('assets/javascript'))
     .pipe(browserSync.stream());
