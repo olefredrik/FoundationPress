@@ -135,6 +135,9 @@ FoundationPress is completely ready to be deployed to and tested by Travis-CI fo
 * [WP Diamonds](http://www.wpdiamonds.com/)
 * [Storm Arts](http://stormarts.fi/)
 * [USS Illinois](http://ussillinois.org/)
+* [OffGrid Magazine](https://offgridweb.com/)
+* [Axe](http://www.axe.be/)
+* [ProfitGym](http://profitgym.nl/)
 
 >Credit goes to all the brilliant designers and developers out there. Have **you** made a site that should be on this list? [Please let me know](https://twitter.com/olefredrik)
 
