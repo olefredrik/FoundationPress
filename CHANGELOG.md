@@ -1,5 +1,20 @@
 # Change Log
 
+## [v2.1.0](https://github.com/olefredrik/FoundationPress/tree/v2.1.0) (2015-12-07)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.0.0...v2.1.0)
+
+**Closed issues:**
+
+- \[2.0.0\] not seeing offgrid in showcase [\#585](https://github.com/olefredrik/FoundationPress/issues/585)
+
+**Merged pull requests:**
+
+- Documentation [\#587](https://github.com/olefredrik/FoundationPress/pull/587) ([olefredrik](https://github.com/olefredrik))
+- Add new sites to showcase [\#586](https://github.com/olefredrik/FoundationPress/pull/586) ([olefredrik](https://github.com/olefredrik))
+- Gulp [\#583](https://github.com/olefredrik/FoundationPress/pull/583) ([colin-marshall](https://github.com/colin-marshall))
+- Adden Romanian language files [\#582](https://github.com/olefredrik/FoundationPress/pull/582) ([alexbohariuc](https://github.com/alexbohariuc))
+- Remove excess closing div [\#581](https://github.com/olefredrik/FoundationPress/pull/581) ([olefredrik](https://github.com/olefredrik))
+
 ## [v2.0.0](https://github.com/olefredrik/FoundationPress/tree/v2.0.0) (2015-12-05)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v1.7.2...v2.0.0)
 
