@@ -45,7 +45,8 @@
   },
   "scripts": {
     "build": "gulp build",
-    "gulp": "gulp",
-    "postinstall": "bower install && gulp build"
+    "watch": "gulp",
+    "postinstall": "bower install && gulp build",
+    "production": "gulp --production"
   }
 }
