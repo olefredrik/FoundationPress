@@ -40,7 +40,6 @@
     "gulp-util": "^3.0.7",
     "merge-stream": "^1.0.0",
     "motion-ui": "^1.1.0",
-    "node-sass": "~3.4.1",
     "run-sequence": "^1.1.5",
     "yargs": "^3.31.0"
   },
