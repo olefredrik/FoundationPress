@@ -16,7 +16,7 @@
   "homepage": "http://foundationpress.olefredrik.com/",
   "bugs": "https://github.com/olefredrik/FoundationPress/issues",
   "license": "MIT",
-  "main": "Gruntfile.js",
+  "main": "gulpfile.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/olefredrik/FoundationPress.git"
@@ -25,18 +25,6 @@
     "autoprefixer": "^6.1.0",
     "bower": "~1.6.4",
     "colors": "^1.1.2",
-    "cssnano": "^3.3.2",
-    "grunt": "~0.4.5",
-    "grunt-browser-sync": "^2.2.0",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-compress": "~0.14.0",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-postcss": "^0.7.1",
-    "grunt-sass": "~1.1.0",
-    "grunt-string-replace": "~0.2.7",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
@@ -52,17 +40,12 @@
     "merge-stream": "^1.0.0",
     "motion-ui": "^1.1.0",
     "node-sass": "~3.4.1",
-    "pixrem": "^3.0.0",
     "run-sequence": "^1.1.5",
-    "time-grunt": "~1.1.0",
     "yargs": "^3.31.0"
   },
   "scripts": {
-    "build": "grunt build",
-    "grunt": "grunt",
-    "postinstall": "bower install && grunt build",
-    "watch": "grunt watch",
-    "browsersync": "grunt browser-sync",
-    "package": "grunt package"
+    "build": "gulp build",
+    "gulp": "gulp",
+    "postinstall": "bower install && gulp build"
   }
 }
