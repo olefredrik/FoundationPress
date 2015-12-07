@@ -147,58 +147,57 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 	  }
 
 	  public function recreate_img_tag( $tag ) {
-	    // Supress SimpleXML errors
-	    libxml_use_internal_errors( true );
+        // Supress SimpleXML errors
+        libxml_use_internal_errors( true );
 
-	    try {
-	      $x = new SimpleXMLElement( $tag );
+        try {
+            $x = new SimpleXMLElement( $tag );
 
-	      // We only want to rebuild img tags
-	      if ( $x->getName() == 'img' ) {
+            // We only want to rebuild img tags
+            if ( $x->getName() == 'img' ) {
 
-	        // Get the attributes I'll use in the new tag
-	        $alt        = (string) $x->attributes()->alt;
-	        $src        = (string) $x->attributes()->src;
-	        $classes    = (string) $x->attributes()->class;
-	        $class_segs = explode(' ', $classes);
+                // Get the attributes I'll use in the new tag
+                $alt        = (string) $x->attributes()->alt;
+                $src        = (string) $x->attributes()->src;
+                $classes    = (string) $x->attributes()->class;
+                $class_segs = explode(' ', $classes);
 
-	        // All images have a source
-	        $img = '<img src="' . $src . '"';
+                // All images have a source
+                $img = '<img src="' . $src . '"';
 
-	        // If alt not empty, add it
-	        if ( ! empty( $alt ) ) {
-	          $img .= ' alt="' . $alt . '"';
-	        }
+                // If alt not empty, add it
+                if ( ! empty( $alt ) ) {
+                  $img .= ' alt="' . $alt . '"';
+                }
 
-	        // Only alignment classes are allowed
-	        $allowed_classes = array(
-	          'alignleft',
-	          'alignright',
-	          'alignnone',
-	          'aligncenter',
-	        );
+                // Filter Through Class Segments & Find Alignment Classes and Size Classes
+                foreach ( $class_segs as $class_seg ) {
+                    if ( substr( $class_seg, 0, 5 ) === 'align' || substr( $class_seg, 0, 4 ) === 'size' ) {
+                        $filtered_classes[] = $class_seg;
+                    }
+                }
 
-		if ( $filtered_classes = array_intersect( $class_segs, $allowed_classes ) ) {
-			$img .= ' class="' . implode(' ', $filtered_classes) . '"';
-		}
+                // Add Rebuilt Classes and Close The Tag
+                if ( count( $filtered_classes ) ) {
+                    $img .= ' class="' . implode( $filtered_classes, ' ' ) . '" />';
+                } else {
+                    $img .= ' />';
+                }
 
-	        // Finish up the img tag
-	        $img .= ' />';
+                return $img;
+            }
+        }
 
-	        return $img;
-	      }
-	    }
+        catch ( Exception $e ) {
+                if ( defined('WP_DEBUG') && WP_DEBUG ) {
+                        if ( defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY ) {
+                            echo 'Caught exception: ',  $e->getMessage(), "\n";
+                        }
+                }
+            }
 
-	    catch ( Exception $e ) {
-				if ( defined('WP_DEBUG') && WP_DEBUG ) {
-				        if ( defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY ) {
-				        	echo 'Caught exception: ',  $e->getMessage(), "\n";
-				        }
-				}
-			}
-
-	    // Tag not an img, so just return it untouched
-	    return $tag;
+        // Tag not an img, so just return it untouched
+        return $tag;
 	  }
 
 	  /**
