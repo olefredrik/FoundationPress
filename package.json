@@ -38,6 +38,7 @@
     "gulp-uglify": "^1.5.1",
     "gulp-uncss": "^1.0.4",
     "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.0.2",
     "merge-stream": "^1.0.0",
     "motion-ui": "^1.1.0",
     "run-sequence": "^1.1.5",
@@ -45,8 +46,9 @@
   },
   "scripts": {
     "build": "gulp build",
-    "watch": "gulp",
+    "package": "gulp package"
     "postinstall": "bower install && gulp build",
-    "production": "gulp --production"
+    "production": "gulp --production",
+    "watch": "gulp"
   }
 }
