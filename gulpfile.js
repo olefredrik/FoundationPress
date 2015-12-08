@@ -1,3 +1,6 @@
+/*jslint node: true */
+"use strict";
+
 var $           = require('gulp-load-plugins')();
 var argv        = require('yargs').argv;
 var	gulp	      = require('gulp');
@@ -57,6 +60,19 @@ var PATHS = {
     
     // Include your own custom scripts (located in the custom folder)
     'assets/javascript/custom/*.js'
+  ],
+  pkg: [
+    '**/*',
+    '!**/node_modules/**',
+    '!**/components/**',
+    '!**/scss/**',
+    '!**/bower.json',
+    '!**/Gruntfile.js',
+    '!**/package.json',
+    '!**/composer.json',
+    '!**/composer.lock',
+    '!**/codesniffer.ruleset.xml',
+    '!**/packaged/*'
   ]
 };
 
@@ -133,6 +149,18 @@ gulp.task('copy', function() {
       .pipe(gulp.dest('assets/fonts'));
 
   return merge(motionUi, whatInput, fontAwesome);
+});
+
+// Package task
+gulp.task('package', ['build'], function() {
+  var fs = require('fs');
+  var pkg = JSON.parse(fs.readFileSync('./package.json'));
+  var time = $.util.date(new Date(), '_yyyy-mm-dd_HH-MM');
+  var title = pkg.name + time + '.zip';
+
+  return gulp.src(PATHS.pkg)
+    .pipe($.zip(title))
+    .pipe(gulp.dest('packaged'));
 });
 
 // Build task
