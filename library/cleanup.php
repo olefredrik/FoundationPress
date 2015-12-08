@@ -74,29 +74,12 @@ function foundationpress_cleanup_head() {
 
 	// Emoji styles.
 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
-
-	// Remove WP version from css.
-	add_filter( 'style_loader_src', 'foundationpress_remove_wp_ver_css_js', 9999 );
-
-	// Remove WP version from scripts.
-	add_filter( 'script_loader_src', 'foundationpress_remove_wp_ver_css_js', 9999 );
-
 }
 endif;
 
 // Remove WP version from RSS.
 if ( ! function_exists( 'foundationpress_remove_rss_version' ) ) :
 function foundationpress_remove_rss_version() { return ''; }
-endif;
-
-if ( ! function_exists( 'foundationpress_remove_wp_ver_css_js' ) ) :
-
-// Remove WP version from scripts.
-function foundationpress_remove_wp_ver_css_js( $src ) {
-	if ( strpos( $src, 'ver=' ) ) {
-		$src = remove_query_arg( 'ver', $src ); }
-	return $src;
-}
 endif;
 
 // Remove injected CSS for recent comments widget.
