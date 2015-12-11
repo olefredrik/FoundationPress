@@ -23,7 +23,8 @@ var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
 var PATHS = {
   sass: [
     'assets/components/foundation-sites/scss',
-    'assets/components/motion-ui/src/'
+    'assets/components/motion-ui/src',
+    'assets/components/fontawesome/scss'
   ],
   javascript: [
     'assets/components/jquery/dist/jquery.js',
