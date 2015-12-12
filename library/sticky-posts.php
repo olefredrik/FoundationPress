@@ -8,8 +8,8 @@
  */
 
 if ( ! function_exists( 'foundationpress_sticky_posts' ) ) :
-function foundationpress_sticky_posts($classes) {
-	$classes = array_diff($classes, array("sticky"));
+function foundationpress_sticky_posts( $classes ) {
+	$classes = array_diff($classes, array('sticky'));
 	$classes[] = 'wp-sticky';
 	return $classes;
 }
