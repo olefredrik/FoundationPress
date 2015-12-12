@@ -1,5 +1,48 @@
 # Change Log
 
+## [v2.2.0](https://github.com/olefredrik/FoundationPress/tree/v2.2.0) (2015-12-12)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.1.0...v2.2.0)
+
+**Implemented enhancements:**
+
+- Added Size Class Back Into Image Tag Within Content Body [\#574](https://github.com/olefredrik/FoundationPress/pull/574) ([josh-rathke](https://github.com/josh-rathke))
+
+**Fixed bugs:**
+
+- Font "reloading" after page load [\#604](https://github.com/olefredrik/FoundationPress/issues/604)
+- Problems Mobile and Top Bar in FP6 [\#598](https://github.com/olefredrik/FoundationPress/issues/598)
+- console error "typekit" [\#590](https://github.com/olefredrik/FoundationPress/issues/590)
+
+**Closed issues:**
+
+- Less settings than before? [\#602](https://github.com/olefredrik/FoundationPress/issues/602)
+- npm WARN cannot run in wd / bower EACCES: permission denied, mkdir [\#596](https://github.com/olefredrik/FoundationPress/issues/596)
+- npm ERR! Exit status 8 [\#595](https://github.com/olefredrik/FoundationPress/issues/595)
+- npm ERR! argv "node" "/usr/bin/npm" "install" [\#594](https://github.com/olefredrik/FoundationPress/issues/594)
+- gulp error [\#589](https://github.com/olefredrik/FoundationPress/issues/589)
+- Title and favicon [\#576](https://github.com/olefredrik/FoundationPress/issues/576)
+- Question on Gruntfile.js Line 200 [\#575](https://github.com/olefredrik/FoundationPress/issues/575)
+- npm run watch taking a long time [\#573](https://github.com/olefredrik/FoundationPress/issues/573)
+- BrowserSync not loading styles on mobile and ipad [\#572](https://github.com/olefredrik/FoundationPress/issues/572)
+- Failed to load resource on subdirectory host www.example.com/subdir [\#570](https://github.com/olefredrik/FoundationPress/issues/570)
+
+**Merged pull requests:**
+
+- Add v2.2.0 [\#613](https://github.com/olefredrik/FoundationPress/pull/613) ([olefredrik](https://github.com/olefredrik))
+- Update settings file [\#612](https://github.com/olefredrik/FoundationPress/pull/612) ([olefredrik](https://github.com/olefredrik))
+- Don't render both topbar and offcanvas if no option is set in the cus… [\#611](https://github.com/olefredrik/FoundationPress/pull/611) ([olefredrik](https://github.com/olefredrik))
+- Don't make any assumptions on fonts. Use Helvetica Neue as default [\#610](https://github.com/olefredrik/FoundationPress/pull/610) ([olefredrik](https://github.com/olefredrik))
+- Update Foundation to v6.0.5 [\#609](https://github.com/olefredrik/FoundationPress/pull/609) ([olefredrik](https://github.com/olefredrik))
+- Improved foundation.scss file [\#606](https://github.com/olefredrik/FoundationPress/pull/606) ([colin-marshall](https://github.com/colin-marshall))
+- Duplicate $global-margin variable [\#603](https://github.com/olefredrik/FoundationPress/pull/603) ([jcallery](https://github.com/jcallery))
+- Update featured-image.php [\#600](https://github.com/olefredrik/FoundationPress/pull/600) ([bej-soan](https://github.com/bej-soan))
+- Fixed Undefined Variable Bug Found in \#594 [\#597](https://github.com/olefredrik/FoundationPress/pull/597) ([josh-rathke](https://github.com/josh-rathke))
+- Gulp package task added [\#593](https://github.com/olefredrik/FoundationPress/pull/593) ([colin-marshall](https://github.com/colin-marshall))
+- Remove wp versions filter to support cdn caching [\#592](https://github.com/olefredrik/FoundationPress/pull/592) ([KLVTZ](https://github.com/KLVTZ))
+- Fixed JavaScript minify [\#591](https://github.com/olefredrik/FoundationPress/pull/591) ([colin-marshall](https://github.com/colin-marshall))
+- Add a new site to the showcase [\#588](https://github.com/olefredrik/FoundationPress/pull/588) ([olefredrik](https://github.com/olefredrik))
+- Made it easier to understand [\#584](https://github.com/olefredrik/FoundationPress/pull/584) ([alexbohariuc](https://github.com/alexbohariuc))
+
 ## [v2.1.0](https://github.com/olefredrik/FoundationPress/tree/v2.1.0) (2015-12-07)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.0.0...v2.1.0)
 
