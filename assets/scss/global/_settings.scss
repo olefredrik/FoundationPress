@@ -35,8 +35,9 @@
 //  30. Table
 //  31. Tabs
 //  32. Thumbnail
-//  33. Tooltip
-//  34. Top Bar
+//  33. Title Bar
+//  34. Tooltip
+//  35. Top Bar
 
 @import '../../components/foundation-sites/scss/util/util';
 
@@ -58,15 +59,14 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
-$text-direction: ltr;
 $global-margin: 1rem;
 $global-padding: 1rem;
+$global-margin: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
-$global-namespace: false;
 $global-text-direction: ltr;
 $rem-base: 16px;
 
@@ -75,7 +75,7 @@ $rem-base: 16px;
 
 $breakpoints: (
   small: 0,
-  medium: 512px,
+  medium: 640px,
   large: 1024px,
   xlarge: 1200px,
   xxlarge: 1440px,
@@ -88,6 +88,8 @@ $breakpoint-classes: (small medium large);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: 30px;
+$grid-column-align-edge: true;
+$block-grid-max: 8;
 
 // 4. Base Typography
 // ------------------
@@ -95,7 +97,7 @@ $grid-column-gutter: 30px;
 $header-font-family: $body-font-family;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
-$font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
+$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
   small: (
     'h1': 24,
@@ -274,6 +276,8 @@ $closebutton-color-hover: $black;
 // -------------
 
 $drilldown-transition: transform 0.15s linear;
+$drilldown-arrows: true;
+$drilldown-background: $white;
 
 // 16. Dropdown
 // ------------
@@ -295,7 +299,7 @@ $dropdown-sizes: (
 $dropdownmenu-arrows: true;
 $dropdownmenu-min-width: 200px;
 $dropdownmenu-background: $white;
-$dropdown-border: 1px solid $medium-gray;
+$dropdownmenu-border: 1px solid $medium-gray;
 
 // 18. Flex Video
 // --------------
@@ -327,7 +331,7 @@ $form-label-line-height: 1.8;
 $select-background: #fafafa;
 $select-triangle-color: #333;
 $select-radius: $global-radius;
-$input-color: $dark-gray;
+$input-color: $black;
 $input-font-family: inherit;
 $input-font-size: rem-calc(16);
 $input-background: $white;
@@ -375,10 +379,10 @@ $offcanvas-background: $light-gray;
 $offcanvas-zindex: -1;
 $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
+$offcanvas-fixed-reveal: true;
 $offcanvas-exit-background: rgba($white, 0.25);
-$maincontent-class: 'main-content';
+$maincontent-class: 'off-canvas-content';
 $maincontent-shadow: 0 0 10px rgba($black, 0.5);
-$maincontent-prevent-scroll: true;
 
 // 24. Orbit
 // ---------
@@ -507,7 +511,18 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 $thumbnail-transition: box-shadow 200ms ease-out;
 $thumbnail-radius: $global-radius;
 
-// 33. Tooltip
+// 33. Title Bar
+// -------------
+
+$titlebar-background: $black;
+$titlebar-color: $white;
+$titlebar-padding: 0.5rem;
+$titlebar-text-font-weight: bold;
+$titlebar-icon-color: $white;
+$titlebar-icon-color-hover: $medium-gray;
+$titlebar-icon-spacing: 0.25rem;
+
+// 34. Tooltip
 // -----------
 
 $tooltip-background-color: $black;
@@ -519,7 +534,7 @@ $tooltip-pip-height: $tooltip-pip-width * 0.866;
 $tooltip-pip-offset: 1.25rem;
 $tooltip-radius: $global-radius;
 
-// 34. Top Bar
+// 35. Top Bar
 // -----------
 
 $topbar-padding: 0;
