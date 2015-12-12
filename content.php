@@ -11,7 +11,7 @@
 
 ?>
 
-<div class="blogpost-entry" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class('blogpost-entry'); ?>>
 	<header>
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		<?php foundationpress_entry_meta(); ?>
