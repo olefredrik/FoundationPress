@@ -82,10 +82,16 @@ Foundation comes with everything you need to run tests that will check your them
 ```bash
 $ composer create-project wp-coding-standards/wpcs:dev-master --no-dev
 ```
+When prompted to remove existing VCS, answer Yes by typing `Y`.
 
 Once you have installed the packages, you can check your entire theme by running:
 ```bash
 $ npm run phpcs
+```
+
+If there are errors that Code Sniffer can fix automatically, run the following command to fix them:
+```bash
+$ npm run phpcbf
 ```
 
 ## Demo

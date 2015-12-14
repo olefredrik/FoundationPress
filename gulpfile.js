@@ -9,6 +9,8 @@ var merge       = require('merge-stream');
 var sequence    = require('run-sequence');
 var colors      = require('colors');
 var phpcs       = require('gulp-phpcs');
+var phpcbf      = require('gulp-phpcbf');
+var gutil       = require('gulp-util');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
@@ -181,6 +183,17 @@ gulp.task('phpcs', function() {
       showSniffCode: true,
     })) 
     .pipe(phpcs.reporter('log'));
+});
+
+gulp.task('phpcbf', function () {
+  return gulp.src(['*.php'])
+  .pipe(phpcbf({
+    bin: 'wpcs/vendor/bin/phpcbf',
+    standard: './codesniffer.ruleset.xml',
+    warningSeverity: 0
+  }))
+  .on('error', gutil.log)
+  .pipe(gulp.dest('.'));
 });
 
 // Default gulp task
