@@ -3,11 +3,14 @@
 
 var $           = require('gulp-load-plugins')();
 var argv        = require('yargs').argv;
-var	gulp	      = require('gulp');
+var	gulp	    = require('gulp');
 var browserSync = require('browser-sync').create();
 var merge       = require('merge-stream');
 var sequence    = require('run-sequence');
 var colors      = require('colors');
+var phpcs       = require('gulp-phpcs');
+var phpcbf      = require('gulp-phpcbf');
+var gutil       = require('gulp-util');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
@@ -170,6 +173,27 @@ gulp.task('build', function(done) {
   sequence('copy',
           ['sass', 'javascript'],
           done);
+});
+
+gulp.task('phpcs', function() {
+  return gulp.src(['*.php'])
+    .pipe(phpcs({
+      bin: 'wpcs/vendor/bin/phpcs',
+      standard: './codesniffer.ruleset.xml',
+      showSniffCode: true,
+    })) 
+    .pipe(phpcs.reporter('log'));
+});
+
+gulp.task('phpcbf', function () {
+  return gulp.src(['*.php'])
+  .pipe(phpcbf({
+    bin: 'wpcs/vendor/bin/phpcbf',
+    standard: './codesniffer.ruleset.xml',
+    warningSeverity: 0
+  }))
+  .on('error', gutil.log)
+  .pipe(gulp.dest('.'));
 });
 
 // Default gulp task
