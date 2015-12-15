@@ -43,7 +43,7 @@ if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 				'menu'           => __( 'mobile-nav', 'foundationpress' ),
 				'menu_class'     => 'vertical menu',
 				'theme_location' => 'mobile-nav',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-small-only" data-accordion-menu%3$s</ul>',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-small-only" data-accordion-menu>%3$s</ul>',
 				'fallback_cb'    => false,
         'walker' => new Foundationpress_Mobile_Walker(),
 	    ));
