@@ -12,7 +12,7 @@ get_header(); ?>
 			<a role="button" class="download large button sites-button hide-for-small-only" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
 		</div>
 
-		<div id="watch" class="small-12 columns">
+		<div id="watch">
 			<section id="stargazers">
 				<a href="https://github.com/olefredrik/foundationpress">1.5k stargazers</a>
 			</section>
@@ -42,6 +42,9 @@ get_header(); ?>
 			<?php comments_template(); ?>
 			<?php do_action( 'foundationpress_page_after_comments' ); ?>
 		</div>
+
+	</div>
+
 </section>
 <?php endwhile;?>
 <?php do_action( 'foundationpress_after_content' ); ?>
