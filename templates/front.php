@@ -42,6 +42,9 @@ get_header(); ?>
 			<?php comments_template(); ?>
 			<?php do_action( 'foundationpress_page_after_comments' ); ?>
 		</div>
+
+	</div>
+
 </section>
 <?php endwhile;?>
 <?php do_action( 'foundationpress_after_content' ); ?>
