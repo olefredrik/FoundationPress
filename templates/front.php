@@ -12,7 +12,7 @@ get_header(); ?>
 			<a role="button" class="download large button sites-button hide-for-small-only" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
 		</div>
 
-		<div id="watch" class="small-12 columns">
+		<div id="watch">
 			<section id="stargazers">
 				<a href="https://github.com/olefredrik/foundationpress">1.5k stargazers</a>
 			</section>
