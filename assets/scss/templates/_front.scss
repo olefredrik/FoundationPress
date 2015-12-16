@@ -140,6 +140,7 @@
 	hr {
 		@include grid-column(12);
 		@extend .dotted;
+		box-sizing: border-box;
 	}
 }
 
