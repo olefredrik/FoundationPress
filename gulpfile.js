@@ -3,14 +3,11 @@
 
 var $           = require('gulp-load-plugins')();
 var argv        = require('yargs').argv;
-var	gulp	    = require('gulp');
+var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var merge       = require('merge-stream');
 var sequence    = require('run-sequence');
 var colors      = require('colors');
-var phpcs       = require('gulp-phpcs');
-var phpcbf      = require('gulp-phpcbf');
-var gutil       = require('gulp-util');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
@@ -175,24 +172,26 @@ gulp.task('build', function(done) {
           done);
 });
 
+// PHP Code Sniffer task
 gulp.task('phpcs', function() {
   return gulp.src(['*.php'])
-    .pipe(phpcs({
+    .pipe($.phpcs({
       bin: 'wpcs/vendor/bin/phpcs',
       standard: './codesniffer.ruleset.xml',
       showSniffCode: true,
     }))
-    .pipe(phpcs.reporter('log'));
+    .pipe($.phpcs.reporter('log'));
 });
 
+// PHP Code Beautifier task
 gulp.task('phpcbf', function () {
   return gulp.src(['*.php'])
-  .pipe(phpcbf({
+  .pipe($.phpcbf({
     bin: 'wpcs/vendor/bin/phpcbf',
     standard: './codesniffer.ruleset.xml',
     warningSeverity: 0
   }))
-  .on('error', gutil.log)
+  .on('error', $.util.log)
   .pipe(gulp.dest('.'));
 });
 
