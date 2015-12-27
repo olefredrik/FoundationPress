@@ -244,7 +244,7 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 	  }
 	}
 
-	$Foundationpress_img_rebuilder = new Foundationpress_img_rebuilder;
+	$foundationpress_img_rebuilder = new Foundationpress_img_rebuilder;
 
 endif;
 
