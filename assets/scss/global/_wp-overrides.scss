@@ -1,9 +1,6 @@
 .wp-caption{
-  padding:rem-calc(4);
-}
-
-.wp-caption img{
-  max-width:100%;
+  max-width: 100%;
+  margin: rem-calc(40) 0;
 }
 
 p.wp-caption-text{
