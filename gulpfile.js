@@ -11,6 +11,7 @@ var colors      = require('colors');
 var phpcs       = require('gulp-phpcs');
 var phpcbf      = require('gulp-phpcbf');
 var gutil       = require('gulp-util');
+var jshint      = require('gulp-jshint');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
@@ -115,6 +116,14 @@ gulp.task('sass', function() {
     .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
+
+//run any custom js through jshint
+gulp.task('lint', function() {
+  return gulp.src('assets/javascript/custom/*.js')
+      .pipe(jshint())
+      .pipe(jshint.reporter('default', { verbose: true }));
+});
+
 // Combine JavaScript into one file
 // In production, the file is minified
 gulp.task('javascript', function() {
@@ -123,6 +132,8 @@ gulp.task('javascript', function() {
     .on('error', function (e) {
       console.log(e);
     });
+
+
 
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
@@ -168,7 +179,7 @@ gulp.task('package', ['build'], function() {
 // Runs copy then runs sass & javascript in parallel
 gulp.task('build', function(done) {
   sequence('copy',
-          ['sass', 'javascript'],
+          ['sass', 'javascript', 'lint'],
           done);
 });
 
@@ -209,7 +220,7 @@ gulp.task('default', ['build', 'browser-sync'], function() {
     });
 
   // JS Watch
-  gulp.watch(['assets/javascript/custom/**/*.js'], ['javascript'])
+  gulp.watch(['assets/javascript/custom/**/*.js'], ['javascript', 'lint'])
     .on('change', function(event) {
       logFileChange(event);
     });
