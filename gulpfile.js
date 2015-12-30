@@ -8,6 +8,7 @@ var browserSync = require('browser-sync').create();
 var merge       = require('merge-stream');
 var sequence    = require('run-sequence');
 var colors      = require('colors');
+var dateFormat  = require('dateformat');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
@@ -101,8 +102,11 @@ gulp.task('sass', function() {
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
-    })
-      .on('error', $.sass.logError))
+    }))
+    .on('error', $.notify.onError({
+        message: "<%= error.message %>",
+        title: "Sass Error"
+    }))
     .pipe($.autoprefixer({
       browsers: COMPATIBILITY
     }))
@@ -115,11 +119,12 @@ gulp.task('sass', function() {
 // Combine JavaScript into one file
 // In production, the file is minified
 gulp.task('javascript', function() {
-
+  
   var uglify = $.uglify()
-    .on('error', function (e) {
-      console.log(e);
-    });
+    .on('error', $.notify.onError({
+      message: "<%= error.message %>",
+      title: "Uglify JS Error"
+    }));
 
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
@@ -152,9 +157,9 @@ gulp.task('copy', function() {
 // Package task
 gulp.task('package', ['build'], function() {
   var fs = require('fs');
+  var time = dateFormat(new Date(), "yyyy-mm-dd_HH-MM");
   var pkg = JSON.parse(fs.readFileSync('./package.json'));
-  var time = $.util.date(new Date(), '_yyyy-mm-dd_HH-MM');
-  var title = pkg.name + time + '.zip';
+  var title = pkg.name + '_' + time + '.zip';
 
   return gulp.src(PATHS.pkg)
     .pipe($.zip(title))
