@@ -56,9 +56,6 @@ var PATHS = {
     // Motion UI
     'assets/components/motion-ui/motion-ui.js',
 
-    // What-input
-    'assets/components/what-input/what-input.js',
-
     // Include your own custom scripts (located in the custom folder)
     'assets/javascript/custom/*.js'
   ],
