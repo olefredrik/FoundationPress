@@ -116,10 +116,27 @@ gulp.task('sass', function() {
     .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
+// Lint all JS files in custom directory
+gulp.task('lint', function() {
+  return gulp.src('assets/javascript/custom/*.js')
+    .pipe($.jshint())
+    .pipe($.notify(function (file) {
+      if (file.jshint.success) {
+        return false;
+      }
+
+      var errors = file.jshint.results.map(function (data) {
+        if (data.error) {
+          return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
+        }
+      }).join("\n");
+      return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
+    }));
+});
+
 // Combine JavaScript into one file
 // In production, the file is minified
 gulp.task('javascript', function() {
-  
   var uglify = $.uglify()
     .on('error', $.notify.onError({
       message: "<%= error.message %>",
@@ -170,7 +187,7 @@ gulp.task('package', ['build'], function() {
 // Runs copy then runs sass & javascript in parallel
 gulp.task('build', function(done) {
   sequence('copy',
-          ['sass', 'javascript'],
+          ['sass', 'javascript', 'lint'],
           done);
 });
 
@@ -213,7 +230,7 @@ gulp.task('default', ['build', 'browser-sync'], function() {
     });
 
   // JS Watch
-  gulp.watch(['assets/javascript/custom/**/*.js'], ['javascript'])
+  gulp.watch(['assets/javascript/custom/**/*.js'], ['javascript', 'lint'])
     .on('change', function(event) {
       logFileChange(event);
     });
