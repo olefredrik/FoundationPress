@@ -9,7 +9,7 @@
 
 ?>
 
-<nav class="off-canvas position-left" id="offCanvas" data-off-canvas data-position="left" data-accordion-menu role="navigation">
+<nav class="off-canvas position-left" id="offCanvas" data-off-canvas data-position="left" role="navigation">
   <?php foundationpress_mobile_nav(); ?>
 </nav>
 
