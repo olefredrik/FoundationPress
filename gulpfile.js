@@ -15,7 +15,7 @@ var jshint      = require('gulp-jshint');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = 'http://foundationpress';
+var URL = '';
 
 // Check for --production flag
 var isProduction = !!(argv.production);
