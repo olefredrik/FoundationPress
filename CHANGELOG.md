@@ -1,5 +1,63 @@
 # Change Log
 
+## [v2.3.0](https://github.com/olefredrik/FoundationPress/tree/v2.3.0) (2015-12-31)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.2.0...v2.3.0)
+
+**Implemented enhancements:**
+
+- Fully-functional and easy-to-use Sticky Sidebar available [\#571](https://github.com/olefredrik/FoundationPress/issues/571)
+- Adding FlexVideo automatically? Any idea? [\#500](https://github.com/olefredrik/FoundationPress/issues/500)
+
+**Fixed bugs:**
+
+- Bug on Off-canvas markup \(parts/mobile-off-canvas.php\) [\#661](https://github.com/olefredrik/FoundationPress/issues/661)
+- validator errors [\#614](https://github.com/olefredrik/FoundationPress/issues/614)
+- Sticky top bar causing page to spazz out [\#577](https://github.com/olefredrik/FoundationPress/issues/577)
+- img\_unautop is greedy [\#95](https://github.com/olefredrik/FoundationPress/issues/95)
+
+**Closed issues:**
+
+- JSHint needs to be installed with gulp-jshint [\#664](https://github.com/olefredrik/FoundationPress/issues/664)
+- No CSS in Child Theme [\#663](https://github.com/olefredrik/FoundationPress/issues/663)
+- Issues with dependencies [\#660](https://github.com/olefredrik/FoundationPress/issues/660)
+- populate composer.json [\#659](https://github.com/olefredrik/FoundationPress/issues/659)
+- Sass error at watch command [\#655](https://github.com/olefredrik/FoundationPress/issues/655)
+- gulp error notification [\#654](https://github.com/olefredrik/FoundationPress/issues/654)
+- Exit status 8 while running npm install [\#649](https://github.com/olefredrik/FoundationPress/issues/649)
+- How to commit WordPress database to Github or Bitbucket? [\#648](https://github.com/olefredrik/FoundationPress/issues/648)
+- How to change topbar height? [\#647](https://github.com/olefredrik/FoundationPress/issues/647)
+- Small issue with offcanvas menu [\#646](https://github.com/olefredrik/FoundationPress/issues/646)
+- New WPCS rule \(ValidVariableName.NotSnakeCase\) causing build error [\#643](https://github.com/olefredrik/FoundationPress/issues/643)
+- Having trouble committing project to BitBucket! [\#638](https://github.com/olefredrik/FoundationPress/issues/638)
+- Prepping theme for deployment [\#636](https://github.com/olefredrik/FoundationPress/issues/636)
+- Drilldown menu not working? [\#635](https://github.com/olefredrik/FoundationPress/issues/635)
+- Initialize Desktop Navigation Later [\#631](https://github.com/olefredrik/FoundationPress/issues/631)
+- Mobile Menu, all but first child [\#627](https://github.com/olefredrik/FoundationPress/issues/627)
+- Error: File to import not found or unreadable [\#624](https://github.com/olefredrik/FoundationPress/issues/624)
+- Can't get stylesheets to build [\#622](https://github.com/olefredrik/FoundationPress/issues/622)
+- archive.php check if sidebar exist [\#517](https://github.com/olefredrik/FoundationPress/issues/517)
+
+**Merged pull requests:**
+
+- Update to v2.3.0 [\#668](https://github.com/olefredrik/FoundationPress/pull/668) ([olefredrik](https://github.com/olefredrik))
+- FP is based on Foundation 6 [\#667](https://github.com/olefredrik/FoundationPress/pull/667) ([olefredrik](https://github.com/olefredrik))
+- Gulpfile improvements [\#666](https://github.com/olefredrik/FoundationPress/pull/666) ([colin-marshall](https://github.com/colin-marshall))
+- Fix off canvas bug [\#662](https://github.com/olefredrik/FoundationPress/pull/662) ([olefredrik](https://github.com/olefredrik))
+- add jshint to package and lint task to gulpfile on watch and build [\#658](https://github.com/olefredrik/FoundationPress/pull/658) ([jimlongo56](https://github.com/jimlongo56))
+- Foundation update [\#656](https://github.com/olefredrik/FoundationPress/pull/656) ([olefredrik](https://github.com/olefredrik))
+- Buttons editor [\#642](https://github.com/olefredrik/FoundationPress/pull/642) ([colin-marshall](https://github.com/colin-marshall))
+- Fix front template errors [\#633](https://github.com/olefredrik/FoundationPress/pull/633) ([olefredrik](https://github.com/olefredrik))
+- Spelling changes [\#632](https://github.com/olefredrik/FoundationPress/pull/632) ([alexanderlperez](https://github.com/alexanderlperez))
+- Added button for TinyMCE shortcodes with popup window [\#630](https://github.com/olefredrik/FoundationPress/pull/630) ([colin-marshall](https://github.com/colin-marshall))
+- Added missing angle bracket [\#629](https://github.com/olefredrik/FoundationPress/pull/629) ([colin-marshall](https://github.com/colin-marshall))
+- Added Wordpress Coding Standards Sniffs to Gulp [\#626](https://github.com/olefredrik/FoundationPress/pull/626) ([josh-rathke](https://github.com/josh-rathke))
+- Shortcode implementation [\#625](https://github.com/olefredrik/FoundationPress/pull/625) ([josh-rathke](https://github.com/josh-rathke))
+- Wrap youtube and vimeo vids in flex-video [\#620](https://github.com/olefredrik/FoundationPress/pull/620) ([olefredrik](https://github.com/olefredrik))
+- Changed WP sticky post class to .wp-sticky [\#618](https://github.com/olefredrik/FoundationPress/pull/618) ([colin-marshall](https://github.com/colin-marshall))
+- Fixed more instances of duplicate class attributes in templates [\#617](https://github.com/olefredrik/FoundationPress/pull/617) ([colin-marshall](https://github.com/colin-marshall))
+- Remove duplicate class in single template [\#616](https://github.com/olefredrik/FoundationPress/pull/616) ([olefredrik](https://github.com/olefredrik))
+- Closing divs in footer [\#615](https://github.com/olefredrik/FoundationPress/pull/615) ([olefredrik](https://github.com/olefredrik))
+
 ## [v2.2.0](https://github.com/olefredrik/FoundationPress/tree/v2.2.0) (2015-12-12)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.1.0...v2.2.0)
 
