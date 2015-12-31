@@ -3,15 +3,12 @@
 
 var $           = require('gulp-load-plugins')();
 var argv        = require('yargs').argv;
-var	gulp	    = require('gulp');
+var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var merge       = require('merge-stream');
 var sequence    = require('run-sequence');
 var colors      = require('colors');
-var phpcs       = require('gulp-phpcs');
-var phpcbf      = require('gulp-phpcbf');
-var gutil       = require('gulp-util');
-var jshint      = require('gulp-jshint');
+var dateFormat  = require('dateformat');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
@@ -105,8 +102,11 @@ gulp.task('sass', function() {
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
-    })
-      .on('error', $.sass.logError))
+    }))
+    .on('error', $.notify.onError({
+        message: "<%= error.message %>",
+        title: "Sass Error"
+    }))
     .pipe($.autoprefixer({
       browsers: COMPATIBILITY
     }))
@@ -116,24 +116,32 @@ gulp.task('sass', function() {
     .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
-
-//run any custom js through jshint
+// Lint all JS files in custom directory
 gulp.task('lint', function() {
   return gulp.src('assets/javascript/custom/*.js')
-      .pipe(jshint())
-      .pipe(jshint.reporter('default', { verbose: true }));
+    .pipe($.jshint())
+    .pipe($.notify(function (file) {
+      if (file.jshint.success) {
+        return false;
+      }
+
+      var errors = file.jshint.results.map(function (data) {
+        if (data.error) {
+          return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
+        }
+      }).join("\n");
+      return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
+    }));
 });
 
 // Combine JavaScript into one file
 // In production, the file is minified
 gulp.task('javascript', function() {
-
   var uglify = $.uglify()
-    .on('error', function (e) {
-      console.log(e);
-    });
-
-
+    .on('error', $.notify.onError({
+      message: "<%= error.message %>",
+      title: "Uglify JS Error"
+    }));
 
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
@@ -166,9 +174,9 @@ gulp.task('copy', function() {
 // Package task
 gulp.task('package', ['build'], function() {
   var fs = require('fs');
+  var time = dateFormat(new Date(), "yyyy-mm-dd_HH-MM");
   var pkg = JSON.parse(fs.readFileSync('./package.json'));
-  var time = $.util.date(new Date(), '_yyyy-mm-dd_HH-MM');
-  var title = pkg.name + time + '.zip';
+  var title = pkg.name + '_' + time + '.zip';
 
   return gulp.src(PATHS.pkg)
     .pipe($.zip(title))
@@ -183,24 +191,26 @@ gulp.task('build', function(done) {
           done);
 });
 
+// PHP Code Sniffer task
 gulp.task('phpcs', function() {
   return gulp.src(['*.php'])
-    .pipe(phpcs({
+    .pipe($.phpcs({
       bin: 'wpcs/vendor/bin/phpcs',
       standard: './codesniffer.ruleset.xml',
       showSniffCode: true,
     }))
-    .pipe(phpcs.reporter('log'));
+    .pipe($.phpcs.reporter('log'));
 });
 
+// PHP Code Beautifier task
 gulp.task('phpcbf', function () {
   return gulp.src(['*.php'])
-  .pipe(phpcbf({
+  .pipe($.phpcbf({
     bin: 'wpcs/vendor/bin/phpcbf',
     standard: './codesniffer.ruleset.xml',
     warningSeverity: 0
   }))
-  .on('error', gutil.log)
+  .on('error', $.util.log)
   .pipe(gulp.dest('.'));
 });
 
