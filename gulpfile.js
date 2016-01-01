@@ -28,7 +28,6 @@ var PATHS = {
     'assets/components/fontawesome/scss'
   ],
   javascript: [
-    'assets/components/jquery/dist/jquery.js',
     'assets/components/what-input/what-input.js',
     'assets/components/foundation-sites/js/foundation.core.js',
     'assets/components/foundation-sites/js/foundation.util.*.js',
