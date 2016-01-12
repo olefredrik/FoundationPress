@@ -9,6 +9,7 @@ var merge       = require('merge-stream');
 var sequence    = require('run-sequence');
 var colors      = require('colors');
 var dateFormat  = require('dateformat');
+var del         = require('del');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
@@ -184,7 +185,7 @@ gulp.task('package', ['build'], function() {
 
 // Build task
 // Runs copy then runs sass & javascript in parallel
-gulp.task('build', function(done) {
+gulp.task('build', ['clean'], function(done) {
   sequence('copy',
           ['sass', 'javascript', 'lint'],
           done);
@@ -213,6 +214,27 @@ gulp.task('phpcbf', function () {
   .pipe(gulp.dest('.'));
 });
 
+// Clean task
+gulp.task('clean', function(done) {
+  sequence(['clean:javascript', 'clean:css'],
+            done);
+});
+
+// Clean JS
+gulp.task('clean:javascript', function() {
+  return del([
+      'assets/javascript/foundation.js'
+    ]);
+});
+
+// Clean CSS
+gulp.task('clean:css', function() {
+  return del([
+      'assets/stylesheets/foundation.css',
+      'assets/stylesheets/foundation.css.map'
+    ]);
+});
+
 // Default gulp task
 // Run build task and watch for file changes
 gulp.task('default', ['build', 'browser-sync'], function() {
@@ -223,13 +245,13 @@ gulp.task('default', ['build', 'browser-sync'], function() {
   }
 
   // Sass Watch
-  gulp.watch(['assets/scss/**/*.scss'], ['sass'])
+  gulp.watch(['assets/scss/**/*.scss'], ['clean:css', 'sass'])
     .on('change', function(event) {
       logFileChange(event);
     });
 
   // JS Watch
-  gulp.watch(['assets/javascript/custom/**/*.js'], ['javascript', 'lint'])
+  gulp.watch(['assets/javascript/custom/**/*.js'], ['clean:javscript', 'javascript', 'lint'])
     .on('change', function(event) {
       logFileChange(event);
     });
