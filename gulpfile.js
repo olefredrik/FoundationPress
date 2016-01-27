@@ -60,6 +60,11 @@ var PATHS = {
     // Include your own custom scripts (located in the custom folder)
     'assets/javascript/custom/*.js'
   ],
+  phpcs: [
+    '**/*.php',
+    '!wpcs',
+    '!wpcs/**'
+  ],
   pkg: [
     '**/*',
     '!**/node_modules/**',
@@ -193,7 +198,7 @@ gulp.task('build', ['clean'], function(done) {
 
 // PHP Code Sniffer task
 gulp.task('phpcs', function() {
-  return gulp.src(['*.php'])
+  return gulp.src(PATHS.phpcs)
     .pipe($.phpcs({
       bin: 'wpcs/vendor/bin/phpcs',
       standard: './codesniffer.ruleset.xml',
@@ -204,7 +209,7 @@ gulp.task('phpcs', function() {
 
 // PHP Code Beautifier task
 gulp.task('phpcbf', function () {
-  return gulp.src(['*.php'])
+  return gulp.src(PATHS.phpcs)
   .pipe($.phpcbf({
     bin: 'wpcs/vendor/bin/phpcbf',
     standard: './codesniffer.ruleset.xml',
