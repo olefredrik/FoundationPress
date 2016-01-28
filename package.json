@@ -27,6 +27,7 @@
     "browser-sync": "^2.10.0",
     "colors": "^1.1.2",
     "dateformat": "^1.0.12",
+    "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
