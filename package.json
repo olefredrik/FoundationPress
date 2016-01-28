@@ -54,7 +54,7 @@
   },
   "scripts": {
     "build": "gulp build",
-    "package": "gulp package",
+    "package": "gulp package --production",
     "phpcs": "gulp phpcs",
     "phpcbf": "gulp phpcbf",
     "postinstall": "bower install && gulp build",
