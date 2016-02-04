@@ -128,4 +128,3 @@ if ( comments_open() ) :
 <?php
 	endif; // If you delete this the sky will fall on your head.
 	endif; // If you delete this the sky will fall on your head.
-?>

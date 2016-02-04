@@ -15,4 +15,3 @@ function foundationpress_sticky_posts( $classes ) {
 add_filter('post_class','foundationpress_sticky_posts');
 
 endif;
-?>

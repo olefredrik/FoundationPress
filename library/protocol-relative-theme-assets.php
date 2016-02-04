@@ -88,5 +88,3 @@ if ( ! class_exists( 'Foundationpress_protocol_relative_theme_assets' ) ) :
 
 	$foundationpress_protocol_relative_theme_assets = new Foundationpress_protocol_relative_theme_assets;
 endif;
-
-?>

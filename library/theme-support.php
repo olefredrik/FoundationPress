@@ -32,4 +32,3 @@ function foundationpress_theme_support() {
 
 add_action( 'after_setup_theme', 'foundationpress_theme_support' );
 endif;
-?>

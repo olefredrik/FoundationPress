@@ -64,4 +64,3 @@ function mobile_nav_class( $classes ) {
 	return $classes;
 }
 endif;
-?>

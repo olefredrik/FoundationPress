@@ -227,5 +227,3 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 		echo '</ul>';
 	}
 }
-
-?>

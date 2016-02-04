@@ -188,5 +188,3 @@ class Foundationpress_Comments extends Walker_Comment{
     <?php }
 }
 endif;
-
-?>

@@ -28,5 +28,3 @@
  endif;
 
 endif;
-
-?>

@@ -57,4 +57,4 @@
 	</header>
 
 	<section class="container">
-		<?php do_action( 'foundationpress_after_header' ); ?>
+		<?php do_action( 'foundationpress_after_header' );

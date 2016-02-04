@@ -31,4 +31,3 @@ function foundationpress_sidebar_widgets() {
 
 add_action( 'widgets_init', 'foundationpress_sidebar_widgets' );
 endif;
-?>
