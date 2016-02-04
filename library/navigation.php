@@ -3,8 +3,7 @@
  * Register Menus
  *
  * @link http://codex.wordpress.org/Function_Reference/register_nav_menus#Examples
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 

@@ -2,8 +2,7 @@
 /**
  * The sidebar containing the main widget area
  *
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 

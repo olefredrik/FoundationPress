@@ -5,8 +5,7 @@
  * The area of the page that contains both current comments
  * and the comment form.
  *
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 

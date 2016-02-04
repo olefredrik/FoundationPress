@@ -2,8 +2,7 @@
 /**
  * Entry meta information for posts
  *
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 

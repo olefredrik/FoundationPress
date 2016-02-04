@@ -2,8 +2,7 @@
 /**
  * Register theme support for languages, menus, post-thumbnails, post-formats etc.
  *
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 

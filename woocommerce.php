@@ -2,8 +2,7 @@
 /**
  * Basic WooCommerce support
  *
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 

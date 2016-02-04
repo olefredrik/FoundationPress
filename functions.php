@@ -10,8 +10,7 @@
  * hooks in WordPress to change core functionality.
  *
  * @link https://codex.wordpress.org/Theme_Development
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 
