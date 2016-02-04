@@ -26,7 +26,7 @@ var PATHS = {
   sass: [
     'assets/components/foundation-sites/scss',
     'assets/components/motion-ui/src',
-    'assets/components/fontawesome/scss'
+    'assets/components/fontawesome/scss',
   ],
   javascript: [
     'assets/components/what-input/what-input.js',
@@ -58,12 +58,12 @@ var PATHS = {
     'assets/components/motion-ui/motion-ui.js',
 
     // Include your own custom scripts (located in the custom folder)
-    'assets/javascript/custom/*.js'
+    'assets/javascript/custom/*.js',
   ],
   phpcs: [
     '**/*.php',
     '!wpcs',
-    '!wpcs/**'
+    '!wpcs/**',
   ],
   pkg: [
     '**/*',
@@ -76,7 +76,7 @@ var PATHS = {
     '!**/composer.json',
     '!**/composer.lock',
     '!**/codesniffer.ruleset.xml',
-    '!**/packaged/*'
+    '!**/packaged/*',
   ]
 };
 
@@ -85,7 +85,7 @@ gulp.task('browser-sync', ['build'], function() {
 
   var files = [
             '**/*.php',
-            'assets/images/**/*.{png,jpg,gif}'
+            'assets/images/**/*.{png,jpg,gif}',
           ];
 
   browserSync.init(files, {
