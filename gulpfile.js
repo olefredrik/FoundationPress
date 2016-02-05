@@ -71,7 +71,7 @@ var PATHS = {
     '!**/components/**',
     '!**/scss/**',
     '!**/bower.json',
-    '!**/Gruntfile.js',
+    '!**/gulpfile.js',
     '!**/package.json',
     '!**/composer.json',
     '!**/composer.lock',
