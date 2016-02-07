@@ -1,14 +1,15 @@
 /* Navigation breakpoints */
 
-.main-navigation {
+.desktop-menu, .top-bar-left {
   @include show-for(medium);
 }
 
-.title-bar {
+#mobile-menu, .title-bar {
   @include hide-for(medium);
 }
 
 /* Mobile menu */
+
 .off-canvas {
   ul#menu-main-menu {
     height: 100vh;
@@ -39,6 +40,7 @@
     padding-bottom: 0;
     font-weight: bold;
     font-size: 0.8rem;
+    line-height: 1;
 
     &:hover:not(.button) {
       background-color: #2a2a2a;
