@@ -437,6 +437,31 @@ get_header(); ?>
 						</ul>
 					<hr>
 
+					<!-- Reveal -->
+					<h2 id="reveal" class="docs-heading" data-magellan-target="reveal"><a href="#reveal"></a>Reveal</h2>
+					<p><a data-open="exampleModal1">Click me for a basic modal</a></p>
+					<p><a data-toggle="exampleModal8">Click me for a full-screen modal</a></p>
+
+						<!-- Basic modal -->
+			      <div class="reveal" id="exampleModal1" data-reveal>
+			        <h2>This is a basic modal</h2>
+			        <p class="lead">Using hipster ipsum for dummy text</p>
+			        <p>Stumptown direct trade swag hella iPhone post-ironic. Before they sold out blog twee, quinoa forage pour-over microdosing deep v keffiyeh fanny pack. Occupy polaroid tilde, bitters vegan man bun gentrify meggings.</p>
+			        <button class="close-button" data-close aria-label="Close reveal" type="button">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+
+						<!-- Full screen modal -->
+			      <div class="full reveal" id="exampleModal8" data-reveal>
+			        <h2>Full screen modal</h2>
+			        <img src="http://placekitten.com/1920/1280" alt="Intropsective Cage">
+			        <button class="close-button" data-close aria-label="Close reveal" type="button">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+					<hr>
+
 					<!-- Slider -->
 					<h2 id="slider" class="docs-heading" data-magellan-target="slider"><a href="#slider"></a>Slider</h2>
 						<div class="slider" data-slider data-initial-start='50' data-end='200'>
@@ -451,7 +476,6 @@ get_header(); ?>
 						  <input type="hidden">
 						</div>
 					<hr>
-
 
 					<!-- Switch -->
 					<h2 id="switch" class="docs-heading" data-magellan-target="switch"><a href="#switch"></a>Switch</h2>
@@ -637,6 +661,7 @@ get_header(); ?>
 							<li><a href="#motion-ui">Motion UI</a></li>
 							<li><a href="#orbit">Orbit</a></li>
 							<li><a href="#pagination">Pagination</a></li>
+							<li><a href="#reveal">Reveal</a></li>
 							<li><a href="#slider">Slider</a></li>
 							<li><a href="#switch">Switch</a></li>
 							<li><a href="#table">Table</a></li>
