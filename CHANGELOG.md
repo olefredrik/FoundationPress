@@ -1,5 +1,57 @@
 # Change Log
 
+## [v2.4.0](https://github.com/olefredrik/FoundationPress/tree/v2.4.0) (2016-02-11)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.3.0...v2.4.0)
+
+**Fixed bugs:**
+
+- Duplicate jQuery  [\#669](https://github.com/olefredrik/FoundationPress/issues/669)
+- Menu not appearing for off-canvas on non mobile sizes [\#650](https://github.com/olefredrik/FoundationPress/issues/650)
+- Second-level submenus don't fly out [\#634](https://github.com/olefredrik/FoundationPress/issues/634)
+
+**Closed issues:**
+
+- Blog Title position in Top Bar [\#721](https://github.com/olefredrik/FoundationPress/issues/721)
+- New menu [\#716](https://github.com/olefredrik/FoundationPress/issues/716)
+- Reveal Modal [\#712](https://github.com/olefredrik/FoundationPress/issues/712)
+- This is not full version of FoundationPress, when I installed it then I don't see any style from foundation.css. Where is css and scss folder and other... [\#711](https://github.com/olefredrik/FoundationPress/issues/711)
+- Off canvas mobile menu issue [\#709](https://github.com/olefredrik/FoundationPress/issues/709)
+- Misc changes to consider [\#708](https://github.com/olefredrik/FoundationPress/issues/708)
+- Top Bar CSS differs on newly installed FoundationPress.... [\#705](https://github.com/olefredrik/FoundationPress/issues/705)
+- npm run package do not minify js [\#695](https://github.com/olefredrik/FoundationPress/issues/695)
+- Where have all the Sass variables gone in Foundation 6? [\#693](https://github.com/olefredrik/FoundationPress/issues/693)
+- Using FoundationPress in production on EC2 [\#692](https://github.com/olefredrik/FoundationPress/issues/692)
+- foundationPress install error [\#691](https://github.com/olefredrik/FoundationPress/issues/691)
+- Run Watch/Build Issues [\#690](https://github.com/olefredrik/FoundationPress/issues/690)
+- sorry for the dumb question, but how do you update [\#689](https://github.com/olefredrik/FoundationPress/issues/689)
+- media breakpoints [\#688](https://github.com/olefredrik/FoundationPress/issues/688)
+- Missing semicolon in SCSS produces a segmentation fault. [\#686](https://github.com/olefredrik/FoundationPress/issues/686)
+- library/navigation.php [\#685](https://github.com/olefredrik/FoundationPress/issues/685)
+- Can't find topbar breakpoint in settings.scss [\#684](https://github.com/olefredrik/FoundationPress/issues/684)
+- Old project with grunt: not able to make some change [\#683](https://github.com/olefredrik/FoundationPress/issues/683)
+- gulpfile javascript build [\#680](https://github.com/olefredrik/FoundationPress/issues/680)
+- SASS COMPILING ERROR [\#679](https://github.com/olefredrik/FoundationPress/issues/679)
+- Plans for using SASS? [\#678](https://github.com/olefredrik/FoundationPress/issues/678)
+- Default Topbar [\#677](https://github.com/olefredrik/FoundationPress/issues/677)
+- Mobile Menu not working correctly. [\#675](https://github.com/olefredrik/FoundationPress/issues/675)
+- off-canvas positioning [\#671](https://github.com/olefredrik/FoundationPress/issues/671)
+- SCSS Documentation [\#652](https://github.com/olefredrik/FoundationPress/issues/652)
+- woocommerce template overrides not working [\#651](https://github.com/olefredrik/FoundationPress/issues/651)
+- Mobile Menu Customizer [\#494](https://github.com/olefredrik/FoundationPress/issues/494)
+
+**Merged pull requests:**
+
+- Remove caret for first-level menu [\#723](https://github.com/olefredrik/FoundationPress/pull/723) ([olefredrik](https://github.com/olefredrik))
+- Adagio improvements [\#717](https://github.com/olefredrik/FoundationPress/pull/717) ([colin-marshall](https://github.com/colin-marshall))
+- Fix topbar issues [\#714](https://github.com/olefredrik/FoundationPress/pull/714) ([olefredrik](https://github.com/olefredrik))
+- Add reveal to the kitchen-sink template [\#713](https://github.com/olefredrik/FoundationPress/pull/713) ([olefredrik](https://github.com/olefredrik))
+- Wrong file name [\#707](https://github.com/olefredrik/FoundationPress/pull/707) ([sylvhama](https://github.com/sylvhama))
+- Navigation [\#699](https://github.com/olefredrik/FoundationPress/pull/699) ([olefredrik](https://github.com/olefredrik))
+- Move nav visibility classes from php to scss [\#698](https://github.com/olefredrik/FoundationPress/pull/698) ([olefredrik](https://github.com/olefredrik))
+- npm run package now minifies css & js [\#697](https://github.com/olefredrik/FoundationPress/pull/697) ([colin-marshall](https://github.com/colin-marshall))
+- Added gulp clean tasks [\#681](https://github.com/olefredrik/FoundationPress/pull/681) ([colin-marshall](https://github.com/colin-marshall))
+- Remove this as we use CDN hosted jQuery [\#670](https://github.com/olefredrik/FoundationPress/pull/670) ([olefredrik](https://github.com/olefredrik))
+
 ## [v2.3.0](https://github.com/olefredrik/FoundationPress/tree/v2.3.0) (2015-12-31)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.2.0...v2.3.0)
 
