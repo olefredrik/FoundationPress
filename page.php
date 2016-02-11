@@ -6,14 +6,13 @@
  * Please note that this is the WordPress construct of pages and that
  * other "pages" on your WordPress site will use a different template.
  *
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 
  get_header(); ?>
 
- <?php get_template_part( 'parts/featured-image' ); ?>
+ <?php get_template_part( 'template-parts/featured-image' ); ?>
 
  <div id="page" role="main">
 
@@ -42,4 +41,4 @@
 
  </div>
 
- <?php get_footer(); ?>
+ <?php get_footer();

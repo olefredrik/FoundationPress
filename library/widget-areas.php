@@ -2,8 +2,7 @@
 /**
  * Register widget areas
  *
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 
@@ -32,4 +31,3 @@ function foundationpress_sidebar_widgets() {
 
 add_action( 'widgets_init', 'foundationpress_sidebar_widgets' );
 endif;
-?>

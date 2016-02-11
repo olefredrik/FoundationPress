@@ -6,4 +6,3 @@
   else :
     echo '<div class="small-12 columns" role="main">';
   endif;
-?>

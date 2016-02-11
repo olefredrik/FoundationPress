@@ -2,8 +2,7 @@
 /**
  * The template for displaying search form
  *
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 
@@ -21,4 +20,4 @@ do_action( 'foundationpress_before_searchform' ); ?>
 		<?php do_action( 'foundationpress_searchform_after_search_button' ); ?>
 	</div>
 </form>
-<?php do_action( 'foundationpress_after_searchform' ); ?>
+<?php do_action( 'foundationpress_after_searchform' );
