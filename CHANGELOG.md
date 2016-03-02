@@ -1,5 +1,28 @@
 # Change Log
 
+## [v2.5.0](https://github.com/olefredrik/FoundationPress/tree/v2.5.0) (2016-03-02)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.4.0...v2.5.0)
+
+**Closed issues:**
+
+- Flexbox grid? [\#741](https://github.com/olefredrik/FoundationPress/issues/741)
+- Block Grid Not Working [\#738](https://github.com/olefredrik/FoundationPress/issues/738)
+- Clean Install Problem [\#737](https://github.com/olefredrik/FoundationPress/issues/737)
+- npm WARN package.json foundationpress@5.5.1 No license field. [\#734](https://github.com/olefredrik/FoundationPress/issues/734)
+- WP Search, show excerpts in search [\#732](https://github.com/olefredrik/FoundationPress/issues/732)
+- anyone know what causes error:file to import not found or unreadable  [\#731](https://github.com/olefredrik/FoundationPress/issues/731)
+- Adding logo in center of Nav Bar [\#730](https://github.com/olefredrik/FoundationPress/issues/730)
+- Using foundation columns in Wordpress visual editor? [\#725](https://github.com/olefredrik/FoundationPress/issues/725)
+-  libsass binding was not found - error [\#724](https://github.com/olefredrik/FoundationPress/issues/724)
+- SASS/node error working with "old" FP 1.x projects alongside FP 2.x [\#722](https://github.com/olefredrik/FoundationPress/issues/722)
+- how to style wordpress footer widgets [\#706](https://github.com/olefredrik/FoundationPress/issues/706)
+- Top bar menu wonky with FP2.x [\#704](https://github.com/olefredrik/FoundationPress/issues/704)
+
+**Merged pull requests:**
+
+- Tethys Update \(Foundation 6.2\) [\#742](https://github.com/olefredrik/FoundationPress/pull/742) ([olefredrik](https://github.com/olefredrik))
+- Sticky posts bugfix [\#733](https://github.com/olefredrik/FoundationPress/pull/733) ([colin-marshall](https://github.com/colin-marshall))
+
 ## [v2.4.0](https://github.com/olefredrik/FoundationPress/tree/v2.4.0) (2016-02-11)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.3.0...v2.4.0)
 
