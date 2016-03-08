@@ -1,11 +1,39 @@
 # Change Log
 
+## [v2.5.1](https://github.com/olefredrik/FoundationPress/tree/v2.5.1) (2016-03-08)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.5.0...v2.5.1)
+
+**Fixed bugs:**
+
+- Dropdown Menu Arrows [\#752](https://github.com/olefredrik/FoundationPress/issues/752)
+
+**Closed issues:**
+
+- FoundationPress Grid [\#751](https://github.com/olefredrik/FoundationPress/issues/751)
+- Git Ignores Files Inside FoundationPress Theme Folder. [\#750](https://github.com/olefredrik/FoundationPress/issues/750)
+- gulp file errors, FP 2.5, npm run watch, Windows 7 x64 [\#748](https://github.com/olefredrik/FoundationPress/issues/748)
+- Npm installation stop working... [\#744](https://github.com/olefredrik/FoundationPress/issues/744)
+- Flexbox grid? [\#741](https://github.com/olefredrik/FoundationPress/issues/741)
+- Incorrect GCC [\#739](https://github.com/olefredrik/FoundationPress/issues/739)
+- Can't add or style elements of main content [\#736](https://github.com/olefredrik/FoundationPress/issues/736)
+- adding the UNCSS task in my gulpfile.js [\#727](https://github.com/olefredrik/FoundationPress/issues/727)
+- Offcanvas menu not working [\#720](https://github.com/olefredrik/FoundationPress/issues/720)
+- jquery.js conflict with popular wordpress plugins [\#645](https://github.com/olefredrik/FoundationPress/issues/645)
+
+**Merged pull requests:**
+
+- Feature/child theme support [\#759](https://github.com/olefredrik/FoundationPress/pull/759) ([olefredrik](https://github.com/olefredrik))
+- fix sidebar search to use input-group [\#757](https://github.com/olefredrik/FoundationPress/pull/757) ([ryanfrawley](https://github.com/ryanfrawley))
+- Fix dropdown menu arrows [\#754](https://github.com/olefredrik/FoundationPress/pull/754) ([olefredrik](https://github.com/olefredrik))
+- Change off-canvas menu height to affect all menus [\#747](https://github.com/olefredrik/FoundationPress/pull/747) ([bej-soan](https://github.com/bej-soan))
+- Separate javascript files with semi-colon when concatenating [\#746](https://github.com/olefredrik/FoundationPress/pull/746) ([jontro](https://github.com/jontro))
+- Remove duplicate line from foundation.scss [\#743](https://github.com/olefredrik/FoundationPress/pull/743) ([fourhexagons](https://github.com/fourhexagons))
+
 ## [v2.5.0](https://github.com/olefredrik/FoundationPress/tree/v2.5.0) (2016-03-02)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.4.0...v2.5.0)
 
 **Closed issues:**
 
-- Flexbox grid? [\#741](https://github.com/olefredrik/FoundationPress/issues/741)
 - Block Grid Not Working [\#738](https://github.com/olefredrik/FoundationPress/issues/738)
 - Clean Install Problem [\#737](https://github.com/olefredrik/FoundationPress/issues/737)
 - npm WARN package.json foundationpress@5.5.1 No license field. [\#734](https://github.com/olefredrik/FoundationPress/issues/734)
