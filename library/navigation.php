@@ -207,7 +207,7 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 			} else if ( get_query_var('paged') ) {
 
 				// Paginated archives
-				echo '<li class="current item-current-' . get_query_var('paged') . '">' .__('Page') . ' ' . get_query_var('paged') . '</li>';
+				echo '<li class="current item-current-' . get_query_var('paged') . '">' . __('Page') . ' ' . get_query_var('paged') . '</li>';
 
 			} else if ( is_search() ) {
 
