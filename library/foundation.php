@@ -2,8 +2,7 @@
 /**
  * Foundation PHP template
  *
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 
@@ -189,5 +188,3 @@ class Foundationpress_Comments extends Walker_Comment{
     <?php }
 }
 endif;
-
-?>

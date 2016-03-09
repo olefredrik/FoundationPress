@@ -3,14 +3,13 @@
 
 var $           = require('gulp-load-plugins')();
 var argv        = require('yargs').argv;
-var	gulp	    = require('gulp');
+var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var merge       = require('merge-stream');
 var sequence    = require('run-sequence');
 var colors      = require('colors');
-var phpcs       = require('gulp-phpcs');
-var phpcbf      = require('gulp-phpcbf');
-var gutil       = require('gulp-util');
+var dateFormat  = require('dateformat');
+var del         = require('del');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
@@ -27,10 +26,9 @@ var PATHS = {
   sass: [
     'assets/components/foundation-sites/scss',
     'assets/components/motion-ui/src',
-    'assets/components/fontawesome/scss'
+    'assets/components/fontawesome/scss',
   ],
   javascript: [
-    'assets/components/jquery/dist/jquery.js',
     'assets/components/what-input/what-input.js',
     'assets/components/foundation-sites/js/foundation.core.js',
     'assets/components/foundation-sites/js/foundation.util.*.js',
@@ -60,7 +58,12 @@ var PATHS = {
     'assets/components/motion-ui/motion-ui.js',
 
     // Include your own custom scripts (located in the custom folder)
-    'assets/javascript/custom/*.js'
+    'assets/javascript/custom/*.js',
+  ],
+  phpcs: [
+    '**/*.php',
+    '!wpcs',
+    '!wpcs/**',
   ],
   pkg: [
     '**/*',
@@ -68,12 +71,12 @@ var PATHS = {
     '!**/components/**',
     '!**/scss/**',
     '!**/bower.json',
-    '!**/Gruntfile.js',
+    '!**/gulpfile.js',
     '!**/package.json',
     '!**/composer.json',
     '!**/composer.lock',
     '!**/codesniffer.ruleset.xml',
-    '!**/packaged/*'
+    '!**/packaged/*',
   ]
 };
 
@@ -82,7 +85,7 @@ gulp.task('browser-sync', ['build'], function() {
 
   var files = [
             '**/*.php',
-            'assets/images/**/*.{png,jpg,gif}'
+            'assets/images/**/*.{png,jpg,gif}',
           ];
 
   browserSync.init(files, {
@@ -104,8 +107,11 @@ gulp.task('sass', function() {
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
-    })
-      .on('error', $.sass.logError))
+    }))
+    .on('error', $.notify.onError({
+        message: "<%= error.message %>",
+        title: "Sass Error"
+    }))
     .pipe($.autoprefixer({
       browsers: COMPATIBILITY
     }))
@@ -115,18 +121,39 @@ gulp.task('sass', function() {
     .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
+// Lint all JS files in custom directory
+gulp.task('lint', function() {
+  return gulp.src('assets/javascript/custom/*.js')
+    .pipe($.jshint())
+    .pipe($.notify(function (file) {
+      if (file.jshint.success) {
+        return false;
+      }
+
+      var errors = file.jshint.results.map(function (data) {
+        if (data.error) {
+          return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
+        }
+      }).join("\n");
+      return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
+    }));
+});
+
 // Combine JavaScript into one file
 // In production, the file is minified
 gulp.task('javascript', function() {
-
   var uglify = $.uglify()
-    .on('error', function (e) {
-      console.log(e);
-    });
+    .on('error', $.notify.onError({
+      message: "<%= error.message %>",
+      title: "Uglify JS Error"
+    }));
 
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
-    .pipe($.concat('foundation.js'))
+    .pipe($.babel())
+    .pipe($.concat('foundation.js', {
+      newLine:'\n;'
+    }))
     .pipe($.if(isProduction, uglify))
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('assets/javascript'))
@@ -155,9 +182,9 @@ gulp.task('copy', function() {
 // Package task
 gulp.task('package', ['build'], function() {
   var fs = require('fs');
+  var time = dateFormat(new Date(), "yyyy-mm-dd_HH-MM");
   var pkg = JSON.parse(fs.readFileSync('./package.json'));
-  var time = $.util.date(new Date(), '_yyyy-mm-dd_HH-MM');
-  var title = pkg.name + time + '.zip';
+  var title = pkg.name + '_' + time + '.zip';
 
   return gulp.src(PATHS.pkg)
     .pipe($.zip(title))
@@ -166,31 +193,54 @@ gulp.task('package', ['build'], function() {
 
 // Build task
 // Runs copy then runs sass & javascript in parallel
-gulp.task('build', function(done) {
+gulp.task('build', ['clean'], function(done) {
   sequence('copy',
-          ['sass', 'javascript'],
+          ['sass', 'javascript', 'lint'],
           done);
 });
 
+// PHP Code Sniffer task
 gulp.task('phpcs', function() {
-  return gulp.src(['*.php'])
-    .pipe(phpcs({
+  return gulp.src(PATHS.phpcs)
+    .pipe($.phpcs({
       bin: 'wpcs/vendor/bin/phpcs',
       standard: './codesniffer.ruleset.xml',
       showSniffCode: true,
     }))
-    .pipe(phpcs.reporter('log'));
+    .pipe($.phpcs.reporter('log'));
 });
 
+// PHP Code Beautifier task
 gulp.task('phpcbf', function () {
-  return gulp.src(['*.php'])
-  .pipe(phpcbf({
+  return gulp.src(PATHS.phpcs)
+  .pipe($.phpcbf({
     bin: 'wpcs/vendor/bin/phpcbf',
     standard: './codesniffer.ruleset.xml',
     warningSeverity: 0
   }))
-  .on('error', gutil.log)
+  .on('error', $.util.log)
   .pipe(gulp.dest('.'));
+});
+
+// Clean task
+gulp.task('clean', function(done) {
+  sequence(['clean:javascript', 'clean:css'],
+            done);
+});
+
+// Clean JS
+gulp.task('clean:javascript', function() {
+  return del([
+      'assets/javascript/foundation.js'
+    ]);
+});
+
+// Clean CSS
+gulp.task('clean:css', function() {
+  return del([
+      'assets/stylesheets/foundation.css',
+      'assets/stylesheets/foundation.css.map'
+    ]);
 });
 
 // Default gulp task
@@ -203,13 +253,13 @@ gulp.task('default', ['build', 'browser-sync'], function() {
   }
 
   // Sass Watch
-  gulp.watch(['assets/scss/**/*.scss'], ['sass'])
+  gulp.watch(['assets/scss/**/*.scss'], ['clean:css', 'sass'])
     .on('change', function(event) {
       logFileChange(event);
     });
 
   // JS Watch
-  gulp.watch(['assets/javascript/custom/**/*.js'], ['javascript'])
+  gulp.watch(['assets/javascript/custom/**/*.js'], ['clean:javascript', 'javascript', 'lint'])
     .on('change', function(event) {
       logFileChange(event);
     });

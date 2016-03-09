@@ -11,8 +11,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 
@@ -24,11 +23,11 @@ get_header(); ?>
 
 		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'content', get_post_format() ); ?>
+			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 		<?php endwhile; ?>
 
 		<?php else : ?>
-			<?php get_template_part( 'content', 'none' ); ?>
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 		<?php endif; // End have_posts() check. ?>
 
@@ -45,4 +44,4 @@ get_header(); ?>
 
 </div>
 
-<?php get_footer(); ?>
+<?php get_footer();

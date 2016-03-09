@@ -2,8 +2,7 @@
 /**
  * Customize the output of menus for Foundation top bar
  *
- * @package WordPress
- * @subpackage FoundationPress
+ * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
 
@@ -14,7 +13,7 @@
 
  	function start_lvl( &$output, $depth = 0, $args = array() ) {
  			$indent = str_repeat("\t", $depth);
-      $output .= "\n$indent<ul class=\"dropdown menu vertical\" data-dropdown-menu>\n";
+      $output .= "\n$indent<ul class=\"dropdown menu vertical\" data-toggle>\n";
  	}
  }
 
@@ -29,5 +28,3 @@
  endif;
 
 endif;
-
-?>

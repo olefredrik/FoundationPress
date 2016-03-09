@@ -21,16 +21,16 @@
 @import 'font-awesome';
 @import 'motion-ui';
 
-// Foundation global styles 
+// Foundation global styles
 @include foundation-global-styles;
 
 // Individual foundation components
 @include foundation-grid;
+// @include foundation-flex-grid;
 @include foundation-typography;
 @include foundation-button;
 @include foundation-forms;
-@include foundation-visibility-classes;
-@include foundation-float-classes;
+@include foundation-range-input;
 @include foundation-accordion;
 @include foundation-accordion-menu;
 @include foundation-badge;
@@ -49,6 +49,8 @@
 @include foundation-orbit;
 @include foundation-pagination;
 @include foundation-progress-bar;
+@include foundation-progress-element;
+@include foundation-meter-element;
 @include foundation-slider;
 @include foundation-sticky;
 @include foundation-reveal;
@@ -59,6 +61,10 @@
 @include foundation-title-bar;
 @include foundation-tooltip;
 @include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-menu-icon;
+// @include foundation-flex-classes;
 
 // Motion UI
 @include motion-ui-transitions;
@@ -70,7 +76,7 @@
 */
 
 // Modules
-@import "modules/topbar";
+@import "modules/navigation";
 @import "modules/footer";
 @import "modules/sidebar";
 
@@ -78,7 +84,7 @@
 @import "components/buttons";
 @import "components/featured-image";
 @import "components/dividers";
-@import "components/off-canvas";
+@import "components/links";
 
 // Templates
 @import "templates/front";

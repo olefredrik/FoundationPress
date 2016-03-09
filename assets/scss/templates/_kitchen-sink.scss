@@ -77,4 +77,18 @@
 
   }
 
+  .row.display {
+    background: #eee;
+    font-size: 11px;
+    margin-bottom: 10px;
+    line-height: 2rem;
+    border: solid 1px #c6c6c6;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    .columns:nth-child(2), .columns.small-centered, .columns.large-centered {
+      background: #e1e1e1;
+    }
+  }
+
 }

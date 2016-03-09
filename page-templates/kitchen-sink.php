@@ -19,6 +19,96 @@ get_header(); ?>
 
 				<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
+					<!-- Abide -->
+					<h2 id="abide" class="docs-heading" data-magellan-target="abide"><a href="abide"></a>Abide</h2>
+					<form data-abide novalidate>
+					  <div data-abide-error class="alert callout" style="display: none;">
+					    <p><i class="fi-alert"></i> There are some errors in your form.</p>
+					  </div>
+					  <div class="row">
+					    <div class="small-12 columns">
+					      <label>Number Required
+					        <input type="text" placeholder="1234" aria-describedby="exampleHelpText" required pattern="number">
+					        <span class="form-error">
+					          Yo, you had better fill this out, it's required.
+					        </span>
+					      </label>
+					      <p class="help-text" id="exampleHelpText">Here's how you use this input field!</p>
+					    </div>
+					    <div class="small-12 columns">
+					      <label>Nothing Required!
+					        <input type="text" placeholder="Use me, or don't" aria-describedby="exampleHelpTex" data-abide-ignore>
+					      </label>
+					      <p class="help-text" id="exampleHelpTex">This input is ignored by Abide using `data-abide-ignore`</p>
+					    </div>
+					    <div class="small-12 columns">
+					      <label>Password Required
+					        <input type="password" id="password" placeholder="yeti4preZ" aria-describedby="exampleHelpText" required >
+					        <span class="form-error">
+					          I'm required!
+					        </span>
+					      </label>
+					      <p class="help-text" id="exampleHelpText">Enter a password please.</p>
+					    </div>
+					    <div class="small-12 columns">
+					      <label>Re-enter Password
+					        <input type="password" placeholder="yeti4preZ" aria-describedby="exampleHelpText2" required pattern="alpha_numeric" data-equalto="password">
+					        <span class="form-error">
+					          Hey, passwords are supposed to match!
+					        </span>
+					      </label>
+					      <p class="help-text" id="exampleHelpText2">This field is using the `data-equalto="password"` attribute, causing it to match the password field above.</p>
+					    </div>
+					  </div>
+					  <div class="row">
+					    <div class="medium-6 columns">
+					      <label>URL Pattern, not required, but throws error if it doesn't match the Regular Expression for a valid URL.
+					        <input type="text" placeholder="http://foundation.zurb.com" pattern="url">
+					      </label>
+					    </div>
+					    <div class="medium-6 columns">
+					      <label>European Cars, Choose One, it can't be the blank option.
+					        <select id="select" required>
+					          <option value=""></option>
+					          <option value="volvo">Volvo</option>
+					          <option value="saab">Saab</option>
+					          <option value="mercedes">Mercedes</option>
+					          <option value="audi">Audi</option>
+					        </select>
+					      </label>
+					    </div>
+					  </div>
+					  <div class="row">
+					    <fieldset class="large-6 columns">
+					      <legend>Choose Your Favorite, and this is required, so you have to pick one.</legend>
+					      <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Red</label>
+					      <input type="radio" name="pokemon" value="Blue" id="pokemonBlue" required><label for="pokemonBlue">Blue</label>
+					      <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"><label for="pokemonYellow">Yellow</label>
+					    </fieldset>
+					    <fieldset class="large-6 columns">
+					      <legend>Choose Your Favorite - not required, you can leave this one blank.</legend>
+					      <input type="radio" name="pockets" value="Red" id="pocketsRed"><label for="pocketsRed">Red</label>
+					      <input type="radio" name="pockets" value="Blue" id="pocketsBlue"><label for="pocketsBlue">Blue</label>
+					      <input type="radio" name="pockets" value="Yellow" id="pocketsYellow"><label for="pocketsYellow">Yellow</label>
+					    </fieldset>
+					    <fieldset class="large-6 columns">
+					      <legend>Check these out</legend>
+					      <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+					      <input id="checkbox2" type="checkbox" required><label for="checkbox2">Checkbox 2</label>
+					      <input id="checkbox3" type="checkbox"><label for="checkbox3">Checkbox 3</label>
+					    </fieldset>
+					  </div>
+					  <div class="row">
+					    <fieldset class="large-6 columns">
+					      <button class="button" type="submit" value="Submit">Submit</button>
+					    </fieldset>
+					    <fieldset class="large-6 columns">
+					      <button class="button" type="reset" value="Reset">Reset</button>
+					    </fieldset>
+					  </div>
+					</form>
+					<hr>
+
 					<!-- Accordion -->
 					<h2 id="accordion" class="docs-heading" data-magellan-target="accordion"><a href="#accordion"></a>Accordion</h2>
 					<ul class="accordion" data-accordion role="tablist">
@@ -158,7 +248,7 @@ get_header(); ?>
 						  <button class="close-button" aria-label="Close alert" type="button">
 						    <span aria-hidden="true">&times;</span>
 						  </button>
-						  <p>You can so totally close this!</p>
+						  <p>This is a static close button example.</p>
 						</div>
 					<hr>
 
@@ -326,6 +416,33 @@ get_header(); ?>
 						</form>
 					<hr>
 
+					<!-- Grid -->
+					<h2 id="grid" class="docs-heading" data-magellan-target="grid"><a href="#grid"></a>Grid<h2>
+						<div class="row display">
+						  <div class="small-2 medium-3 large-4 columns">2/3/4 columns</div>
+						  <div class="small-4 medium-3 large-4 columns">4/3/4 columns</div>
+						  <div class="small-6 large-4 columns">6/6/4 columns</div>
+						</div>
+						<div class="row display">
+						  <div class="large-3 columns">12/12/3 columns</div>
+						  <div class="large-6 columns">12/12/6 columns</div>
+						  <div class="large-3 columns">12/12/3 columns</div>
+						</div>
+						<div class="row display">
+						  <div class="small-6 large-2 columns">6/6/2 columns</div>
+						  <div class="small-6 large-8 columns">6/6/8 columns</div>
+						  <div class="small-12 large-2 columns">12/12/2 columns</div>
+						</div>
+						<div class="row display">
+						  <div class="small-3 columns">3 columns</div>
+						  <div class="small-9 columns">9 columns</div>
+						</div>
+						<div class="row display">
+						  <div class="medium-8 large-4 columns">12/8/4 columns</div>
+						  <div class="medium-4 large-8 columns">12/4/8 columns</div>
+						</div>
+					<hr>
+
 					<!-- Label -->
 					<h2 id="label" class="docs-heading" data-magellan-target="label"><a href="#label"></a>Label</h2>
 						<span class="secondary label">Secondary Label</span>
@@ -437,6 +554,62 @@ get_header(); ?>
 						</ul>
 					<hr>
 
+					<!-- Progress Bar -->
+					<h2 id="progress-bar" class="docs-heading" data-magellan-target="progress-bar"><a href="#progress-bar"></a>Progress Bar</h2>
+					<div class="success progress" role="progressbar" tabindex="0" aria-valuenow="25" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
+					  <div class="progress-meter" style="width: 25%">
+					    <p class="progress-meter-text">25%</p>
+					  </div>
+					</div>
+
+					<div class="warning progress">
+					  <div class="progress-meter" style="width: 50%">
+					    <p class="progress-meter-text">50%</p>
+					  </div>
+					</div>
+
+					<div class="alert progress">
+					  <div class="progress-meter" style="width: 75%">
+					    <p class="progress-meter-text">75%</p>
+					  </div>
+					</div>
+
+					<br /><br />
+					<p><strong>Native progress:</strong> As an alternative to our custom progress bar style, you can also opt to use the native <code>&lt;progress&gt;</code> element. It provides a more succinct way to create progress bars, but it's not supported in IE9, and some other older browsers. <a href="http://caniuse.com/#feat=progress">View <code>&lt;progress&gt;</code> element support.</a></p>
+					<progress max="100" value="75"></progress>
+
+					<br /><br />
+					<p><strong>Native meter:</strong> For the <em>extra</em> adventurous developers out there, we also provide styles for the <code>&lt;meter&gt;</code> element. What's the difference? <code>&lt;progress&gt;</code> represents a value that changes over time, like storage capacity. <code>&lt;meter&gt;</code> represents a value that fluctates around some optimum value. It also has <em>no</em> support in Internet Explorer, Mobile Safari, or Android 2. <a href="http://caniuse.com/#search=meter">View <code>&lt;meter&gt;</code> element support.</a></p>
+					<meter value="30" min="0" low="33" high="66" optimum="100" max="100"></meter>
+					<meter value="50" min="0" low="33" high="66" optimum="100" max="100"></meter>
+					<meter value="100" min="0" low="33" high="66" optimum="100" max="100"></meter>
+					<hr>
+
+					<!-- Reveal -->
+					<h2 id="reveal" class="docs-heading" data-magellan-target="reveal"><a href="#reveal"></a>Reveal</h2>
+					<p><a data-open="exampleModal1">Click me for a basic modal</a></p>
+					<p><a data-toggle="exampleModal8">Click me for a full-screen modal</a></p>
+
+						<!-- Basic modal -->
+			      <div class="reveal" id="exampleModal1" data-reveal>
+			        <h2>This is a basic modal</h2>
+			        <p class="lead">Using hipster ipsum for dummy text</p>
+			        <p>Stumptown direct trade swag hella iPhone post-ironic. Before they sold out blog twee, quinoa forage pour-over microdosing deep v keffiyeh fanny pack. Occupy polaroid tilde, bitters vegan man bun gentrify meggings.</p>
+			        <button class="close-button" data-close aria-label="Close reveal" type="button">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+
+						<!-- Full screen modal -->
+			      <div class="full reveal" id="exampleModal8" data-reveal>
+			        <h2>Full screen modal</h2>
+			        <img src="http://placekitten.com/1920/1280" alt="Intropsective Cage">
+			        <button class="close-button" data-close aria-label="Close reveal" type="button">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+					<hr>
+
 					<!-- Slider -->
 					<h2 id="slider" class="docs-heading" data-magellan-target="slider"><a href="#slider"></a>Slider</h2>
 						<div class="slider" data-slider data-initial-start='50' data-end='200'>
@@ -450,8 +623,10 @@ get_header(); ?>
 						  <span class="slider-fill" data-slider-fill></span>
 						  <input type="hidden">
 						</div>
+						<br /><br />
+						<p><strong>Native range slider:</strong> In Foundation 6.2, we introduced styles for <code>&lt;input type="range"&gt;</code>, the native HTML element for range sliders. It's not supported in every browser, namely IE9 and some older mobile browsers. <a href="http://caniuse.com/#feat=input-range">View browser support for the range input type.</a></p>
+						<input type="range" min="1" max="100" step="1">
 					<hr>
-
 
 					<!-- Switch -->
 					<h2 id="switch" class="docs-heading" data-magellan-target="switch"><a href="#switch"></a>Switch</h2>
@@ -578,11 +753,24 @@ get_header(); ?>
 						</div>
 					<hr>
 
+					<!-- Toggler -->
+					<h2 id="toggler" class="docs-heading" data-magellan-target="toggler"><a href="#toggler"></a>Toggler</h2>
+					<p><button class="button small primary" type="button" data-toggle="menuBar">Toggle width</button></p>
+
+					<ul class="menu" id="menuBar" data-toggler=".expanded">
+					  <li><a href="#">One</a></li>
+					  <li><a href="#">Two</a></li>
+					  <li><a href="#">Three</a></li>
+					  <li><a href="#">Four</a></li>
+					</ul>
+					<hr>
+
 					<!-- Tooltip -->
 					<h2 id="tooltip" class="docs-heading" data-magellan-target="tooltip"><a href="#tooltip"></a>Tooltip</h2>
 							<p>The <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover='false' tabindex=1 title="Fancy word for a beetle.">scarabaeus</span> hung quite clear of any branches, and, if allowed to fall, would have fallen at our feet. Legrand immediately took the scythe, and cleared with it a circular space, three or four yards in diameter, just beneath the insect, and, having accomplished this, ordered Jupiter to let go the string and come down from the tree.</p>
 					<hr>
 
+					<!-- Top bar -->
 					<h2 id="top-bar" class="docs-heading" data-magellan-target="top-bar"><a href="#top-bar"></a>Top Bar</h2>
 						<div class="top-bar">
 
@@ -610,6 +798,38 @@ get_header(); ?>
 						  </div>
 						</div>
 					<hr>
+
+					<!-- Visibility Classes -->
+					<h2 id="visibility-classes" class="docs-heading" data-magellan-target="visibility-classes"><a href="#visibility-classes"></a>Visibility classes</h2>
+						<div class="visibility-classes">
+
+							<p>You are on a small screen or larger.</p>
+							<p class="show-for-medium">You are on a medium screen or larger.</p>
+							<p class="show-for-large">You are on a large screen or larger.</p>
+							<p class="show-for-small-only">You are <em>definitely</em> on a small screen.</p>
+							<p class="show-for-medium-only">You are <em>definitely</em> on a medium screen.</p>
+							<p class="show-for-large-only">You are <em>definitely</em> on a large screen.</p>
+
+							<p class="hide-for-medium">You are <em>not</em> on a medium screen or larger.</p>
+							<p class="hide-for-large">You are <em>not</em> on a large screen or larger.</p>
+							<p class="hide-for-small-only">You are <em>definitely not</em> on a small screen.</p>
+							<p class="hide-for-medium-only">You are <em>definitely not</em> on a medium screen.</p>
+							<p class="hide-for-large-only">You are <em>definitely not</em> on a large screen.</p>
+							<p class="hide">Can't touch this.</p>
+
+							<p class="invisible">Can sort of touch this.</p>
+
+							<p class="show-for-landscape">You are in landscape orientation.</p>
+							<p class="show-for-portrait">You are in portrait orientation.</p>
+
+							<p class="show-for-sr">This text can only be read by a screen reader.</p>
+							<p>There's a line of text above this one, you just can't see it.</p>
+
+							<p aria-hidden="true">This text can be seen, but won't be read by a screen reader.</p>
+
+						</div>
+					<hr>
+
 					</article>
 				</div>
 
@@ -618,6 +838,7 @@ get_header(); ?>
 					<div class="docs-toc" data-sticky="sidebar" data-anchor="components">
 						<ul class="vertical menu docs-sub-menu" data-magellan>
 							<li class="docs-menu-title">On this page:</li>
+							<li><a href="#abide">Abide</a></li>
 							<li><a href="#accordion">Accordion</a></li>
 							<li><a href="#accordion-menu">Accordion Menu</a></li>
 							<li><a href="#badge">Badge</a></li>
@@ -631,20 +852,25 @@ get_header(); ?>
 							<li><a href="#flex-video">Flex Video</a></li>
 							<li><a href="#float-classes">Float Classes</a></li>
 							<li><a href="#forms">Forms</a></li>
+							<li><a href="#grid">Grid</a></li>
 							<li><a href="#label">Label</a></li>
 							<li><a href="#media-object">Media Object</a></li>
 							<li><a href="#menu">Menu</a></li>
 							<li><a href="#motion-ui">Motion UI</a></li>
 							<li><a href="#orbit">Orbit</a></li>
 							<li><a href="#pagination">Pagination</a></li>
+							<li><a href="#progress-bar">Progress Bar</a></li>
+							<li><a href="#reveal">Reveal</a></li>
 							<li><a href="#slider">Slider</a></li>
 							<li><a href="#switch">Switch</a></li>
 							<li><a href="#table">Table</a></li>
 							<li><a href="#tabs">Tabs</a></li>
 							<li><a href="#thumbnail">Thumbnail</a></li>
 							<li><a href="#title-bar">Title Bar</a></li>
+							<li><a href="#toggler">Toggler</a></li>
 							<li><a href="#tooltip">Tooltip</a></li>
 							<li><a href="#top-bar">Top Bar</a></li>
+							<li><a href="#visibility-classes">Visibility Classes</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -656,4 +882,4 @@ get_header(); ?>
 		</div>
 
 	<?php endwhile; ?>
-<?php get_footer(); ?>
+<?php get_footer();
