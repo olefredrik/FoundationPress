@@ -233,7 +233,7 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 
 	    // Create caption HTML
 	    $output = '
-	      <div' . $attributes .'>' .
+	      <div' . $attributes . '>' .
 	        do_shortcode( $content ) .
 	        '<p class="' . $this->caption_p_class . '">' . $attr['caption'] . '</p>' .
 	      '</div>
