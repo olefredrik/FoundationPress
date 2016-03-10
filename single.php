@@ -20,13 +20,11 @@ get_header(); ?>
 		<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 		<div class="entry-content">
 
-		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="row">
-				<div class="column">
-					<?php the_post_thumbnail( '', array('class' => 'th') ); ?>
-				</div>
-			</div>
-		<?php endif; ?>
+		<?php
+			if ( has_post_thumbnail() ) :
+				the_post_thumbnail();
+			endif;
+		?>
 
 		<?php the_content(); ?>
 		</div>
