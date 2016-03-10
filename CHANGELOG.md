@@ -1,5 +1,42 @@
 # Change Log
 
+## [v2.6.1](https://github.com/olefredrik/FoundationPress/tree/v2.6.1) (2016-03-10)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.6.0...v2.6.1)
+
+**Fixed bugs:**
+
+- Responsive images WP 4.4 [\#607](https://github.com/olefredrik/FoundationPress/issues/607)
+- Stripping Image Classes [\#532](https://github.com/olefredrik/FoundationPress/issues/532)
+
+**Closed issues:**
+
+- Essential Grid Plugin on Mobile [\#578](https://github.com/olefredrik/FoundationPress/issues/578)
+- Mobile Menu doesn't load [\#485](https://github.com/olefredrik/FoundationPress/issues/485)
+
+**Merged pull requests:**
+
+- Remove local server url from gulpfile [\#764](https://github.com/olefredrik/FoundationPress/pull/764) ([olefredrik](https://github.com/olefredrik))
+
+## [v2.6.0](https://github.com/olefredrik/FoundationPress/tree/v2.6.0) (2016-03-10)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.5.1...v2.6.0)
+
+**Implemented enhancements:**
+
+- Responsive images [\#657](https://github.com/olefredrik/FoundationPress/pull/657) ([olefredrik](https://github.com/olefredrik))
+
+**Closed issues:**
+
+- bower components \_global overriding scss/global/\_setting [\#762](https://github.com/olefredrik/FoundationPress/issues/762)
+- Fresh install changes to \_settings.scss not cascading consistently [\#760](https://github.com/olefredrik/FoundationPress/issues/760)
+- foundation.css file throw an 404 error on childthemes [\#758](https://github.com/olefredrik/FoundationPress/issues/758)
+- Homepage replicate across all pages [\#755](https://github.com/olefredrik/FoundationPress/issues/755)
+- Error messages always displayed when using Abide validation [\#719](https://github.com/olefredrik/FoundationPress/issues/719)
+
+**Merged pull requests:**
+
+- Bug fix settings file [\#763](https://github.com/olefredrik/FoundationPress/pull/763) ([EricRihlmann](https://github.com/EricRihlmann))
+- Add the new foundation color palette mixin [\#761](https://github.com/olefredrik/FoundationPress/pull/761) ([olefredrik](https://github.com/olefredrik))
+
 ## [v2.5.1](https://github.com/olefredrik/FoundationPress/tree/v2.5.1) (2016-03-08)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.5.0...v2.5.1)
 
