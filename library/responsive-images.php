@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage FoundationPress
- * @since FoundationPress 2.2.0
+ * @since FoundationPress 2.6.0
  */
 
  // Add additional image sizes
