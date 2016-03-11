@@ -24,11 +24,21 @@ function wpshout_custom_sizes( $sizes ) {
 
 // Add custom image sizes attribute to enhance responsive image functionality for content images
 function foundationpress_adjust_image_sizes_attr( $sizes, $size ) {
-	$sizes = '
-		(max-width: 640px) 640px,
-		(max-width: 1024px) 1024px,
-		(max-width: 1200px) 1200px,
-		(min-width: 1201px) 1200px, 100vw';
+
+	// Actual width of image
+	$width = $size[0];
+
+	// Full width page template
+	if ( is_page_template( 'page-templates/page-full-width.php' ) ) {
+		1200 < $width && $sizes = '(max-width: 1199px) 98vw, 1200px';
+		1200 > $width && $sizes = '(max-width: 1199px) 98vw, ' . $width . 'px';
+
+	// Default 3/4 column post/page layout
+	} else {
+		770 < $width && $sizes = '(max-width: 639px) 98vw, (max-width: 1199px) 64vw, 770px';
+		770 > $width && $sizes = '(max-width: 639px) 98vw, (max-width: 1199px) 64vw, ' . $width . 'px';
+	}
+
 	return $sizes;
 }
 add_filter( 'wp_calculate_image_sizes', 'foundationpress_adjust_image_sizes_attr', 10 , 2 );
