@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-14 16:54+0000\n"
-"PO-Revision-Date: 2016-03-14 16:54+0000\n"
+"PO-Revision-Date: 2016-03-14 16:58+0000\n"
 "Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language: pt_PT\n"
@@ -248,7 +248,7 @@ msgstr "Arraste widgets para este rodapé."
 #: page-templates/page-sidebar-left.php:22 page.php:30 single.php:32
 #: woocommerce.php:26
 msgid "Pages:"
-msgstr "Paginas:"
+msgstr "Páginas:"
 
 #: search.php:16
 msgid "Search Results for"
