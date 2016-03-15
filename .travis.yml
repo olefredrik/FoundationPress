@@ -75,9 +75,9 @@ before_script:
   # Create WordPress database.
   - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
   # Install CodeSniffer for WordPress Coding Standards checks.
-  - git clone https://github.com/squizlabs/PHP_CodeSniffer.git php-codesniffer
+  - git clone https://github.com/squizlabs/PHP_CodeSniffer.git php-codesniffer --depth=1
   # Install WordPress Coding Standards.
-  - git clone https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git wordpress-coding-standards
+  - git clone https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git wordpress-coding-standards --depth=1
   # Hop into CodeSniffer directory.
   - cd php-codesniffer
   # Set install path for WordPress Coding Standards.
