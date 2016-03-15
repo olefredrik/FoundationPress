@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-14 16:54+0000\n"
-"PO-Revision-Date: 2016-03-14 16:58+0000\n"
+"PO-Revision-Date: 2016-03-15 09:18+0000\n"
 "Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language: pt_PT\n"
@@ -150,7 +150,7 @@ msgstr "Disposição da navegação móvel"
 
 #: library/custom-nav.php:31
 msgid "topbar"
-msgstr "Barra topo"
+msgstr "Barra superior"
 
 #: library/entry-meta.php:11
 #, php-format
