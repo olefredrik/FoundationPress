@@ -7,28 +7,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-10 16:12+0000\n"
-"PO-Revision-Date: 2015-11-11 00:59+0000\n"
+"POT-Creation-Date: 2016-03-14 16:54+0000\n"
+"PO-Revision-Date: 2016-03-15 09:18+0000\n"
 "Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
 "esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
 "esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:17
+#: 404.php:16
 msgid "File Not Found"
-msgstr "Ficheiro não encontrado."
+msgstr "Ficheiro não encontrado"
 
-#: 404.php:21
+#: 404.php:20
 msgid ""
 "The page you are looking for might have been removed, had its name changed, "
 "or is temporarily unavailable."
@@ -36,136 +37,104 @@ msgstr ""
 "A página que está à procura foi removida, foi alterado o seu nome, ou está "
 "temporariamente indisponível."
 
-#: 404.php:23
+#: 404.php:22
 msgid "Please try the following:"
 msgstr "Por favor, tente o seguinte:"
 
-#: 404.php:25
+#: 404.php:24
 msgid "Check your spelling"
 msgstr "Verifique a sua ortografia"
 
-#: 404.php:26
+#: 404.php:25
 #, php-format
 msgid "Return to the <a href=\"%s\">home page</a>"
 msgstr "Voltar para a <a href=\"%s\">pagina inicial</a>"
 
-#: 404.php:27
+#: 404.php:26
 msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
 msgstr "Clique no botão <a href=\"javascript:history.back()\">Voltar</a>"
 
-#: archive.php:40 index.php:41 search.php:35
+#: archive.php:37 index.php:35 search.php:34
 msgid "&larr; Older posts"
 msgstr "&larr; Artigos mais antigos"
 
-#: archive.php:41 index.php:42 search.php:36
+#: archive.php:38 index.php:36 search.php:35
 msgid "Newer posts &rarr;"
 msgstr "Artigos mais recentes &rarr;"
 
-#: comments.php:27
+#: comments.php:26
 msgid "Reply"
 msgstr "Responder"
 
-#: comments.php:36 library/foundation.php:156
+#: comments.php:35 library/foundation.php:155
 msgid "Your comment is awaiting moderation."
 msgstr "O seu comentário aguarda moderação."
 
-#: comments.php:55
+#: comments.php:54
 msgid "Please do not load this page directly. Thanks!"
 msgstr "Por favor, não carregue esta página directamente. Obrigado!"
 
-#: comments.php:60
+#: comments.php:59
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 "Este conteúdo está protegido por senha. Introduza a senha para ver os "
 "comentários."
 
-#: comments.php:73
+#: comments.php:72
 msgid "Leave a Reply"
 msgstr "Deixar uma resposta"
 
-#: comments.php:73
+#: comments.php:72
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr "Responder a %s"
 
-#: comments.php:76
+#: comments.php:75
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 "Tem de ter a <a href=\"%s\">sessão iniciada</a> para publicar um comentário."
 
-#: comments.php:80
+#: comments.php:79
 #, php-format
 msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
 msgstr "Sessão iniciada como <a href=\"%s/wp-admin/profile.php\">%s</a>."
 
-#: comments.php:80
+#: comments.php:79
 msgid "Log out of this account"
 msgstr "Terminar sessão nesta conta"
 
-#: comments.php:80
+#: comments.php:79
 msgid "Log out &raquo;"
 msgstr "Terminar sessão &raquo;"
 
-#: comments.php:85
+#: comments.php:84
 msgid "Name"
 msgstr "Nome"
 
-#: comments.php:85 comments.php:93
+#: comments.php:84 comments.php:92
 msgid " (required)"
-msgstr " (necessário)"
+msgstr "(obrigatório)"
 
-#: comments.php:93
+#: comments.php:92
 msgid "Email (will not be published)"
 msgstr "Email (não será publicado)"
 
-#: comments.php:101
+#: comments.php:100
 msgid "Website"
-msgstr "Website"
+msgstr "Site"
 
-#: comments.php:110
+#: comments.php:109
 msgid "Comment"
 msgstr "Comentário"
 
-#: comments.php:117
+#: comments.php:116
 msgid "You can use these tags:"
 msgstr "Pode usar estas etiquetas:"
 
-#: comments.php:123
+#: comments.php:122
 msgid "Submit Comment"
 msgstr "Submeter comentário"
-
-#: content-none.php:15
-msgid "Nothing Found"
-msgstr "Nada foi encontrado"
-
-#: content-none.php:21
-#, php-format
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-"Preparado para publicar o seu primeiro artigo?<a href=\"%1$s\">Comece aqui</"
-"a>."
-
-#: content-none.php:25
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
-msgstr ""
-"Desculpe, mas nada correspondeu aos seus critérios de pesquisa. Por favor, "
-"tente de novo com palavras-chave diferentes."
-
-#: content-none.php:30
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
-msgstr ""
-"Não conseguimos encontrar aquilo que procura. Talvez uma pesquisa possa "
-"ajudar."
-
-#: content.php:20
-msgid "Continue reading..."
-msgstr "Continue a ler..."
 
 #: library/custom-nav.php:16
 msgid "Mobile Menu Settings"
@@ -179,131 +148,144 @@ msgstr "Controla o menu móvel"
 msgid "Mobile navigation layout"
 msgstr "Disposição da navegação móvel"
 
-#: library/custom-nav.php:29
-msgid "Mobile navigation position"
-msgstr "Posição da navegação móvel"
+#: library/custom-nav.php:31
+msgid "topbar"
+msgstr "Barra superior"
 
-#: library/custom-nav.php:38
-msgid "offcanvas"
-msgstr "Off canvas"
-
-#: library/custom-nav.php:46
-msgid "left"
-msgstr "esquerda"
-
-#: library/entry-meta.php:12
+#: library/entry-meta.php:11
 #, php-format
 msgid "Posted on %s at %s."
 msgstr "Publicado em %s às %s."
 
-#: library/entry-meta.php:13
+#: library/entry-meta.php:12
 msgid "Written by"
 msgstr "Escrito por"
 
-#: library/foundation.php:25
+#: library/foundation.php:24
 msgid "&laquo;"
 msgstr "&laquo;"
 
-#: library/foundation.php:26
+#: library/foundation.php:25
 msgid "&raquo;"
 msgstr "&raquo;"
 
-#: library/foundation.php:54
+#: library/foundation.php:53
 #, php-format
 msgid ""
 "Please assign a menu to the primary menu location under %1$s or %2$s the "
 "design."
 msgstr "Por favor, seleccione um Menu primário em %1$s ou em %2$s o design."
 
-#: library/foundation.php:55
+#: library/foundation.php:54
 #, php-format
 msgid "<a href=\"%s\">Menus</a>"
 msgstr "<a href=\"%s\">Menus</a>"
 
-#: library/foundation.php:58
+#: library/foundation.php:57
 #, php-format
 msgid "<a href=\"%s\">Customize</a>"
 msgstr "<a href=\"%s\">Personalizar</a>"
 
-#: library/foundation.php:106
+#: library/foundation.php:105
 msgid "No Responses to"
-msgstr "Sem comentários para"
+msgstr "Sem comentários a"
 
-#: library/foundation.php:106
+#: library/foundation.php:105
 msgid "One Response to"
-msgstr "Um comentário para"
+msgstr "Um comentário a"
 
-#: library/foundation.php:106
+#: library/foundation.php:105
 msgid "% Responses to"
 msgstr "% comentários a"
 
-#: library/foundation.php:146
+#: library/foundation.php:145
 #, php-format
 msgid "<cite class=\"fn\">%s</cite>"
 msgstr "<cite class=\"fn\">%s</cite>"
 
-#: library/foundation.php:147
+#: library/foundation.php:146
 #, php-format
 msgid "%1$s"
 msgstr "%1$s"
 
-#: library/navigation.php:240
+#: library/navigation.php:43
+msgid "mobile-nav"
+msgstr "Navegação-mobile"
+
+#: library/navigation.php:210
 msgid "Page"
 msgstr "Página"
 
-#: library/offcanvas-walker.php:46
-msgid "Back"
-msgstr "Voltar"
+#: library/responsive-images.php:19
+msgid "FP Small"
+msgstr "FP Pequena"
 
-#: library/widget-areas.php:14
+#: library/responsive-images.php:20
+msgid "FP Medium"
+msgstr "FP Média"
+
+#: library/responsive-images.php:21
+msgid "FP Large"
+msgstr "FP Grande"
+
+#: library/widget-areas.php:13
 msgid "Sidebar widgets"
 msgstr "Widgets da barra lateral"
 
-#: library/widget-areas.php:15
+#: library/widget-areas.php:14
 msgid "Drag widgets to this sidebar container."
 msgstr "Arraste widgets para esta barra lateral."
 
-#: library/widget-areas.php:24
+#: library/widget-areas.php:23
 msgid "Footer widgets"
 msgstr "Widgets do rodapé"
 
-#: library/widget-areas.php:25
+#: library/widget-areas.php:24
 msgid "Drag widgets to this footer container"
 msgstr "Arraste widgets para este rodapé."
 
-#: page.php:32 single.php:37 templates/front.php:46
-#: templates/kitchen-sink.php:730 templates/page-full.php:22
-#: templates/page-sidebar-left.php:24 woocommerce.php:27
+#: page-templates/front.php:38 page-templates/page-full-width.php:22
+#: page-templates/page-sidebar-left.php:22 page.php:30 single.php:32
+#: woocommerce.php:26
 msgid "Pages:"
-msgstr "Paginas:"
+msgstr "Páginas:"
 
-#: search.php:17
+#: search.php:16
 msgid "Search Results for"
 msgstr "Resultados da pesquisa por"
 
-#: searchform.php:15 searchform.php:19
+#: searchform.php:13 searchform.php:16
 msgid "Search"
 msgstr "Pesquisar"
 
-#~ msgid "(Edit)"
-#~ msgstr "(Editar)"
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "Nada encontrado"
 
-#~ msgid "&larr; Older comments"
-#~ msgstr "&larr; Comentários antigos"
+#: template-parts/content-none.php:20
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Preparado para publicar o seu primeiro artigo?<a href=\"%1$s\">Comece aqui</"
+"a>."
 
-#~ msgid "Newer comments &rarr;"
-#~ msgstr "Comentários mais recentes &rarr;"
+#: template-parts/content-none.php:24
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Desculpe, mas nada correspondeu aos seus critérios de pesquisa. Por favor, "
+"tente de novo com palavras-chave diferentes."
 
-#~ msgid "I'm a translatable string."
-#~ msgstr "Eu sou uma frase traduzível. "
+#: template-parts/content-none.php:29
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Não conseguimos encontrar aquilo que procura. Talvez uma pesquisa possa "
+"ajudar."
 
-#~ msgid "Me too"
-#~ msgstr "Eu também "
-
-#~ msgid "I have %d apple"
-#~ msgid_plural "I have %d apples"
-#~ msgstr[0] "Eu tenho %d maçã"
-#~ msgstr[1] "Eu tenho %d maçãs "
-
-#~ msgid "yyyy-mm-dd"
-#~ msgstr "aaaa-mm-dd"
+#: template-parts/content.php:19
+msgid "Continue reading..."
+msgstr "Continue a ler..."
