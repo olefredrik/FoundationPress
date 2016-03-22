@@ -1,0 +1,284 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-22 11:19+0100\n"
+"PO-Revision-Date: 2016-03-22 11:19+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: .\n"
+
+#: 404.php:8
+msgid "File Not Found"
+msgstr "Soubor nenalezen"
+
+#: 404.php:12
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+"Stránka, kterou hledáte, byla pravděpodobně odstraněna, její název byl "
+"změněn, nebo je dočasně nedostupná."
+
+#: 404.php:14
+msgid "Please try the following:"
+msgstr "Prosím, zkuste následující:"
+
+#: 404.php:16
+msgid "Check your spelling"
+msgstr "Zkontrolujte zadaný výraz"
+
+#: 404.php:17
+#, php-format
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "Zpět na <a href=\"%s\">domovskou stránku</a>"
+
+#: 404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr ""
+"Klikněte na tlačítko <a href=\"javascript:history.back()\">Zpět</a> vašeho "
+"prohlížeče"
+
+#. /previous pages when applicable
+#: archive.php:21 index.php:24 search.php:25
+msgid "&larr; Older posts"
+msgstr "&larr; Starší příspěvky"
+
+#: archive.php:22 index.php:25 search.php:26
+msgid "Newer posts &rarr;"
+msgstr "Novější příspěvky &rarr;"
+
+#: comments.php:8
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn\">%s</cite>"
+
+#: comments.php:9
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#: comments.php:10
+msgid "(Edit)"
+msgstr "(Upravit)"
+
+#: comments.php:16
+msgid "Your comment is awaiting moderation."
+msgstr "Váš komentář čeká na schválení administrátorem."
+
+#: comments.php:31
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Prosím nenačítejte tuto stránku přímo. Díky!"
+
+#: comments.php:36
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Tento příspěvek je chráněný heslem. Vložte heslo pro zobrazení komentářů."
+
+#: comments.php:46
+msgid "No Responses to"
+msgstr "Žádná reakce na"
+
+#: comments.php:46
+msgid "One Response to"
+msgstr "Jedna reakce na"
+
+#: comments.php:46
+msgid "% Responses to"
+msgstr "% reakcí na"
+
+#: comments.php:53
+msgid "&larr; Older comments"
+msgstr "&larr; starší komentáře"
+
+#: comments.php:54
+msgid "Newer comments &rarr;"
+msgstr "Novější komentáře &rarr;"
+
+#: comments.php:61
+msgid "Leave a Reply"
+msgstr "Odpovědět"
+
+#: comments.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Reagovat na %s"
+
+#: comments.php:64
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Pro vložení komentáře musíte být <a href=\"%s\">přihlášeni</a>."
+
+#: comments.php:68
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "Přihlášen jako <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: comments.php:68
+msgid "Log out of this account"
+msgstr "Odhlásit se z tohoto účtu."
+
+#: comments.php:68
+msgid "Log out &raquo;"
+msgstr "Odhlásit &raquo;"
+
+#: comments.php:71
+msgid "Name"
+msgstr "Jméno"
+
+#: comments.php:71 comments.php:75
+msgid " (required)"
+msgstr "(požadováno)"
+
+#: comments.php:75
+msgid "Email (will not be published)"
+msgstr "Email (nebude zveřejněný)"
+
+#: comments.php:79
+msgid "Website"
+msgstr "Webové stránky"
+
+#: comments.php:84
+msgid "Comment"
+msgstr "Komentář"
+
+#: comments.php:87
+msgid "You can use these tags:"
+msgstr "Můžete použít tyto HTML tagy:"
+
+#: comments.php:88
+msgid "Submit Comment"
+msgstr "Odeslat komentář"
+
+#: content-none.php:11
+msgid "Nothing Found"
+msgstr "Nenalezeno"
+
+#: content-none.php:17
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Připraveni publikovat váš první příspěvek webu? <a href=\"%1$s\">Začněte "
+"zde</a>."
+
+#: content-none.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Je nám líto, ale nic neodpovídá vašim požadavkům na hledané výrazy. Zkuste "
+"to prosím znovu s zadáním jiných klíčových slov."
+
+#: content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Zdá se, že nemůžete najít, co jste hledali. Možná vám pomůže vyhledávání."
+
+#. /archive/search.
+#. *
+#. * @subpackage FoundationPress
+#. * @since FoundationPress 1.0.0
+#.
+#: content.php:16
+msgid "Continue reading..."
+msgstr "Číst dále..."
+
+#: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
+#: page.php:18 single.php:27 woocommerce.php:18
+msgid "Pages:"
+msgstr "Stránky:"
+
+#: library/entry-meta.php:4
+#, php-format
+msgid "Posted on %s at %s."
+msgstr "Publikováno dne %s na %s."
+
+#: library/entry-meta.php:5
+msgid "Written by"
+msgstr "Napsal"
+
+#: library/foundation.php:16
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: library/foundation.php:17
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: library/foundation.php:40
+#, php-format
+msgid ""
+"Please assign a menu to the primary menu location under %1$s or %2$s the "
+"design."
+msgstr ""
+"Prosím přiřaďte menu jako primární menu umístění pod %1$s nebo %2$s v "
+"rozložení stránky."
+
+#: library/foundation.php:41
+#, php-format
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">Menu</a>"
+
+#: library/foundation.php:44
+#, php-format
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">Přizpůsobit</a>"
+
+#: library/widget-areas.php:6
+msgid "Sidebar widgets"
+msgstr "Widgety postranního panelu"
+
+#: library/widget-areas.php:7
+msgid "Drag widgets to this sidebar container."
+msgstr "Přetáhněte widgety na tuto oblast pro postranní panel."
+
+#: library/widget-areas.php:16
+msgid "Footer widgets"
+msgstr "Widgety v patičce"
+
+#: library/widget-areas.php:17
+msgid "Drag widgets to this footer container"
+msgstr "Přetáhněte widgety na tuto oblast pro zápatí."
+
+#: node_modules/grunt-pot/test/fixtures/some-file.php:3
+msgid "I'm a translatable string."
+msgstr "Jsem přeložitelný řetězec."
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:4
+msgid "Me too"
+msgstr "Já taky"
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:7
+#, php-format
+msgid "I have %d apple"
+msgid_plural "I have %d apples"
+msgstr[0] "Mám %d jablko"
+msgstr[1] "Mám %d jablka"
+msgstr[2] "Mám %d jablek"
+
+#. / TRANSLATORS: This should be translated as a shorthand for YEAR-MONTH-DAY using 4, 2 and 2 digits.
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:16
+msgid "yyyy-mm-dd"
+msgstr "yyy-mm-dd"
+
+#: search.php:7
+msgid "Search Results for"
+msgstr "Výsledek vyhledávání výrazu"
+
+#: searchform.php:6 searchform.php:10
+msgid "Search"
+msgstr "Hledat"
