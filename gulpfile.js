@@ -100,7 +100,7 @@ gulp.task('browser-sync', ['build'], function() {
 // Compile Sass into CSS
 // In production, the CSS is compressed
 gulp.task('sass', function() {
-  // Minify CSS if run wtih --production flag
+  // Minify CSS if run with --production flag
   var minifycss = $.if(isProduction, $.minifyCss());
 
   return gulp.src('assets/scss/foundation.scss')
