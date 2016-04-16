@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FoundationPress v5.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-12 17:53+0200\n"
-"PO-Revision-Date: 2016-04-12 17:59+0200\n"
+"PO-Revision-Date: 2016-04-12 17:54+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -133,7 +133,7 @@ msgstr "Antworten"
 #: comments.php:61
 #, php-format
 msgid "Leave a Reply to %s"
-msgstr "Auf %s antworten"
+msgstr "Antworte auf %s"
 
 # @ FoundationPress
 #: comments.php:64
@@ -186,7 +186,7 @@ msgstr "Kommentar"
 # @ FoundationPress
 #: comments.php:87
 msgid "You can use these tags:"
-msgstr "Du kannst diese Tags verwenden:"
+msgstr "Sie können diese Tags verwenden:"
 
 # @ FoundationPress
 #: comments.php:88
@@ -290,7 +290,7 @@ msgstr "Seitenleisten-Widgetbereich"
 # @ FoundationPress
 #: library/widget-areas.php:7
 msgid "Drag widgets to this sidebar container."
-msgstr "Ziehe Widgets zu diesem Seitenleisten-Bereich."
+msgstr "Ziehen Sie Widgets zu diesem Seitenleisten-Bereich."
 
 # @ FoundationPress
 #: library/widget-areas.php:16
@@ -300,7 +300,7 @@ msgstr "Footer-Widgetbereich"
 # @ FoundationPress
 #: library/widget-areas.php:17
 msgid "Drag widgets to this footer container"
-msgstr "Ziehe Widgets zu diesem Footer-Bereich."
+msgstr "Ziehen Sie Widgets zu diesem Footer-Bereich."
 
 #: node_modules/grunt-pot/test/fixtures/some-file.php:3
 msgid "I'm a translatable string."
