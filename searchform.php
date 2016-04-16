@@ -15,6 +15,7 @@ do_action( 'foundationpress_before_searchform' ); ?>
 		<div class="input-group-button">
 			<input type="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'foundationpress' ); ?>" class="button">
 		</div>
+	</div>
 	<?php do_action( 'foundationpress_searchform_after_search_button' ); ?>
 </form>
 <?php do_action( 'foundationpress_after_searchform' );
