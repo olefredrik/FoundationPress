@@ -10,6 +10,12 @@
 
 **What happened instead?**
 
-**Test case:**
+**Please List the Following:**
+* OS & version:
+* Node version (node -v) [Node v4+ is required] :
+* Foundation version (bower list) :
 
-Please provide a link to a [CodePen](http://codepen.io/gakimball/pen/jqEMYp) or [JSFiddle](http://jsfiddle.net) that recreates the issue, if possible.
+**Include Test Case** (if applicable):  
+Give us a link to a CodePen or JSFiddle that recreates the issue.
+* [CodePen with Foundation 6 and MotionUI](http://codepen.io/rafibomb/pen/xVVGOB)
+* [CodePen with Foundation 6, Flexbox grid and MotionUI](http://codepen.io/rafibomb/pen/jqqPra)
