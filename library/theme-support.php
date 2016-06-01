@@ -37,6 +37,9 @@ function foundationpress_theme_support() {
 
 	// Declare WooCommerce support per http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
 	add_theme_support( 'woocommerce' );
+
+	// Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
+	add_editor_style( 'assets/stylesheets/foundation.css' );
 }
 
 add_action( 'after_setup_theme', 'foundationpress_theme_support' );

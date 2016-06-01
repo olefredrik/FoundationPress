@@ -1,0 +1,5 @@
+body#tinymce{ 
+	height: auto; //Fix editor style bug
+	max-width: $grid-row-width; //Give the editor a max-width
+	padding: rem-calc(20) !important;
+}
