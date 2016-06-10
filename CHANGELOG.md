@@ -1,5 +1,74 @@
 # Change Log
 
+## [Unreleased](https://github.com/olefredrik/FoundationPress/tree/HEAD)
+
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.6.2...HEAD)
+
+**Closed issues:**
+
+- Autoprefixer missing -webkit prefixes [\#826](https://github.com/olefredrik/FoundationPress/issues/826)
+
+## [v2.6.2](https://github.com/olefredrik/FoundationPress/tree/v2.6.2) (2016-06-09)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.6.1...v2.6.2)
+
+**Closed issues:**
+
+- Advice on Excessively Large File Size? [\#831](https://github.com/olefredrik/FoundationPress/issues/831)
+- no styles [\#830](https://github.com/olefredrik/FoundationPress/issues/830)
+- OffCanvas menu -webkit- prefixes in Safari [\#829](https://github.com/olefredrik/FoundationPress/issues/829)
+- npm install error  [\#827](https://github.com/olefredrik/FoundationPress/issues/827)
+- Responsive Menu not toggling [\#825](https://github.com/olefredrik/FoundationPress/issues/825)
+- Mobile Menu Accordion Menu - Expand "active" submenu parent automatically [\#822](https://github.com/olefredrik/FoundationPress/issues/822)
+- Google Fonts are being added automatically [\#818](https://github.com/olefredrik/FoundationPress/issues/818)
+- NPM run production not working with node.js 6.1.0 \(Solved\) [\#815](https://github.com/olefredrik/FoundationPress/issues/815)
+- Extra Question For Issues  [\#811](https://github.com/olefredrik/FoundationPress/issues/811)
+- \<?php foundationpress\_top\_bar\_r\(\); ?\> not showing any pages [\#810](https://github.com/olefredrik/FoundationPress/issues/810)
+- npm install error [\#809](https://github.com/olefredrik/FoundationPress/issues/809)
+- php CodeSniffer not working - Windows 10 [\#808](https://github.com/olefredrik/FoundationPress/issues/808)
+- path.js throw error, Path must be a string. Received ' + inspect\(path\); [\#807](https://github.com/olefredrik/FoundationPress/issues/807)
+- Logged in to my WP install via Browser Sync [\#806](https://github.com/olefredrik/FoundationPress/issues/806)
+- FoundationPress installation via npm failed [\#805](https://github.com/olefredrik/FoundationPress/issues/805)
+- Working with an "old" FoundationPress [\#800](https://github.com/olefredrik/FoundationPress/issues/800)
+- Every little project requires 70,000 files? [\#797](https://github.com/olefredrik/FoundationPress/issues/797)
+- Error trying to compile foundation.scss [\#796](https://github.com/olefredrik/FoundationPress/issues/796)
+- can't upload on external save via SFTP [\#794](https://github.com/olefredrik/FoundationPress/issues/794)
+- top-bar fixed [\#787](https://github.com/olefredrik/FoundationPress/issues/787)
+- Strange character \( ` \) appearing in site text - this theme only [\#782](https://github.com/olefredrik/FoundationPress/issues/782)
+- Missing modules when running npm run build or npm install [\#780](https://github.com/olefredrik/FoundationPress/issues/780)
+- BwoserSync not working on older project after installing new project [\#779](https://github.com/olefredrik/FoundationPress/issues/779)
+- about template page-sidebar-right [\#778](https://github.com/olefredrik/FoundationPress/issues/778)
+- Component loading issue when building SCSS. [\#776](https://github.com/olefredrik/FoundationPress/issues/776)
+- Significance of this return after running "watch"? [\#775](https://github.com/olefredrik/FoundationPress/issues/775)
+- More info on Motion UI [\#772](https://github.com/olefredrik/FoundationPress/issues/772)
+- Install foundationPress twice in one themes directory? [\#769](https://github.com/olefredrik/FoundationPress/issues/769)
+- Sass Mixins with FoundationPress [\#765](https://github.com/olefredrik/FoundationPress/issues/765)
+- errors in sitemap.xml due to functions.php [\#753](https://github.com/olefredrik/FoundationPress/issues/753)
+- Adding a second menu to mobile nav? [\#728](https://github.com/olefredrik/FoundationPress/issues/728)
+- Fonts issues. [\#703](https://github.com/olefredrik/FoundationPress/issues/703)
+- Noob question regarding fonts and how to set them up [\#702](https://github.com/olefredrik/FoundationPress/issues/702)
+- Push changes to server with Git, but with whole assets? [\#700](https://github.com/olefredrik/FoundationPress/issues/700)
+- Reveal does not display properly on a page with right sidebar layout [\#696](https://github.com/olefredrik/FoundationPress/issues/696)
+- Off canvas menu won't open/reveal left [\#682](https://github.com/olefredrik/FoundationPress/issues/682)
+- SCSS Not Compiling Because  [\#676](https://github.com/olefredrik/FoundationPress/issues/676)
+- PostInstall issues  [\#672](https://github.com/olefredrik/FoundationPress/issues/672)
+- How to make a sticky nav? [\#653](https://github.com/olefredrik/FoundationPress/issues/653)
+
+**Merged pull requests:**
+
+- Autoprefixer compability [\#832](https://github.com/olefredrik/FoundationPress/pull/832) ([olefredrik](https://github.com/olefredrik))
+- Add foundation.css as editor styles [\#828](https://github.com/olefredrik/FoundationPress/pull/828) ([derweili](https://github.com/derweili))
+- Update cs\_CZ.po [\#823](https://github.com/olefredrik/FoundationPress/pull/823) ([vladodriver](https://github.com/vladodriver))
+- Updated Issue Template with New Questions [\#821](https://github.com/olefredrik/FoundationPress/pull/821) ([LukePettway](https://github.com/LukePettway))
+- Add missing argument to fix travis CI build [\#795](https://github.com/olefredrik/FoundationPress/pull/795) ([minihays](https://github.com/minihays))
+- Fix typo in gulpfile [\#793](https://github.com/olefredrik/FoundationPress/pull/793) ([perryst5](https://github.com/perryst5))
+- Update german translation [\#789](https://github.com/olefredrik/FoundationPress/pull/789) ([jgierer12](https://github.com/jgierer12))
+- fix missing \</div\> tag [\#788](https://github.com/olefredrik/FoundationPress/pull/788) ([jgierer12](https://github.com/jgierer12))
+- remove favicon [\#784](https://github.com/olefredrik/FoundationPress/pull/784) ([15emedoctor](https://github.com/15emedoctor))
+- Create cs\_CZ.po [\#777](https://github.com/olefredrik/FoundationPress/pull/777) ([vladodriver](https://github.com/vladodriver))
+- Take 2: Optimize responsive images for 3/4 and full width templates [\#771](https://github.com/olefredrik/FoundationPress/pull/771) ([EricRihlmann](https://github.com/EricRihlmann))
+- No download historical file by Travis [\#770](https://github.com/olefredrik/FoundationPress/pull/770) ([mik-laj](https://github.com/mik-laj))
+- Portuguese update \(pt\_PT\) [\#768](https://github.com/olefredrik/FoundationPress/pull/768) ([pedro-mendonca](https://github.com/pedro-mendonca))
+
 ## [v2.6.1](https://github.com/olefredrik/FoundationPress/tree/v2.6.1) (2016-03-10)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.6.0...v2.6.1)
 
