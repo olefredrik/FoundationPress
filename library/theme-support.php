@@ -32,7 +32,7 @@ function foundationpress_theme_support() {
 	// RSS thingy
 	add_theme_support( 'automatic-feed-links' );
 
-	// Add post formarts support: http://codex.wordpress.org/Post_Formats
+	// Add post formats support: http://codex.wordpress.org/Post_Formats
 	add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat') );
 
 	// Declare WooCommerce support per http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
