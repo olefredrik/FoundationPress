@@ -66,3 +66,15 @@
     }
 
 }
+/* Nicolas Gallagher's "Micro clearfix" https://css-tricks.com/snippets/css/clear-fix/ */
+.post-navigation:before,
+.post-navigation:after {
+		content: "";
+    display: table;
+}
+.post-navigation:after {
+	clear:both;
+}
+.screen-reader-text {display:none;}
+.nav-previous {float:left;}
+.nav-next {float:right;}
