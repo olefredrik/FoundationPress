@@ -97,6 +97,34 @@ function foundationpress_remove_recent_comments_style() {
 }
 endif;
 
+// Remove inline width attribute from figure tag causing images wider than 100% of its conainer
+add_filter('img_caption_shortcode','foundationpress_remove_figure_inline_style',10,3);
+
+function foundationpress_remove_figure_inline_style($output,$attr,$content) {
+	$atts = shortcode_atts( array(
+		'id'	  => '',
+		'align'	  => 'alignnone',
+		'width'	  => '',
+		'caption' => '',
+		'class'   => '',
+	), $attr, 'caption' );
+
+	$atts['width'] = (int) $atts['width'];
+	if ( $atts['width'] < 1 || empty( $atts['caption'] ) )
+		return $content;
+
+	if ( ! empty( $atts['id'] ) )
+		$atts['id'] = 'id="' . esc_attr( $atts['id'] ) . '" ';
+
+	$class = trim( 'wp-caption ' . $atts['align'] . ' ' . $atts['class'] );
+
+	if ( current_theme_supports( 'html5', 'caption' ) ) {
+		return '<figure ' . $atts['id'] . ' class="' . esc_attr( $class ) . '">'
+		. do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $atts['caption'] . '</figcaption></figure>';
+	}
+
+}
+
 // Add WooCommerce support for wrappers per http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 add_action('woocommerce_before_main_content', 'foundationpress_before_content', 10);
