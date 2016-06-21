@@ -19,7 +19,11 @@ var URL = '';
 var isProduction = !!(argv.production);
 
 // Browsers to target when prefixing CSS.
-var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
+var COMPATIBILITY = [
+  'last 2 versions',
+  'ie >= 9',
+  'Android >= 2.3'
+];
 
 // File paths to various assets are defined here.
 var PATHS = {
