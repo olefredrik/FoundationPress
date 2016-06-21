@@ -100,7 +100,7 @@ endif;
 // Remove inline width attribute from figure tag causing images wider than 100% of its conainer
 add_filter('img_caption_shortcode','foundationpress_remove_figure_inline_style',10,3);
 
-function foundationpress_remove_figure_inline_style($output,$attr,$content) {
+function foundationpress_remove_figure_inline_style( $output, $attr, $content ) {
 	$atts = shortcode_atts( array(
 		'id'	  => '',
 		'align'	  => 'alignnone',
@@ -110,11 +110,13 @@ function foundationpress_remove_figure_inline_style($output,$attr,$content) {
 	), $attr, 'caption' );
 
 	$atts['width'] = (int) $atts['width'];
-	if ( $atts['width'] < 1 || empty( $atts['caption'] ) )
+	if ( $atts['width'] < 1 || empty( $atts['caption'] ) ){
 		return $content;
+	}
 
-	if ( ! empty( $atts['id'] ) )
+	if ( ! empty( $atts['id'] ) ){
 		$atts['id'] = 'id="' . esc_attr( $atts['id'] ) . '" ';
+	}
 
 	$class = trim( 'wp-caption ' . $atts['align'] . ' ' . $atts['class'] );
 
