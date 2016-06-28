@@ -22,7 +22,7 @@ function foundationpress_start_cleanup() {
 	add_action( 'wp_head', 'foundationpress_remove_recent_comments_style', 1 );
 
 	// Remove inline width attribute from figure tag 
-	add_filter( 'img_caption_shortcode', 'foundationpress_remove_figure_inline_style', 10, 3);
+	add_filter( 'img_caption_shortcode', 'foundationpress_remove_figure_inline_style', 10, 3 );
 
 }
 add_action( 'after_setup_theme','foundationpress_start_cleanup' );
