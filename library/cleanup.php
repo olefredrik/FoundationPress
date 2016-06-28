@@ -21,6 +21,9 @@ function foundationpress_start_cleanup() {
 	// Clean up comment styles in the head.
 	add_action( 'wp_head', 'foundationpress_remove_recent_comments_style', 1 );
 
+	// Remove inline width attribute from figure tag 
+	add_filter( 'img_caption_shortcode', 'foundationpress_remove_figure_inline_style', 10, 3);
+
 }
 add_action( 'after_setup_theme','foundationpress_start_cleanup' );
 endif;
@@ -98,8 +101,7 @@ function foundationpress_remove_recent_comments_style() {
 endif;
 
 // Remove inline width attribute from figure tag causing images wider than 100% of its conainer
-add_filter( 'img_caption_shortcode', 'foundationpress_remove_figure_inline_style', 10, 3);
-
+if ( ! function_exists( 'foundationpress_remove_figure_inline_style' ) ) :
 function foundationpress_remove_figure_inline_style( $output, $attr, $content ) {
 	$atts = shortcode_atts( array(
 		'id'	  => '',
@@ -126,6 +128,7 @@ function foundationpress_remove_figure_inline_style( $output, $attr, $content ) 
 	}
 
 }
+endif;
 
 // Add WooCommerce support for wrappers per http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
