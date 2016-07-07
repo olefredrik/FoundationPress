@@ -76,7 +76,7 @@ if ( comments_open() ) :
 	<?php else : ?>
 	<form action="<?php echo get_option( 'siteurl' ); ?>/wp-comments-post.php" method="post" id="commentform">
 		<?php if ( is_user_logged_in() ) : ?>
-		<p><?php printf( __( 'Logged in as <a href="%s/wp-admin/profile.php">%s</a>.', 'foundationpress' ), get_option( 'siteurl' ), $user_identity ); ?> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php __( 'Log out of this account', 'foundationpress' ); ?>"><?php _e( 'Log out &raquo;', 'foundationpress' ); ?></a></p>
+		<p><?php printf( __( 'Logged in as <a href="%s/wp-admin/profile.php">%1$s</a>.', 'foundationpress' ), get_option( 'siteurl' ), $user_identity ); ?> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php __( 'Log out of this account', 'foundationpress' ); ?>"><?php _e( 'Log out &raquo;', 'foundationpress' ); ?></a></p>
 		<?php else : ?>
 		<p>
 			<label for="author">
@@ -111,10 +111,10 @@ if ( comments_open() ) :
 			</label>
 			<textarea name="comment" id="comment" tabindex="4"></textarea>
 		</p>
-		<p id="allowed_tags" class="small"><strong>XHTML:</strong> 
+		<p id="allowed_tags" class="small"><strong>XHTML:</strong>
 			<?php
 				_e( 'You can use these tags:','foundationpress' );
-			?> 
+			?>
 			<code>
 				<?php echo allowed_tags(); ?>
 			</code>
