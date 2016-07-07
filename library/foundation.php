@@ -143,7 +143,7 @@ class Foundationpress_Comments extends Walker_Comment{
 			<div class="author-meta vcard author">
 
 			<?php printf( __( '<cite class="fn">%s</cite>', 'foundationpress' ), get_comment_author_link() ) ?>
-			<time datetime="<?php echo comment_date( 'c' ) ?>"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf( __( '%1$s', 'foundationpress' ), get_comment_date(),  get_comment_time() ) ?></a></time>
+			<time datetime="<?php echo comment_date( 'c' ) ?>"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf( get_comment_date(), get_comment_time() ) ?></a></time>
 
 			</div><!-- /.comment-author -->
 
