@@ -1,0 +1,272 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-05 16:58+0300\n"
+"PO-Revision-Date: 2016-07-05 19:42+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.8\n"
+"Last-Translator: Eli Cohen <elicohenator@gmail.com>\n"
+"Language: he\n"
+
+#: 404.php:8
+msgid "File Not Found"
+msgstr "הקובץ לא נמצא."
+
+#: 404.php:12
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr "הדף שאתה מחפש אולי הוסר, שמו השתנה או אינו זמין באופן זמני."
+
+#: 404.php:14
+msgid "Please try the following:"
+msgstr "נסה את הפעולות הבאות:"
+
+#: 404.php:16
+msgid "Check your spelling"
+msgstr "בדוק את האיות שלך"
+
+#: 404.php:17
+#, php-format
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "לחזור <a href=\"%s\">דף הבית</a>"
+
+#: 404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr "לחץ על לחצן <a href=\"javascript:history.back()\">הקודם</a>"
+
+#. /previous pages when applicable
+#: archive.php:21 index.php:24 search.php:25
+msgid "&larr; Older posts"
+msgstr "&larr; פוסטים קודמים"
+
+#: archive.php:22 index.php:25 search.php:26
+msgid "Newer posts &rarr;"
+msgstr "&larr; פוסטים קודמים"
+
+#: comments.php:8
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "‏<cite class=“fn”>%s</cite>"
+
+#: comments.php:9
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#: comments.php:10
+msgid "(Edit)"
+msgstr "(עריכה)"
+
+#: comments.php:16
+msgid "Your comment is awaiting moderation."
+msgstr "התגובה שלך ממתינה לאישור."
+
+#: comments.php:31
+msgid "Please do not load this page directly. Thanks!"
+msgstr "בבקשה לא לטעון דף זה ישירות. תודה!"
+
+#: comments.php:36
+msgid "This post is password protected. Enter the password to view comments."
+msgstr "פוסט זה מוגן בסיסמה. הזן את הסיסמה כדי לצפות בתגובות."
+
+#: comments.php:46
+msgid "No Responses to"
+msgstr "אין תגובות ל"
+
+#: comments.php:46
+msgid "One Response to"
+msgstr "תגובה אחת ל"
+
+#: comments.php:46
+msgid "% Responses to"
+msgstr "% תגובות ל"
+
+#: comments.php:53
+msgid "&larr; Older comments"
+msgstr "‏&larr; תגובות ישנות יותר"
+
+#: comments.php:54
+msgid "Newer comments &rarr;"
+msgstr "תגובות חדש יותר &rarr;"
+
+#: comments.php:61
+msgid "Leave a Reply"
+msgstr "הוסף תגובה"
+
+#: comments.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "הוסף תגובה ל%s"
+
+#: comments.php:64
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "אתה חייב להיות <a href=\"%s\">מחובר</a> בכדי לפרסם תגובה."
+
+#: comments.php:68
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "מחובר כ- <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: comments.php:68
+msgid "Log out of this account"
+msgstr "להתנתק מהחשבון"
+
+#: comments.php:68
+msgid "Log out &raquo;"
+msgstr "להתנתק &raquo;"
+
+#: comments.php:71
+msgid "Name"
+msgstr "שם"
+
+#: comments.php:71 comments.php:75
+msgid " (required)"
+msgstr "(חובה)"
+
+#: comments.php:75
+msgid "Email (will not be published)"
+msgstr "דוא\"ל (לא יפורסם באתר)"
+
+#: comments.php:79
+msgid "Website"
+msgstr "אתר"
+
+#: comments.php:84
+msgid "Comment"
+msgstr "תגובה"
+
+#: comments.php:87
+msgid "You can use these tags:"
+msgstr "אתה יכול להשתמש בתגים האלה:"
+
+#: comments.php:88
+msgid "Submit Comment"
+msgstr "שלח תגובה"
+
+#: content-none.php:11
+msgid "Nothing Found"
+msgstr "לא נמצא דבר"
+
+#: content-none.php:17
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "מוכנים לפרסם את הפוסט הראשון שלכם? <a href=\"%1$s\">התחילו כאן</a>."
+
+#: content-none.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"אנו מצטערים, לא נמצאו תוצאות עבור הביטוי המבוקש. יש לנסות שוב בעזרת מילות "
+"חיפוש אחרות."
+
+#: content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "נראה שאנחנו לא מוצאים מה שאתה מחפש. אולי חיפוש יכול לעזור."
+
+#. /archive/search.
+#. *
+#. * @subpackage FoundationPress
+#. * @since FoundationPress 1.0.0
+#.
+#: content.php:16
+msgid "Continue reading..."
+msgstr "להמשך קריאה…"
+
+#: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
+#: page.php:18 single.php:27 woocommerce.php:18
+msgid "Pages:"
+msgstr "עמודים:"
+
+#: library/entry-meta.php:4
+#, php-format
+msgid "Posted on %s at %s."
+msgstr "פורסם ב-: %s ב-: %s."
+
+#: library/entry-meta.php:5
+msgid "Written by"
+msgstr "נכתב ע”י"
+
+#: library/foundation.php:16
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: library/foundation.php:17
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: library/foundation.php:40
+#, php-format
+msgid ""
+"Please assign a menu to the primary menu location under %1$s or %2$s the "
+"design."
+msgstr "נא הקצה תפריט אל המיקום בתפריט הראשי תחת %1$s או %2$s העיצוב."
+
+#: library/foundation.php:41
+#, php-format
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">תפריטים</a>"
+
+#: library/foundation.php:44
+#, php-format
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">התאמה אישית</a>"
+
+#: library/widget-areas.php:6
+msgid "Sidebar widgets"
+msgstr "ווידג’טים של הסרגל הצדדי"
+
+#: library/widget-areas.php:7
+msgid "Drag widgets to this sidebar container."
+msgstr "גרור ווידג'טים לקונטיינר הסרגל הצדדי."
+
+#: library/widget-areas.php:16
+msgid "Footer widgets"
+msgstr "אזור הווידג'טים שבפוטר"
+
+#: library/widget-areas.php:17
+msgid "Drag widgets to this footer container"
+msgstr "גרור ווידג'טים לקונטיינר שבפוטר"
+
+#: node_modules/grunt-pot/test/fixtures/some-file.php:3
+msgid "I'm a translatable string."
+msgstr "מחרוזת לתרגום"
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:4
+msgid "Me too"
+msgstr "גם אני"
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:7
+#, php-format
+msgid "I have %d apple"
+msgid_plural "I have %d apples"
+msgstr[0] ". יש לי תפוח %d"
+msgstr[1] ". יש לי %d תפוחים"
+
+#. / TRANSLATORS: This should be translated as a shorthand for YEAR-MONTH-DAY using 4, 2 and 2 digits.
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:16
+msgid "yyyy-mm-dd"
+msgstr "יי-חח-שנהה"
+
+#: search.php:7
+msgid "Search Results for"
+msgstr "תוצאות חיפוש עבור"
+
+#: searchform.php:6 searchform.php:10
+msgid "Search"
+msgstr "חיפוש"
