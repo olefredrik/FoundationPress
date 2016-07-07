@@ -21,7 +21,7 @@ function foundationpress_start_cleanup() {
 	// Clean up comment styles in the head.
 	add_action( 'wp_head', 'foundationpress_remove_recent_comments_style', 1 );
 
-	// Remove inline width attribute from figure tag 
+	// Remove inline width attribute from figure tag
 	add_filter( 'img_caption_shortcode', 'foundationpress_remove_figure_inline_style', 10, 3 );
 
 }
