@@ -49,6 +49,14 @@ Build all assets minified and without sourcemaps:
 $ npm run production
 ```
 
+### 4. To create a .zip file of your theme, run:
+
+```bash
+$ npm run package
+```
+
+Running this command will build and minify the theme's assets and place a `.zip` archive of the theme in the `packaged` directory. This excludes the developer files/directories from your theme like `node_modules`, `assets/components`, etc. to keep the theme lightweight for transferring the theme to a staging or production server.
+
 ### Styles
 
  * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
