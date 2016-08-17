@@ -95,6 +95,8 @@ class Foundationpress_Comments extends Walker_Comment{
 
 	// Init classwide variables.
 	var $tree_type = 'comment';
+
+	// Comment ID
 	var $db_fields = array( 'parent' => 'comment_parent', 'id' => 'comment_ID' );
 
 	/** CONSTRUCTOR
