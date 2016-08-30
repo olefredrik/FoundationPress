@@ -107,7 +107,7 @@ FoundationPress is completely ready to be deployed to and tested by Travis-CI fo
 ## UI toolkits for rapid prototyping
 
 * [Foundation UI Kit for Axure RP](https://gumroad.com/l/foundation-ui-kit-axure-rp)
-* [FoundationPSD - Foundation UI Kit for Photoshop](http://foundationpress.olefredrik.com/downloads/foundation-psd-template/)
+* [FoundationPSD - Foundation UI Kit for Photoshop](https://gumroad.com/l/foundation-ui-kit-psd)
 
 ## Tutorials
 
