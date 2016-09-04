@@ -10,6 +10,7 @@ var sequence    = require('run-sequence');
 var colors      = require('colors');
 var dateFormat  = require('dateformat');
 var del         = require('del');
+var cleanCSS    = require('gulp-clean-css');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
@@ -104,9 +105,6 @@ gulp.task('browser-sync', ['build'], function() {
 // Compile Sass into CSS
 // In production, the CSS is compressed
 gulp.task('sass', function() {
-  // Minify CSS if run with --production flag
-  var minifycss = $.if(isProduction, $.minifyCss());
-
   return gulp.src('assets/scss/foundation.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -119,7 +117,8 @@ gulp.task('sass', function() {
     .pipe($.autoprefixer({
       browsers: COMPATIBILITY
     }))
-    .pipe(minifycss)
+    // Minify CSS if run with --production flag
+    .pipe($.if(isProduction, cleanCSS()))
     .pipe($.if(!isProduction, $.sourcemaps.write('.')))
     .pipe(gulp.dest('assets/stylesheets'))
     .pipe(browserSync.stream({match: '**/*.css'}));
