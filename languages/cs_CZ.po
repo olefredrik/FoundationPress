@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-19 09:14+0200\n"
-"PO-Revision-Date: 2016-05-19 09:15+0200\n"
+"POT-Creation-Date: 2016-09-05 11:14+0200\n"
+"PO-Revision-Date: 2016-09-05 11:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
@@ -69,7 +69,7 @@ msgstr "Novější příspěvky &rarr;"
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: comments.php:35 library/foundation.php:155
+#: comments.php:35 library/foundation.php:157
 msgid "Your comment is awaiting moderation."
 msgstr "Váš komentář čeká na schválení administrátorem."
 
@@ -98,8 +98,8 @@ msgstr "Pro vložení komentáře musíte být <a href=\"%s\">přihlášeni</a>.
 
 #: comments.php:79
 #, php-format
-msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
-msgstr "Přihlášen jako <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%1$s</a>."
+msgstr "Přihlášen jako <a href=\"%s/wp-admin/profile.php\">%1$s</a>."
 
 #: comments.php:79
 msgid "Log out of this account"
@@ -155,8 +155,8 @@ msgstr "horní panel"
 
 #: library/entry-meta.php:11
 #, php-format
-msgid "Posted on %s at %s."
-msgstr "Publikováno dne %s na %s."
+msgid "Posted on %1$s at %2$s."
+msgstr "Publikováno %1$s v %2$s."
 
 #: library/entry-meta.php:12
 msgid "Written by"
@@ -189,27 +189,22 @@ msgstr "<a href=\"%s\">Menu</a>"
 msgid "<a href=\"%s\">Customize</a>"
 msgstr "<a href=\"%s\">Přizpůsobit</a>"
 
-#: library/foundation.php:105
+#: library/foundation.php:107
 msgid "No Responses to"
 msgstr "Žádná reakce na"
 
-#: library/foundation.php:105
+#: library/foundation.php:107
 msgid "One Response to"
 msgstr "Jedna reakce na"
 
-#: library/foundation.php:105
+#: library/foundation.php:107
 msgid "% Responses to"
 msgstr "% reakcí na"
 
-#: library/foundation.php:145
+#: library/foundation.php:147
 #, php-format
 msgid "<cite class=\"fn\">%s</cite>"
 msgstr "<cite class=\"fn\">%s</cite>"
-
-#: library/foundation.php:146
-#, php-format
-msgid "%1$s"
-msgstr "%1$s"
 
 #: library/navigation.php:43
 msgid "mobile-nav"
@@ -248,10 +243,14 @@ msgid "Drag widgets to this footer container"
 msgstr "Přetáhněte widgety na tuto oblast pro zápatí."
 
 #: page-templates/front.php:38 page-templates/page-full-width.php:22
-#: page-templates/page-sidebar-left.php:22 page.php:30 single.php:32
+#: page-templates/page-sidebar-left.php:22 page.php:31 single.php:33
 #: woocommerce.php:26
 msgid "Pages:"
 msgstr "Stránky:"
+
+#: page.php:28 single.php:30
+msgid "Edit"
+msgstr "Upravit"
 
 #: search.php:16
 msgid "Search Results for"
@@ -292,8 +291,8 @@ msgstr ""
 msgid "Continue reading..."
 msgstr "Číst dále..."
 
-#~ msgid "(Edit)"
-#~ msgstr "(Upravit)"
+#~ msgid "%1$s"
+#~ msgstr "%1$s"
 
 #~ msgid "&larr; Older comments"
 #~ msgstr "&larr; starší komentáře"
