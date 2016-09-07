@@ -1,5 +1,20 @@
 # Change Log
 
+## [v2.7.1](https://github.com/olefredrik/FoundationPress/tree/v2.7.1) (2016-09-07)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.7.0...v2.7.1)
+
+**Closed issues:**
+
+- Disable body top padding when using fixed on top bar? [\#885](https://github.com/olefredrik/FoundationPress/issues/885)
+- FP FontAwesome not working/not active? [\#884](https://github.com/olefredrik/FoundationPress/issues/884)
+- Infinite Scroll [\#880](https://github.com/olefredrik/FoundationPress/issues/880)
+- JS error in Safari [\#874](https://github.com/olefredrik/FoundationPress/issues/874)
+
+**Merged pull requests:**
+
+- Use System UI fonts [\#886](https://github.com/olefredrik/FoundationPress/pull/886) ([olefredrik](https://github.com/olefredrik))
+- Update cs\_CZ.po [\#883](https://github.com/olefredrik/FoundationPress/pull/883) ([vladodriver](https://github.com/vladodriver))
+
 ## [v2.7.0](https://github.com/olefredrik/FoundationPress/tree/v2.7.0) (2016-09-04)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.6.2...v2.7.0)
 
