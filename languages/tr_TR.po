@@ -1,0 +1,278 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-19 14:45+0300\n"
+"PO-Revision-Date: 2016-09-19 16:43+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.5\n"
+"Last-Translator: \n"
+"Language: tr\n"
+
+#: 404.php:8
+msgid "File Not Found"
+msgstr "Dosya Bulunamadı"
+
+#: 404.php:12
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+"Aradığınız sayfa silinmiş, adı değiştirilmiş ya da geçici olarak "
+"kullanılmıyor olabilir."
+
+#: 404.php:14
+msgid "Please try the following:"
+msgstr "Lütfen şunları deneyin:"
+
+#: 404.php:16
+msgid "Check your spelling"
+msgstr "Yazılışı kontrol edin"
+
+#: 404.php:17
+#, php-format
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "<a href=\"%s\">Anasayfa</a>'ya geri dönün"
+
+#: 404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr "<a href=\"javascript:history.back()\">Geri</a> butonuna tıklayın"
+
+#. /previous pages when applicable
+#: archive.php:21 index.php:24 search.php:25
+msgid "&larr; Older posts"
+msgstr "&larr; Eski yazılar"
+
+#: archive.php:22 index.php:25 search.php:26
+msgid "Newer posts &rarr;"
+msgstr "Yeni yazılar &rarr;"
+
+#: comments.php:8
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn\">%s</cite>"
+
+#: comments.php:9
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#: comments.php:10
+msgid "(Edit)"
+msgstr "(Düzenle)"
+
+#: comments.php:16
+msgid "Your comment is awaiting moderation."
+msgstr "Yorumunuz onay bekliyor."
+
+#: comments.php:31
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Lütfen bu sayfatı doğrudan yüklemeyiniz. Teşekkürler!"
+
+#: comments.php:36
+msgid "This post is password protected. Enter the password to view comments."
+msgstr "Bu yazı parola korumalıdır. Yorumları görmek için parolanızı giriniz."
+
+#: comments.php:46
+msgid "No Responses to"
+msgstr "Yanıt Yok"
+
+#: comments.php:46
+msgid "One Response to"
+msgstr "Bir cevap"
+
+#: comments.php:46
+msgid "% Responses to"
+msgstr "% için cevaplar"
+
+#: comments.php:53
+msgid "&larr; Older comments"
+msgstr "&larr; Eski yorumlar"
+
+#: comments.php:54
+msgid "Newer comments &rarr;"
+msgstr "Yeni yorumlar &rarr;"
+
+#: comments.php:61
+msgid "Leave a Reply"
+msgstr "Bir Cevap Bırakın"
+
+#: comments.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Bir Cevap Bırakın  %s"
+
+#: comments.php:64
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Yazıya yorum eklemek için <a href=\"%s\">üye girişi</a> yapın."
+
+#: comments.php:68
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "<a href=\"%s/wp-admin/profile.php\">%s</a> olarak üye girişi."
+
+#: comments.php:68
+msgid "Log out of this account"
+msgstr "Bu hesaptan çıkış yap"
+
+#: comments.php:68
+msgid "Log out &raquo;"
+msgstr "Oturumu kapat &raquo;"
+
+#: comments.php:71
+msgid "Name"
+msgstr "Ad"
+
+#: comments.php:71 comments.php:75
+msgid " (required)"
+msgstr "(Zorunlu)"
+
+#: comments.php:75
+msgid "Email (will not be published)"
+msgstr "Email (Yayınlanmayacak)"
+
+#: comments.php:79
+msgid "Website"
+msgstr "İnternet sitesi"
+
+#: comments.php:84
+msgid "Comment"
+msgstr "Yorum"
+
+#: comments.php:87
+msgid "You can use these tags:"
+msgstr "Şu etiketleri kullanabilirsiniz:"
+
+#: comments.php:88
+msgid "Submit Comment"
+msgstr "Yorumu Gönder"
+
+#: content-none.php:11
+msgid "Nothing Found"
+msgstr "Hiçbir Şey Bulunamadı"
+
+#: content-none.php:17
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"İlk yazını yayınlamak için hazır mısın? <a href=\"%1$s\">Buradan başlayın</"
+"a>."
+
+#: content-none.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Üzgünüz, arama teriminizle hiçbir şey eşleşmedi. Lütfen bazı farklı anahtar "
+"kelimelerle tekrar deneyiniz."
+
+#: content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Aradığınızı bulamıyoruz gibi görünüyor. Belki arama yapmak yardımcı "
+"olabilir."
+
+#. /archive/search.
+#. *
+#. * @subpackage FoundationPress
+#. * @since FoundationPress 1.0.0
+#.
+#: content.php:16
+msgid "Continue reading..."
+msgstr "Okumaya devam et..."
+
+#: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
+#: page.php:18 single.php:27 woocommerce.php:18
+msgid "Pages:"
+msgstr "Sayfalar:"
+
+#: library/entry-meta.php:4
+#, php-format
+msgid "Posted on %s at %s."
+msgstr "Yayınlanma tarihi %s Yayınlanma zamanı %s."
+
+#: library/entry-meta.php:5
+msgid "Written by"
+msgstr "Tarafından yazılmıştır"
+
+#: library/foundation.php:16
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: library/foundation.php:17
+msgid "&raquo;"
+msgstr "&laquo;"
+
+#: library/foundation.php:40
+#, php-format
+msgid ""
+"Please assign a menu to the primary menu location under %1$s or %2$s the "
+"design."
+msgstr ""
+"Lütfen birincil menü konumu tasarımı altına %1$s ya da %2$s bir menü atayın"
+
+#: library/foundation.php:41
+#, php-format
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">Menü</a>"
+
+#: library/foundation.php:44
+#, php-format
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">Özelleştir</a>"
+
+#: library/widget-areas.php:6
+msgid "Sidebar widgets"
+msgstr "Kenar çubuğu widgetları"
+
+#: library/widget-areas.php:7
+msgid "Drag widgets to this sidebar container."
+msgstr "Bu kenar çubuğu kapsayıcısına widgetları sürükleyin."
+
+#: library/widget-areas.php:16
+msgid "Footer widgets"
+msgstr "Alt bilgi widgetları"
+
+#: library/widget-areas.php:17
+msgid "Drag widgets to this footer container"
+msgstr "Bu alt bilgi kapsayıcısına widgetları sürükleyin"
+
+#: node_modules/grunt-pot/test/fixtures/some-file.php:3
+msgid "I'm a translatable string."
+msgstr "Ben çevirilebilir bir metinim."
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:4
+msgid "Me too"
+msgstr "Bende"
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:7
+#, php-format
+msgid "I have %d apple"
+msgid_plural "I have %d apples"
+msgstr[0] "%d elmam var"
+
+#. / TRANSLATORS: This should be translated as a shorthand for YEAR-MONTH-DAY using 4, 2 and 2 digits.
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:16
+msgid "yyyy-mm-dd"
+msgstr "yıl-ay-gün"
+
+#: search.php:7
+msgid "Search Results for"
+msgstr "Arama Sonuçları"
+
+#: searchform.php:6 searchform.php:10
+msgid "Search"
+msgstr "Arama"
