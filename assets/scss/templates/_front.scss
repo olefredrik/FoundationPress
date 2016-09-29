@@ -25,7 +25,6 @@
   }
 
   #watch {
-
     @include breakpoint(small) {
       @include grid-column(7);
       @include grid-column-position(-5);
@@ -78,7 +77,6 @@
   }
 
   .tagline {
-
     @include breakpoint(small) {
       @include grid-column(8);
     }
@@ -87,7 +85,6 @@
       @include grid-column(5);
       padding-top: 6rem;
     }
-
   }
 
   h1 {
@@ -101,7 +98,6 @@
     @include breakpoint(medium) {
       font-size: 2.875rem;
     }
-
   }
 
   h4 {
@@ -110,8 +106,9 @@
     font-size: 1.3125rem;
   }
 
-  .download { margin-top: rem-calc(20); }
-
+  .download {
+    margin-top: rem-calc(20);
+  }
 }
 
 // Intro
@@ -119,7 +116,6 @@
   @include grid-row();
 
   .fp-intro {
-
     @include breakpoint(small) {
       @include grid-column(12);
     }
@@ -139,7 +135,6 @@
         color: #777;
         margin-bottom: 2rem;
       }
-
     }
   }
 }
@@ -198,8 +193,9 @@
       font-size: 1.75rem;
     }
 
-    p { font-size: 0.9375rem; }
-
+    p {
+      font-size: 0.9375rem;
+    }
   }
 
   .why-foundation {
@@ -207,5 +203,4 @@
     @include grid-column(12);
     margin-top: 4rem;
   }
-
 }
