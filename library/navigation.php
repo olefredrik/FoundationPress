@@ -218,12 +218,12 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 
 				// 404 page
 				echo '<li>Error 404</li>';
-			}
+			} // End if().
 		} else {
 			if ( $showhome ) {
 				echo '<li class="item-home current">' . $home_title . '</li>';
 			}
-		}
+		} // End if().
 		echo '</ul>';
 	}
-}
+} // End if().
