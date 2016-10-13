@@ -3,179 +3,188 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-13 17:56+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2016-10-12 21:40+0200\n"
+"PO-Revision-Date: 2016-10-12 23:37+0200\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.9\n"
+"Last-Translator: \n"
+"Language: da\n"
 
 #: 404.php:8
 msgid "File Not Found"
-msgstr ""
+msgstr "Filen blev ikke fundet"
 
 #: 404.php:12
 msgid ""
 "The page you are looking for might have been removed, had its name changed, "
 "or is temporarily unavailable."
 msgstr ""
+"Siden du leder efter kan være blevet flyttet, fået ændret navn eller er "
+"midlertidigt utilgængelig"
 
 #: 404.php:14
 msgid "Please try the following:"
-msgstr ""
+msgstr "Venligst prøv følgende:"
 
 #: 404.php:16
 msgid "Check your spelling"
-msgstr ""
+msgstr "Kontroller din stavning"
 
 #: 404.php:17
 #, php-format
 msgid "Return to the <a href=\"%s\">home page</a>"
-msgstr ""
+msgstr "Gå tilbage til <a href=\"%s\">forsiden</a>"
 
 #: 404.php:18
 msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
-msgstr ""
+msgstr "Tryk på <a href=\"javascript:history.back()\">Tilbageknappen</a>"
 
 #. /previous pages when applicable
 #: archive.php:21 index.php:24 search.php:25
 msgid "&larr; Older posts"
-msgstr ""
+msgstr "&larr; Ældre indlæg"
 
 #: archive.php:22 index.php:25 search.php:26
 msgid "Newer posts &rarr;"
-msgstr ""
+msgstr "Nyere indlæg &rarr;"
 
 #: comments.php:8
 #, php-format
 msgid "<cite class=\"fn\">%s</cite>"
-msgstr ""
+msgstr "<cite class=\"fn\">%s</cite>"
 
 #: comments.php:9
 #, php-format
 msgid "%1$s"
-msgstr ""
+msgstr "%1$s"
 
 #: comments.php:10
 msgid "(Edit)"
-msgstr ""
+msgstr "(Rediger)"
 
 #: comments.php:16
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "Din kommentar afventer godkendelse."
 
 #: comments.php:31
 msgid "Please do not load this page directly. Thanks!"
-msgstr ""
+msgstr "Vær venlig ikke at indlæse siden direkte. Tak!"
 
 #: comments.php:36
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
+"Dette indlæg er beskyttet med kodeord. Indtast kodeord for at læse "
+"kommentarer."
 
 #: comments.php:46
 msgid "No Responses to"
-msgstr ""
+msgstr "Ingen svar til"
 
 #: comments.php:46
 msgid "One Response to"
-msgstr ""
+msgstr "Et svar til"
 
 #: comments.php:46
 msgid "% Responses to"
-msgstr ""
+msgstr "% svar til"
 
 #: comments.php:53
 msgid "&larr; Older comments"
-msgstr ""
+msgstr "&larr; Ældre kommentarer"
 
 #: comments.php:54
 msgid "Newer comments &rarr;"
-msgstr ""
+msgstr "Nyere kommentarer &rarr;"
 
 #: comments.php:61
 msgid "Leave a Reply"
-msgstr ""
+msgstr "Skriv et svar"
 
 #: comments.php:61
 #, php-format
 msgid "Leave a Reply to %s"
-msgstr ""
+msgstr "Skriv et svar til %s"
 
 #: comments.php:64
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
+"Du skal være <a href=\"%s\">logget ind</a> for at skrive en kommentar."
 
 #: comments.php:68
 #, php-format
 msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
-msgstr ""
+msgstr "Logget ind som <a href=\"%s/wp-admin/profile.php\">%s</a>."
 
 #: comments.php:68
 msgid "Log out of this account"
-msgstr ""
+msgstr "Log ud af denne konto"
 
 #: comments.php:68
 msgid "Log out &raquo;"
-msgstr ""
+msgstr "Log ud &raquo;"
 
 #: comments.php:71
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 #: comments.php:71 comments.php:75
 msgid " (required)"
-msgstr ""
+msgstr " (påkrævet)"
 
 #: comments.php:75
 msgid "Email (will not be published)"
-msgstr ""
+msgstr "Mail (vil ikke blive offentliggjort)"
 
 #: comments.php:79
 msgid "Website"
-msgstr ""
+msgstr "Websted"
 
 #: comments.php:84
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 #: comments.php:87
 msgid "You can use these tags:"
-msgstr ""
+msgstr "Du kan bruge disse tags:"
 
 #: comments.php:88
 msgid "Submit Comment"
-msgstr ""
+msgstr "Send kommentar"
 
 #: content-none.php:11
 msgid "Nothing Found"
-msgstr ""
+msgstr "Intet fundet"
 
 #: content-none.php:17
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
+"Klar til at udgive dit første indlæg? <a href=\"%1$s\">Kom i gang her</a>."
 
 #: content-none.php:21
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"Beklager, men din søgning gav ingen resultater. Prøv igen med andre søgeord."
 
 #: content-none.php:26
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
+"Det virker til at vi ikke kan finde hvad du ledte efter. Måske en søgning "
+"kan hjælpe."
 
 #. /archive/search.
 #. *
@@ -184,29 +193,29 @@ msgstr ""
 #.
 #: content.php:16
 msgid "Continue reading..."
-msgstr ""
+msgstr "Læs resten..."
 
 #: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
 #: page.php:18 single.php:27 woocommerce.php:18
 msgid "Pages:"
-msgstr ""
+msgstr "Sider:"
 
 #: library/entry-meta.php:4
 #, php-format
 msgid "Posted on %1$s at %2$s."
-msgstr ""
+msgstr "Skrevet den %1$s kl. %2$s."
 
 #: library/entry-meta.php:5
 msgid "Written by"
-msgstr ""
+msgstr "Skrevet af"
 
 #: library/foundation.php:16
 msgid "&laquo;"
-msgstr ""
+msgstr "&laquo;"
 
 #: library/foundation.php:17
 msgid "&raquo;"
-msgstr ""
+msgstr "&raquo;"
 
 #: library/foundation.php:40
 #, php-format
@@ -214,57 +223,59 @@ msgid ""
 "Please assign a menu to the primary menu location under %1$s or %2$s the "
 "design."
 msgstr ""
+"Vælg venligst en menu til den primære menuplacering under %1$s eller %2$s "
+"designet."
 
 #: library/foundation.php:41
 #, php-format
 msgid "<a href=\"%s\">Menus</a>"
-msgstr ""
+msgstr "<a href=\"%s\">Menuer</a>"
 
 #: library/foundation.php:44
 #, php-format
 msgid "<a href=\"%s\">Customize</a>"
-msgstr ""
+msgstr "<a href=\"%s\">Tilpas</a>"
 
 #: library/widget-areas.php:6
 msgid "Sidebar widgets"
-msgstr ""
+msgstr "Sidebar-widgets"
 
 #: library/widget-areas.php:7
 msgid "Drag widgets to this sidebar container."
-msgstr ""
+msgstr "Træk widgets til dette sidebar-område."
 
 #: library/widget-areas.php:16
 msgid "Footer widgets"
-msgstr ""
+msgstr "Sidefod-widgets"
 
 #: library/widget-areas.php:17
 msgid "Drag widgets to this footer container"
-msgstr ""
+msgstr "Træk widgets til dette sidefodsområde"
 
 #: node_modules/grunt-pot/test/fixtures/some-file.php:3
 msgid "I'm a translatable string."
-msgstr ""
+msgstr "Jeg er en tekststreng som kan oversættes."
 
 #: node_modules/grunt-pot/test/fixtures/some-other-file.php:4
 msgid "Me too"
-msgstr ""
+msgstr "Også mig"
 
 #: node_modules/grunt-pot/test/fixtures/some-other-file.php:7
 #, php-format
 msgid "I have %d apple"
 msgid_plural "I have %d apples"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Jeg har %d æble"
+msgstr[1] "Jeg har %d æbler"
 
 #. / TRANSLATORS: This should be translated as a shorthand for YEAR-MONTH-DAY using 4, 2 and 2 digits.
 #: node_modules/grunt-pot/test/fixtures/some-other-file.php:16
 msgid "yyyy-mm-dd"
-msgstr ""
+msgstr "yyyy-mm-dd"
 
 #: search.php:7
 msgid "Search Results for"
-msgstr ""
+msgstr "Søgeresultater for"
 
 #: searchform.php:6 searchform.php:10
 msgid "Search"
-msgstr ""
+msgstr "Søg"
