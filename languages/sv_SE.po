@@ -8,10 +8,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-03-12 15:03+0100\n"
+"PO-Revision-Date: 2016-10-16 10:08+0200\n"
 "Last-Translator: Anders Jensen-Urstad <anders@unix.se>\n"
 "Language-Team: \n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.9\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: sv_SE\n"
 
@@ -158,8 +158,8 @@ msgid "Pages:"
 msgstr "Sidor:"
 
 #: library/entry-meta.php:4
-msgid "Posted on %s at %s."
-msgstr "Postat den %s kl %s."
+msgid "Posted on %1$s at %2$s."
+msgstr "Postat den %1$s kl %2$s."
 
 #: library/entry-meta.php:5
 msgid "Written by"

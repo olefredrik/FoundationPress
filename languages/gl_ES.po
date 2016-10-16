@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-27 06:23+0100\n"
-"PO-Revision-Date: 2015-10-27 06:23+0100\n"
+"PO-Revision-Date: 2016-10-16 10:07+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #: 404.php:8
 msgid "File Not Found"
@@ -202,8 +202,8 @@ msgstr "Páxinas:"
 
 #: library/entry-meta.php:4
 #, php-format
-msgid "Posted on %s at %s."
-msgstr "Publicado en %s o %s."
+msgid "Posted on %1$s at %2$s."
+msgstr "Publicado en %1$s o %2$s."
 
 #: library/entry-meta.php:5
 msgid "Written by"
