@@ -1,7 +1,7 @@
 <?php
 
 // If a feature image is set, get the id, so it can be injected as a css background property
-if (has_post_thumbnail($post->ID)) :
+if (has_post_thumbnail($post->ID) ) :
 
     $feat_img_id = get_post_thumbnail_id();
     $hero_img_alt = get_post_meta($feat_img_id, '_wp_attachment_image_alt', true); // get alt attribute
