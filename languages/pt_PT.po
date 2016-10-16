@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-14 16:54+0000\n"
-"PO-Revision-Date: 2016-03-15 09:18+0000\n"
+"PO-Revision-Date: 2016-10-16 10:08+0200\n"
 "Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language: pt_PT\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.9\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
@@ -154,8 +154,8 @@ msgstr "Barra superior"
 
 #: library/entry-meta.php:11
 #, php-format
-msgid "Posted on %s at %s."
-msgstr "Publicado em %s às %s."
+msgid "Posted on %1$s at %2$s."
+msgstr "Publicado em %1$s às %2$s."
 
 #: library/entry-meta.php:12
 msgid "Written by"

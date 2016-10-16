@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-13 17:56+0200\n"
-"PO-Revision-Date: 2015-03-04 17:17+0200\n"
+"PO-Revision-Date: 2016-10-16 10:06+0200\n"
 "Last-Translator: Esa Rantanen <esa@eccola.fi>\n"
 "Language-Team: Eccola <esa@eccola.fi>\n"
-"Language: \n"
+"Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Language: Finnish\n"
-"X-Poedit-Country: FINLAND\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #: 404.php:8
 msgid "File Not Found"
@@ -45,15 +44,11 @@ msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
 msgstr "Klikkaa <a href=\"javascript:history.back()\">Takaisin</a> -painiketta"
 
 #. /previous pages when applicable
-#: archive.php:21
-#: index.php:24
-#: search.php:25
+#: archive.php:21 index.php:24 search.php:25
 msgid "&larr; Older posts"
 msgstr "&larr; Vanhempia artikkeleita"
 
-#: archive.php:22
-#: index.php:25
-#: search.php:26
+#: archive.php:22 index.php:25 search.php:26
 msgid "Newer posts &rarr;"
 msgstr "Uudempia artikkeleita &rarr;"
 
@@ -110,7 +105,7 @@ msgstr "Kommentoi"
 #: comments.php:61
 #, php-format
 msgid "Leave a Reply to %s"
-msgstr "Kommentoi: %"
+msgstr "Kommentoi: %s"
 
 #: comments.php:64
 #, php-format
@@ -134,8 +129,7 @@ msgstr "Kirjaudu ulos &raquo;"
 msgid "Name"
 msgstr "Nimi"
 
-#: comments.php:71
-#: comments.php:75
+#: comments.php:71 comments.php:75
 msgid " (required)"
 msgstr "(pakollinen)"
 
@@ -185,20 +179,15 @@ msgstr "Näyttää siltä että emme löydä etsimääsi. Kokeile hakutoimintoa.
 msgid "Continue reading..."
 msgstr "Lue lisää..."
 
-#: hero.php:40
-#: kitchen-sink.php:739
-#: page-full.php:19
-#: page-sidebar-left.php:21
-#: page.php:18
-#: single.php:27
-#: woocommerce.php:18
+#: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
+#: page.php:18 single.php:27 woocommerce.php:18
 msgid "Pages:"
 msgstr "Sivut:"
 
 #: library/entry-meta.php:4
 #, php-format
-msgid "Posted on %s at %s."
-msgstr "Kirjoitettu %s, %s."
+msgid "Posted on %1$s at %2$s."
+msgstr "Kirjoitettu %1$s, %2$s."
 
 #: library/entry-meta.php:5
 msgid "Written by"
@@ -267,8 +256,6 @@ msgstr "vvvv-kk-pp"
 msgid "Search Results for"
 msgstr "Hakutulokset: "
 
-#: searchform.php:6
-#: searchform.php:10
+#: searchform.php:6 searchform.php:10
 msgid "Search"
 msgstr "Hae"
-
