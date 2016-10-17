@@ -160,6 +160,15 @@ FoundationPress is completely ready to be deployed to and tested by Travis-CI fo
 * [Axe](http://www.axe.be/)
 * [ProfitGym](http://profitgym.nl/)
 * [Dr Now](http://www.drnow.com/)
+* [Agritur Piasina](http://www.agriturpiasina.it/)
+* [Atomic Interactive](http://atomicinteractive.com/)
+* [Byington Vineyard & Winery](http://byington.com/)
+* [Philanthropy House](http://philanthropyhouse.eu/)
+* [TVA Group](http://www.groupe-tva.com/en/)
+* [Forte Science](https://www.forte-science.co.jp/)
+* [Well Made Studio](http://wellmadestudio.com/)
+* [Show And Tell](http://www.showandtelluk.com/)
+
 
 >Credit goes to all the brilliant designers and developers out there. Have **you** made a site that should be on this list? [Please let me know](https://twitter.com/olefredrik)
 
