@@ -65,7 +65,7 @@ endif;
 // Add Foundation 'active' class for the current menu item.
 if ( ! function_exists( 'foundationpress_active_nav_class' ) ) :
 function foundationpress_active_nav_class( $classes, $item ) {
-	if ( 1 == $item->current || true == $item->current_item_ancestor ) {
+	if ( 1 === $item->current || true === $item->current_item_ancestor ) {
 		$classes[] = 'active';
 	}
 	return $classes;

@@ -110,12 +110,12 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 				}
 				echo '<li class="item-current item-' . $post->ID . '"><strong class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</strong></li>';
 
-			} else if ( is_category() ) {
+			} elseif ( is_category() ) {
 
 				// Category page
 				echo '<li class="item-current item-cat-' . $category[0]->term_id . ' item-cat-' . $category[0]->category_nicename . '"><strong class="bread-current bread-cat-' . $category[0]->term_id . ' bread-cat-' . $category[0]->category_nicename . '">' . $category[0]->cat_name . '</strong></li>';
 
-			} else if ( is_page() ) {
+			} elseif ( is_page() ) {
 
 				// Standard page
 				if ( $post->post_parent ) {
@@ -147,7 +147,7 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 					echo '<li class="current item-' . $post->ID . '"> ' . get_the_title() . '</li>';
 
 				}
-			} else if ( is_tag() ) {
+			} elseif ( is_tag() ) {
 
 				// Tag page
 				// Get tag information
@@ -177,7 +177,7 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 				// Day display
 				echo '<li class="current item-' . get_the_time('j') . '">' . get_the_time('jS') . ' ' . get_the_time('M') . ' Archives</li>';
 
-			} else if ( is_month() ) {
+			} elseif ( is_month() ) {
 
 				// Month Archive
 				// Year link
@@ -189,12 +189,12 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 				// Month display
 				echo '<li class="item-month item-month-' . get_the_time('m') . '">' . get_the_time('M') . ' Archives</li>';
 
-			} else if ( is_year() ) {
+			} elseif ( is_year() ) {
 
 				// Display year archive
 				echo '<li class="current item-current-' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</li>';
 
-			} else if ( is_author() ) {
+			} elseif ( is_author() ) {
 
 				// Auhor archive
 				// Get the author information
@@ -204,12 +204,12 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 				// Display author name
 				echo '<li class="current item-current-' . $userdata->user_nicename . '">Author: ' . $userdata->display_name . '</li>';
 
-			} else if ( get_query_var('paged') ) {
+			} elseif ( get_query_var('paged') ) {
 
 				// Paginated archives
 				echo '<li class="current item-current-' . get_query_var('paged') . '">' . __('Page', 'foundationpress' ) . ' ' . get_query_var('paged') . '</li>';
 
-			} else if ( is_search() ) {
+			} elseif ( is_search() ) {
 
 				// Search results page
 				echo '<li class="current item-current-' . get_search_query() . '">Search results for: ' . get_search_query() . '</li>';
