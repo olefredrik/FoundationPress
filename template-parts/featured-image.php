@@ -19,7 +19,7 @@ if (has_post_thumbnail($post->ID) ) :
     ?>
 
     <header id="featured-hero" role="banner"
-            data-interchange="[<?php echo $hero_lg; ?>, default], [<?php echo $hero_sm; ?>, small], [<?php echo $hero_md; ?>, medium], [<?php echo $hero_lg; ?>, large]">
+            data-interchange="[<?php echo $hero_sm; ?>, small], [<?php echo $hero_md; ?>, medium], [<?php echo $hero_lg; ?>, large]">
     </header>
 
 <?php endif;
