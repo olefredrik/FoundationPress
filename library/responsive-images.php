@@ -49,9 +49,3 @@ function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
 	return $html;
 }
 add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3 );
-
-
-// Add variables for featured images with Interchange
-$img_size_sm = 'fp-small';
-$img_size_md = 'fp-medium';
-$img_size_lg = 'fp-large';
