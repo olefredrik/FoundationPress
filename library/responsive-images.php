@@ -13,7 +13,6 @@ add_image_size( 'fp-medium', 1024 );
 add_image_size( 'fp-large', 1200 );
 
 // Register the new image sizes for use in the add media modal in wp-admin
-add_filter( 'image_size_names_choose', 'foundationpress_custom_sizes' );
 function foundationpress_custom_sizes( $sizes ) {
 	return array_merge( $sizes, array(
 		'fp-small'  => __( 'FP Small' ),
@@ -21,6 +20,7 @@ function foundationpress_custom_sizes( $sizes ) {
 		'fp-large'  => __( 'FP Large' ),
 	) );
 }
+add_filter( 'image_size_names_choose', 'foundationpress_custom_sizes' );
 
 // Add custom image sizes attribute to enhance responsive image functionality for content images
 function foundationpress_adjust_image_sizes_attr( $sizes, $size ) {
