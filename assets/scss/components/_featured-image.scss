@@ -1,20 +1,14 @@
-@include breakpoint(small) {
-  #featured-hero {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0 0 rem-calc(32);
-    position: relative;
+#featured-hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: rem-calc(100);
+
+  @include breakpoint(medium) {
     height: rem-calc(200);
   }
 
-  .no-featured-image-set {
-    height: rem-calc(16) !important;
-  }
-}
-
-@include breakpoint(medium) {
-  #featured-hero {
+  @include breakpoint(xlarge) {
     height: rem-calc(400);
   }
 }
