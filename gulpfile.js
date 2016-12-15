@@ -14,7 +14,7 @@ var cleanCSS    = require('gulp-clean-css');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = 'foundationpress:8888';
+var URL = '';
 
 // Check for --production flag
 var isProduction = !!(argv.production);
