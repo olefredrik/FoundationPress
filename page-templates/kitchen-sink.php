@@ -676,7 +676,7 @@ get_header(); ?>
 						<!-- Full screen modal -->
 			      <div class="full reveal" id="exampleModal8" data-reveal>
 			        <h2>Full screen modal</h2>
-			        <img src="https://placeimg.com/1920/1280/any" alt="Intropsective Cage">
+			        <img src="https://placeimg.com/800/600/arch" alt="Intropsective Cage">
 			        <button class="close-button" data-close aria-label="Close reveal" type="button">
 			          <span aria-hidden="true">&times;</span>
 			        </button>
