@@ -1,5 +1,29 @@
 # Change Log
 
+## [v2.9.0](https://github.com/olefredrik/FoundationPress/tree/v2.9.0) (2016-12-15)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.8.0...v2.9.0)
+
+**Closed issues:**
+
+- how to @import absolute path write？ [\#924](https://github.com/olefredrik/FoundationPress/issues/924)
+- Version number on files not updated to 2.8.0 [\#918](https://github.com/olefredrik/FoundationPress/issues/918)
+- Is FoundationPress Updated? [\#916](https://github.com/olefredrik/FoundationPress/issues/916)
+- jQuery error from 'source' folder [\#910](https://github.com/olefredrik/FoundationPress/issues/910)
+- Sudden error when running "npm run watch" [\#890](https://github.com/olefredrik/FoundationPress/issues/890)
+- node.js  [\#882](https://github.com/olefredrik/FoundationPress/issues/882)
+- Error: Cannot find module 'sparkles' [\#867](https://github.com/olefredrik/FoundationPress/issues/867)
+- Error during npm run build [\#866](https://github.com/olefredrik/FoundationPress/issues/866)
+- data-equalize-on not working [\#813](https://github.com/olefredrik/FoundationPress/issues/813)
+- using xlarge and xxlarge causes warnings [\#801](https://github.com/olefredrik/FoundationPress/issues/801)
+- Modify topbar to accordion menu [\#715](https://github.com/olefredrik/FoundationPress/issues/715)
+
+**Merged pull requests:**
+
+- Foundation v6.3.0 [\#926](https://github.com/olefredrik/FoundationPress/pull/926) ([olefredrik](https://github.com/olefredrik))
+- Added XLarge [\#917](https://github.com/olefredrik/FoundationPress/pull/917) ([alexbohariuc](https://github.com/alexbohariuc))
+- Order placeholders [\#913](https://github.com/olefredrik/FoundationPress/pull/913) ([olefredrik](https://github.com/olefredrik))
+- Update navigation.php [\#911](https://github.com/olefredrik/FoundationPress/pull/911) ([mrsWeasel](https://github.com/mrsWeasel))
+
 ## [v2.8.0](https://github.com/olefredrik/FoundationPress/tree/v2.8.0) (2016-10-21)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.7.1...v2.8.0)
 
