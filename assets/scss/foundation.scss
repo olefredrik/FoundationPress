@@ -16,6 +16,7 @@
 // WP overrides
 @import "global/wp-admin"; // Fix issues with wp-admin bar positioning
 @import "global/wp-overrides"; // Override the default WordPress styling for some elements
+@import "global/accessibility";
 
 // Third-party libraries
 @import 'font-awesome';
@@ -41,7 +42,7 @@
 @include foundation-drilldown-menu;
 @include foundation-dropdown;
 @include foundation-dropdown-menu;
-@include foundation-flex-video;
+@include foundation-responsive-embed;
 @include foundation-label;
 @include foundation-media-object;
 @include foundation-menu;

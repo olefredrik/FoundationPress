@@ -112,7 +112,7 @@ get_header(); ?>
 					<!-- Accordion -->
 					<h2 id="accordion" class="docs-heading" data-magellan-target="accordion"><a href="#accordion"></a>Accordion</h2>
 					<ul class="accordion" data-accordion role="tablist">
-					  <li class="accordion-item">
+					  <li class="accordion-item" data-accordion-item>
 					    <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
 					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 1</a>
 					    <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
@@ -120,7 +120,7 @@ get_header(); ?>
 					      Panel 1. Lorem ipsum dolor
 					    </div>
 					  </li>
-					  <li class="accordion-item">
+					  <li class="accordion-item" data-accordion-item>
 					    <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
 					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 1</a>
 					    <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
@@ -128,7 +128,7 @@ get_header(); ?>
 					      Panel 2. Lorem ipsum dolor
 					    </div>
 					  </li>
-					  <li class="accordion-item">
+					  <li class="accordion-item" data-accordion-item>
 					    <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
 					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 1</a>
 					    <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
