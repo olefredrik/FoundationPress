@@ -169,7 +169,7 @@ gulp.task('copy', function() {
   var fontAwesome = gulp.src('assets/components/fontawesome/fonts/**/*.*')
       .pipe(gulp.dest('assets/fonts'));
 
-  return merge(motionUi, whatInput, fontAwesome);
+  return merge(fontAwesome);
 });
 
 // Package task
