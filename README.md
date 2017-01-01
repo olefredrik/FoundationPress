@@ -115,6 +115,7 @@ FoundationPress is completely ready to be deployed to and tested by Travis-CI fo
 ## UI toolkits for rapid prototyping
 
 * [Foundation UI Kit for Axure RP](https://gumroad.com/l/foundation-ui-kit-axure-rp)
+* [FoundationXD - Foundation UI Kit for Adobe XD](https://gumroad.com/l/foundation-ui-kit-xd)
 * [FoundationPSD - Foundation UI Kit for Photoshop](https://gumroad.com/l/foundation-ui-kit-psd)
 
 ## Tutorials
@@ -168,6 +169,9 @@ FoundationPress is completely ready to be deployed to and tested by Travis-CI fo
 * [Forte Science](https://www.forte-science.co.jp/)
 * [Well Made Studio](http://wellmadestudio.com/)
 * [Show And Tell](http://www.showandtelluk.com/)
+* [Wahl + Case](https://www.wahlandcase.com/)
+* [Forefront Dermatology](https://forefrontdermatology.com/)
+* [Wirthschaftsjunioren](http://www.wirtschaftsjunioren.org/)
 
 
 >Credit goes to all the brilliant designers and developers out there. Have **you** made a site that should be on this list? [Please let me know](https://twitter.com/olefredrik)
