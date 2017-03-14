@@ -9,10 +9,10 @@ if ( ! class_exists( 'Foundationpress_Comments' ) ) :
 class Foundationpress_Comments extends Walker_Comment {
 
 	// Init classwide variables.
-	var $tree_type = 'comment';
+	public $tree_type = 'comment';
 
 	// Comment ID
-	var $db_fields = array(
+	public $db_fields = array(
 		'parent' => 'comment_parent',
 		'id'     => 'comment_ID',
 	);

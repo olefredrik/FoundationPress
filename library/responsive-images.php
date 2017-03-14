@@ -47,7 +47,6 @@ function foundationpress_adjust_image_sizes_attr( $sizes, $size ) {
 		if ( 1200 > $width ) {
 			$sizes = '(max-width: 1199px) 98vw, ' . $width . 'px';
 		}
-
 	// Default 3/4 column post/page layout
 	} else {
 		if ( 770 < $width ) {

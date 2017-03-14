@@ -49,7 +49,7 @@ endif;
 if ( ! function_exists( 'foundationpress_menu_fallback' ) ) :
 function foundationpress_menu_fallback() {
 	echo '<div class="alert-box secondary">';
-	// translators %1$s: link to menus, %2$s: link to customize.
+	/* translators: %1$s: link to menus, %2$s: link to customize. */
 	printf( __( 'Please assign a menu to the primary menu location under %1$s or %2$s the design.', 'foundationpress' ),
 		/* translators: %s: menu url */
 		sprintf(  __( '<a href="%s">Menus</a>', 'foundationpress' ),
