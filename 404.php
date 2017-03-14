@@ -22,7 +22,15 @@ get_header(); ?>
 				<p><?php _e( 'Please try the following:', 'foundationpress' ); ?></p>
 				<ul>
 					<li><?php _e( 'Check your spelling', 'foundationpress' ); ?></li>
-					<li><?php printf( __( 'Return to the <a href="%s">home page</a>', 'foundationpress' ), home_url() ); ?></li>
+					<li>
+						<?php
+							/* translators: %s: home page url */
+							printf( __(
+								'Return to the <a href="%s">home page</a>', 'foundationpress' ),
+								home_url()
+							);
+						?>
+					</li>
 					<li><?php _e( 'Click the <a href="javascript:history.back()">Back</a> button', 'foundationpress' ); ?></li>
 				</ul>
 			</div>
