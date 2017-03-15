@@ -51,7 +51,7 @@ endif;
 	Prevent access to this file directly
 	*/
 
-	defined( 'ABSPATH' ) or die( __( 'Please do not load this page directly. Thanks!', 'foundationpress' ) );
+	defined( 'ABSPATH' ) || die( __( 'Please do not load this page directly. Thanks!', 'foundationpress' ) );
 
 	if ( post_password_required() ) { ?>
 	<section id="comments">
@@ -69,14 +69,39 @@ if ( comments_open() ) :
 	if ( (is_page() || is_single()) && ( ! is_home() && ! is_front_page()) ) :
 ?>
 <section id="respond">
-	<h3><?php comment_form_title( __( 'Leave a Reply', 'foundationpress' ), __( 'Leave a Reply to %s', 'foundationpress' ) ); ?></h3>
+	<h3>
+		<?php
+			comment_form_title(
+				__( 'Leave a Reply', 'foundationpress' ),
+				/* translators: %s: author of comment being replied to */
+				__( 'Leave a Reply to %s', 'foundationpress' )
+			);
+		?>
+	</h3>
 	<p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
 	<?php if ( get_option( 'comment_registration' ) && ! is_user_logged_in() ) : ?>
-	<p><?php printf( __( 'You must be <a href="%s">logged in</a> to post a comment.', 'foundationpress' ), wp_login_url( get_permalink() ) ); ?></p>
+	<p>
+		<?php
+			/* translators: %s: login url */
+			printf( __(
+				'You must be <a href="%s">logged in</a> to post a comment.', 'foundationpress' ),
+				wp_login_url( get_permalink() )
+			);
+		?>
+	</p>
 	<?php else : ?>
 	<form action="<?php echo get_option( 'siteurl' ); ?>/wp-comments-post.php" method="post" id="commentform">
 		<?php if ( is_user_logged_in() ) : ?>
-		<p><?php printf( __( 'Logged in as <a href="%1$s/wp-admin/profile.php">%2$s</a>.', 'foundationpress' ), get_option( 'siteurl' ), $user_identity ); ?> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php __( 'Log out of this account', 'foundationpress' ); ?>"><?php _e( 'Log out &raquo;', 'foundationpress' ); ?></a></p>
+		<p>
+			<?php
+				/* translators: %1$s: site url, %2$s: user identity  */
+				printf( __(
+					'Logged in as <a href="%1$s/wp-admin/profile.php">%2$s</a>.', 'foundationpress' ),
+					get_option( 'siteurl' ),
+					$user_identity
+				);
+			?> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php __( 'Log out of this account', 'foundationpress' ); ?>"><?php _e( 'Log out &raquo;', 'foundationpress' ); ?></a>
+		</p>
 		<?php else : ?>
 		<p>
 			<label for="author">
