@@ -58,6 +58,8 @@ var PATHS = {
     'assets/components/foundation-sites/js/foundation.tabs.js',
     'assets/components/foundation-sites/js/foundation.toggler.js',
     'assets/components/foundation-sites/js/foundation.tooltip.js',
+    'assets/components/foundation-sites/js/foundation.zf.responsiveAccordionTabs.js',
+
 
     // Motion UI
     'assets/components/motion-ui/motion-ui.js',

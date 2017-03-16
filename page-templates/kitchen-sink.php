@@ -761,42 +761,46 @@ get_header(); ?>
 
 					<!-- Tabs -->
 					<h2 id="tabs" class="docs-heading" data-magellan-target="tabs"><a href="#tabs"></a>Tabs</h2>
-						<ul class="tabs" data-tabs id="example-tabs">
-						  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
-						  <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
-						  <li class="tabs-title"><a href="#panel3">Tab 3</a></li>
-						  <li class="tabs-title"><a href="#panel4">Tab 4</a></li>
-						  <li class="tabs-title"><a href="#panel5">Tab 5</a></li>
-						  <li class="tabs-title"><a href="#panel6">Tab 6</a></li>
-						</ul>
 
-						<div class="tabs-content" data-tabs-content="example-tabs">
-						  <div class="tabs-panel is-active" id="panel1">
-						    <p>one</p>
-						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
-						  </div>
-						  <div class="tabs-panel" id="panel2">
-						    <p>two</p>
-						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
-						  </div>
-						  <div class="tabs-panel" id="panel3">
-						    <p>three</p>
-						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
-						  </div>
-						  <div class="tabs-panel" id="panel4">
-						    <p>four</p>
-						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
-						  </div>
-						  <div class="tabs-panel" id="panel5">
-						    <p>five</p>
-						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
-						  </div>
-						  <div class="tabs-panel" id="panel6">
-						    <p>six</p>
-						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
-						  </div>
-						</div>
-					<hr>
+          <ul class="tabs" data-responsive-accordion-tabs="accordion medium-tabs" id="example-tabs">
+            <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
+            <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
+            <li class="tabs-title"><a href="#panel3">Tab 3</a></li>
+            <li class="tabs-title"><a href="#panel4">Tab 4</a></li>
+            <li class="tabs-title"><a href="#panel5">Tab 5</a></li>
+            <li class="tabs-title"><a href="#panel6">Tab 6</a></li>
+          </ul>
+
+					<div class="tabs-content" data-tabs-content="example-tabs">
+
+            <div class="tabs-panel is-active" id="panel1">
+              <p>One</p>
+              <p>Check me out! I'm a super cool Tab panel with text content! On medium-down screen sizes, this component will transform into an accordion.</p>
+            </div>
+            <div class="tabs-panel" id="panel2">
+              <p>Two</p>
+              <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+            </div>
+            <div class="tabs-panel" id="panel3">
+              <p>Three</p>
+              <p>Check me out! I'm a super cool Tab panel with text content!</p>
+            </div>
+            <div class="tabs-panel" id="panel4">
+              <p>Four</p>
+              <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+            </div>
+            <div class="tabs-panel" id="panel5">
+              <p>Five</p>
+              <p>Check me out! I'm a super cool Tab panel with text content!</p>
+            </div>
+            <div class="tabs-panel" id="panel6">
+              <p>Six</p>
+              <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+            </div>
+
+          </div>
+          <hr>
+
 
 					<!-- Thumbnail -->
 					<h2 id="thumbnail" class="docs-heading" data-magellan-target="thumbnail"><a href="#thumbnail"></a>Thumbnail</h2>
