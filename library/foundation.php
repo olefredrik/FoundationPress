@@ -121,6 +121,7 @@ function foundationpress_responsive_video_oembed_html( $html, $url, $attr, $post
 		// shortened URLs like `youtu.be` will be missed
 		if ( strpos( $html, $site ) ) {
 			$is_video = true;
+			break;
 		}
 	}
 
