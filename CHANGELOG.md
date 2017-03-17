@@ -1,5 +1,47 @@
 # Change Log
 
+## [v2.9.2](https://github.com/olefredrik/FoundationPress/tree/v2.9.2) (2017-03-17)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.9.1...v2.9.2)
+
+**Closed issues:**
+
+- cd [\#950](https://github.com/olefredrik/FoundationPress/issues/950)
+- cd [\#949](https://github.com/olefredrik/FoundationPress/issues/949)
+- Top Level Links - Mobile [\#947](https://github.com/olefredrik/FoundationPress/issues/947)
+
+**Merged pull requests:**
+
+- Add PHP 5.6 and Nightly to Travis CI  [\#961](https://github.com/olefredrik/FoundationPress/pull/961) ([EricRihlmann](https://github.com/EricRihlmann))
+
+## [v2.9.1](https://github.com/olefredrik/FoundationPress/tree/v2.9.1) (2017-03-16)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.9.0...v2.9.1)
+
+**Closed issues:**
+
+- Use Mobile menu layout for Tablet and Mobile [\#953](https://github.com/olefredrik/FoundationPress/issues/953)
+- Uncaught TypeError: $ is not a function [\#952](https://github.com/olefredrik/FoundationPress/issues/952)
+- Mobile \(hamburger\) navigation not responding. [\#951](https://github.com/olefredrik/FoundationPress/issues/951)
+- dropdown menu not working [\#948](https://github.com/olefredrik/FoundationPress/issues/948)
+- gulp build error [\#941](https://github.com/olefredrik/FoundationPress/issues/941)
+- Responsive images \(srcset\) and WordPress 4.7 [\#929](https://github.com/olefredrik/FoundationPress/issues/929)
+- Errors while running the production task [\#925](https://github.com/olefredrik/FoundationPress/issues/925)
+- Foundation.js  [\#923](https://github.com/olefredrik/FoundationPress/issues/923)
+- Copy task: Motion UI and What Input [\#922](https://github.com/olefredrik/FoundationPress/issues/922)
+- Maybe add node version somewhere at first install? [\#819](https://github.com/olefredrik/FoundationPress/issues/819)
+
+**Merged pull requests:**
+
+- Update PHP versions to use in Travis CI Build Checks [\#960](https://github.com/olefredrik/FoundationPress/pull/960) ([olefredrik](https://github.com/olefredrik))
+- Minor Video Embed Optimization [\#958](https://github.com/olefredrik/FoundationPress/pull/958) ([EricRihlmann](https://github.com/EricRihlmann))
+- Clean Up JS and Expand Responsive Video Functionality [\#957](https://github.com/olefredrik/FoundationPress/pull/957) ([EricRihlmann](https://github.com/EricRihlmann))
+- Fix Travis CI Build Errors [\#956](https://github.com/olefredrik/FoundationPress/pull/956) ([EricRihlmann](https://github.com/EricRihlmann))
+- Fix Mobile Menu Button AKA Hamburger [\#955](https://github.com/olefredrik/FoundationPress/pull/955) ([EricRihlmann](https://github.com/EricRihlmann))
+- Solve/Avoid JS Conflict by Replacing '$' with 'jQuery' [\#954](https://github.com/olefredrik/FoundationPress/pull/954) ([EricRihlmann](https://github.com/EricRihlmann))
+- update bower version [\#946](https://github.com/olefredrik/FoundationPress/pull/946) ([gpspake](https://github.com/gpspake))
+- Responsive accordion tabs [\#934](https://github.com/olefredrik/FoundationPress/pull/934) ([olefredrik](https://github.com/olefredrik))
+- Remove to-be deprecated classes from flex-video example [\#928](https://github.com/olefredrik/FoundationPress/pull/928) ([conorbarclay](https://github.com/conorbarclay))
+- Clean up Gulp Copy task. [\#927](https://github.com/olefredrik/FoundationPress/pull/927) ([populationtwo](https://github.com/populationtwo))
+
 ## [v2.9.0](https://github.com/olefredrik/FoundationPress/tree/v2.9.0) (2016-12-15)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.8.0...v2.9.0)
 
@@ -48,7 +90,7 @@
 - Added Interchange on featured Images [\#905](https://github.com/olefredrik/FoundationPress/pull/905) ([alexbohariuc](https://github.com/alexbohariuc))
 - Fix 'Posted on ...' for all languages [\#901](https://github.com/olefredrik/FoundationPress/pull/901) ([Martin4ndersen](https://github.com/Martin4ndersen))
 - Add Danish language and fix translation issue with "Posted on ..." [\#900](https://github.com/olefredrik/FoundationPress/pull/900) ([Martin4ndersen](https://github.com/Martin4ndersen))
-- Typo in dropdown font size setting [\#897](https://github.com/olefredrik/FoundationPress/pull/897) ([conor-hc](https://github.com/conor-hc))
+- Typo in dropdown font size setting [\#897](https://github.com/olefredrik/FoundationPress/pull/897) ([conorbarclay](https://github.com/conorbarclay))
 - Fix Travis CI Build Errors [\#896](https://github.com/olefredrik/FoundationPress/pull/896) ([EricRihlmann](https://github.com/EricRihlmann))
 - Normalize SCSS [\#894](https://github.com/olefredrik/FoundationPress/pull/894) ([EricRihlmann](https://github.com/EricRihlmann))
 -  Turkish language files added [\#891](https://github.com/olefredrik/FoundationPress/pull/891) ([nurdankiratlioglu](https://github.com/nurdankiratlioglu))
