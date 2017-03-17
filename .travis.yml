@@ -14,6 +14,8 @@ php:
   - "7.1"
   # aliased to a recent 7.0.x version
   - "7.0"
+  # aliased to a recent 5.6.x version
+  - "5.6"
 
 # Declare which versions of WordPress to test against.
 # Also declare whether or not to test in Multisite.
@@ -22,24 +24,26 @@ env:
   # @link https://github.com/WordPress/WordPress
   - WP_VERSION=master WP_MULTISITE=0
   - WP_VERSION=master WP_MULTISITE=1
-  # WordPress 4.2
-  # @link https://github.com/WordPress/WordPress/tree/4.2-branch
-  - WP_VERSION=4.2 WP_MULTISITE=0
-  - WP_VERSION=4.2 WP_MULTISITE=1
-  # WordPress 4.1
-  # @link https://github.com/WordPress/WordPress/tree/4.1-branch
-  - WP_VERSION=4.1 WP_MULTISITE=0
-  - WP_VERSION=4.1 WP_MULTISITE=1
+  # WordPress 4.6
+  # @link https://github.com/WordPress/WordPress/tree/4.6-branch
+  - WP_VERSION=4.6 WP_MULTISITE=0
+  - WP_VERSION=4.6 WP_MULTISITE=1
+  # WordPress 4.5
+  # @link https://github.com/WordPress/WordPress/tree/4.5-branch
+  - WP_VERSION=4.5 WP_MULTISITE=0
+  - WP_VERSION=4.5 WP_MULTISITE=1
 
 # Declare 7.1 beta in test matrix.
 # @link https://buddypress.trac.wordpress.org/ticket/5620
 # @link http://docs.travis-ci.com/user/build-configuration/
 matrix:
   include:
-    - php: 7.1
-      env: WP_VERSION=master
+    - php: nightly
+      env:
+        - WP_VERSION=master WP_MULTISITE=0
+        - WP_VERSION=master WP_MULTISITE=1
   allow_failures:
-    - php: 7.1
+    - php: nightly
   fast_finish: true
 
 # Use this to prepare the system to install prerequisites or dependencies.
