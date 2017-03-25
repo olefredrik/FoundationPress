@@ -12,7 +12,7 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 
-<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
+<article <?php post_class('main-content') ?> id="search-results">
 	<header>
 	    <h1 class="entry-title"><?php _e( 'Search Results for', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"</h1>
 	</header>
