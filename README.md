@@ -122,7 +122,6 @@ FoundationPress is completely ready to be deployed to and tested by Travis-CI fo
 
 * [FoundationPress for beginners](https://foundationpress.olefredrik.com/posts/tutorials/foundationpress-for-beginners/)
 * [Responsive images in WordPress with Interchange](http://rachievee.com/responsive-images-in-wordpress/)
-* [Build a Responsive WordPress theme](http://www.webdesignermag.co.uk/build-a-responsive-wordpress-theme/)
 * [Learn to use the _settings file to change almost every aspect of a Foundation site](http://zurb.com/university/lessons/66)
 * [Other lessons from Zurb University](http://zurb.com/university/past-lessons)
 
@@ -145,7 +144,6 @@ FoundationPress is completely ready to be deployed to and tested by Travis-CI fo
 * [Le saint](http://www.lesaint.ca/)
 * [Help blog](http://help.com/blog/)
 * [Maren Schmidt](http://marenschmidt.com/)
-* [Ciancimino Gallery](http://ciancimino.com/)
 * [The Rainbow Venues](http://www.therainbowvenues.co.uk/)
 * [Ameronix](http://www.ameronix.com/)
 * [Finnerodja](http://www.finnerodja.se/)
