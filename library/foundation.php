@@ -157,3 +157,18 @@ function foundationpress_responsive_video_oembed_html( $html, $url, $attr, $post
 }
 add_filter( 'embed_oembed_html', 'foundationpress_responsive_video_oembed_html', 10, 4 );
 endif;
+
+/**
+ * Get mobile menu ID
+ */
+
+if ( ! function_exists( 'foundationpress_mobile_menu_id' ) ) :
+function foundationpress_mobile_menu_id() {
+	if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) {
+		echo 'off-canvas-menu';
+	} else {
+		echo 'mobile-menu';
+	}
+}
+endif;
+
