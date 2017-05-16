@@ -26,19 +26,20 @@
 
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="title-bar" <?php foundationpress_title_bar_responsive_toggle() ?>>
-			<button class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
-			<div class="title-bar-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+	<header class="site-header" role="banner">
+		<div class="site-title-bar title-bar" <?php foundationpress_title_bar_responsive_toggle() ?>>
+			<div class="title-bar-left">
+				<button class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
+				<span class="site-mobile-title title-bar-title">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+				</span>
 			</div>
 		</div>
-
-		<nav id="site-navigation" class="main-navigation top-bar" role="navigation">
+		<nav class="site-navigation top-bar" role="navigation">
 			<div class="top-bar-left">
-				<ul class="menu">
-					<li class="home"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
-				</ul>
+				<div class="site-desktop-title top-bar-title">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+				</div>
 			</div>
 			<div class="top-bar-right">
 				<?php foundationpress_top_bar_r(); ?>
