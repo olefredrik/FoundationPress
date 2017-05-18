@@ -1,3 +1,8 @@
+.kitchen-sink-header {
+  @include grid-column(12);
+}
+
+
 .kitchen-sink-components {
   hr {
     margin: 3rem 0;
