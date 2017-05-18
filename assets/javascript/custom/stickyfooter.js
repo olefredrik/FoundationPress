@@ -2,7 +2,7 @@
 
 (function($) {
 
-  var $footer = $('#footer-container'); // only search once
+  var $footer = $('[data-sticky-footer]'); // only search once
 
   $(window).bind('load resize orientationChange', function () {
 
