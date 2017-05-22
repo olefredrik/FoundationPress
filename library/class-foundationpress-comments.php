@@ -89,10 +89,11 @@ class Foundationpress_Comments extends Walker_Comment {
 				</div><!-- /.comment-meta -->
 
 				<div class="reply">
-					<?php $reply_args = array(
-						'depth' => $depth,
+					<?php
+					$reply_args = array(
+						'depth'     => $depth,
 						'max_depth' => $args['max_depth'],
-						);
+					);
 
 					comment_reply_link( array_merge( $args, $reply_args ) );  ?>
 				</div><!-- /.reply -->
