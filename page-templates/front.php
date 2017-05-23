@@ -4,7 +4,7 @@ Template Name: Front
 */
 get_header(); ?>
 
-<header id="front-hero" role="banner">
+<header class="front-hero" role="banner">
 	<div class="marketing">
 		<div class="tagline">
 			<h1><?php bloginfo( 'name' ); ?></h1>
@@ -12,11 +12,11 @@ get_header(); ?>
 			<a role="button" class="download large button sites-button hide-for-small-only" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
 		</div>
 
-		<div id="watch">
-			<section id="stargazers">
+		<div class="watch">
+			<section class="stargazers">
 				<a href="https://github.com/olefredrik/foundationpress">1.5k stargazers</a>
 			</section>
-			<section id="twitter">
+			<section class="twitter">
 				<a href="https://twitter.com/olefredrik">@olefredrik</a>
 			</section>
 		</div>

@@ -76,8 +76,8 @@
 
 // Modules
 @import "modules/navigation";
+@import "modules/content";
 @import "modules/footer";
-@import "modules/sidebar";
 @import "modules/editor-style";
 
 // Components
@@ -90,7 +90,3 @@
 // Templates
 @import "templates/front";
 @import "templates/kitchen-sink";
-@import "templates/page-default";
-@import "templates/page-sidebar-left";
-@import "templates/page-full-width";
-@import "templates/single-post";
