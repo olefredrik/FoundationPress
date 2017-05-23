@@ -113,7 +113,9 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 			} elseif ( is_category() ) {
 
 				// Category page
-				echo '<li class="item-current item-cat-' . $category[0]->term_id . ' item-cat-' . $category[0]->category_nicename . '"><strong class="bread-current bread-cat-' . $category[0]->term_id . ' bread-cat-' . $category[0]->category_nicename . '">' . $category[0]->cat_name . '</strong></li>';
+				// Get the current category
+				$current_category = $wp_query->queried_object;
+				echo '<li class="item-current item-cat-' . $current_category->term_id . ' item-cat-' . $current_category->category_nicename . '"><strong class="bread-current bread-cat-' . $current_category->term_id . ' bread-cat-' . $current_category->category_nicename . '">' . $current_category->cat_name . '</strong></li>';
 
 			} elseif ( is_page() ) {
 

@@ -31,8 +31,8 @@ if ( have_comments() ) :
 				'reverse_children'  => '',
 				'format'            => 'html5',
 				'short_ping'        => false,
-				'echo'  	    => true,
-				'moderation' 	    => __( 'Your comment is awaiting moderation.', 'foundationpress' ),
+				'echo'              => true,
+				'moderation'        => __( 'Your comment is awaiting moderation.', 'foundationpress' ),
 			)
 		);
 

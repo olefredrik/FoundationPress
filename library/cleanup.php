@@ -104,9 +104,9 @@ endif;
 if ( ! function_exists( 'foundationpress_remove_figure_inline_style' ) ) :
 function foundationpress_remove_figure_inline_style( $output, $attr, $content ) {
 	$atts = shortcode_atts( array(
-		'id'	  => '',
-		'align'	  => 'alignnone',
-		'width'	  => '',
+		'id'      => '',
+		'align'   => 'alignnone',
+		'width'   => '',
 		'caption' => '',
 		'class'   => '',
 	), $attr, 'caption' );
