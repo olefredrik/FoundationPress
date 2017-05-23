@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<div id="page" role="main">
+<div class="main-wrap" role="main">
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 

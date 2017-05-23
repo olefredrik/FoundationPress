@@ -11,8 +11,8 @@
 ?>
 
 		</section>
-		<div id="footer-container">
-			<footer id="footer">
+		<div class="footer-container" data-sticky-footer>
+			<footer class="footer">
 				<?php do_action( 'foundationpress_before_footer' ); ?>
 				<?php dynamic_sidebar( 'footer-widgets' ); ?>
 				<?php do_action( 'foundationpress_after_footer' ); ?>

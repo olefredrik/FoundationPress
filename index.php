@@ -15,7 +15,7 @@
 
 get_header(); ?>
 
-<div id="page" role="main">
+<div class="main-wrap" role="main">
 	<article class="main-content">
 	<?php if ( have_posts() ) : ?>
 

@@ -1,5 +1,5 @@
 // Page header
-#front-hero {
+.front-hero {
   .marketing {
     @include grid-row();
     max-width: 55rem;
@@ -24,7 +24,7 @@
     margin: 0 0 rem-calc(72);
   }
 
-  #watch {
+  .watch {
     @include breakpoint(small) {
       @include grid-column(7);
       @include grid-column-position(-5);
@@ -50,7 +50,7 @@
       color: #fff;
     }
 
-    #stargazers {
+    .stargazers {
       :before {
         content: "\f09b";
         font-family: FontAwesome;
@@ -62,7 +62,7 @@
       }
     }
 
-    #twitter {
+    .twitter {
       :before {
         content: "\f099";
         font-family: FontAwesome;

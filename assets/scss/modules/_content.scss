@@ -1,0 +1,51 @@
+.main-wrap {
+  @include grid-row();
+  margin-top: 1rem;
+
+  @include breakpoint(medium) {
+    margin-top: 3rem;
+  }
+}
+
+.main-content {
+
+  // default 2 column
+  @include grid-column(12);
+  @include breakpoint(medium) {
+    @include grid-column(8);
+  }
+
+  // 1 column
+  .full-width.main-wrap & {
+    @include breakpoint(medium) {
+      @include grid-column(12);
+    }
+  }
+
+  // 2 column sidebar left
+  .sidebar-left.main-wrap & {
+    @include breakpoint(medium) {
+      @include grid-column(8);
+      @include grid-col-pos(4);
+    }
+  }
+}
+
+.sidebar {
+
+  // default 2 column
+  @include grid-column(12);
+  @include breakpoint(medium) {
+    @include grid-column(4);
+    margin-top: 1rem;
+  }
+
+  // 2 column sidebar left
+  .sidebar-left.main-wrap & {
+    @include breakpoint(medium) {
+      @include grid-column(4);
+      @include grid-col-pos(-8);
+      margin-top: 1rem;
+    }
+  }
+}
