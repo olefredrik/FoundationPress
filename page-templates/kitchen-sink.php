@@ -190,15 +190,21 @@ get_header(); ?>
 
 					<!-- Button -->
 					<h2 id="button" class="docs-heading" data-magellan-target="button"><a href="#button"></a>Button</h2>
-						<a href="about.html" class="button">Learn More</a>
-						<a href="#features" class="button">View All Features</a>
+						<a class="button primary" href="#">Primary</a>
+						<a class="button secondary" href="#">Secondary</a>
+						<a class="button success" href="#">Success</a>
+						<a class="button alert" href="#">Alert</a>
+						<a class="button warning" href="#">Warning</a>
 
+						<br />
 						<!-- Buttons (actions) -->
 						<button type="button" class="success button">Save</button>
 						<button type="button" class="alert button">Delete</button>
 
+						<br />
 						<a class="tiny button" href="#">So Tiny</a>
 						<a class="small button" href="#">So Small</a>
+						<a class="button" href="#">So Basic</a>
 						<a class="large button" href="#">So Large</a>
 						<a class="expanded button" href="#">Such Expand</a>
 
@@ -212,9 +218,15 @@ get_header(); ?>
 					<!-- Callout -->
 					<h2 id="callout" class="docs-heading" data-magellan-target="callout"><a href="#callout"></a>Callout</h2>
 						<div class="callout">
-							<h5>This is a callout.</h5>
-							<p>It has an easy to override visual style, and is appropriately subdued.</p>
-							<a href="#">It's dangerous to go alone, take this.</a>
+						  <h5>This is a default callout.</h5>
+						  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+						  <a href="#">It's dangerous to go alone, take this.</a>
+						</div>
+
+						<div class="callout primary">
+						  <h5>This is a primary callout</h5>
+						  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+						  <a href="#">It's dangerous to go alone, take this.</a>
 						</div>
 
 						<div class="callout secondary">
