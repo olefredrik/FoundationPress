@@ -214,7 +214,7 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 			} elseif ( is_search() ) {
 
 				// Search results page
-				echo '<li class="current item-current-' . get_search_query() . '">Search results for: ' . get_search_query() . '</li>';
+				echo '<li class="current item-current-search">Search results for: ' . get_search_query() . '</li>';
 
 			} elseif ( is_404() ) {
 
