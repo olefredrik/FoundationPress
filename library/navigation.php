@@ -7,9 +7,9 @@
  * @since FoundationPress 1.0.0
  */
 
-register_nav_menus(array(
-	'top-bar-r'  => 'Right Top Bar',
-	'mobile-nav' => 'Mobile',
+register_nav_menus( array(
+	'top-bar-r'  => esc_html__( 'Right Top Bar', 'foundationpress' ),
+	'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
 ));
 
 
