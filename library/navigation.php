@@ -117,7 +117,36 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 				$current_category = $wp_query->queried_object;
 				echo '<li class="item-current item-cat-' . $current_category->term_id . ' item-cat-' . $current_category->category_nicename . '"><strong class="bread-current bread-cat-' . $current_category->term_id . ' bread-cat-' . $current_category->category_nicename . '">' . $current_category->cat_name . '</strong></li>';
 
-			} elseif ( is_page() ) {
+			} elseif ( is_tax() ) {
+
+				// Tax archive page
+				$queried_object = get_queried_object();
+				$name = $queried_object->name;
+				$slug = $queried_object->slug;
+				$tax = $queried_object->taxonomy;
+				$term_id = $queried_object->term_id;
+				$parent = $queried_object->parent;
+
+				if( $parent ) {
+					$parents = [];
+					// Loop through all term ancestors
+					while ( $parent ) {
+						$parent_term = get_term($parent, $tax);
+						// The output will be reversed, so separator goes first
+						if ( $separatorclass ) {
+							$parents[] = '<li class="separator separator-' . $parent . '"> ' . $separator . ' </li>';
+						}
+						$parents[] = '<li class="item-parent item-parent-' . $parent . '"><a class="bread-parent bread-parent-' . $parent . '" href="' . get_term_link($parent) . '" title="' . $parent_term->name . '">' . $parent_term->name . '</a></li>';
+
+						$parent = $parent_term->parent;
+					}
+
+					echo implode( array_reverse( $parents ) );
+				}
+
+				echo '<li class="item-current item-tax-' . $term_id . ' item-tax-' . $slug . '">' . $name . '</li>';
+
+		} elseif ( is_page() ) {
 
 				// Standard page
 				if ( $post->post_parent ) {
