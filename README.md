@@ -1,5 +1,4 @@
-# FoundationPress [![Build Status](https://travis-ci.org/olefredrik/FoundationPress.svg?branch=master)](https://travis-ci.org/olefredrik/FoundationPress)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/olefredrik/foundationpress?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+# FoundationPress [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/olefredrik/foundationpress?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 This is a starter-theme for WordPress based on Foundation 6, the most advanced responsive (mobile-first) framework in the world. The purpose of FoundationPress, is to act as a small and handy toolbox that contains the essentials needed to build any design. FoundationPress is meant to be a starting point, not the final product.
 
@@ -9,7 +8,7 @@ All contributions are welcome!
 
 ## Requirements
 
-**This project requires [Node.js](http://nodejs.org) v4.x.x to v6.9.x to be installed on your machine.** Please be aware that you will most likely encounter problems with the installation if you are using v7.1.0 with all the latest features.
+**This project requires [Node.js](http://nodejs.org) v4.x.x to v6.11.x to be installed on your machine.** Please be aware that you will most likely encounter problems with the installation if you are using the most current Node version (bleeding edge) with all the latest features.
 
 FoundationPress uses [Sass](http://Sass-lang.com/) (CSS with superpowers). In short, Sass is a CSS pre-processor that allows you to write styles more effectively and tidy.
 
@@ -84,33 +83,10 @@ Version control on these files are turned off because they are automatically gen
 
 * `assets/javascript/vendor`: Vendor scripts are copied from `assets/components/` to this directory. We use this path for enqueing the vendor scripts in WordPress.
 
-### Check For WordPress Coding Standards
-
-Foundation comes with everything you need to run tests that will check your theme for WordPress Coding Standards. To enable this feature you'll need to install PHP Codesniffer, along with the WordPress Coding Standards set of "Sniffs". You'll need to have [Composer](https://getcomposer.org/) To install both run the following:
-```bash
-$ composer create-project wp-coding-standards/wpcs:dev-master --no-dev
-```
-When prompted to remove existing VCS, answer Yes by typing `Y`.
-
-Once you have installed the packages, you can check your entire theme by running:
-```bash
-$ npm run phpcs
-```
-
-If there are errors that Code Sniffer can fix automatically, run the following command to fix them:
-```bash
-$ npm run phpcbf
-```
-
 ## Demo
 
 * [Clean FoundationPress install](http://foundationpress.olefredrik.com/)
 * [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
-
-## Unit Testing With Travis-CI
-
-FoundationPress is completely ready to be deployed to and tested by Travis-CI for WordPress Coding Standards and best practices. All you need to do to activate the test is sign up and follow the instructions to point Travis-CI towards your repo. Just don't forget to update the status badge to point to your repositories unit test.
-[Travis-CI](https://travis-ci.org/)
 
 ## UI toolkits for rapid prototyping
 
