@@ -14,7 +14,7 @@ var cleanCSS    = require('gulp-clean-css');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = '';
+var URL = 'http://foundationpress:8888/';
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -50,16 +50,18 @@ var PATHS = {
     'assets/components/foundation-sites/js/foundation.magellan.js',
     'assets/components/foundation-sites/js/foundation.offcanvas.js',
     'assets/components/foundation-sites/js/foundation.orbit.js',
+    'assets/components/foundation-sites/js/foundation.plugin.js',
+    'assets/components/foundation-sites/js/foundation.positionable.js',
+    'assets/components/foundation-sites/js/foundation.responsiveAccordionTabs.js',
     'assets/components/foundation-sites/js/foundation.responsiveMenu.js',
-    'assets/components/foundation-sites/js/foundation.responsiveToggle.js',
+    'assets/components/foundation-sites/js/foundation.responsiveToggle.js.',
     'assets/components/foundation-sites/js/foundation.reveal.js',
     'assets/components/foundation-sites/js/foundation.slider.js',
+    'assets/components/foundation-sites/js/foundation.smoothScroll',
     'assets/components/foundation-sites/js/foundation.sticky.js',
     'assets/components/foundation-sites/js/foundation.tabs.js',
     'assets/components/foundation-sites/js/foundation.toggler.js',
     'assets/components/foundation-sites/js/foundation.tooltip.js',
-    'assets/components/foundation-sites/js/foundation.zf.responsiveAccordionTabs.js',
-
 
     // Motion UI
     'assets/components/motion-ui/motion-ui.js',
