@@ -3,6 +3,14 @@
   "title": "FoundationPress",
   "version": "2.10.0",
   "description": "FoundationPress is a WordPress starter theme based on Foundation 6 by Zurb",
+  "license": "MIT",
+  "main": "gulpfile.js",
+
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build --production"
+  },
+
   "keywords": [
     "FoundationPress",
     "WordPress",
@@ -13,65 +21,61 @@
     "customizable",
     "responsive"
   ],
-  "homepage": "http://foundationpress.olefredrik.com/",
-  "bugs": "https://github.com/olefredrik/FoundationPress/issues",
-  "license": "MIT",
-  "main": "gulpfile.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/olefredrik/FoundationPress.git"
-  },
+
   "dependencies": {
-    "what-input": "^4.1.3"
+    "foundation-sites": "~6.4.1",
+    "jquery": "~3.0.0",
+    "what-input": "^4.1.3",
+    "motion-ui": "~1.2.2"
   },
+
   "devDependencies": {
-    "autoprefixer": "^6.1.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
-    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
-    "babel-plugin-transform-es2015-block-scoped-functions": "^6.22.0",
-    "babel-plugin-transform-es2015-block-scoping": "^6.24.1",
-    "babel-plugin-transform-es2015-classes": "^6.24.1",
-    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
-    "babel-plugin-transform-es2015-parameters": "^6.24.1",
-    "babel-plugin-transform-es2015-shorthand-properties": "^6.24.1",
-    "babel-plugin-transform-es2015-spread": "^6.22.0",
-    "babel-plugin-transform-es2015-template-literals": "^6.22.0",
-    "bower": "^1.8.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.7.2",
     "browser-sync": "^2.10.0",
-    "colors": "^1.1.2",
-    "dateformat": "^1.0.12",
-    "del": "^2.2.0",
-    "gulp": "^3.9.0",
+    "gulp": "gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-babel": "^6.1.2",
-    "gulp-clean-css": "^3.7.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-flatten": "^0.2.0",
+    "gulp-clean-css": "^3.3.1",
+    "gulp-cli": "^1.2.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-extname": "^0.2.0",
     "gulp-if": "^2.0.0",
-    "gulp-jshint": "^2.0.0",
+    "gulp-imagemin": "^2.2.1",
     "gulp-load-plugins": "^1.1.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.0.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-uglify": "^1.5.1",
-    "gulp-uncss": "^1.0.4",
-    "gulp-util": "^3.0.7",
-    "gulp-zip": "^3.0.2",
-    "jshint": "^2.8.0",
-    "merge-stream": "^1.0.0",
-    "motion-ui": "^1.1.0",
-    "run-sequence": "^1.1.5",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-uncss": "^1.0.1",
+    "js-yaml": "^3.4.6",
+    "panini": "^1.3.0",
+    "rimraf": "^2.4.3",
+    "style-sherpa": "^1.0.0",
+    "vinyl-named": "^1.1.0",
     "webpack": "^2.6.1",
     "webpack-stream": "^3.2.0",
-    "yargs": "^3.31.0"
+    "yargs": "^3.8.0"
   },
-  "scripts": {
-    "build": "gulp build",
-    "package": "gulp package --production",
-    "postinstall": "bower install && gulp build",
-    "production": "gulp --production",
-    "watch": "gulp"
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olefredrik/foundationpress.git"
+  },
+
+  "bugs": {
+    "url": "https://github.com/olefredrik/foundationpress/issues"
+  },
+
+  "homepage": {
+    "url": "https://foundationpress.olefredrik.com/"
+  },
+
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
+
 }

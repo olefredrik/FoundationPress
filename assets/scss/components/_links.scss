@@ -1,8 +1,0 @@
-// Apply outline styles only when input method is keyboard
-// remove :focus style via What Input using progressive enhancement
-// so :focus isn't left broken if JavaScript fails
-
-[data-whatinput="mouse"] a:focus, button:focus
-[data-whatinput="touch"] a:focus, button:focus {
-  outline: none;
-}

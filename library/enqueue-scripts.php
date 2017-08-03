@@ -13,17 +13,15 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
 
 	// Enqueue the main Stylesheet.
-	wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/assets/stylesheets/foundation.css', array(), '2.10.0', 'all' );
+	wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/dist/assets/css/app.css', array(), '2.10.0', 'all' );
 
 	// Deregister the jquery version bundled with WordPress.
 	wp_deregister_script( 'jquery' );
 
 	// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
-	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), '3.0.0', false );
+	//wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), '3.0.0', false );
 
-	// If you'd like to cherry-pick the foundation components you need in your project, head over to gulpfile.js and see lines 35-54.
-	// It's a good idea to do this, performance-wise. No need to load everything if you're just going to use the grid anyway, you know :)
-	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/assets/javascript/foundation.js', array('jquery'), '2.10.0', true );
+	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/app.js', '2.10.0', true );
 
 	// Add the comment-reply library on pages where it is necessary
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
