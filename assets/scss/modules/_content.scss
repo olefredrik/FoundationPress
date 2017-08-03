@@ -1,51 +1,57 @@
 .main-wrap {
-  @include grid-row();
+  @include xy-grid-container;
+  @include xy-grid();
   margin-top: 1rem;
 
   @include breakpoint(medium) {
     margin-top: 3rem;
   }
-}
 
-.main-content {
+  &.sidebar-left {
 
-  // default 2 column
-  @include grid-column(12);
-  @include breakpoint(medium) {
-    @include grid-column(8);
+    // Place the sidebar below main content on small screens ...
+      @include breakpoint(small) {
+        .main-content { order: 1; }
+        .sidebar { order: 2; }
+      }
+
+    // ... and to the left on medium-up screens, when using the sidebar-left template
+      @include breakpoint(medium) {
+        .main-content { order: 2; }
+        .sidebar { order: 1; }
+      }
   }
 
-  // 1 column
-  .full-width.main-wrap & {
-    @include breakpoint(medium) {
-      @include grid-column(12);
+  // Full width template
+  &.full-width {
+    .main-content {
+      @include xy-cell(12);
     }
   }
 
-  // 2 column sidebar left
-  .sidebar-left.main-wrap & {
-    @include breakpoint(medium) {
-      @include grid-column(8);
-      @include grid-col-pos(4);
+  .main-content {
+
+    // Default template
+    @include breakpoint(small) {
+      @include xy-cell(12);
     }
-  }
-}
 
-.sidebar {
-
-  // default 2 column
-  @include grid-column(12);
-  @include breakpoint(medium) {
-    @include grid-column(4);
-    margin-top: 1rem;
-  }
-
-  // 2 column sidebar left
-  .sidebar-left.main-wrap & {
     @include breakpoint(medium) {
-      @include grid-column(4);
-      @include grid-col-pos(-8);
+      @include xy-cell(8);
+    }
+
+  }
+
+  .sidebar {
+
+    @include breakpoint(small) {
+      @include xy-cell(12);
+    }
+
+    @include breakpoint(medium) {
+      @include xy-cell(4);
       margin-top: 1rem;
     }
+
   }
 }
