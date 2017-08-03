@@ -1,0 +1,85 @@
+// Navigation breakpoints
+.mobile-menu,
+.site-title-bar {
+  @include hide-for(medium);
+}
+
+.desktop-menu,
+.site-navigation .top-bar-left {
+  @include show-for(medium);
+}
+
+
+
+// Site title
+.site-mobile-title a {
+  // placeholder
+}
+
+.site-desktop-title a {
+  font-weight: bold;
+}
+
+
+
+// Mobile menu
+.mobile-menu {
+  display: none; // prevents repaint caused by JS hiding menu onload
+}
+
+
+.mobile-menu,
+.mobile-off-canvas-menu {
+
+  // submenu arrow
+  .is-accordion-submenu-parent {
+    > a::after {
+      border-color: $accordionmenu-arrow-color transparent transparent;
+    }
+    &.active > a::after {
+      border-color: $menu-item-color-active transparent transparent;
+    }
+  }
+
+  // current page
+  .current_page_item > a {
+    font-weight: bold;
+  }
+}
+
+
+
+// Tablet and desktop menu
+.desktop-menu {
+
+  // submenu arrow
+  li.is-dropdown-submenu-parent {
+    > a::after {
+      border-color: $accordionmenu-arrow-color transparent transparent;
+    }
+    &.active > a::after {
+      border-color: $menu-item-color-active transparent transparent;
+    }
+  }
+}
+
+.site-navigation {
+  @include breakpoint(small only) {
+    padding: 0; // prevents container visibility on small screens
+  }
+}
+
+
+
+// WP post navigation
+.post-navigation {
+  @include clearfix;
+}
+
+.nav-previous {
+  float:left;
+}
+
+.nav-next {
+  float:right;
+}
