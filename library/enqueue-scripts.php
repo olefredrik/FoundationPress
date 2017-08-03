@@ -21,7 +21,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
 	//wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), '3.0.0', false );
 
-	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/app.js', '2.10.0', true );
+	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/app.js', array(), '2.10.0', true );
 
 	// Add the comment-reply library on pages where it is necessary
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
