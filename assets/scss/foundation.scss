@@ -31,7 +31,7 @@
 */
 
 // This will include all components that are listed in the 'assets/components/foundation-sites/scss/foundation.scss' file.
-@include foundation-everything;
+@include foundation-everything( $flex: true, $prototype: false );
 
 // Motion UI
 @include motion-ui-transitions;

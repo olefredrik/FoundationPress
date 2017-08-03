@@ -1,8 +1,8 @@
 // Page header
 .front-hero {
   .marketing {
-    @include grid-row();
-    max-width: 55rem;
+    @include xy-grid-container(55rem);
+    @include xy-grid;
   }
 
   @include breakpoint(small) {
@@ -26,13 +26,11 @@
 
   .watch {
     @include breakpoint(small) {
-      @include grid-column(7);
-      @include grid-column-position(-5);
+      @include xy-cell(7);
     }
 
     @include breakpoint(medium) {
-      @include grid-column(12);
-      @include grid-column-position(0);
+      @include xy-cell(12);
     }
 
     section {
@@ -78,11 +76,11 @@
 
   .tagline {
     @include breakpoint(small) {
-      @include grid-column(8);
+      @include xy-cell(8);
     }
 
     @include breakpoint(medium) {
-      @include grid-column(5);
+      @include xy-cell(5);
       padding-top: 6rem;
     }
   }
@@ -113,16 +111,17 @@
 
 // Intro
 .intro {
-  @include grid-row();
+  @include xy-grid-container;
+  @include xy-grid;
 
   .fp-intro {
     @include breakpoint(small) {
-      @include grid-column(12);
+      @include xy-cell(12);
     }
 
     @include breakpoint(medium) {
-      @include grid-column(10);
-      @include grid-column-offset(1);
+      @include xy-cell(10);
+      @include xy-cell-offset(1);
 
       h2 {
         font-weight: 300;
@@ -141,23 +140,24 @@
 
 // Section divider
 .section-divider {
-  @include grid-row();
+  @include xy-grid-container;
+  @include xy-grid;
 
   hr {
-    @include grid-column(12);
+    @include xy-cell(12);
     @extend .dotted;
     box-sizing: border-box;
   }
 }
 
-
 // Benefits
 .benefits {
-  @include grid-row();
+  @include xy-grid-container;
+  @include xy-grid;
   text-align: center;
 
   header {
-    @include grid-column(12);
+    @include xy-cell(12);
 
     h2 {
       font-weight: 300;
@@ -175,11 +175,11 @@
   .customizable,
   .professional {
     @include breakpoint(small) {
-      @include grid-column(12);
+      @include xy-cell(12);
     }
 
     @include breakpoint(medium) {
-      @include grid-column(3);
+      @include xy-cell(3);
     }
 
     img {
@@ -199,8 +199,7 @@
   }
 
   .why-foundation {
-    @include grid-row();
-    @include grid-column(12);
+    @include xy-cell(12);
     margin-top: 4rem;
   }
 }
