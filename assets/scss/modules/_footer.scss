@@ -7,7 +7,7 @@
 }
 
 .footer {
-  @include grid-row();
+  @include xy-grid;
   padding: rem-calc(30) 0;
 
   ul {
