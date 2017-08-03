@@ -28,9 +28,9 @@
   To cherry-pick which components to include in your project, head over to 'assets/components/foundation-sites/scss/foundation.scss'
   In this file, you can remove the include statements for the components you don't need.
   This will result in a smaller css file and better performance.
-*/
 
-// This will include all components that are listed in the 'assets/components/foundation-sites/scss/foundation.scss' file.
+  The include statement below will include all components that are listed in the 'assets/components/foundation-sites/scss/foundation.scss' file.
+*/
 @include foundation-everything( $flex: true, $prototype: false );
 
 // Motion UI
