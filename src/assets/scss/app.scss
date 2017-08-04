@@ -1,5 +1,6 @@
 @charset 'utf-8';
 
+
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
@@ -56,6 +57,12 @@
   My custom styles:
   Add your scss files below to structure your project styles
 */
+
+// Glboal
+@import "global/_accessibility";
+@import "global/colors";
+@import "global/wp-admin";
+@import "global/wp-overrides";
 
 // Modules
 @import "modules/navigation";

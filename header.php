@@ -34,6 +34,7 @@
 				</span>
 			</div>
 		</div>
+
 		<nav class="site-navigation top-bar" role="navigation">
 			<div class="top-bar-left">
 				<div class="site-desktop-title top-bar-title">
@@ -48,6 +49,7 @@
 				<?php endif; ?>
 			</div>
 		</nav>
+		
 	</header>
 
 	<section class="container">

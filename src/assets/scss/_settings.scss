@@ -1,4 +1,5 @@
-//  Foundation for Sites Settings
+//  FoundationPress settings.
+//  Based on Foundation v6.4.1
 //  -----------------------------
 //
 //  Table of Contents:
@@ -61,6 +62,7 @@
 //  56. Xy Grid
 
 @import 'util/util';
+@import 'global/colors';
 
 // 1. Global
 // ---------
@@ -82,7 +84,7 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -493,7 +495,7 @@ $meter-fill-bad: $alert-color;
 
 $offcanvas-size: 250px;
 $offcanvas-vertical-size: 250px;
-$offcanvas-background: $light-gray;
+$offcanvas-background: $dark-nav-color;
 $offcanvas-shadow: 0 0 10px rgba($black, 0.7);
 $offcanvas-inner-shadow-size: 20px;
 $offcanvas-inner-shadow-color: rgba($black, 0.25);
@@ -813,7 +815,7 @@ $thumbnail-radius: $global-radius;
 // 53. Title Bar
 // -------------
 
-$titlebar-background: $black;
+$titlebar-background: $dark-nav-color;
 $titlebar-color: $white;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
@@ -839,8 +841,8 @@ $tooltip-radius: $global-radius;
 // 55. Top Bar
 // -----------
 
-$topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+$topbar-padding: 0rem;
+$topbar-background: $dark-nav-color;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
