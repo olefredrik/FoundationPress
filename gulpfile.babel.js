@@ -25,6 +25,9 @@ function loadConfig() {
   return yaml.load(ymlFile);
 }
 
+// Enter URL of your local server here
+// Example: 'http://localwebsite.dev:8888'
+var URL = 'http://foundationpress:8888';
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
@@ -105,10 +108,17 @@ function images() {
     .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
 
-// Start a server with BrowserSync to preview the site in
+// Start BrowserSync to preview the site in
 function server(done) {
   browser.init({
-    server: PATHS.dist, port: PORT
+
+    proxy: URL,
+    port: PORT,
+
+    ui: {
+      port: 8080
+    },
+
   });
   done();
 }
@@ -118,6 +128,8 @@ function reload(done) {
   browser.reload();
   done();
 }
+
+
 
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
