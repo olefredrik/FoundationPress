@@ -30,7 +30,9 @@ $ npm install
 
 For WordPress development on localhost, I recommend using [MAMP](https://www.mamp.info/en/) for Mac, [WAMP](http://www.wampserver.com/en/download-wampserver-64bits/) for Windows or [LAMP](https://www.linux.com/learn/easy-lamp-server-installation) for Linux.
 
-If you want to take advantage of browser-sync (automatic browser refresh when a file is saved), simply open your gulpfile.babel.js and put your local dev-server address (e.g localhost) in this field ```var URL = '';``` , save the file and run
+If you want to take advantage of browser-sync (automatic browser refresh when a file is saved), simply open your gulpfile.babel.js and put your local dev-server address and port (e.g http://localhost:8888) in this field ```var URL = '';```
+
+Then, simply run
 
 ```bash
 $ npm start
