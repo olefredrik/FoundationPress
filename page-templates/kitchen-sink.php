@@ -446,14 +446,6 @@ get_header(); ?>
 						</div>
 					<hr>
 
-					<!-- Float Classes -->
-					<h2 id="float-classes" class="docs-heading" data-magellan-target="float-classes"><a href="#float-classes"></a>Float Classes</h2>
-						<div class="callout clearfix">
-							<a class="button float-left">Left</a>
-							<a class="button float-right">Right</a>
-						</div>
-					<hr>
-
 					<!-- Forms -->
 					<h2 id="forms" class="docs-heading" data-magellan-target="forms"><a  href="#forms"></a>Forms</h2>
 						<form>
@@ -946,7 +938,6 @@ get_header(); ?>
 							<li><a href="#dropdown-menu">Dropdown Menu</a></li>
 							<li><a href="#dropdown-pane">Dropdown Pane</a></li>
 							<li><a href="#flex-video">Flex Video</a></li>
-							<li><a href="#float-classes">Float Classes</a></li>
 							<li><a href="#forms">Forms</a></li>
 							<li><a href="#grid">Grid</a></li>
 							<li><a href="#label">Label</a></li>
