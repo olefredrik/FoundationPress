@@ -1,28 +1,20 @@
-.flex-card-example {
-  @include breakpoint(small) {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+.cards-container {
 
-  @include breakpoint(medium) {
-    flex-direction: row;
-  }
+  @include xy-grid;
 
   .card {
-
     @include breakpoint(small) {
-      width: 100%;
-      img { width: 100%; }
+      @include xy-cell(12);
+
+      .card-content {
+        padding: 1rem;
+      }
+
     }
 
     @include breakpoint(medium) {
-      width: 32%;
-    }
+      @include xy-cell(1 of 3);
 
-    .card-content {
-      padding: 1rem;
     }
 
   }

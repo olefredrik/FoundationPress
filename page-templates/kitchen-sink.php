@@ -263,75 +263,75 @@ get_header(); ?>
 					<!-- Cards -->
 					<h2 id="cards" class="docs-heading" data-magellan-target="cards"><a href="#cards"></a>Cards</h2>
 
-					<div class="flex-card-example">
+					<div class="cards-container">
 
 						<div class="card">
-						<img src="https://placeimg.com/300/200/arch">
-						<div class="card-content">
-						<h4>Dreams feel real</h4>
-						<p>I'm going to improvise. Listen, there's something you should know about me... about inception.</p>
-						<small>Last updated 1 minute ago</small>
+							<img src="https://placeimg.com/300/200/arch">
+							<div class="card-content">
+								<h4>Dreams feel real</h4>
+								<p>I'm going to improvise. Listen, there's something you should know about me... about inception.</p>
+								<small>Last updated 1 minute ago</small>
+							</div>
 						</div>
-					</div>
 
 						<div class="card">
-						<img src="https://placeimg.com/300/200/nature">
-						<div class="card-content">
-						<h4>Menus</h4>
-						<p>Cards play nicely with menus too! Give them a try.</p>
-						<ul class="menu simple">
-							<li><a href="#">One</a></li>
-							<li><a href="#">Two</a></li>
-							<li><a href="#">Three</a></li>
-						</ul>
+							<img src="https://placeimg.com/300/200/nature">
+							<div class="card-content">
+								<h4>Menus</h4>
+								<p>Cards play nicely with menus too! Give them a try.</p>
+								<ul class="menu simple">
+									<li><a href="#">One</a></li>
+									<li><a href="#">Two</a></li>
+									<li><a href="#">Three</a></li>
+								</ul>
+							</div>
 						</div>
-					</div>
 
 						<div class="card">
-						<div class="card-divider">
-						<p>Featured</p>
+							<div class="card-divider">
+								<p>Featured</p>
+							</div>
+							<div class="card-content">
+								<h4>Your title here!</h4>
+								<p>An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
+							</div>
 						</div>
-						<div class="card-content">
-						<h4>Your title here!</h4>
-						<p>An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
-						</div>
-					</div>
 
-					<div class="card">
-						<img src="https://placeimg.com/300/200/people">
-						<div class="card-content">
-						<h4>Buttons!</h4>
-						<p>Who doesn't love a good button? Buttons work in all of their forms too.</p>
-						<a class="button" href="#">I'm a button</a>
+						<div class="card">
+							<img src="https://placeimg.com/300/200/people">
+							<div class="card-content">
+								<h4>Buttons!</h4>
+								<p>Who doesn't love a good button? Buttons work in all of their forms too.</p>
+								<a class="button" href="#">I'm a button</a>
+							</div>
 						</div>
-					</div>
 
-					<div class="card">
-						<img src="https://placeimg.com/300/200/tech">
-						<div class="card-content">
-						<h4>And button groups...</h4>
-						<p>Button groups also work great!</p>
-						<div class="button-group">
-							<a class="button">One</a>
-							<a class="button">Two</a>
-							<a class="button">Three</a>
+						<div class="card">
+							<img src="https://placeimg.com/300/200/tech">
+							<div class="card-content">
+								<h4>And button groups...</h4>
+								<p>Button groups also work great!</p>
+								<div class="button-group">
+									<a class="button">One</a>
+									<a class="button">Two</a>
+									<a class="button">Three</a>
+								</div>
+							</div>
 						</div>
-						</div>
-					</div>
 
-					<div class="card text-center">
-						<div class="card-divider">
-						<p>Centered</p>
-						</div>
+						<div class="card text-center">
+							<div class="card-divider">
+								<p>Centered</p>
+							</div>
 						<img src="https://placeimg.com/300/200/animals">
-						<div class="card-content">
-						<p>The utility classes like .text-center work great too.</p>
-						<a class="button" href="#">Click me</a>
+							<div class="card-content">
+								<p>The utility classes like .text-center work great too.</p>
+								<a class="button" href="#">Click me</a>
+							</div>
 						</div>
-					</div>
+
 					</div>
 					<hr>
-
 
 					<!-- Close Button -->
 					<h2 id="close-button" class="docs-heading" data-magellan-target="close-button"><a href="#close-button"></a>Close Button</h2>
