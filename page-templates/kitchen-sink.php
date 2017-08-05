@@ -439,7 +439,7 @@ get_header(); ?>
 						</div>
 					<hr>
 
-					<h2 id="equalizer" class="docs-heading" data-magellan-target="equalizer"<a href="#equalizer">Equalizer</h2>
+					<h2 id="equalizer" class="docs-heading" data-magellan-target="equalizer"><a href="#equalizer"></a>Equalizer</h2>
 						<div class="grid-container">
 							<div class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
 							  <div class="medium-4 cell">
