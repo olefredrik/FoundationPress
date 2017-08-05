@@ -4,4 +4,6 @@ npm-debug.log
 dist
 *.sass-cache*
 *.log
+.idea/
 *.swp
+
