@@ -13,12 +13,8 @@ get_header(); ?>
 		</div>
 
 		<div class="watch">
-			<section class="stargazers">
-				<a href="https://github.com/olefredrik/foundationpress">1.5k stargazers</a>
-			</section>
-			<section class="twitter">
-				<a href="https://twitter.com/olefredrik">@olefredrik</a>
-			</section>
+			<span id="stargazers"><a href="https://github.com/olefredrik/foundationpress">1.5k stargazers</a></span>
+			<span id="twitter"><a href="https://twitter.com/olefredrik">@olefredrik</a></span>
 		</div>
 	</div>
 
