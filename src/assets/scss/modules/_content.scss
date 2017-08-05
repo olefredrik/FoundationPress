@@ -1,0 +1,57 @@
+.main-wrap {
+  @include xy-grid-container;
+  @include xy-grid();
+  margin-top: 1rem;
+
+  @include breakpoint(medium) {
+    margin-top: 3rem;
+  }
+
+  &.sidebar-left {
+
+    // Place the sidebar below main content on small screens ...
+      @include breakpoint(small) {
+        .main-content { order: 1; }
+        .sidebar { order: 2; }
+      }
+
+    // ... and to the left on medium-up screens, when using the sidebar-left template
+      @include breakpoint(medium) {
+        .main-content { order: 2; }
+        .sidebar { order: 1; }
+      }
+  }
+
+  // Full width template
+  &.full-width {
+    .main-content {
+      @include xy-cell(12);
+    }
+  }
+
+  .main-content {
+
+    // Default template
+    @include breakpoint(small) {
+      @include xy-cell(12);
+    }
+
+    @include breakpoint(medium) {
+      @include xy-cell(8);
+    }
+
+  }
+
+  .sidebar {
+
+    @include breakpoint(small) {
+      @include xy-cell(12);
+    }
+
+    @include breakpoint(medium) {
+      @include xy-cell(4);
+      margin-top: 1rem;
+    }
+
+  }
+}

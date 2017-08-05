@@ -27,7 +27,7 @@
       }
   }
 
-  .menu .active > a { background-color: lighten($dark-grey, 10%); }
+  .menu .active > a { background-color: #ccc; }
 
 }
 
@@ -40,6 +40,12 @@
 
 // Tablet and desktop menu
 .top-bar {
+
+  //background-color: #2C3840;
+
+  ul {
+    //background-color: #2C3840;
+  }
 
   .top-bar-title a {
     font-size: 1rem;
@@ -61,7 +67,7 @@
     }
   }
 
-  .menu .active > a { background-color: lighten($dark-grey, 10%); }
+  .menu .active > a { background-color: #ccc; }
 
   .menu>li:not(.menu-text)>a { padding: 1rem; }
   .menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }

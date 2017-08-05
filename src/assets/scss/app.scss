@@ -1,42 +1,18 @@
-/*
-  Foundation for Sites components:
-  Import the building blocks you need for your project.
-  Reducing the number of imported components will optimize page speed.
-  ---------------------------------------------------------------------
-  The Foundation framework is built by Zurb
-  Licensed under MIT Open Source
-*/
+@charset 'utf-8';
 
 
-//  Settings
-@import "global/settings"; // Foundation settings file.
-@import "global/demosite-settings"; // These settings are only used for the demosite. Feel free to remove.
-
-// Foundation mixins & browser resets
-@import '../components/foundation-sites/scss/foundation';
-
-
-// WP overrides
-@import "global/wp-admin"; // Fix issues with wp-admin bar positioning
-@import "global/wp-overrides"; // Override the default WordPress styling for some elements
-@import "global/accessibility";
-
-
-// Third-party libraries
-@import 'font-awesome';
+@import 'settings';
+@import 'foundation';
 @import 'motion-ui';
 
-
-// Foundation global styles
 @include foundation-global-styles;
-
-
-// Individual foundation components
 @include foundation-grid;
-// @include foundation-flex-grid;
+@include foundation-flex-grid;
+@include foundation-xy-grid-classes;
 @include foundation-typography;
-@include foundation-forms;
 @include foundation-button;
+@include foundation-forms;
+// @include foundation-range-input;
 @include foundation-accordion;
 @include foundation-accordion-menu;
 @include foundation-badge;
@@ -68,10 +44,11 @@
 @include foundation-tooltip;
 @include foundation-top-bar;
 @include foundation-visibility-classes;
-@include foundation-float-classes;
-// @include foundation-flex-classes;
+// @include foundation-float-classes;
+@include foundation-flex-classes;
 
-// Motion UI
+// @include foundation-prototype-classes;
+
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
@@ -79,6 +56,12 @@
   My custom styles:
   Add your scss files below to structure your project styles
 */
+
+// Glboal
+@import "global/_accessibility";
+@import "global/colors";
+@import "global/wp-admin";
+@import "global/wp-overrides";
 
 // Modules
 @import "modules/navigation";
