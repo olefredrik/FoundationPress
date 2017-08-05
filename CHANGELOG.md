@@ -1,5 +1,12 @@
 # Change Log
 
+## [v2.10.1](https://github.com/olefredrik/FoundationPress/tree/v2.10.1) (2017-08-05)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.10.0...v2.10.1)
+
+**Merged pull requests:**
+
+- Xy grid in footer [\#1023](https://github.com/olefredrik/FoundationPress/pull/1023) ([olefredrik](https://github.com/olefredrik))
+
 ## [v2.10.0](https://github.com/olefredrik/FoundationPress/tree/v2.10.0) (2017-08-05)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.9.3...v2.10.0)
 
