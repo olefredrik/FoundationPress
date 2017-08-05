@@ -20,7 +20,6 @@
 	<?php do_action( 'foundationpress_after_body' ); ?>
 
 	<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
-	<div class="off-canvas-wrapper">
 		<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 	<?php endif; ?>
 
@@ -35,6 +34,7 @@
 				</span>
 			</div>
 		</div>
+
 		<nav class="site-navigation top-bar" role="navigation">
 			<div class="top-bar-left">
 				<div class="site-desktop-title top-bar-title">
@@ -49,6 +49,7 @@
 				<?php endif; ?>
 			</div>
 		</nav>
+		
 	</header>
 
 	<section class="container">

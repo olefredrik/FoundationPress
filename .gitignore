@@ -1,12 +1,9 @@
 .DS_Store
+node_modules
+npm-debug.log
+dist
 *.sass-cache*
 *.log
-node_modules/
-assets/stylesheets/
-assets/components/
-assets/javascript/vendor/
-assets/javascript/foundation.js
-assets/javascript/custom/demosite.js
-packaged/
-wpcs/
 .idea/
+*.swp
+

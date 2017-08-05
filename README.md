@@ -8,7 +8,7 @@ All contributions are welcome!
 
 ## Requirements
 
-**This project requires [Node.js](http://nodejs.org) v4.x.x to v6.11.x to be installed on your machine.** Please be aware that you will most likely encounter problems with the installation if you are using the most current Node version (bleeding edge) with all the latest features.
+**This project requires [Node.js](http://nodejs.org) v4.x.x to v6.11.x to be installed on your machine.** Please be aware that you might encounter problems with the installation if you are using the most current Node version (bleeding edge) with all the latest features.
 
 FoundationPress uses [Sass](http://Sass-lang.com/) (CSS with superpowers). In short, Sass is a CSS pre-processor that allows you to write styles more effectively and tidy.
 
@@ -26,62 +26,55 @@ $ cd FoundationPress
 $ npm install
 ```
 
-### 2. While you're working on your project, run:
+### 2. Get started
+
+For WordPress development on localhost, I recommend using [MAMP](https://www.mamp.info/en/) for Mac, [WAMP](http://www.wampserver.com/en/download-wampserver-64bits/) for Windows or [LAMP](https://www.linux.com/learn/easy-lamp-server-installation) for Linux.
+
+If you want to take advantage of browser-sync (automatic browser refresh when a file is saved), simply open your gulpfile.babel.js and put your local dev-server address and port (e.g http://localhost:8888) in the `URL` variable.
+
+Then, simply run
 
 ```bash
-$ npm run watch
+$ npm start
 ```
 
-If you want to take advantage of browser-sync (automatic browser refresh when a file is saved), simply open your Gulpfile.js and put your local dev-server address (e.g localhost) in this field ```var URL = '';``` , save the Gulpfile and run
-```bash
-$ npm run watch
-```
+### 3. Compile assets for production
 
-### 3. For building all the assets, run:
+When building for production, the CSS and JS will be minified. To minify the assets in your `/dist` folder, run
 
 ```bash
 $ npm run build
 ```
 
-Build all assets minified and without sourcemaps:
-```bash
-$ npm run production
-```
+### Project structure
 
-### 4. To create a .zip file of your theme, run:
+In the `/src` folder you will the working files for all your assets. Every time you make a change to a file that is watched by Gulp, the output will be saved to the `/dist` folder. The contents of this folder is the compiled code that you should not touch (unless you have a good reason for it).
 
-```bash
-$ npm run package
-```
+The `/page-templates` folder contains templates that can be selected in the Pages section of the WordPress admin panel. To create a new page-template, simply create a new file in this folder and make sure to give it a template name.
 
-Running this command will build and minify the theme's assets and place a `.zip` archive of the theme in the `packaged` directory. This excludes the developer files/directories from your theme like `node_modules`, `assets/components`, etc. to keep the theme lightweight for transferring the theme to a staging or production server.
+I guess the rest is quite self explanatory. Feel free to ask if you feel stuck.
 
-### Styles
+### Styles and Sass Compilation
 
  * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
 
- * `assets/scss/foundation.scss`: Make imports for all your styles here
- * `assets/scss/global/*.scss`: Global settings
- * `assets/scss/components/*.scss`: Buttons etc.
- * `assets/scss/modules/*.scss`: Topbar, footer etc.
- * `assets/scss/templates/*.scss`: Page template spesific styling
+ * `src/assets/scss/app.scss`: Make imports for all your styles here
+ * `src/assets/scss/global/*.scss`: Global settings
+ * `src/assets/scss/components/*.scss`: Buttons etc.
+ * `src/assets/scss/modules/*.scss`: Topbar, footer etc.
+ * `src/assets/scss/templates/*.scss`: Page template styling
 
-Please note that you **must** run `npm run build` or `npm run watch` in your terminal for the styles to be copied and concatenated. See the [Gulpfile.js](https://github.com/olefredrik/FoundationPress/blob/master/gulpfile.js) for details
+ * `dist/assets/css/app.css`: This file is loaded in the `<head>` section of your document, and contains the compiled styles for your project.
 
-### Scripts
+If you're new to Sass, please note that you need to have Gulp running in the background (``npm start``), for any changes in your scss files to be compiled to `app.css`.
 
-* `assets/javascript/custom`: This is the folder where you put all your custom scripts. Every .js file you put in this directory will be minified and concatenated one single .js file. (This is good for site speed and performance)
+### JavaScript Compilation
 
-Please note that you must run `npm run build` or `npm run watch` in your terminal for the scripts to be copied and concatenated. See [Gulpfile.js](https://github.com/olefredrik/FoundationPress/blob/master/gulpfile.js) for details
+All JavaScript files in the `src/assets/js` folder, along ith Foundation and its dependencies, are bundled into one file called `app.js`. The files are imported using module dependency with [webpack](https://webpack.js.org/) as the module bundler.
 
-### The main styles and scripts generated by the build
+If you're unfamiliar with modules and module bundling, check out [this resource for node style require/exports](http://openmymind.net/2012/2/3/Node-Require-and-Exports/) and [this resource to understand ES6 modules](http://exploringjs.com/es6/ch_modules.html).
 
-Version control on these files are turned off because they are automatically generated as part of the build process.
-
-* `assets/stylesheets/foundation.css`: All Sass files are minified and compiled to this file
-* `assets/stylesheets/foundation.css.map`: CSS source maps
-
-* `assets/javascript/vendor`: Vendor scripts are copied from `assets/components/` to this directory. We use this path for enqueing the vendor scripts in WordPress.
+Foundation modules are loaded in the `src/assets/js/app.js` file. By default all components are loaded. You can also pick and choose which modules to include. Just follow the instructions in the file.
 
 ## Demo
 

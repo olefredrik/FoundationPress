@@ -1,14 +1,18 @@
 .footer-container {
-  max-width: 100%;
-  width: 100%;
   margin: 0 auto;
   border-top: 1px solid $medium-gray;
   margin-top: rem-calc(60);
 }
 
 .footer {
-  @include grid-row();
+  @include xy-grid-container;
+  @include xy-grid;
   padding: rem-calc(30) 0;
+
+  article {
+    @include xy-cell(auto);
+    margin: 0;
+  }
 
   ul {
     list-style-type: none;

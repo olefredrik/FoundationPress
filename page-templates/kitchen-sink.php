@@ -21,92 +21,98 @@ get_header(); ?>
 
 					<!-- Abide -->
 					<h2 id="abide" class="docs-heading" data-magellan-target="abide"><a href="abide"></a>Abide</h2>
+
 					<form data-abide novalidate>
-						<div data-abide-error class="alert callout" style="display: none;">
-						<p><i class="fi-alert"></i> There are some errors in your form.</p>
-						</div>
-						<div class="row">
-						<div class="small-12 columns">
-							<label>Number Required
-							<input type="text" placeholder="1234" aria-describedby="exampleHelpText" required pattern="number">
-							<span class="form-error">
-								Yo, you had better fill this out, it's required.
-							</span>
-							</label>
-							<p class="help-text" id="exampleHelpText">Here's how you use this input field!</p>
-						</div>
-						<div class="small-12 columns">
-							<label>Nothing Required!
-							<input type="text" placeholder="Use me, or don't" aria-describedby="exampleHelpTex" data-abide-ignore>
-							</label>
-							<p class="help-text" id="exampleHelpTex">This input is ignored by Abide using `data-abide-ignore`</p>
-						</div>
-						<div class="small-12 columns">
-							<label>Password Required
-							<input type="password" id="password" placeholder="yeti4preZ" aria-describedby="exampleHelpText" required >
-							<span class="form-error">
-								I'm required!
-							</span>
-							</label>
-							<p class="help-text" id="exampleHelpText">Enter a password please.</p>
-						</div>
-						<div class="small-12 columns">
-							<label>Re-enter Password
-							<input type="password" placeholder="yeti4preZ" aria-describedby="exampleHelpText2" required pattern="alpha_numeric" data-equalto="password">
-							<span class="form-error">
-								Hey, passwords are supposed to match!
-							</span>
-							</label>
-							<p class="help-text" id="exampleHelpText2">This field is using the `data-equalto="password"` attribute, causing it to match the password field above.</p>
-						</div>
-						</div>
-						<div class="row">
-						<div class="medium-6 columns">
-							<label>URL Pattern, not required, but throws error if it doesn't match the Regular Expression for a valid URL.
-							<input type="text" placeholder="http://foundation.zurb.com" pattern="url">
-							</label>
-						</div>
-						<div class="medium-6 columns">
-							<label>European Cars, Choose One, it can't be the blank option.
-							<select id="select" required>
-								<option value=""></option>
-								<option value="volvo">Volvo</option>
-								<option value="saab">Saab</option>
-								<option value="mercedes">Mercedes</option>
-								<option value="audi">Audi</option>
-							</select>
-							</label>
-						</div>
-						</div>
-						<div class="row">
-						<fieldset class="large-6 columns">
-							<legend>Choose Your Favorite, and this is required, so you have to pick one.</legend>
-							<input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Red</label>
-							<input type="radio" name="pokemon" value="Blue" id="pokemonBlue" required><label for="pokemonBlue">Blue</label>
-							<input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"><label for="pokemonYellow">Yellow</label>
-						</fieldset>
-						<fieldset class="large-6 columns">
-							<legend>Choose Your Favorite - not required, you can leave this one blank.</legend>
-							<input type="radio" name="pockets" value="Red" id="pocketsRed"><label for="pocketsRed">Red</label>
-							<input type="radio" name="pockets" value="Blue" id="pocketsBlue"><label for="pocketsBlue">Blue</label>
-							<input type="radio" name="pockets" value="Yellow" id="pocketsYellow"><label for="pocketsYellow">Yellow</label>
-						</fieldset>
-						<fieldset class="large-6 columns">
-							<legend>Check these out</legend>
-							<input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-							<input id="checkbox2" type="checkbox" required><label for="checkbox2">Checkbox 2</label>
-							<input id="checkbox3" type="checkbox"><label for="checkbox3">Checkbox 3</label>
-						</fieldset>
-						</div>
-						<div class="row">
-						<fieldset class="large-6 columns">
-							<button class="button" type="submit" value="Submit">Submit</button>
-						</fieldset>
-						<fieldset class="large-6 columns">
-							<button class="button" type="reset" value="Reset">Reset</button>
-						</fieldset>
-						</div>
+					  <div class="row">
+					    <div class="columns">
+					      <div data-abide-error class="alert callout" style="display: none;">
+					        <p><i class="fi-alert"></i> There are some errors in your form.</p>
+					      </div>
+					    </div>
+					  </div>
+					  <div class="row">
+					    <div class="small-12 columns">
+					      <label>Number Requireds
+					        <input type="text" placeholder="1234" aria-describedby="exampleHelpText" required pattern="number">
+					        <span class="form-error">
+					          Yo, you had better fill this out, it's requiredxx.
+					        </span>
+					      </label>
+					      <p class="help-text" id="exampleHelpText">Here's how you use this input field!</p>
+					    </div>
+					    <div class="small-12 columns">
+					      <label>Nothing Required!
+					        <input type="text" placeholder="Use me, or don't" aria-describedby="exampleHelpTex" data-abide-ignore>
+					      </label>
+					      <p class="help-text" id="exampleHelpTex">This input is ignored by Abide using `data-abide-ignore`</p>
+					    </div>
+					    <div class="small-12 columns">
+					      <label>Password Required
+					        <input type="password" id="password" placeholder="yeti4preZ" aria-describedby="exampleHelpText" required >
+					        <span class="form-error">
+					          I'm required!
+					        </span>
+					      </label>
+					      <p class="help-text" id="exampleHelpText">Enter a password please.</p>
+					    </div>
+					    <div class="small-12 columns">
+					      <label>Re-enter Password
+					        <input type="password" placeholder="yeti4preZ" aria-describedby="exampleHelpText2" required pattern="alpha_numeric" data-equalto="password">
+					        <span class="form-error">
+					          Hey, passwords are supposed to match!
+					        </span>
+					      </label>
+					      <p class="help-text" id="exampleHelpText2">This field is using the `data-equalto="password"` attribute, causing it to match the password field above.</p>
+					    </div>
+					  </div>
+					  <div class="row">
+					    <div class="medium-6 columns">
+					      <label>URL Pattern, not required, but throws error if it doesn't match the Regular Expression for a valid URL.
+					        <input type="text" placeholder="http://foundation.zurb.com" pattern="url">
+					      </label>
+					    </div>
+					    <div class="medium-6 columns">
+					      <label>European Cars, Choose One, it can't be the blank option.
+					        <select id="select" required>
+					          <option value=""></option>
+					          <option value="volvo">Volvo</option>
+					          <option value="saab">Saab</option>
+					          <option value="mercedes">Mercedes</option>
+					          <option value="audi">Audi</option>
+					        </select>
+					      </label>
+					    </div>
+					  </div>
+					  <div class="row">
+					    <fieldset class="medium-6 columns">
+					      <legend>Choose Your Favorite, and this is required, so you have to pick one.</legend>
+					      <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Red</label>
+					      <input type="radio" name="pokemon" value="Blue" id="pokemonBlue" required><label for="pokemonBlue">Blue</label>
+					      <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"><label for="pokemonYellow">Yellow</label>
+					    </fieldset>
+					    <fieldset class="medium-6 columns">
+					      <legend>Choose Your Favorite - not required, you can leave this one blank.</legend>
+					      <input type="radio" name="pockets" value="Red" id="pocketsRed"><label for="pocketsRed">Red</label>
+					      <input type="radio" name="pockets" value="Blue" id="pocketsBlue"><label for="pocketsBlue">Blue</label>
+					      <input type="radio" name="pockets" value="Yellow" id="pocketsYellow"><label for="pocketsYellow">Yellow</label>
+					    </fieldset>
+					    <fieldset class="medium-6 columns">
+					      <legend>Check these out</legend>
+					      <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+					      <input id="checkbox2" type="checkbox" required><label for="checkbox2">Checkbox 2</label>
+					      <input id="checkbox3" type="checkbox"><label for="checkbox3">Checkbox 3</label>
+					    </fieldset>
+					  </div>
+					  <div class="row">
+					    <fieldset class="medium-6 columns">
+					      <button class="button" type="submit" value="Submit">Submit</button>
+					    </fieldset>
+					    <fieldset class="medium-6 columns">
+					      <button class="button" type="reset" value="Reset">Reset</button>
+					    </fieldset>
+					  </div>
 					</form>
+
 					<hr>
 
 					<!-- Accordion -->
@@ -257,75 +263,75 @@ get_header(); ?>
 					<!-- Cards -->
 					<h2 id="cards" class="docs-heading" data-magellan-target="cards"><a href="#cards"></a>Cards</h2>
 
-					<div class="flex-card-example">
+					<div class="cards-container">
 
 						<div class="card">
-						<img src="https://placeimg.com/300/200/arch">
-						<div class="card-content">
-						<h4>Dreams feel real</h4>
-						<p>I'm going to improvise. Listen, there's something you should know about me... about inception.</p>
-						<small>Last updated 1 minute ago</small>
+							<img src="https://placeimg.com/300/200/arch">
+							<div class="card-content">
+								<h4>Dreams feel real</h4>
+								<p>I'm going to improvise. Listen, there's something you should know about me... about inception.</p>
+								<small>Last updated 1 minute ago</small>
+							</div>
 						</div>
-					</div>
 
 						<div class="card">
-						<img src="https://placeimg.com/300/200/nature">
-						<div class="card-content">
-						<h4>Menus</h4>
-						<p>Cards play nicely with menus too! Give them a try.</p>
-						<ul class="menu simple">
-							<li><a href="#">One</a></li>
-							<li><a href="#">Two</a></li>
-							<li><a href="#">Three</a></li>
-						</ul>
+							<img src="https://placeimg.com/300/200/nature">
+							<div class="card-content">
+								<h4>Menus</h4>
+								<p>Cards play nicely with menus too! Give them a try.</p>
+								<ul class="menu simple">
+									<li><a href="#">One</a></li>
+									<li><a href="#">Two</a></li>
+									<li><a href="#">Three</a></li>
+								</ul>
+							</div>
 						</div>
-					</div>
 
 						<div class="card">
-						<div class="card-divider">
-						<p>Featured</p>
+							<div class="card-divider">
+								<p>Featured</p>
+							</div>
+							<div class="card-content">
+								<h4>Your title here!</h4>
+								<p>An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
+							</div>
 						</div>
-						<div class="card-content">
-						<h4>Your title here!</h4>
-						<p>An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
-						</div>
-					</div>
 
-					<div class="card">
-						<img src="https://placeimg.com/300/200/people">
-						<div class="card-content">
-						<h4>Buttons!</h4>
-						<p>Who doesn't love a good button? Buttons work in all of their forms too.</p>
-						<a class="button" href="#">I'm a button</a>
+						<div class="card">
+							<img src="https://placeimg.com/300/200/people">
+							<div class="card-content">
+								<h4>Buttons!</h4>
+								<p>Who doesn't love a good button? Buttons work in all of their forms too.</p>
+								<a class="button" href="#">I'm a button</a>
+							</div>
 						</div>
-					</div>
 
-					<div class="card">
-						<img src="https://placeimg.com/300/200/tech">
-						<div class="card-content">
-						<h4>And button groups...</h4>
-						<p>Button groups also work great!</p>
-						<div class="button-group">
-							<a class="button">One</a>
-							<a class="button">Two</a>
-							<a class="button">Three</a>
+						<div class="card">
+							<img src="https://placeimg.com/300/200/tech">
+							<div class="card-content">
+								<h4>And button groups...</h4>
+								<p>Button groups also work great!</p>
+								<div class="button-group">
+									<a class="button">One</a>
+									<a class="button">Two</a>
+									<a class="button">Three</a>
+								</div>
+							</div>
 						</div>
-						</div>
-					</div>
 
-					<div class="card text-center">
-						<div class="card-divider">
-						<p>Centered</p>
-						</div>
+						<div class="card text-center">
+							<div class="card-divider">
+								<p>Centered</p>
+							</div>
 						<img src="https://placeimg.com/300/200/animals">
-						<div class="card-content">
-						<p>The utility classes like .text-center work great too.</p>
-						<a class="button" href="#">Click me</a>
+							<div class="card-content">
+								<p>The utility classes like .text-center work great too.</p>
+								<a class="button" href="#">Click me</a>
+							</div>
 						</div>
-					</div>
+
 					</div>
 					<hr>
-
 
 					<!-- Close Button -->
 					<h2 id="close-button" class="docs-heading" data-magellan-target="close-button"><a href="#close-button"></a>Close Button</h2>
@@ -433,18 +439,32 @@ get_header(); ?>
 						</div>
 					<hr>
 
+					<h2 id="equalizer" class="docs-heading" data-magellan-target="equalizer"><a href="#equalizer"></a>Equalizer</h2>
+						<div class="grid-container">
+							<div class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
+							  <div class="medium-4 cell">
+							    <div class="callout" data-equalizer-watch>
+							      <img src= "https://placeimg.com/300/200/arch">
+							    </div>
+							  </div>
+							  <div class="medium-4 cell">
+							    <div class="callout" data-equalizer-watch>
+							      <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
+							    </div>
+							  </div>
+							  <div class="medium-4 cell">
+							    <div class="callout" data-equalizer-watch>
+							      <img src= "https://placeimg.com/400/100/arch">
+							    </div>
+							  </div>
+							</div>
+						</div>
+					<hr>
+
 					<!-- Flex Video -->
 					<h2 id="flex-video" class="docs-heading" data-magellan-target="flex-video"><a href="#flex-video"></a>Flex Video</h2>
 						<div class="flex-video">
 							<iframe width="420" height="315" src="https://www.youtube.com/embed/V9gkYw35Vws" frameborder="0" allowfullscreen></iframe>
-						</div>
-					<hr>
-
-					<!-- Float Classes -->
-					<h2 id="float-classes" class="docs-heading" data-magellan-target="float-classes"><a href="#float-classes"></a>Float Classes</h2>
-						<div class="callout clearfix">
-							<a class="button float-left">Left</a>
-							<a class="button float-right">Right</a>
 						</div>
 					<hr>
 
@@ -489,15 +509,20 @@ get_header(); ?>
 							<div class="small-3 columns">
 								<label for="middle-label" class="right middle">Label</label>
 							</div>
+
 							<div class="small-9 columns">
 								<input type="text" id="middle-label" placeholder="Right- and middle-aligned text input">
 							</div>
 							</div>
+
 							<div class="input-group">
-							<span class="input-group-label">$</span>
-							<input class="input-group-field" type="url">
-							<a class="input-group-button button">Submit</a>
+						    <span class="input-group-label">$</span>
+						    <input class="input-group-field" type="url">
+						    <div class="input-group-button">
+						      <input type="submit" class="button" value="Submit">
+						    </div>
 							</div>
+
 						</form>
 					<hr>
 
@@ -774,45 +799,43 @@ get_header(); ?>
 					<!-- Tabs -->
 					<h2 id="tabs" class="docs-heading" data-magellan-target="tabs"><a href="#tabs"></a>Tabs</h2>
 
-			<ul class="tabs" data-responsive-accordion-tabs="accordion medium-tabs" id="example-tabs">
-			<li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
-			<li class="tabs-title"><a href="#panel2">Tab 2</a></li>
-			<li class="tabs-title"><a href="#panel3">Tab 3</a></li>
-			<li class="tabs-title"><a href="#panel4">Tab 4</a></li>
-			<li class="tabs-title"><a href="#panel5">Tab 5</a></li>
-			<li class="tabs-title"><a href="#panel6">Tab 6</a></li>
-			</ul>
+					<ul class="tabs" data-responsive-accordion-tabs="accordion medium-tabs" id="example-tabs">
+						<li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
+						<li class="tabs-title"><a href="#panel2">Tab 2</a></li>
+						<li class="tabs-title"><a href="#panel3">Tab 3</a></li>
+						<li class="tabs-title"><a href="#panel4">Tab 4</a></li>
+						<li class="tabs-title"><a href="#panel5">Tab 5</a></li>
+						<li class="tabs-title"><a href="#panel6">Tab 6</a></li>
+					</ul>
 
 					<div class="tabs-content" data-tabs-content="example-tabs">
 
-			<div class="tabs-panel is-active" id="panel1">
-				<p>One</p>
-				<p>Check me out! I'm a super cool Tab panel with text content! On medium-down screen sizes, this component will transform into an accordion.</p>
-			</div>
-			<div class="tabs-panel" id="panel2">
-				<p>Two</p>
-				<img class="thumbnail" src="http://placeimg.com/200/200/arch">
-			</div>
-			<div class="tabs-panel" id="panel3">
-				<p>Three</p>
-				<p>Check me out! I'm a super cool Tab panel with text content!</p>
-			</div>
-			<div class="tabs-panel" id="panel4">
-				<p>Four</p>
-				<img class="thumbnail" src="http://placeimg.com/200/200/arch">
-			</div>
-			<div class="tabs-panel" id="panel5">
-				<p>Five</p>
-				<p>Check me out! I'm a super cool Tab panel with text content!</p>
-			</div>
-			<div class="tabs-panel" id="panel6">
-				<p>Six</p>
-				<img class="thumbnail" src="http://placeimg.com/200/200/arch">
-			</div>
-
-			</div>
-			<hr>
-
+						<div class="tabs-panel is-active" id="panel1">
+							<p>One</p>
+							<p>Check me out! I'm a super cool Tab panel with text content! On medium-down screen sizes, this component will transform into an accordion.</p>
+						</div>
+						<div class="tabs-panel" id="panel2">
+							<p>Two</p>
+							<img class="thumbnail" src="http://placeimg.com/200/200/arch">
+						</div>
+						<div class="tabs-panel" id="panel3">
+							<p>Three</p>
+							<p>Check me out! I'm a super cool Tab panel with text content!</p>
+						</div>
+						<div class="tabs-panel" id="panel4">
+							<p>Four</p>
+							<img class="thumbnail" src="http://placeimg.com/200/200/arch">
+						</div>
+						<div class="tabs-panel" id="panel5">
+							<p>Five</p>
+							<p>Check me out! I'm a super cool Tab panel with text content!</p>
+						</div>
+						<div class="tabs-panel" id="panel6">
+							<p>Six</p>
+							<img class="thumbnail" src="http://placeimg.com/200/200/arch">
+						</div>
+					</div>
+					<hr>
 
 					<!-- Thumbnail -->
 					<h2 id="thumbnail" class="docs-heading" data-magellan-target="thumbnail"><a href="#thumbnail"></a>Thumbnail</h2>
@@ -939,8 +962,8 @@ get_header(); ?>
 							<li><a href="#drilldown-menu">Drilldown Menu</a></li>
 							<li><a href="#dropdown-menu">Dropdown Menu</a></li>
 							<li><a href="#dropdown-pane">Dropdown Pane</a></li>
+							<li><a href="#equalizer">Equalizer</a></li>
 							<li><a href="#flex-video">Flex Video</a></li>
-							<li><a href="#float-classes">Float Classes</a></li>
 							<li><a href="#forms">Forms</a></li>
 							<li><a href="#grid">Grid</a></li>
 							<li><a href="#label">Label</a></li>
