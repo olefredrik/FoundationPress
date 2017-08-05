@@ -36,22 +36,19 @@ If you want to take advantage of browser-sync (automatic browser refresh when a 
 $ npm start
 ```
 
-### 3. For building all the assets, run:
+### 3. Compile assets for production
+
+When building for production, the CSS and JS will be minified. To minify the assets in your `/dist` folder, run
 
 ```bash
-$ npm build
-```
-
-Build all assets minified and without sourcemaps:
-```bash
-$ npm build --production
+$ npm run build
 ```
 
 ### Project structure
 
-In the ``/src`` folder you will the working files for all your assets. Every time you make a change to a file that is watched by Gulp, the output will be saved to the ``/dist`` folder. The contents of this folder is the compiled code that you should not touch (unless you have a really good reason for it).
+In the `/src` folder you will the working files for all your assets. Every time you make a change to a file that is watched by Gulp, the output will be saved to the `/dist` folder. The contents of this folder is the compiled code that you should not touch (unless you have a good reason for it).
 
-The ``/page-templates`` folder contains templates that can be selected in the Pages section of the WordPress admin panel. To create a new page-template, simply create a new file in this folder and make sure to give it a template name.
+The `/page-templates` folder contains templates that can be selected in the Pages section of the WordPress admin panel. To create a new page-template, simply create a new file in this folder and make sure to give it a template name.
 
 I guess the rest is quite self explanatory. Feel free to ask if you feel stuck.
 
@@ -63,13 +60,15 @@ I guess the rest is quite self explanatory. Feel free to ask if you feel stuck.
  * `src/assets/scss/global/*.scss`: Global settings
  * `src/assets/scss/components/*.scss`: Buttons etc.
  * `src/assets/scss/modules/*.scss`: Topbar, footer etc.
- * `src/assets/scss/templates/*.scss`: Page template spesific styling
+ * `src/assets/scss/templates/*.scss`: Page template styling
 
-Please note that you need to have gulp running in the background, for changes to be compiled.
+ * `dist/assets/css/app.css`: This file is loaded in the `<head>` section of your document, and contains the compiled styles for your project.
+
+If you're new to Sass, please note that you need to have Gulp running in the background (``npm start``), for any changes in your scss files to be compiled to `app.css`.
 
 ### Scripts
 
-Foundation modules are loaded in the ``src/assets/js/app.js`` file. By default all components are loaded. You can also pick and choose which modules to include. Just follow the instructions in the file.
+Foundation modules are loaded in the `src/assets/js/app.js` file. By default all components are loaded. You can also pick and choose which modules to include. Just follow the instructions in the file.
 
 ## Demo
 
