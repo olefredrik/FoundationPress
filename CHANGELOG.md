@@ -1,11 +1,7 @@
 # Change Log
 
-## [v2.9.3](https://github.com/olefredrik/FoundationPress/tree/v2.9.3) (2017-08-02)
-[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.9.2...v2.9.3)
-
-**Fixed bugs:**
-
-- entering a comment redirects to wp-comments-posts.php  [\#505](https://github.com/olefredrik/FoundationPress/issues/505)
+## [v2.10.0](https://github.com/olefredrik/FoundationPress/tree/v2.10.0) (2017-08-05)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.9.3...v2.10.0)
 
 **Closed issues:**
 
@@ -29,6 +25,20 @@
 - Should Aside be used for the sidebar? [\#798](https://github.com/olefredrik/FoundationPress/issues/798)
 - npm run production watches files [\#745](https://github.com/olefredrik/FoundationPress/issues/745)
 - Nav Questions [\#639](https://github.com/olefredrik/FoundationPress/issues/639)
+
+**Merged pull requests:**
+
+- Foundation update [\#1022](https://github.com/olefredrik/FoundationPress/pull/1022) ([olefredrik](https://github.com/olefredrik))
+
+## [v2.9.3](https://github.com/olefredrik/FoundationPress/tree/v2.9.3) (2017-07-28)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.9.2...v2.9.3)
+
+**Fixed bugs:**
+
+- entering a comment redirects to wp-comments-posts.php  [\#505](https://github.com/olefredrik/FoundationPress/issues/505)
+
+**Closed issues:**
+
 - npm ERR! A complete log of this run can be found in: [\#1016](https://github.com/olefredrik/FoundationPress/issues/1016)
 - Page builder to use with FoundationPress [\#1015](https://github.com/olefredrik/FoundationPress/issues/1015)
 - ron script run packager [\#1013](https://github.com/olefredrik/FoundationPress/issues/1013)
