@@ -439,6 +439,28 @@ get_header(); ?>
 						</div>
 					<hr>
 
+					<h2 id="equalizer" class="docs-heading" data-magellan-target="equalizer"<a href="#equalizer">Equalizer</h2>
+						<div class="grid-container">
+							<div class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
+							  <div class="medium-4 cell">
+							    <div class="callout" data-equalizer-watch>
+							      <img src= "https://placeimg.com/300/200/arch">
+							    </div>
+							  </div>
+							  <div class="medium-4 cell">
+							    <div class="callout" data-equalizer-watch>
+							      <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
+							    </div>
+							  </div>
+							  <div class="medium-4 cell">
+							    <div class="callout" data-equalizer-watch>
+							      <img src= "https://placeimg.com/400/100/arch">
+							    </div>
+							  </div>
+							</div>
+						</div>
+					<hr>
+
 					<!-- Flex Video -->
 					<h2 id="flex-video" class="docs-heading" data-magellan-target="flex-video"><a href="#flex-video"></a>Flex Video</h2>
 						<div class="flex-video">
@@ -937,6 +959,7 @@ get_header(); ?>
 							<li><a href="#drilldown-menu">Drilldown Menu</a></li>
 							<li><a href="#dropdown-menu">Dropdown Menu</a></li>
 							<li><a href="#dropdown-pane">Dropdown Pane</a></li>
+							<li><a href="#equalizer">Equalizer</a></li>
 							<li><a href="#flex-video">Flex Video</a></li>
 							<li><a href="#forms">Forms</a></li>
 							<li><a href="#grid">Grid</a></li>
