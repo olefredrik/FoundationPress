@@ -509,15 +509,20 @@ get_header(); ?>
 							<div class="small-3 columns">
 								<label for="middle-label" class="right middle">Label</label>
 							</div>
+
 							<div class="small-9 columns">
 								<input type="text" id="middle-label" placeholder="Right- and middle-aligned text input">
 							</div>
 							</div>
+
 							<div class="input-group">
-							<span class="input-group-label">$</span>
-							<input class="input-group-field" type="url">
-							<a class="input-group-button button">Submit</a>
+						    <span class="input-group-label">$</span>
+						    <input class="input-group-field" type="url">
+						    <div class="input-group-button">
+						      <input type="submit" class="button" value="Submit">
+						    </div>
 							</div>
+
 						</form>
 					<hr>
 
