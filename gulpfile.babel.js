@@ -18,7 +18,7 @@ const $ = plugins();
 const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
-const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
+const { COMPATIBILITY, UNCSS_OPTIONS, PATHS } = loadConfig();
 
 function loadConfig() {
   let ymlFile = fs.readFileSync('config.yml', 'utf8');
@@ -26,7 +26,7 @@ function loadConfig() {
 }
 
 // Enter URL of your local server here
-// Example: 'http://localwebsite.dev:8888'
+// Example: 'http://localhost:8888'
 var URL = 'http://foundationpress:8888';
 
 // Build the "dist" folder by running all of the below tasks
@@ -111,9 +111,7 @@ function images() {
 // Start BrowserSync to preview the site in
 function server(done) {
   browser.init({
-
     proxy: URL,
-    port: PORT,
 
     ui: {
       port: 8080
