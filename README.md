@@ -52,7 +52,7 @@ The `/page-templates` folder contains templates that can be selected in the Page
 
 I guess the rest is quite self explanatory. Feel free to ask if you feel stuck.
 
-### Styles
+### Styles and Sass Compilation
 
  * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
 
@@ -66,7 +66,11 @@ I guess the rest is quite self explanatory. Feel free to ask if you feel stuck.
 
 If you're new to Sass, please note that you need to have Gulp running in the background (``npm start``), for any changes in your scss files to be compiled to `app.css`.
 
-### Scripts
+### JavaScript Compilation
+
+All JavaScript files in the `src/assets/js` folder, along ith Foundation and its dependencies, are bundled into one file called `app.js`. The files are imported using module dependency with [webpack](https://webpack.js.org/) as the module bundler.
+
+If you're unfamiliar with modules and module bundling, check out [this resource for node style require/exports](http://openmymind.net/2012/2/3/Node-Require-and-Exports/) and [this resource to understand ES6 modules](http://exploringjs.com/es6/ch_modules.html).
 
 Foundation modules are loaded in the `src/assets/js/app.js` file. By default all components are loaded. You can also pick and choose which modules to include. Just follow the instructions in the file.
 
