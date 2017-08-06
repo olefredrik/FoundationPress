@@ -13,7 +13,8 @@
 **Please List the Following:**
 * OS & version:
 * Node version (node -v) [Node v4+ is required] :
-* Foundation version (bower list) :
+* FoundationPress version (see line 3 in package.json):
+* Foundation version (see dependencies in package.json) :
 
 **Include Test Case** (if applicable):  
 Give us a link to a CodePen or JSFiddle that recreates the issue.
