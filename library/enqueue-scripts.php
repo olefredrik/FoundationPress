@@ -22,7 +22,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/app.js', array(), '2.10.2', true );
 
 	// Enqueue FontAwesome from CDN. Uncomment the line below if you don't need FontAwesome.
-	wp_enqueue_script( 'fontawesome', 'https://use.fontawesome.com/5016a31c8c.js', array(), '4.7.0', true );
+	//wp_enqueue_script( 'fontawesome', 'https://use.fontawesome.com/5016a31c8c.js', array(), '4.7.0', true );
 
 
 	// Add the comment-reply library on pages where it is necessary
