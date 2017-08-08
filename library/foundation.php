@@ -62,10 +62,10 @@ function foundationpress_menu_fallback() {
 }
 endif;
 
-// Add Foundation 'is-ctive' class for the current menu item.
+// Add Foundation 'is-active' class for the current menu item.
 if ( ! function_exists( 'foundationpress_active_nav_class' ) ) :
 function foundationpress_active_nav_class( $classes, $item ) {
-	if ( 1 === $item->current || true === $item->current_item_ancestor ) {
+	if ( $item->current == 1 || $item->current_item_ancestor == true ) {
 		$classes[] = 'is-active';
 	}
 	return $classes;
@@ -74,14 +74,14 @@ add_filter( 'nav_menu_css_class', 'foundationpress_active_nav_class', 10, 2 );
 endif;
 
 /**
- * Use the active class of ZURB Foundation on wp_list_pages output.
+ * Use the is-active class of ZURB Foundation on wp_list_pages output.
  * From required+ Foundation http://themes.required.ch.
  */
 if ( ! function_exists( 'foundationpress_active_list_pages_class' ) ) :
 function foundationpress_active_list_pages_class( $input ) {
 
 	$pattern = '/current_page_item/';
-	$replace = 'current_page_item active';
+	$replace = 'current_page_item is-active';
 
 	$output = preg_replace( $pattern, $replace, $input );
 
