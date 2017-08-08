@@ -65,7 +65,7 @@ endif;
 // Add Foundation 'is-ctive' class for the current menu item.
 if ( ! function_exists( 'foundationpress_active_nav_class' ) ) :
 function foundationpress_active_nav_class( $classes, $item ) {
-	if ( 1 === $item->current || true === $item->current_item_ancestor ) {
+	if ( $item->current == 1 || $item->current_item_ancestor == true ) {
 		$classes[] = 'is-active';
 	}
 	return $classes;
@@ -81,7 +81,7 @@ if ( ! function_exists( 'foundationpress_active_list_pages_class' ) ) :
 function foundationpress_active_list_pages_class( $input ) {
 
 	$pattern = '/current_page_item/';
-	$replace = 'current_page_item active';
+	$replace = 'current_page_item is-active';
 
 	$output = preg_replace( $pattern, $replace, $input );
 
