@@ -1,5 +1,41 @@
 # Change Log
 
+## [v2.10.2](https://github.com/olefredrik/FoundationPress/tree/v2.10.2) (2017-08-08)
+[Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.10.1...v2.10.2)
+
+**Fixed bugs:**
+
+- "Active" class no longer being applied to Topbar link on active page [\#933](https://github.com/olefredrik/FoundationPress/issues/933)
+- .active class applied to .main-menu li when using custom relative URLs in Menus [\#914](https://github.com/olefredrik/FoundationPress/issues/914)
+
+**Closed issues:**
+
+- Missing script: watch [\#1028](https://github.com/olefredrik/FoundationPress/issues/1028)
+- Smooth Scroll not added. [\#1027](https://github.com/olefredrik/FoundationPress/issues/1027)
+- Foundation 6.4.0 [\#1008](https://github.com/olefredrik/FoundationPress/issues/1008)
+- WooCommerce 3.0 Compatibility \(New Zoom/Lightbox feature\) [\#991](https://github.com/olefredrik/FoundationPress/issues/991)
+- WooCommerce compatibility [\#982](https://github.com/olefredrik/FoundationPress/issues/982)
+- Main menu with dropdowns - tapping sub-item link in iOS closes menu, does nothing else [\#975](https://github.com/olefredrik/FoundationPress/issues/975)
+- responsive toggle menu stops working on 6.3.1 [\#973](https://github.com/olefredrik/FoundationPress/issues/973)
+- Duplicate search bar when widget search produces no results [\#970](https://github.com/olefredrik/FoundationPress/issues/970)
+- Dropdown menu issue [\#969](https://github.com/olefredrik/FoundationPress/issues/969)
+- Header is covering top menu [\#938](https://github.com/olefredrik/FoundationPress/issues/938)
+- How to make dropdowns in main nav open right [\#862](https://github.com/olefredrik/FoundationPress/issues/862)
+- Theme Check Errors - Should I Be Worried? [\#840](https://github.com/olefredrik/FoundationPress/issues/840)
+- Woocommerce template overrides [\#718](https://github.com/olefredrik/FoundationPress/issues/718)
+- foundationpress\_before\_content function not implemented [\#601](https://github.com/olefredrik/FoundationPress/issues/601)
+- No rss/atom link?  [\#566](https://github.com/olefredrik/FoundationPress/issues/566)
+- Stupid Question - how to set menu order to follow page order [\#541](https://github.com/olefredrik/FoundationPress/issues/541)
+- Move right menu under left menu? [\#531](https://github.com/olefredrik/FoundationPress/issues/531)
+
+**Merged pull requests:**
+
+- Active class menu item [\#1032](https://github.com/olefredrik/FoundationPress/pull/1032) ([olefredrik](https://github.com/olefredrik))
+- Include only XY-grid and disable float-grid by default [\#1031](https://github.com/olefredrik/FoundationPress/pull/1031) ([olefredrik](https://github.com/olefredrik))
+- Add fontawesome handle [\#1030](https://github.com/olefredrik/FoundationPress/pull/1030) ([olefredrik](https://github.com/olefredrik))
+- Dependencies [\#1024](https://github.com/olefredrik/FoundationPress/pull/1024) ([olefredrik](https://github.com/olefredrik))
+- Woo 3 compatibility [\#1021](https://github.com/olefredrik/FoundationPress/pull/1021) ([linuxbastard](https://github.com/linuxbastard))
+
 ## [v2.10.1](https://github.com/olefredrik/FoundationPress/tree/v2.10.1) (2017-08-05)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.10.0...v2.10.1)
 
