@@ -7,10 +7,10 @@
     a {
       color: $white;
       font-weight: 600;
-      font-size: rem-calc(18);
-      opacity: .75;
+      font-size: rem-calc(15);
     }
 
+/*
     .is-accordion-submenu-parent > a::after {
       display: block;
       width: 0;
@@ -25,6 +25,7 @@
       margin-top: -3px;
       right: 1rem;
       }
+  */
   }
 
   .menu .active > a { background-color: #ccc; }
