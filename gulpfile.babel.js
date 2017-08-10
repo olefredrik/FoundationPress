@@ -27,7 +27,7 @@ function loadConfig() {
 
 // Enter URL of your local server here
 // Example: 'http://localhost:8888'
-var URL = '';
+var URL = 'http://foundationpress:8888';
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',

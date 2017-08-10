@@ -23,6 +23,10 @@
 .mobile-menu,
 .mobile-off-canvas-menu {
 
+  .menu .is-active > a {
+    background-color: lighten($dark-nav-color, 5%);
+  }
+
   // submenu arrow
   .is-accordion-submenu-parent {
     > a::after {
@@ -58,6 +62,7 @@
     padding: 0; // prevents container visibility on small screens
   }
 }
+
 
 
 

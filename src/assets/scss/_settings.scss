@@ -398,7 +398,7 @@ $dropdownmenu-nested-margin: 0;
 $dropdownmenu-submenu-padding: $dropdownmenu-padding;
 $dropdownmenu-border: 1px solid $medium-gray;
 $dropdown-menu-item-color-active: $light-gray;
-$dropdown-menu-item-background-active: transparent;
+$dropdown-menu-item-background-active: lighten($dark-nav-color, 5%);
 
 // 19. Flexbox Utilities
 // ---------------------
