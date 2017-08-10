@@ -19,6 +19,28 @@
   display: none; // prevents repaint caused by JS hiding menu onload
 }
 
+.off-canvas {
+  > ul.menu {
+    height: 100vh;
+    padding: 1rem;
+
+    a {
+      color: $white;
+      font-weight: 600;
+      font-size: rem-calc(15);
+    }
+  }
+
+  .menu .active > a { background-color: #ccc; }
+
+}
+
+.title-bar-title {
+  a {
+    font-size: 1rem;
+    color: #B9B9B9;
+  }
+}
 
 .mobile-menu,
 .mobile-off-canvas-menu {
@@ -26,35 +48,41 @@
   .menu .is-active > a {
     background-color: lighten($dark-nav-color, 5%);
   }
-
-  // submenu arrow
-  .is-accordion-submenu-parent {
-    > a::after {
-      border-color: $accordionmenu-arrow-color transparent transparent;
-    }
-    &.active > a::after {
-      border-color: $menu-item-color-active transparent transparent;
-    }
-  }
-
-  // current page
-  .current_page_item > a {
-    font-weight: bold;
-  }
 }
 
 // Tablet and desktop menu
-.desktop-menu {
 
-  // submenu arrow
-  li.is-dropdown-submenu-parent {
-    > a::after {
-      border-color: $accordionmenu-arrow-color transparent transparent;
-    }
-    &.active > a::after {
-      border-color: $menu-item-color-active transparent transparent;
+.top-bar {
+
+  .top-bar-title a {
+    font-size: 1rem;
+    color: #B9B9B9;
+    padding-left: 1rem;
+    line-height: 1.8;
+  }
+
+  .menu a {
+    color: #e6e6e6;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-weight: bold;
+    font-size: 0.8rem;
+    line-height: 1;
+
+    &:hover:not(.button) {
+      background-color: #42525D;
     }
   }
+
+  .menu .active > a { background-color: #ccc; }
+
+  .menu>li:not(.menu-text)>a { padding: 1rem; }
+  .menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
+
+  .dropdown.menu .submenu { border: 0; }
+  .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
+  .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
+  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
 }
 
 .site-navigation {
@@ -62,9 +90,6 @@
     padding: 0; // prevents container visibility on small screens
   }
 }
-
-
-
 
 // WP post navigation
 .post-navigation {
