@@ -15,11 +15,14 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	// Enqueue the main Stylesheet.
 	wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/dist/assets/css/app.css', array(), '2.10.2', 'all' );
 
-	// Deregister the jquery version bundled with WordPress, as we're injecting the version we need with Webpack.
+	// Deregister the jquery version bundled with WordPress.
 	wp_deregister_script( 'jquery' );
 
+	// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
+	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '3.2.1', false );
+
 	// Enqueue Founation scripts
-	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/app.js', array(), '2.10.2', true );
+	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/app.js', array( 'jquery' ), '2.10.2', true );
 
 	// Enqueue FontAwesome from CDN. Uncomment the line below if you don't need FontAwesome.
 	//wp_enqueue_script( 'fontawesome', 'https://use.fontawesome.com/5016a31c8c.js', array(), '4.7.0', true );
