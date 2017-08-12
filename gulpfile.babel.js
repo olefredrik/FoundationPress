@@ -81,6 +81,9 @@ let webpackConfig = {
         ]
       }
     ]
+  },
+  externals: {
+    jquery: 'jQuery'
   }
 }
 // Combine JavaScript into one file
