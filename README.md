@@ -83,11 +83,13 @@ Foundation modules are loaded in the `src/assets/js/app.js` file. By default all
 * [Clean FoundationPress install](http://foundationpress.olefredrik.com/)
 * [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
 
-## UI toolkits for rapid prototyping
+## Resources
 
+* [Foundation UI Kit for Adobe XD](https://gumroad.com/l/foundation-ui-kit-xd)
 * [Foundation UI Kit for Axure RP](https://gumroad.com/l/foundation-ui-kit-axure-rp)
-* [FoundationXD - Foundation UI Kit for Adobe XD](https://gumroad.com/l/foundation-ui-kit-xd)
-* [FoundationPSD - Foundation UI Kit for Photoshop](https://gumroad.com/l/foundation-ui-kit-psd)
+* [Foundation UI Kit for Photoshop](https://gumroad.com/l/foundation-ui-kit-psd)
+* [Foundation 6 Shortcodes for Visual Composer](https://www.402websites.com/downloads/foundation-6-shortcodes-visual-composer/?ref=2&campaign=Foundation6ShortcodesforVisualComposer)
+
 
 ## Tutorials
 
