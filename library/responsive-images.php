@@ -61,7 +61,7 @@ add_filter( 'wp_calculate_image_sizes', 'foundationpress_adjust_image_sizes_attr
 // Remove inline width and height attributes for post thumbnails
 function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
     if(!strpos($html, 'attachment-shop_single')) {
-        $html = preg_replace( '/(width|height)=\"\d*\"\s/', '', $html );
+        $html = preg_replace( '/^(width|height)=\"\d*\"\s/', '', $html );
     }
     return $html;
 }
