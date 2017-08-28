@@ -527,29 +527,18 @@ get_header(); ?>
 					<hr>
 
 					<!-- Grid -->
-					<h2 id="grid" class="docs-heading" data-magellan-target="grid"><a href="#grid"></a>Grid<h2>
-						<div class="row display">
-							<div class="small-2 medium-3 large-4 columns">2/3/4 columns</div>
-							<div class="small-4 medium-3 large-4 columns">4/3/4 columns</div>
-							<div class="small-6 large-4 columns">6/6/4 columns</div>
+					<h2 id="grid" class="docs-heading" data-magellan-target="grid"><a href="#grid"></a>Grid (XY)</h2>
+						<div class="grid-x">
+							<div class="cell">full width cell</div>
+							<div class="cell">full width cell</div>
 						</div>
-						<div class="row display">
-							<div class="large-3 columns">12/12/3 columns</div>
-							<div class="large-6 columns">12/12/6 columns</div>
-							<div class="large-3 columns">12/12/3 columns</div>
+						<div class="grid-x">
+							<div class="small-6 cell">6 cells</div>
+							<div class="small-6 cell">6 cells</div>
 						</div>
-						<div class="row display">
-							<div class="small-6 large-2 columns">6/6/2 columns</div>
-							<div class="small-6 large-8 columns">6/6/8 columns</div>
-							<div class="small-12 large-2 columns">12/12/2 columns</div>
-						</div>
-						<div class="row display">
-							<div class="small-3 columns">3 columns</div>
-							<div class="small-9 columns">9 columns</div>
-						</div>
-						<div class="row display">
-							<div class="medium-8 large-4 columns">12/8/4 columns</div>
-							<div class="medium-4 large-8 columns">12/4/8 columns</div>
+						<div class="grid-x">
+							<div class="medium-6 large-4 cell">12/6/4 cells</div>
+							<div class="medium-6 large-8 cell">12/6/8 cells</div>
 						</div>
 					<hr>
 
