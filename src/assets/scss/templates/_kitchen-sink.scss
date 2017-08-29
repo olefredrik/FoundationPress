@@ -64,16 +64,19 @@
   }
 }
 
-.row.display {
-  background: #eee;
-  font-size: 11px;
-  margin-bottom: 10px;
+.grid-x {
+  background: #d6ecfa;
+  font-size: 12px;
   line-height: 2rem;
-  border: solid 1px #c6c6c6;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  margin-bottom: 1.5rem;
+  
+  .cell,:nth-child(odd) {
+    background: #7bc1ef;
+    color: #0a0a0a;
+  }
 
-  .columns:nth-child(2), .columns.small-centered, .columns.large-centered {
-    background: #e1e1e1;
+  .cell:nth-child(even) {
+    background: #1779ba;
+    color: #fefefe;
   }
 }
