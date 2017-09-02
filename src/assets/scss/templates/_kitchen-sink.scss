@@ -64,19 +64,21 @@
   }
 }
 
-.grid-x {
-  background: #d6ecfa;
-  font-size: 12px;
-  line-height: 2rem;
-  margin-bottom: 1.5rem;
-  
-  .cell,:nth-child(odd) {
-    background: #7bc1ef;
-    color: #0a0a0a;
-  }
+.kitchen-sink-grid {
+  .grid-x {
+    background: #d6ecfa;
+    font-size: 12px;
+    line-height: 2rem;
+    margin-bottom: 1.5rem;
+    
+    .cell,:nth-child(odd) {
+      background: #7bc1ef;
+      color: #0a0a0a;
+    }
 
-  .cell:nth-child(even) {
-    background: #1779ba;
-    color: #fefefe;
+    .cell:nth-child(even) {
+      background: #1779ba;
+      color: #fefefe;
+    }
   }
 }

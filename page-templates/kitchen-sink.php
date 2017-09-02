@@ -528,17 +528,19 @@ get_header(); ?>
 
 					<!-- Grid -->
 					<h2 id="grid" class="docs-heading" data-magellan-target="grid"><a href="#grid"></a>Grid (XY)</h2>
-						<div class="grid-x">
-							<div class="cell">full width cell</div>
-							<div class="cell">full width cell</div>
-						</div>
-						<div class="grid-x">
-							<div class="small-6 cell">6 cells</div>
-							<div class="small-6 cell">6 cells</div>
-						</div>
-						<div class="grid-x">
-							<div class="medium-6 large-4 cell">12/6/4 cells</div>
-							<div class="medium-6 large-8 cell">12/6/8 cells</div>
+						<div class="kitchen-sink-grid">
+							<div class="grid-x">
+								<div class="cell">full width cell</div>
+								<div class="cell">full width cell</div>
+							</div>
+							<div class="grid-x">
+								<div class="small-6 cell">6 cells</div>
+								<div class="small-6 cell">6 cells</div>
+							</div>
+							<div class="grid-x">
+								<div class="medium-6 large-4 cell">12/6/4 cells</div>
+								<div class="medium-6 large-8 cell">12/6/8 cells</div>
+							</div>
 						</div>
 					<hr>
 
