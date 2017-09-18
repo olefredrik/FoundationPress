@@ -1,4 +1,13 @@
-<!-- Please only file bugs with FoundationPress on GitHub. If you've got an issue with the Foundation framework itself, please file the bug in the Foundation repository: https://github.com/zurb/foundation-sites. If you've got a more general question about how to use FoundationPress, please use the Gitter chatroom: https://gitter.im/olefredrik/FoundationPress -->
+<!--
+
+Please only file bugs with FoundationPress on GitHub. If you've got an issue with the Foundation framework, please file the bug in the Foundation repository: https://github.com/zurb/foundation-sites.
+
+There is no guarantee that your third-party WordPress plugin will work with this theme. You are, of course,
+free to use plugins. Please note that issues regarding conflicts with third party plugins will be closed.
+
+For general questions about how to use FoundationPress, please use the Gitter chatroom: https://gitter.im/olefredrik/FoundationPress
+
+-->
 
 **How can this bug be reproduced?**
 
