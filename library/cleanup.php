@@ -100,7 +100,7 @@ function foundationpress_remove_recent_comments_style() {
 }
 endif;
 
-// Remove inline width attribute from figure tag causing images wider than 100% of its conainer
+// Remove inline width attribute from figure tag causing images wider than 100% of its container
 if ( ! function_exists( 'foundationpress_remove_figure_inline_style' ) ) :
 function foundationpress_remove_figure_inline_style( $output, $attr, $content ) {
 	$atts = shortcode_atts( array(
