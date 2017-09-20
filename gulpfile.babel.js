@@ -20,9 +20,37 @@ const PRODUCTION = !!(yargs.argv.production);
 // Load settings from settings.yml
 const { COMPATIBILITY, PATHS } = loadConfig();
 
+// Function to check if file exists synchronously
+function checkFileExists(filepath) {
+  let flag = true;
+  try {
+    fs.accessSync(filepath, fs.F_OK);
+  } catch(e) {
+    flag = false;
+  }
+  return flag;
+}
+
+// Load default or custom YML config file
 function loadConfig() {
-  let ymlFile = fs.readFileSync('config.yml', 'utf8');
-  return yaml.load(ymlFile);
+  if (checkFileExists('config.yml')) {
+    // config.yml exists, load it
+    console.log('Loading config.yml');
+    let ymlFile = fs.readFileSync('config.yml', 'utf8');
+    return yaml.load(ymlFile);
+
+  } else if(checkFileExists('config-default.yml')) {
+    // config-default.yml exists, load it
+    console.log('Loading config-default.yml');
+    let ymlFile = fs.readFileSync('config-default.yml', 'utf8');
+    return yaml.load(ymlFile);
+
+  } else {
+    // Exit if config.yml & config-default.yml do not exist
+    console.log('Exiting process, no config file exists.');
+    console.log('Error Code: ', err.code);
+    process.exit(1);
+  }
 }
 
 // Enter URL of your local server here

@@ -1,0 +1,26 @@
+# Browsersync config
+BROWSERSYNC:
+  # URL of local development server goes here (ex. http://localsite.dev)
+  url: ""
+
+# Autoprefixer will make sure your CSS works with these browsers
+COMPATIBILITY:
+  - "last 2 versions"
+  - "ie >= 9"
+  - "ios >= 7"
+
+# Gulp will reference these paths when it copies files
+PATHS:
+  # Path to dist folder
+  dist: "dist"
+  # Paths to static assets that aren't images, CSS, or JavaScript
+  assets:
+    - "src/assets/**/*"
+    - "!src/assets/{img,js,scss}/**/*"
+  # Paths to Sass libraries, which can then be loaded with @import
+  sass:
+    - "node_modules/foundation-sites/scss"
+    - "node_modules/motion-ui/src"
+  # Paths to JavaScript entry points for webpack to bundle modules
+  entries:
+    - "src/assets/js/app.js"
