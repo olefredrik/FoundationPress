@@ -1,6 +1,7 @@
 'use strict';
 
 import plugins       from 'gulp-load-plugins';
+import gutil         from 'gulp-util';
 import yargs         from 'yargs';
 import browser       from 'browser-sync';
 import gulp          from 'gulp';
@@ -20,7 +21,7 @@ const PRODUCTION = !!(yargs.argv.production);
 // Load settings from settings.yml
 const { BROWSERSYNC, COMPATIBILITY, PATHS } = loadConfig();
 
-// Function to check if file exists synchronously
+// Check if file exists synchronously
 function checkFileExists(filepath) {
   let flag = true;
   try {
@@ -33,22 +34,24 @@ function checkFileExists(filepath) {
 
 // Load default or custom YML config file
 function loadConfig() {
+  gutil.log('Loading config file...');
+
   if (checkFileExists('config.yml')) {
     // config.yml exists, load it
-    console.log('Loading config.yml');
+    gutil.log(gutil.colors.cyan('config.yml'), 'exists, loading', gutil.colors.cyan('config.yml'));
     let ymlFile = fs.readFileSync('config.yml', 'utf8');
     return yaml.load(ymlFile);
 
   } else if(checkFileExists('config-default.yml')) {
     // config-default.yml exists, load it
-    console.log('Loading config-default.yml');
+    gutil.log(gutil.colors.cyan('config.yml'), 'does not exist, loading', gutil.colors.cyan('config-default.yml'));
     let ymlFile = fs.readFileSync('config-default.yml', 'utf8');
     return yaml.load(ymlFile);
 
   } else {
     // Exit if config.yml & config-default.yml do not exist
-    console.log('Exiting process, no config file exists.');
-    console.log('Error Code: ', err.code);
+    gutil.log('Exiting process, no config file exists.');
+    gutil.log('Error Code:', err.code);
     process.exit(1);
   }
 }
