@@ -18,7 +18,7 @@ const $ = plugins();
 const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
-const { COMPATIBILITY, PATHS } = loadConfig();
+const { BROWSERSYNC, COMPATIBILITY, PATHS } = loadConfig();
 
 // Function to check if file exists synchronously
 function checkFileExists(filepath) {
@@ -52,10 +52,6 @@ function loadConfig() {
     process.exit(1);
   }
 }
-
-// Enter URL of your local server here
-// Example: 'http://localhost:8888'
-var URL = '';
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
@@ -141,7 +137,7 @@ function images() {
 // Start BrowserSync to preview the site in
 function server(done) {
   browser.init({
-    proxy: URL,
+    proxy: BROWSERSYNC.url,
 
     ui: {
       port: 8080
