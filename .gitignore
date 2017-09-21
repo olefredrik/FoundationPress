@@ -2,8 +2,8 @@
 node_modules
 npm-debug.log
 dist
+config.yml
 *.sass-cache*
 *.log
 .idea/
 *.swp
-

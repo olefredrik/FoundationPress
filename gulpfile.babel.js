@@ -1,6 +1,7 @@
 'use strict';
 
 import plugins       from 'gulp-load-plugins';
+import gutil         from 'gulp-util';
 import yargs         from 'yargs';
 import browser       from 'browser-sync';
 import gulp          from 'gulp';
@@ -18,16 +19,42 @@ const $ = plugins();
 const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
-const { COMPATIBILITY, PATHS } = loadConfig();
+const { BROWSERSYNC, COMPATIBILITY, PATHS } = loadConfig();
 
-function loadConfig() {
-  let ymlFile = fs.readFileSync('config.yml', 'utf8');
-  return yaml.load(ymlFile);
+// Check if file exists synchronously
+function checkFileExists(filepath) {
+  let flag = true;
+  try {
+    fs.accessSync(filepath, fs.F_OK);
+  } catch(e) {
+    flag = false;
+  }
+  return flag;
 }
 
-// Enter URL of your local server here
-// Example: 'http://localhost:8888'
-var URL = '';
+// Load default or custom YML config file
+function loadConfig() {
+  gutil.log('Loading config file...');
+
+  if (checkFileExists('config.yml')) {
+    // config.yml exists, load it
+    gutil.log(gutil.colors.cyan('config.yml'), 'exists, loading', gutil.colors.cyan('config.yml'));
+    let ymlFile = fs.readFileSync('config.yml', 'utf8');
+    return yaml.load(ymlFile);
+
+  } else if(checkFileExists('config-default.yml')) {
+    // config-default.yml exists, load it
+    gutil.log(gutil.colors.cyan('config.yml'), 'does not exist, loading', gutil.colors.cyan('config-default.yml'));
+    let ymlFile = fs.readFileSync('config-default.yml', 'utf8');
+    return yaml.load(ymlFile);
+
+  } else {
+    // Exit if config.yml & config-default.yml do not exist
+    gutil.log('Exiting process, no config file exists.');
+    gutil.log('Error Code:', err.code);
+    process.exit(1);
+  }
+}
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
@@ -113,7 +140,7 @@ function images() {
 // Start BrowserSync to preview the site in
 function server(done) {
   browser.init({
-    proxy: URL,
+    proxy: BROWSERSYNC.url,
 
     ui: {
       port: 8080
@@ -128,8 +155,6 @@ function reload(done) {
   browser.reload();
   done();
 }
-
-
 
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {

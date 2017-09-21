@@ -31,19 +31,23 @@ $ cd FoundationPress
 $ npm install
 ```
 
-### 2. Get started
+### 2. Configuration
 
-For WordPress development on localhost, I recommend using [MAMP](https://www.mamp.info/en/) for Mac, [WAMP](http://www.wampserver.com/en/download-wampserver-64bits/) for Windows or [LAMP](https://www.linux.com/learn/easy-lamp-server-installation) for Linux.
+#### YAML config file
+FoundationPress includes a `config-default.yml` file. To make changes to the configuration, make a copy of `config-default.yml` and name it `config.yml` and make changes to that file. The `config.yml` file is ignored by git so that each environment can use a different configuration with the same git repo.
 
-If you want to take advantage of browser-sync (automatic browser refresh when a file is saved), simply open your gulpfile.babel.js and put your local dev-server address and port (e.g http://localhost:8888) in the `URL` variable.
+At the start of the build process a check is done to see if a `config.yml` file exists. If `config.yml` exists, the configuration will be loaded from `config.yml`. If `config.yml` does not exist, `config-default.yml` will be used as a fallback.
 
-Then, simply run
+#### Browsersync setup
+If you want to take advantage of [Browsersync](https://www.browsersync.io/) (automatic browser refresh when a file is saved), simply open your `config.yml` file after creating it in the previous step, and put your local dev-server address and port (e.g http://localhost:8888) in the `url` property under the `BROWSERSYNC` object.
+
+### 3. Get started
 
 ```bash
 $ npm start
 ```
 
-### 3. Compile assets for production
+### 4. Compile assets for production
 
 When building for production, the CSS and JS will be minified. To minify the assets in your `/dist` folder, run
 
@@ -85,6 +89,16 @@ Foundation modules are loaded in the `src/assets/js/app.js` file. By default all
 
 * [Clean FoundationPress install](http://foundationpress.olefredrik.com/)
 * [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
+
+## Local Development
+We recommend using one of the following setups for local WordPress development:
+
+* [MAMP](https://www.mamp.info/en/) (macOS)
+* [WAMP](http://www.wampserver.com/en/download-wampserver-64bits/) (Windows)
+* [LAMP](https://www.linux.com/learn/easy-lamp-server-installation) (Linux)
+* [Local](https://local.getflywheel.com/) (macOS/Windows)
+* [VVV (Varying Vagrant Vagrants)](https://github.com/Varying-Vagrant-Vagrants/VVV) (Vagrant Box)
+* [Trellis](https://roots.io/trellis/)
 
 ## Resources
 
