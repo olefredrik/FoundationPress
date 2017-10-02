@@ -10,7 +10,7 @@
 
 ?>
 
-		</section>
+		</div><!-- Close container -->
 		<div class="footer-container" data-sticky-footer>
 			<footer class="footer">
 				<?php do_action( 'foundationpress_before_footer' ); ?>
