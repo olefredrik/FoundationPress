@@ -12,7 +12,12 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header>
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+	<?php if ( is_single() ) {		
+		the_title( '<h1 class="entry-title">', '</h1>' );
+		} else {
+		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		}
+	?>
 		<?php foundationpress_entry_meta(); ?>
 	</header>
 	<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
