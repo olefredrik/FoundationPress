@@ -10,7 +10,6 @@ get_header(); ?>
 
 <div class="main-wrap">
 	<main id="search-results" class="main-content">
-	<?php do_action( 'foundationpress_before_content' ); ?>
 
 	<header>
 	    <h1 class="entry-title"><?php _e( 'Search Results for', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"</h1>
@@ -27,8 +26,6 @@ get_header(); ?>
 
 	<?php endif; ?>
 
-	<?php do_action( 'foundationpress_before_pagination' ); ?>
-
 	<?php
 	if ( function_exists( 'foundationpress_pagination' ) ) :
 		foundationpress_pagination();
@@ -40,7 +37,6 @@ get_header(); ?>
 		</nav>
 	<?php endif; ?>
 	
-	<?php do_action( 'foundationpress_after_content' ); ?>
 	</main>
 <?php get_sidebar(); ?>
 
