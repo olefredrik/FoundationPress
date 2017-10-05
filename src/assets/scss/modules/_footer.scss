@@ -9,9 +9,8 @@
   @include xy-grid;
   padding: rem-calc(30) 0;
 
-  article {
+  section {
     @include xy-cell(auto);
-    margin: 0;
   }
 
   ul {
