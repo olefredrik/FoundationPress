@@ -18,8 +18,14 @@ const $ = plugins();
 // Check for --production flag
 const PRODUCTION = !!(yargs.argv.production);
 
+// Check for --development flag unminified with sourcemaps
+const DEV = !!(yargs.argv.dev);
+
 // Load settings from settings.yml
 const { BROWSERSYNC, COMPATIBILITY, PATHS } = loadConfig();
+
+// Set to true if you want asset revisioning, helpful for cachebusting
+const REVISIONING = true;
 
 // Check if file exists synchronously
 function checkFileExists(filepath) {
@@ -92,6 +98,9 @@ function sass() {
 
     .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
+    .pipe(gulp.dest(PATHS.dist + '/assets/css'))
+    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
     .pipe(gulp.dest(PATHS.dist + '/assets/css'))
     .pipe(browser.reload({ stream: true }));
 }
@@ -124,6 +133,9 @@ function javascript() {
       .on('error', e => { console.log(e); })
     ))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
+    .pipe(gulp.dest(PATHS.dist + '/assets/js'))
+    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
     .pipe(gulp.dest(PATHS.dist + '/assets/js'));
 }
 

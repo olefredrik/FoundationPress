@@ -8,6 +8,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
+    "dev": "gulp build --dev",
     "build": "gulp build --production"
   },
   "keywords": [
@@ -42,6 +43,7 @@
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.2.1",
     "gulp-load-plugins": "^1.1.0",
+    "gulp-rev": "^8.0.0",
     "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.2.0",
