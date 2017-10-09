@@ -25,7 +25,7 @@ const DEV = !!(yargs.argv.dev);
 const { BROWSERSYNC, COMPATIBILITY, PATHS } = loadConfig();
 
 // Set to true if you want asset revisioning, helpful for cachebusting
-const REVISIONING = true;
+const REVISIONING = false;
 
 // Check if file exists synchronously
 function checkFileExists(filepath) {
