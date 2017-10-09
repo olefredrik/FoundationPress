@@ -13,7 +13,7 @@
 if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
 
-		// Check to see is rev-manifest exists for CSS and JS static asset revisioning
+		// Check to see if rev-manifest exists for CSS and JS static asset revisioning
 		//https://github.com/sindresorhus/gulp-rev/blob/master/integration.md
 		function css_asset_path($filename) {
 			$manifest_path = dirname(dirname(__FILE__)) . '/dist/assets/css/rev-manifest.json';
