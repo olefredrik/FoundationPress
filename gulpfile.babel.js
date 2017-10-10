@@ -22,10 +22,7 @@ const PRODUCTION = !!(yargs.argv.production);
 const DEV = !!(yargs.argv.dev);
 
 // Load settings from settings.yml
-const { BROWSERSYNC, COMPATIBILITY, PATHS } = loadConfig();
-
-// Set to true if you want asset revisioning, helpful for cachebusting
-const REVISIONING = false;
+const { BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS } = loadConfig();
 
 // Check if file exists synchronously
 function checkFileExists(filepath) {

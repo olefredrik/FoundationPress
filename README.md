@@ -42,7 +42,7 @@ At the start of the build process a check is done to see if a `config.yml` file 
 If you want to take advantage of [Browsersync](https://www.browsersync.io/) (automatic browser refresh when a file is saved), simply open your `config.yml` file after creating it in the previous step, and put your local dev-server address and port (e.g http://localhost:8888) in the `url` property under the `BROWSERSYNC` object.
 
 #### Static asset hashing / cache breaker
-If you want to make sure your users see the latest changes after re-deploying your theme, you can enable static asset hashing. In your `gulpfile.babel.js`, set ``const REVISIONING = true;``. Hashing will work on the ``npm run build`` and ``npm run dev`` commands. It will not be applied on the start command with browsersync. This is by design.  Hashing will only change if there are actual changes in the files.
+If you want to make sure your users see the latest changes after re-deploying your theme, you can enable static asset hashing. In your `config.yml`, set ``REVISIONING: true;``. Hashing will work on the ``npm run build`` and ``npm run dev`` commands. It will not be applied on the start command with browsersync. This is by design.  Hashing will only change if there are actual changes in the files.
 
 ### 3. Get started
 
