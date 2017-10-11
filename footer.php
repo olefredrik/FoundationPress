@@ -10,7 +10,7 @@
 ?>
 
 </div><!-- Close container -->
-	<div class="footer-container" data-sticky-footer>
+	<div class="footer-container">
 		<footer class="footer">
 			<?php dynamic_sidebar( 'footer-widgets' ); ?>
 		</footer>
