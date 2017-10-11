@@ -41,7 +41,7 @@ function foundationpress_theme_support() {
     add_theme_support( 'wc-product-gallery-slider' );
 
 	// Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
-	add_editor_style( 'dist/assets/css/app.css' );
+	add_editor_style( 'dist/assets/css/' . foundationpress_asset_path('app.css'));
 }
 
 add_action( 'after_setup_theme', 'foundationpress_theme_support' );
