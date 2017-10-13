@@ -9,7 +9,8 @@
   "scripts": {
     "start": "gulp",
     "dev": "gulp build --dev",
-    "build": "gulp build --production"
+    "build": "gulp build --production",
+    "package": "gulp package --production"
   },
   "keywords": [
     "FoundationPress",
