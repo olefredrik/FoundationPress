@@ -28,7 +28,7 @@ PATHS:
   package:
     - "**/*"
     - "!**/node_modules/**"
-    - "!**/packaged/*"
+    - "!**/packaged/**"
     - "!**/src/**"
     - "!**/codesniffer.ruleset.xml"
     - "!**/composer.json"
