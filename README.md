@@ -58,6 +58,14 @@ When building for production, the CSS and JS will be minified. To minify the ass
 $ npm run build
 ```
 
+#### To create a .zip file of your theme, run:
+
+```
+$ npm run package
+```
+
+Running this command will build and minify the theme's assets and place a .zip archive of the theme in the `packaged` directory. This excludes the developer files/directories from your theme like `/node_modules`, `/src`, etc. to keep the theme lightweight for transferring the theme to a staging or production server.
+
 ### Project structure
 
 In the `/src` folder you will the working files for all your assets. Every time you make a change to a file that is watched by Gulp, the output will be saved to the `/dist` folder. The contents of this folder is the compiled code that you should not touch (unless you have a good reason for it).
