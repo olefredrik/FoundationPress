@@ -24,6 +24,21 @@ PATHS:
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "src/assets/js/app.js"
+  # Paths for the package task to include/exclude in .zip archive
+  package:
+    - "**/*"
+    - "!**/node_modules/**"
+    - "!**/packaged/*"
+    - "!**/src/**"
+    - "!**/codesniffer.ruleset.xml"
+    - "!**/composer.json"
+    - "!**/composer.lock"
+    - "!**/config.yml"
+    - "!**/config.default.yml"
+    - "!**/gulpfile.babel.js"
+    - "!**/package.json"
+    - "!**/package-lock.json"
+    - "!**/webpack.config.js"
 
 # Set to true if you want static asset revisioning, helpful for cache busting
 REVISIONING: false    
