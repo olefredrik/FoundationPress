@@ -8,6 +8,9 @@ COMPATIBILITY:
   - "last 2 versions"
   - "ie >= 9"
   - "ios >= 7"
+  
+# Set to true if you want static asset revisioning, helpful for cache busting
+REVISIONING: false  
 
 # Gulp will reference these paths when it copies files
 PATHS:
@@ -39,6 +42,8 @@ PATHS:
     - "!**/package.json"
     - "!**/package-lock.json"
     - "!**/webpack.config.js"
-
-# Set to true if you want static asset revisioning, helpful for cache busting
-REVISIONING: false    
+  # Paths for PHP CodeSniffer
+  phpcs:
+    - "**/*.php"
+    - "!wpcs"
+    - "!wpcs/**"  
