@@ -8,6 +8,7 @@ import gulp          from 'gulp';
 import rimraf        from 'rimraf';
 import yaml          from 'js-yaml';
 import fs            from 'fs';
+import dateFormat    from 'dateformat';
 import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
@@ -66,6 +67,10 @@ gulp.task('build',
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
   gulp.series('build', server, watch));
+
+// Package task
+gulp.task('package',
+  gulp.series('build', archive));
 
 // Delete the "dist" folder
 // This happens every time a build starts
@@ -144,6 +149,17 @@ function images() {
       progressive: true
     })))
     .pipe(gulp.dest(PATHS.dist + '/assets/img'));
+}
+
+// Create a .zip archive of the theme
+function archive() {
+  var time = dateFormat(new Date(), "yyyy-mm-dd_HH-MM");
+  var pkg = JSON.parse(fs.readFileSync('./package.json'));
+  var title = pkg.name + '_' + time + '.zip';
+
+  return gulp.src(PATHS.package)
+    .pipe($.zip(title))
+    .pipe(gulp.dest('packaged'));
 }
 
 // Start BrowserSync to preview the site in
