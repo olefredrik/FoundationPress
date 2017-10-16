@@ -36,6 +36,7 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-register": "^6.7.2",
     "browser-sync": "^2.10.0",
+    "dateformat": "^3.0.2",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-babel": "^6.1.2",
