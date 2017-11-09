@@ -6,8 +6,8 @@ get_header(); ?>
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 
-<div class="main-wrap full-width">
-	<main class="main-content">
+<div class="main-wrap">
+	<main class="main-content-full-width">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php get_template_part( 'template-parts/content', 'page' ); ?>
 			<?php comments_template(); ?>
