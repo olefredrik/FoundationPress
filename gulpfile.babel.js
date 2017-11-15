@@ -79,7 +79,7 @@ function clean(done) {
 }
 
 // Copy files out of the assets folder
-// This task skips over the "img", "js", and "scss" folders, which are parsed separately
+// This task skips over the "images", "js", and "scss" folders, which are parsed separately
 function copy() {
   return gulp.src(PATHS.assets)
     .pipe(gulp.dest(PATHS.dist + '/assets'));
@@ -144,11 +144,11 @@ function javascript() {
 // Copy images to the "dist" folder
 // In production, the images are compressed
 function images() {
-  return gulp.src('src/assets/img/**/*')
+  return gulp.src('src/assets/images/**/*')
     .pipe($.if(PRODUCTION, $.imagemin({
       progressive: true
     })))
-    .pipe(gulp.dest(PATHS.dist + '/assets/img'));
+    .pipe(gulp.dest(PATHS.dist + '/assets/images'));
 }
 
 // Create a .zip archive of the theme
