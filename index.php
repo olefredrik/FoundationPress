@@ -15,7 +15,7 @@
 
 get_header(); ?>
 
-<div class="main-wrap">
+<div class="main-grid">
 	<main class="main-content">
 	<?php if ( have_posts() ) : ?>
 
