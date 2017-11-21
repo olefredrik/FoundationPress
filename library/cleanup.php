@@ -51,19 +51,19 @@ function foundationpress_cleanup_head() {
 	remove_action( 'wp_head', 'index_rel_link' );
 
 	// Previous link.
-	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
+	remove_action( 'wp_head', 'parent_post_rel_link', 10 );
 
 	// Start link.
-	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
+	remove_action( 'wp_head', 'start_post_rel_link', 10 );
 
 	// Canonical.
-	remove_action( 'wp_head', 'rel_canonical', 10, 0 );
+	remove_action( 'wp_head', 'rel_canonical', 10 );
 
 	// Shortlink.
-	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
 
 	// Links for adjacent posts.
-	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
 
 	// WP version.
 	remove_action( 'wp_head', 'wp_generator' );
@@ -129,4 +129,3 @@ function foundationpress_remove_figure_inline_style( $output, $attr, $content ) 
 
 }
 endif;
-
