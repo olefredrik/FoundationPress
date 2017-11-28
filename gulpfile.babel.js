@@ -127,19 +127,27 @@ const webpack = {
   },
   watch: () => {
     const webpackChangeHandler = function (err, stats) {
-      if(err) throw new gutil.PluginError('webpack', err);
-      gutil.log('[webpack]', stats.toString());
+      gutil.log('[webpack]', stats.toString({
+        colors: true,
+      }));
+
       browser.reload();
     };
-    
+
     const webpackConfig = Object.assign({}, webpackConfig, {
       watch: true,
       devtool: 'inline-source-map',
     });
-    
+
     return gulp.src(PATHS.entries)
       .pipe(named())
-      .pipe(webpackStream(webpackConfig, webpack2, webpackChangeHandler))
+      .pipe(webpackStream(webpackConfig, webpack2, webpackChangeHandler)
+        .on('error', (err) => {
+          gutil.log('[webpack:error]', err.toString({
+            colors: true,
+          }));
+        })
+      )
       .pipe(gulp.dest(PATHS.dist + '/assets/js'));
   }
 };
