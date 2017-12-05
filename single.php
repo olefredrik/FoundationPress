@@ -16,7 +16,7 @@ get_header(); ?>
 				<?php get_template_part( 'template-parts/content', '' ); ?>
 				<?php the_post_navigation(); ?>
 				<?php comments_template(); ?>
-			<?php endwhile;?>
+			<?php endwhile; ?>
 		</main>
 		<?php get_sidebar(); ?>
 	</div>

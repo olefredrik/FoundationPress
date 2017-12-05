@@ -10,7 +10,7 @@
  */
 
 if ( have_comments() ) :
-	if ( (is_page() || is_single()) && ( ! is_home() && ! is_front_page()) ) :
+	if ( ( is_page() || is_single() ) && ( ! is_home() && ! is_front_page() ) ) :
 ?>
 	<section id="comments"><?php
 
@@ -38,7 +38,7 @@ if ( have_comments() ) :
 
 		?>
 
- 	</section>
+	 </section>
 <?php
 	endif;
 endif;
@@ -60,13 +60,13 @@ endif;
 		</div>
 	</section>
 	<?php
-		return;
-	}
+	return;
+}
 ?>
 
 <?php
 if ( comments_open() ) :
-	if ( (is_page() || is_single()) && ( ! is_home() && ! is_front_page()) ) :
+	if ( ( is_page() || is_single() ) && ( ! is_home() && ! is_front_page() ) ) :
 ?>
 <section id="respond">
 	<h3>
@@ -83,8 +83,8 @@ if ( comments_open() ) :
 	<p>
 		<?php
 			/* translators: %s: login url */
-			printf( __(
-				'You must be <a href="%s">logged in</a> to post a comment.', 'foundationpress' ),
+			printf(
+				__( 'You must be <a href="%s">logged in</a> to post a comment.', 'foundationpress' ),
 				wp_login_url( get_permalink() )
 			);
 		?>
@@ -95,8 +95,8 @@ if ( comments_open() ) :
 		<p>
 			<?php
 				/* translators: %1$s: site url, %2$s: user identity  */
-				printf( __(
-					'Logged in as <a href="%1$s/wp-admin/profile.php">%2$s</a>.', 'foundationpress' ),
+				printf(
+					__( 'Logged in as <a href="%1$s/wp-admin/profile.php">%2$s</a>.', 'foundationpress' ),
 					get_option( 'siteurl' ),
 					$user_identity
 				);
@@ -106,7 +106,10 @@ if ( comments_open() ) :
 		<p>
 			<label for="author">
 				<?php
-					_e( 'Name', 'foundationpress' ); if ( $req ) { _e( ' (required)', 'foundationpress' ); }
+					_e( 'Name', 'foundationpress' );
+					if ( $req ) {
+						_e( ' (required)', 'foundationpress' );
+					}
 				?>
 			</label>
 			<input type="text" class="five" name="author" id="author" value="<?php echo esc_attr( $comment_author ); ?>" size="22" tabindex="1" <?php if ( $req ) { echo "aria-required='true'"; } ?>>
@@ -114,7 +117,10 @@ if ( comments_open() ) :
 		<p>
 			<label for="email">
 				<?php
-					_e( 'Email (will not be published)', 'foundationpress' ); if ( $req ) { _e( ' (required)', 'foundationpress' ); }
+					_e( 'Email (will not be published)', 'foundationpress' );
+					if ( $req ) {
+						_e( ' (required)', 'foundationpress' );
+					}
 				?>
 			</label>
 			<input type="text" class="five" name="email" id="email" value="<?php echo esc_attr( $comment_author_email ); ?>" size="22" tabindex="2" <?php if ( $req ) { echo "aria-required='true'"; } ?>>
@@ -138,7 +144,7 @@ if ( comments_open() ) :
 		</p>
 		<p id="allowed_tags" class="small"><strong>XHTML:</strong>
 			<?php
-				_e( 'You can use these tags:','foundationpress' );
+				_e( 'You can use these tags:', 'foundationpress' );
 			?>
 			<code>
 				<?php echo allowed_tags(); ?>

@@ -25,7 +25,7 @@ get_header(); ?>
 <section class="intro" role="main">
 	<div class="fp-intro">
 
-		<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
+		<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 			<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 			<div class="entry-content">
 				<?php the_content(); ?>
@@ -49,7 +49,7 @@ get_header(); ?>
 	</div>
 
 </section>
-<?php endwhile;?>
+<?php endwhile; ?>
 <?php do_action( 'foundationpress_after_content' ); ?>
 
 <div class="section-divider">

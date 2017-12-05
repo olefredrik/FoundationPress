@@ -13,7 +13,7 @@ get_header(); ?>
 		<main id="search-results" class="main-content">
 
 		<header>
-		    <h1 class="entry-title"><?php _e( 'Search Results for', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"</h1>
+			<h1 class="entry-title"><?php _e( 'Search Results for', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"</h1>
 		</header>
 
 		<?php if ( have_posts() ) : ?>
