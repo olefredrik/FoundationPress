@@ -38,7 +38,7 @@ if ( have_comments() ) :
 
 		?>
 
-	 </section>
+	</section>
 <?php
 	endif;
 endif;
