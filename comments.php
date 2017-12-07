@@ -12,8 +12,8 @@
 if ( have_comments() ) :
 	if ( ( is_page() || is_single() ) && ( ! is_home() && ! is_front_page() ) ) :
 ?>
-	<section id="comments"><?php
-
+	<section id="comments">
+		<?php
 
 		wp_list_comments(
 			array(
@@ -37,7 +37,6 @@ if ( have_comments() ) :
 		);
 
 		?>
-
 	</section>
 <?php
 	endif;
