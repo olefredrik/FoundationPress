@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FoundationPress v5.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-12-11 14:10+0100\n"
+"PO-Revision-Date: 2017-12-11 14:13+0100\n"
 "Last-Translator: violacase <violacase@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -139,13 +139,13 @@ msgstr "Nieuwere berichten &rarr;"
 #: comments.php:8
 #, php-format
 msgid "<cite class=\"fn\">%s</cite>"
-msgstr ""
+msgstr "<cite class=\"fn\">%s</cite>"
 
 # @ FoundationPress
 #: comments.php:9
 #, php-format
 msgid "%1$s"
-msgstr ""
+msgstr "%1$s"
 
 # @ FoundationPress
 #: comments.php:31
