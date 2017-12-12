@@ -60,18 +60,6 @@ function loadConfig() {
   }
 }
 
-// Build the "dist" folder by running all of the below tasks
-gulp.task('build',
- gulp.series(clean, sass, javascript, images, copy));
-
-// Build the site, run the server, and watch for file changes
-gulp.task('default',
-  gulp.series('build', server, watch));
-
-// Package task
-gulp.task('package',
-  gulp.series('build', archive));
-
 // Delete the "dist" folder
 // This happens every time a build starts
 function clean(done) {
@@ -112,11 +100,8 @@ let webpackConfig = {
     rules: [
       {
         test: /.js$/,
-        use: [
-          {
-            loader: 'babel-loader'
-          }
-        ]
+        loader: 'babel-loader',
+        exclude: (PRODUCTION ? undefined : /node_modules/),
       }
     ]
   },
@@ -124,22 +109,51 @@ let webpackConfig = {
     jquery: 'jQuery'
   }
 }
+
 // Combine JavaScript into one file
 // In production, the file is minified
-function javascript() {
-  return gulp.src(PATHS.entries)
-    .pipe(named())
-    .pipe($.sourcemaps.init())
-    .pipe(webpackStream(webpackConfig, webpack2))
-    .pipe($.if(PRODUCTION, $.uglify()
-      .on('error', e => { console.log(e); })
-    ))
-    .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
-    .pipe(gulp.dest(PATHS.dist + '/assets/js'))
-    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
-    .pipe(gulp.dest(PATHS.dist + '/assets/js'));
-}
+const webpack = {
+  build: () => {
+    return gulp.src(PATHS.entries)
+      .pipe(named())
+      .pipe(webpackStream(webpackConfig, webpack2))
+      .pipe($.if(PRODUCTION, $.uglify()
+        .on('error', e => { console.log(e); })
+      ))
+      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
+      .pipe(gulp.dest(PATHS.dist + '/assets/js'))
+      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
+      .pipe(gulp.dest(PATHS.dist + '/assets/js'));
+  },
+  watch: () => {
+    const webpackChangeHandler = function (err, stats) {
+      gutil.log('[webpack]', stats.toString({
+        colors: true,
+      }));
+
+      browser.reload();
+    };
+
+    const webpackConfig = Object.assign({}, webpackConfig, {
+      watch: true,
+      devtool: 'inline-source-map',
+    });
+
+    return gulp.src(PATHS.entries)
+      .pipe(named())
+      .pipe(webpackStream(webpackConfig, webpack2, webpackChangeHandler)
+        .on('error', (err) => {
+          gutil.log('[webpack:error]', err.toString({
+            colors: true,
+          }));
+        })
+      )
+      .pipe(gulp.dest(PATHS.dist + '/assets/js'));
+  }
+};
+
+gulp.task('webpack:build', webpack.build);
+gulp.task('webpack:watch', webpack.watch);
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
@@ -207,8 +221,19 @@ function reload(done) {
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
   gulp.watch(PATHS.assets, copy);
-  gulp.watch('src/assets/scss/**/*.scss').on('all', sass);
-  gulp.watch('**/*.php').on('all', browser.reload);
-  gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, browser.reload));
-  gulp.watch('src/assets/images/**/*').on('all', gulp.series(images, browser.reload));
+  gulp.watch('src/assets/scss/**/*.scss', sass);
+  gulp.watch('**/*.php', reload);
+  gulp.watch('src/assets/images/**/*', gulp.series(images, browser.reload));
 }
+
+// Build the "dist" folder by running all of the below tasks
+gulp.task('build',
+  gulp.series(clean, gulp.parallel(sass, 'webpack:build', images, copy)));
+
+// Build the site, run the server, and watch for file changes
+gulp.task('default',
+  gulp.series('build', server, gulp.parallel('webpack:watch', watch)));
+
+// Package task
+gulp.task('package',
+  gulp.series('build', archive));
