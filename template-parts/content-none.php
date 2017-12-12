@@ -20,8 +20,8 @@
 	<p>
 		<?php
 			/* translators: %1$s: new post url */
-			printf( __(
-				'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'foundationpress' ),
+			printf(
+				__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'foundationpress' ),
 				admin_url( 'post-new.php' )
 			);
 		?>
