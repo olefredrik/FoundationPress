@@ -1,11 +1,10 @@
 .footer-container {
-  margin: 0 auto;
+  @include xy-grid-container;
   border-top: 1px solid $medium-gray;
   margin-top: rem-calc(60);
 }
 
-.footer {
-  @include xy-grid-container;
+.footer-grid {
   @include xy-grid;
   padding: rem-calc(30) 0;
 
