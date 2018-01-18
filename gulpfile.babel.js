@@ -95,61 +95,62 @@ function sass() {
     .pipe(browser.reload({ stream: true }));
 }
 
-let webpackConfig = {
-  module: {
-    rules: [
-      {
-        test: /.js$/,
-        loader: 'babel-loader',
-        exclude: (PRODUCTION ? undefined : /node_modules/),
-      }
-    ]
-  },
-  externals: {
-    jquery: 'jQuery'
-  }
-}
-
 // Combine JavaScript into one file
 // In production, the file is minified
 const webpack = {
-  build: () => {
+  config: {
+    module: {
+      rules: [
+        {
+          test: /.js$/,
+          loader: 'babel-loader',
+          exclude: /node_modules(?!\/foundation-sites)/,
+        },
+      ],
+    },
+    externals: {
+      jquery: 'jQuery',
+    },
+  },
+
+  changeHandler(err, stats) {
+    gutil.log('[webpack]', stats.toString({
+      colors: true,
+    }));
+    
+    browser.reload();
+  },
+
+  build() {
     return gulp.src(PATHS.entries)
       .pipe(named())
-      .pipe(webpackStream(webpackConfig, webpack2))
+      .pipe(webpackStream(webpack.config, webpack2))
       .pipe($.if(PRODUCTION, $.uglify()
-        .on('error', e => { console.log(e); })
+        .on('error', e => { console.log(e); }),
       ))
       .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
       .pipe(gulp.dest(PATHS.dist + '/assets/js'))
       .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
       .pipe(gulp.dest(PATHS.dist + '/assets/js'));
   },
-  watch: () => {
-    const webpackChangeHandler = function (err, stats) {
-      gutil.log('[webpack]', stats.toString({
-        colors: true,
-      }));
 
-      browser.reload();
-    };
-
-    const webpackConfig = Object.assign({}, webpackConfig, {
+  watch() {
+    const watchConfig = Object.assign(webpack.config, {
       watch: true,
       devtool: 'inline-source-map',
     });
 
     return gulp.src(PATHS.entries)
       .pipe(named())
-      .pipe(webpackStream(webpackConfig, webpack2, webpackChangeHandler)
+      .pipe(webpackStream(watchConfig, webpack2, webpack.changeHandler)
         .on('error', (err) => {
           gutil.log('[webpack:error]', err.toString({
             colors: true,
           }));
-        })
+        }),
       )
       .pipe(gulp.dest(PATHS.dist + '/assets/js'));
-  }
+  },
 };
 
 gulp.task('webpack:build', webpack.build);
