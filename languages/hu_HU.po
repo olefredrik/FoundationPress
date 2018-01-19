@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-13 17:56+0200\n"
+"PO-Revision-Date: 2018-01-03 16:55+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.4\n"
+"Last-Translator: Bela Mezey <contact@belamezey.eu>\n"
+"Language: hu_HU\n"
+
+#: 404.php:8
+msgid "File Not Found"
+msgstr "A fájl nem található"
+
+#: 404.php:12
+msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
+msgstr "A keresett oldal lehet, hogy eltávolításra került, megváltozott a neve, vagy átmenetileg nem elérhető."
+
+#: 404.php:14
+msgid "Please try the following:"
+msgstr "Kérlek próbálkozz az alábbiakkal:"
+
+#: 404.php:16
+msgid "Check your spelling"
+msgstr "Ellenőrizd, hogy nem gépelted el"
+
+#: 404.php:17
+#, php-format
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "Visszalépés a <a href=\"%s\">kezdőlap</a>-hoz"
+
+#: 404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr "Kattints a <a href=\"javascript:history.back()\">Vissza</a> gombra"
+
+#. /previous pages when applicable
+#: archive.php:21 index.php:24 search.php:25
+msgid "&larr; Older posts"
+msgstr "&larr; Régebbi bejegyzések"
+
+#: archive.php:22 index.php:25 search.php:26
+msgid "Newer posts &rarr;"
+msgstr "Újabb bejegyzések &rarr;"
+
+#: comments.php:8
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn\">%s</cite>"
+
+#: comments.php:9
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#: comments.php:10
+msgid "(Edit)"
+msgstr "(Szerkesztés)"
+
+#: comments.php:16
+msgid "Your comment is awaiting moderation."
+msgstr "Hozzászólásod moderálásra várakozik."
+
+#: comments.php:31
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Kérlek ne töltsd be közvetlenül ezt az oldalt. Köszönjük!"
+
+#: comments.php:36
+msgid "This post is password protected. Enter the password to view comments."
+msgstr "A bejegyzést jelszó védi. Meg kell adni a jelszót a hozzászólások megtekintéséhez."
+
+#: comments.php:46
+msgid "No Responses to"
+msgstr "Nincs hozzászólás:"
+
+#: comments.php:46
+msgid "One Response to"
+msgstr "1 hozzászólás:"
+
+#: comments.php:46
+msgid "% Responses to"
+msgstr "% hozzászólás:"
+
+#: comments.php:53
+msgid "&larr; Older comments"
+msgstr "&larr; Korábbi hozzászólások"
+
+#: comments.php:54
+msgid "Newer comments &rarr;"
+msgstr "Újabb hozzászólások &rarr;"
+
+#: comments.php:61
+msgid "Leave a Reply"
+msgstr "Vélemény, hozzászólás?"
+
+#: comments.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Hozzászólás a(z) %s bejegyzéshez"
+
+#: comments.php:64
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Be kell <a href=\"%s\">jelentkezni</a> a hozzászólás beküldéséhez."
+
+#: comments.php:68
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "<a href=\"%s/wp-admin/profile.php\">%s</a> néven bejelentkezve."
+
+#: comments.php:68
+msgid "Log out of this account"
+msgstr "Kijelentkezés ebből a fiókból"
+
+#: comments.php:68
+msgid "Log out &raquo;"
+msgstr "Kijelentkezés &raquo;"
+
+#: comments.php:71
+msgid "Name"
+msgstr "Név"
+
+#: comments.php:71 comments.php:75
+msgid " (required)"
+msgstr "(kötelező)"
+
+#: comments.php:75
+msgid "Email (will not be published)"
+msgstr "Email (nem lesz közzétéve)"
+
+#: comments.php:79
+msgid "Website"
+msgstr "Weboldal"
+
+#: comments.php:84
+msgid "Comment"
+msgstr "Hozzászólás"
+
+#: comments.php:87
+msgid "You can use these tags:"
+msgstr "Az alábbi tageket használhatod:"
+
+#: comments.php:88
+msgid "Submit Comment"
+msgstr "Hozzászólás beküldése"
+
+#: content-none.php:11
+msgid "Nothing Found"
+msgstr "Nincs találat"
+
+#: content-none.php:17
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Készen állunk az első bejegyzés közzétételére? <a href=\"%1$s\">Kezdőlépések</a>."
+
+#: content-none.php:21
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Elnézést, nem találunk a keresési feltételekhez igazodó eredményt. Másik kulcsszóval, kifejezéssel újra kellene kezdeni egy keresést."
+
+#: content-none.php:26
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Úgy tűnik, nem találtuk meg amit kerestünk. :) Talán, egy újabb keresés segíthetne..."
+
+#. /archive/search.
+#. *
+#. * @subpackage FoundationPress
+#. * @since FoundationPress 1.0.0
+#.
+#: content.php:16
+msgid "Continue reading..."
+msgstr "Bővebben..."
+
+#: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
+#: page.php:18 single.php:27 woocommerce.php:18
+msgid "Pages:"
+msgstr "Oldalak:"
+
+#: library/entry-meta.php:4
+#, php-format
+msgid "Posted on %1$s at %2$s."
+msgstr "Közzétéve: %1$s, %2$s."
+
+#: library/entry-meta.php:5
+msgid "Written by"
+msgstr "Szerző:"
+
+#: library/foundation.php:16
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: library/foundation.php:17
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: library/foundation.php:40
+#, php-format
+msgid "Please assign a menu to the primary menu location under %1$s or %2$s the design."
+msgstr "Kérlek adj hozzá egy menüt az elsődleges menühelyhez a %1$s oldalon, vagy a %2$s funkcióval."
+
+#: library/foundation.php:41
+#, php-format
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">Menük</a>"
+
+#: library/foundation.php:44
+#, php-format
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">Testreszabás</a>"
+
+#: library/widget-areas.php:6
+msgid "Sidebar widgets"
+msgstr "Oldalsáv widgetek"
+
+#: library/widget-areas.php:7
+msgid "Drag widgets to this sidebar container."
+msgstr "Adjál hozzá widgeteket ehhez az oldalsáv konténerhez."
+
+#: library/widget-areas.php:16
+msgid "Footer widgets"
+msgstr "Lábléc widgetek"
+
+#: library/widget-areas.php:17
+msgid "Drag widgets to this footer container"
+msgstr "Adjál hozzá widgeteket ehhez az lábléc konténerhez."
+
+#: node_modules/grunt-pot/test/fixtures/some-file.php:3
+msgid "I'm a translatable string."
+msgstr "Én egy lefordítható szöveg vagyok."
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:4
+msgid "Me too"
+msgstr "Én is"
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:7
+#, php-format
+msgid "I have %d apple"
+msgid_plural "I have %d apples"
+msgstr[0] "Van %d almám"
+msgstr[1] "Van %d almám"
+
+#. / TRANSLATORS: This should be translated as a shorthand for YEAR-MONTH-DAY using 4, 2 and 2 digits.
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:16
+msgid "yyyy-mm-dd"
+msgstr "yyyy-mm-dd"
+
+#: search.php:7
+msgid "Search Results for"
+msgstr "Keresési találatok:"
+
+#: searchform.php:6 searchform.php:10
+msgid "Search"
+msgstr "Keresés"
