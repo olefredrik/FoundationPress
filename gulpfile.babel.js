@@ -1,7 +1,7 @@
 'use strict';
 
 import plugins       from 'gulp-load-plugins';
-import gutil         from 'gulp-util';
+//import gutil         from 'gulp-util';
 import yargs         from 'yargs';
 import browser       from 'browser-sync';
 import gulp          from 'gulp';
@@ -12,6 +12,8 @@ import dateFormat    from 'dateformat';
 import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
+import log           from 'fancy-log';
+import colors        from 'ansi-colors';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -38,24 +40,24 @@ function checkFileExists(filepath) {
 
 // Load default or custom YML config file
 function loadConfig() {
-  gutil.log('Loading config file...');
+  log('Loading config file...');
 
   if (checkFileExists('config.yml')) {
     // config.yml exists, load it
-    gutil.log(gutil.colors.cyan('config.yml'), 'exists, loading', gutil.colors.cyan('config.yml'));
+    log(colors.bold(colors.cyan('config.yml')), 'exists, loading', colors.bold(colors.cyan('config.yml')));
     let ymlFile = fs.readFileSync('config.yml', 'utf8');
     return yaml.load(ymlFile);
 
   } else if(checkFileExists('config-default.yml')) {
     // config-default.yml exists, load it
-    gutil.log(gutil.colors.cyan('config.yml'), 'does not exist, loading', gutil.colors.cyan('config-default.yml'));
+    log(colors.bold(colors.cyan('config.yml')), 'does not exist, loading', colors.bold(colors.cyan('config-default.yml')));
     let ymlFile = fs.readFileSync('config-default.yml', 'utf8');
     return yaml.load(ymlFile);
 
   } else {
     // Exit if config.yml & config-default.yml do not exist
-    gutil.log('Exiting process, no config file exists.');
-    gutil.log('Error Code:', err.code);
+    log('Exiting process, no config file exists.');
+    log('Error Code:', err.code);
     process.exit(1);
   }
 }
@@ -144,7 +146,7 @@ const webpack = {
       .pipe(named())
       .pipe(webpackStream(watchConfig, webpack2, webpack.changeHandler)
         .on('error', (err) => {
-          gutil.log('[webpack:error]', err.toString({
+          log('[webpack:error]', err.toString({
             colors: true,
           }));
         }),
@@ -223,11 +225,11 @@ function reload(done) {
 function watch() {
   gulp.watch(PATHS.assets, copy);
   gulp.watch('src/assets/scss/**/*.scss', sass)
-    .on('change', path => gutil.log('File ' + gutil.colors.magenta(path) + ' changed.'))
-    .on('unlink', path => gutil.log('File ' + gutil.colors.magenta(path) + ' was removed.'));
+    .on('change', path => log('File ' + colors.bold(colors.magenta(path)) + ' changed.'))
+    .on('unlink', path => log('File ' + colors.bold(colors.magenta(path)) + ' was removed.'));
   gulp.watch('**/*.php', reload)
-    .on('change', path => gutil.log('File ' + gutil.colors.magenta(path) + ' changed.'))
-    .on('unlink', path => gutil.log('File ' + gutil.colors.magenta(path) + ' was removed.'));
+    .on('change', path => log('File ' + colors.bold(colors.magenta(path)) + ' changed.'))
+    .on('unlink', path => log('File ' + colors.bold(colors.magenta(path)) + ' was removed.'));
   gulp.watch('src/assets/images/**/*', gulp.series(images, browser.reload));
 }
 
