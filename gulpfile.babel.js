@@ -222,8 +222,12 @@ function reload(done) {
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
   gulp.watch(PATHS.assets, copy);
-  gulp.watch('src/assets/scss/**/*.scss', sass);
-  gulp.watch('**/*.php', reload);
+  gulp.watch('src/assets/scss/**/*.scss', sass)
+    .on('change', path => gutil.log('File ' + gutil.colors.magenta(path) + ' changed.'))
+    .on('unlink', path => gutil.log('File ' + gutil.colors.magenta(path) + ' was removed.'));
+  gulp.watch('**/*.php', reload)
+    .on('change', path => gutil.log('File ' + gutil.colors.magenta(path) + ' changed.'))
+    .on('unlink', path => gutil.log('File ' + gutil.colors.magenta(path) + ' was removed.'));
   gulp.watch('src/assets/images/**/*', gulp.series(images, browser.reload));
 }
 
