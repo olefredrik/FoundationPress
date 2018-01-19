@@ -116,7 +116,7 @@ const webpack = {
   },
 
   changeHandler(err, stats) {
-    gutil.log('[webpack]', stats.toString({
+    log('[webpack]', stats.toString({
       colors: true,
     }));
     
