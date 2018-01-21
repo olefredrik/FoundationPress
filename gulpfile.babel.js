@@ -1,7 +1,6 @@
 'use strict';
 
 import plugins       from 'gulp-load-plugins';
-//import gutil         from 'gulp-util';
 import yargs         from 'yargs';
 import browser       from 'browser-sync';
 import gulp          from 'gulp';
