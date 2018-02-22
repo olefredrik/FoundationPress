@@ -28,3 +28,15 @@ p.wp-caption-text{
   margin-left: auto;
   margin-right: auto;
 }
+
+.gallery {
+  @include xy-grid;
+}
+@for $i from 1 through 9 {
+  .gallery-columns-#{$i} {
+    @include xy-grid-layout($i, '.gallery-item', true);
+  }
+}
+.gallery-icon {
+  @include thumbnail;
+}
