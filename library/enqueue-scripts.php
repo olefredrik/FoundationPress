@@ -45,6 +45,15 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
 		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '3.2.1', false );
 
+		// Deregister the jquery-migrate version bundled with WordPress.
+		wp_deregister_script( 'jquery-migrate' );
+
+		// CDN hosted jQuery migrate for compatibility with jQuery 3.x
+		wp_register_script( 'jquery-migrate', '//code.jquery.com/jquery-migrate-3.0.1.min.js', array('jquery'), '3.0.1', false );
+
+		// Enqueue jQuery migrate. Uncomment the line below to enable.
+		// wp_enqueue_script( 'jquery-migrate' );
+
 		// Enqueue Foundation scripts
 		wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'app.js' ), array( 'jquery' ), '2.10.4', true );
 
