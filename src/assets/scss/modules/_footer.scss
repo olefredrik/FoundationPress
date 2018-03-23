@@ -9,7 +9,10 @@
   padding: rem-calc(30) 0;
 
   section {
-    @include xy-cell(auto);
+    @include xy-cell();
+    @include breakpoint(large) {
+      @include xy-cell(auto);
+    }
   }
 
   ul {
