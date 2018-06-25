@@ -161,9 +161,23 @@ gulp.task('webpack:watch', webpack.watch);
 // In production, the images are compressed
 function images() {
   return gulp.src('src/assets/images/**/*')
-    .pipe($.if(PRODUCTION, $.imagemin({
-      progressive: true
-    })))
+    .pipe($.if(PRODUCTION, $.imagemin([
+      $.imagemin.jpegtran({
+        progressive: true,
+      }),
+      $.imagemin.optipng({
+        optimizationLevel: 5,
+      }),
+			$.imagemin.gifsicle({
+        interlaced: true,
+      }),
+			$.imagemin.svgo({
+        plugins: [
+          {cleanupAttrs: true},
+          {removeComments: true},
+        ]
+      })
+		])))
     .pipe(gulp.dest(PATHS.dist + '/assets/images'));
 }
 
