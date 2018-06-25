@@ -229,8 +229,7 @@ function watch() {
   gulp.watch('**/*.php', reload)
     .on('change', path => log('File ' + colors.bold(colors.magenta(path)) + ' changed.'))
     .on('unlink', path => log('File ' + colors.bold(colors.magenta(path)) + ' was removed.'));
-  gulp.watch('src/assets/images/**/*', gulp.series(images, browser.reload));
-  gulp.watch('src/assets/images/**/*.svg', gulp.series(copy, browser.reload));
+  gulp.watch('src/assets/images/**/*', gulp.series(images, reload));
 }
 
 // Build the "dist" folder by running all of the below tasks
