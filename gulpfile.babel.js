@@ -161,9 +161,23 @@ gulp.task('webpack:watch', webpack.watch);
 // In production, the images are compressed
 function images() {
   return gulp.src('src/assets/images/**/*')
-    .pipe($.if(PRODUCTION, $.imagemin({
-      progressive: true
-    })))
+    .pipe($.if(PRODUCTION, $.imagemin([
+      $.imagemin.jpegtran({
+        progressive: true,
+      }),
+      $.imagemin.optipng({
+        optimizationLevel: 5,
+      }),
+			$.imagemin.gifsicle({
+        interlaced: true,
+      }),
+			$.imagemin.svgo({
+        plugins: [
+          {cleanupAttrs: true},
+          {removeComments: true},
+        ]
+      })
+		])))
     .pipe(gulp.dest(PATHS.dist + '/assets/images'));
 }
 
@@ -229,8 +243,7 @@ function watch() {
   gulp.watch('**/*.php', reload)
     .on('change', path => log('File ' + colors.bold(colors.magenta(path)) + ' changed.'))
     .on('unlink', path => log('File ' + colors.bold(colors.magenta(path)) + ' was removed.'));
-  gulp.watch('src/assets/images/**/*', gulp.series(images, browser.reload));
-  gulp.watch('src/assets/images/**/*.svg', gulp.series(copy, browser.reload));
+  gulp.watch('src/assets/images/**/*', gulp.series(images, reload));
 }
 
 // Build the "dist" folder by running all of the below tasks
