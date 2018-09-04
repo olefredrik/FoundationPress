@@ -42,6 +42,67 @@ if ( ! function_exists( 'foundationpress_pagination' ) ) :
 	}
 endif;
 
+// Custom Comments Pagination.
+if ( ! function_exists( 'foundationpress_get_the_comments_pagination' ) ) :
+	function foundationpress_get_the_comments_pagination( $args = array() ) {
+		$navigation = '';
+		$args = wp_parse_args( $args, array(
+			'prev_text'				=> __( '&laquo;', 'foundationpress' ),
+			'next_text'				=> __( '&raquo;', 'foundationpress' ),
+			'size'					=> 'default',
+			'show_disabled'			=> true,
+		) );
+		$args['type'] = 'array';
+		$args['echo'] = false;
+		$links = paginate_comments_links( $args );
+		if ( $links ) {
+			$link_count = count( $links );
+			$pagination_class = 'pagination';
+			if ( 'large' == $args['size'] ) {
+				$pagination_class .= ' pagination-lg';
+			} elseif ( 'small' == $args['size'] ) {
+				$pagination_class .= ' pagination-sm';
+			}
+			$current = get_query_var( 'cpage' ) ? intval( get_query_var( 'cpage' ) ) : 1;
+			$total = get_comment_pages_count();
+			$navigation .= '<ul class="' . $pagination_class . '">';
+			if ( $args['show_disabled'] && 1 === $current ) {
+				$navigation .= '<li class="page-item disabled">' . $args['prev_text'] . '</li>';
+			}
+			foreach ( $links as $index => $link ) {
+				if ( 0 == $index && 0 === strpos( $link, '<a class="prev' ) ) {
+					$navigation .= '<li class="page-item">' . str_replace( 'prev page-numbers', 'page-link', $link ) . '</li>';
+				} elseif ( $link_count - 1 == $index && 0 === strpos( $link, '<a class="next' ) ) {
+					$navigation .= '<li class="page-item">' . str_replace( 'next page-numbers', 'page-link', $link ) . '</li>';
+				} else {
+					$link = preg_replace( "/(class|href)='(.*)'/U", '$1="$2"', $link );
+					if ( 0 === strpos( $link, '<span class="page-numbers current' ) ) {
+						$navigation .= '<li class="page-item active">' . str_replace( array( '<span class="page-numbers current">', '</span>' ), array( '<a class="page-link" href="#">', '</a>' ), $link ) . '</li>';
+					} elseif ( 0 === strpos( $link, '<span class="page-numbers dots' ) ) {
+						$navigation .= '<li class="page-item disabled">' . str_replace( array( '<span class="page-numbers dots">', '</span>' ), array( '<a class="page-link" href="#">', '</a>' ), $link ) . '</li>';
+					} else {
+						$navigation .= '<li class="page-item">' . str_replace( 'class="page-numbers', 'class="page-link', $link ) . '</li>';
+					}
+				}
+			}
+			if ( $args['show_disabled'] && $current == $total ) {
+				$navigation .= '<li class="page-item disabled">' . $args['next_text'] . '</li>';
+			}
+			$navigation .= '</ul>';
+			$navigation = _navigation_markup( $navigation, 'comments-pagination' );
+		}
+		return $navigation;
+	}
+endif;
+
+// Custom Comments Pagination.
+if ( ! function_exists( 'foundationpress_the_comments_pagination' ) ) :
+	function foundationpress_the_comments_pagination( $args = array() ) {
+		echo foundationpress_get_the_comments_pagination( $args );
+	}
+endif;
+
+
 /**
  * A fallback when no navigation is selected by default.
  */

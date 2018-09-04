@@ -37,7 +37,7 @@ if ( have_comments() ) :
 
 		?>
 		<?php
-			the_comments_pagination();
+			foundationpress_the_comments_pagination();
 	 	?>
 	</section>
 <?php
@@ -67,11 +67,14 @@ endif;
 <?php
 if ( comments_open() ) :
 ?>
-<hr>
 <section id="respond">
-	<?php comment_form(array(
-		'class_submit' => 'button'
-	)); ?>
+	<?php
+		comment_form(
+			array(
+				'class_submit' => 'button'
+			)
+		);
+	?>
 </section>
 <?php
 	endif; // If you delete this the sky will fall on your head.
