@@ -28,3 +28,30 @@ p.wp-caption-text{
   margin-left: auto;
   margin-right: auto;
 }
+
+.gallery {
+  @include xy-grid;
+  @include xy-gutters($negative: true);
+  @for $i from 1 through 9 {
+    &.gallery-columns-#{$i} {
+      @include xy-grid-layout(2, '.gallery-item', true);
+    }
+    @include breakpoint(medium){
+      &.gallery-columns-#{$i} {
+        @include xy-grid-layout(4, '.gallery-item', true, (small: 30px));
+      }
+    }
+    @include breakpoint(large) {
+      &.gallery-columns-#{$i} {
+        @include xy-grid-layout($i, '.gallery-item', true, (small: 30px));
+      }
+    }
+  }
+  .gallery-icon > a {
+    @include thumbnail;
+    @include thumbnail-link;
+  }
+  .gallery-icon > img {
+    @include thumbnail;
+  }
+}
