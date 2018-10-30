@@ -1,0 +1,42 @@
+// Support for the gutenberg color palatte
+
+/** === Base Color Palatte === */
+@each $color, $code in $foundation-palette {
+
+  .has-#{$color}-background-color {
+      background-color: $code;
+  }
+
+  .has-#{$color}-color {
+      color: $code;
+  }
+}
+
+/** === Button === */
+// TODO: add support for color palette
+
+.wp-block-button {
+
+	// add general foundation button styling
+	.wp-block-button__link {
+		@extend .button;
+	}
+
+	// add special styling for squared buttons
+	&.is-style-squared .wp-block-button__link {
+		border-radius: 0;
+	}
+
+	// add outline styles
+	&.is-style-outline .wp-block-button__link{
+		@extend .hollow;
+	}
+
+	// set transparent background to block for outline button
+	&.is-style-outline,
+	&.is-style-outline:hover,
+	&.is-style-outline:focus,
+	&.is-style-outline:active {
+		background: transparent;
+	}
+}
