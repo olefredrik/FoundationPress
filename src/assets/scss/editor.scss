@@ -1,0 +1,119 @@
+/*!
+Gutenberg Editor Styles
+NOTE: Styling alignment styles require use of [data-align] selectors.
+This is not ideal, but it works. Styles using those selectors should be refactored
+when Gutenberg supports styling those variations more intuitively.
+*/
+
+/** === Includes === */
+
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+
+@include foundation-typography;
+@include foundation-button;
+
+
+/** === Content Width === */
+.wp-block {
+	width: calc(100vw - (2 * 10));
+	@each $breakpoint, $size in $grid-margin-gutters {
+
+		@include breakpoint($breakpoint) {
+			width: calc(100vw - ($size));
+		}
+
+	}
+}
+
+
+
+/** === Base Typography === */
+
+body {
+	font-size: $global-font-size;
+	font-family: $body-font-family;
+	color: $body-font-color;
+}
+
+/** === Post Title === */
+.editor-post-title__block .editor-post-title__input{
+  @extend h1;
+}
+
+
+/** === Gallery === */
+// TODO: Check if the gallery block needs additional styling
+
+
+/** === Button === */
+.wp-block-button {
+
+	// add general foundation button styling
+	.wp-block-button__link {
+		@extend .button;
+	}
+
+	// add special styling for squared buttons
+	&.is-style-squared .wp-block-button__link {
+		border-radius: 0;
+	}
+
+	// add outline styles
+	&.is-style-outline .wp-block-button__link{
+		@extend .hollow;
+	}
+
+	// set transparent background to block for outline button
+	&.is-style-outline,
+	&.is-style-outline:hover,
+	&.is-style-outline:focus,
+	&.is-style-outline:active {
+		background: transparent;
+	}
+}
+
+/** === Blockquote === */
+// TODO: Adjust Blockquote Styling
+
+
+/** === Pullquote === */
+// TODO: Adjust Pullquote Styling
+
+
+
+/** === File === */
+// TODO: Check if the File block needs additional styling
+
+
+/** === Verse === */
+// TODO: Check if the Verse block needs additional styling
+
+
+/** === Code === */
+// TODO: Check if the Code block needs additional styling
+
+
+/** === Table === */
+// TODO: Check if the Table block needs additional styling
+
+/** === Separator === */
+// TODO: Check if the Separator block needs additional styling
+
+
+/** === Latest Posts, Archives, Categories === */
+// TODO: Check if the Latest Posts, Archives, Categories blocks needs additional styling
+
+
+/** === Latest Posts grid view === */
+// TODO: Check if the Latest Posts grid view block needs additional styling
+
+
+/** === Latest Comments === */
+// TODO: Check if the Latest Comments grid view block needs additional styling
+
+
+/** === Classic Editor === */
+// TODO: I think we still need to provide some styling for the classic editor
