@@ -14,6 +14,7 @@ when Gutenberg supports styling those variations more intuitively.
 
 @include foundation-typography;
 @include foundation-button;
+@include foundation-table;
 
 
 /** === Content Width === */
@@ -28,30 +29,24 @@ when Gutenberg supports styling those variations more intuitively.
 	}
 }
 
-
-
 /** === Base Typography === */
-
 body {
 	font-size: $global-font-size;
 	font-family: $body-font-family;
 	color: $body-font-color;
 }
-
 /** === Post Title === */
 .editor-post-title__block .editor-post-title__input{
   @extend h1;
 }
 
-
 /** === Gallery === */
 // TODO: Check if the gallery block needs additional styling
-
 
 /** === Button === */
 .wp-block-button {
 
-	// add general foundation button styling
+	// add general foundation button styling to button in editor
 	.wp-block-button__link {
 		@extend .button;
 	}
@@ -75,45 +70,27 @@ body {
 	}
 }
 
-/** === Blockquote === */
-// TODO: Adjust Blockquote Styling
+/** === File === */
+.wp-block-file__button{
+	@include button();
+}
 
 
 /** === Pullquote === */
 // TODO: Adjust Pullquote Styling
-
-
-
-/** === File === */
-// TODO: Check if the File block needs additional styling
-
-
-/** === Verse === */
-// TODO: Check if the Verse block needs additional styling
-
-
-/** === Code === */
-// TODO: Check if the Code block needs additional styling
-
+.wp-block-paragraph.has-background{
+	padding: rem-calc(20px 30px);
+}
 
 /** === Table === */
-// TODO: Check if the Table block needs additional styling
-
-/** === Separator === */
-// TODO: Check if the Separator block needs additional styling
-
-
-/** === Latest Posts, Archives, Categories === */
-// TODO: Check if the Latest Posts, Archives, Categories blocks needs additional styling
-
+.wp-block-table td{
+	border: none;
+}
 
 /** === Latest Posts grid view === */
-// TODO: Check if the Latest Posts grid view block needs additional styling
-
-
-/** === Latest Comments === */
-// TODO: Check if the Latest Comments grid view block needs additional styling
-
+.wp-block-latest-posts.is-grid{
+	list-style: none;
+}
 
 /** === Classic Editor === */
 // TODO: I think we still need to provide some styling for the classic editor
