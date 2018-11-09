@@ -1,9 +1,6 @@
 /*!
-Gutenberg Editor Styles
-NOTE: Styling alignment styles require use of [data-align] selectors.
-This is not ideal, but it works. Styles using those selectors should be refactored
-when Gutenberg supports styling those variations more intuitively.
-*/
+ * Gutenberg Editor Styles
+ */
 
 /** === Includes === */
 
@@ -35,13 +32,11 @@ body {
 	font-family: $body-font-family;
 	color: $body-font-color;
 }
+
 /** === Post Title === */
 .editor-post-title__block .editor-post-title__input{
   @extend h1;
 }
-
-/** === Gallery === */
-// TODO: Check if the gallery block needs additional styling
 
 /** === Button === */
 .wp-block-button {
@@ -75,9 +70,7 @@ body {
 	@include button();
 }
 
-
 /** === Pullquote === */
-// TODO: Adjust Pullquote Styling
 .wp-block-paragraph.has-background{
 	padding: rem-calc(20px 30px);
 }
@@ -91,6 +84,3 @@ body {
 .wp-block-latest-posts.is-grid{
 	list-style: none;
 }
-
-/** === Classic Editor === */
-// TODO: I think we still need to provide some styling for the classic editor

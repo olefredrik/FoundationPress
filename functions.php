@@ -51,7 +51,7 @@ require_once( 'library/sticky-posts.php' );
 /** Configure responsive image sizes */
 require_once( 'library/responsive-images.php' );
 
-/** Add Gutenberg Related Adjustents */
+/** Gutenberg editor support */
 require_once( 'library/gutenberg.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
