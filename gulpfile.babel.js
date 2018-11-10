@@ -77,7 +77,7 @@ function copy() {
 // Compile Sass into CSS
 // In production, the CSS is compressed
 function sass() {
-  return gulp.src('src/assets/scss/app.scss')
+  return gulp.src(['src/assets/scss/app.scss','src/assets/scss/editor.scss'])
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass

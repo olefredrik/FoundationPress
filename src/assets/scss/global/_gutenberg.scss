@@ -1,0 +1,60 @@
+/*
+Frontend styles for gutenberg blocks
+*/
+
+/** === Base Color Palatte === */
+@each $color, $code in $foundation-palette {
+
+  .has-#{$color}-background-color {
+      background-color: $code;
+  }
+
+  .has-#{$color}-color {
+      color: $code;
+  }
+}
+
+/** === Button === */
+.wp-block-button {
+
+	// add general foundation button styling
+	.wp-block-button__link {
+		@extend .button;
+    @each $color, $code in $foundation-palette {
+
+      &.has-#{$color}-background-color {
+          background-color: $code;
+      }
+
+      &.has-#{$color}-color {
+          color: $code;
+      }
+    }
+	}
+
+	// add special styling for squared buttons
+	&.is-style-squared .wp-block-button__link {
+		border-radius: 0;
+	}
+
+	// add outline styles
+	&.is-style-outline .wp-block-button__link{
+		@extend .hollow;
+	}
+
+	// set transparent background to block for outline button
+	&.is-style-outline,
+	&.is-style-outline:hover,
+	&.is-style-outline:focus,
+	&.is-style-outline:active {
+    // background: transparent;
+    .wp-block-button__link{
+      // background: transparent;
+    }
+	}
+}
+
+/** === File === */
+.wp-block-file .wp-block-file__button{
+  @include button();
+}

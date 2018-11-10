@@ -1,0 +1,86 @@
+/*!
+ * Gutenberg Editor Styles
+ */
+
+/** === Includes === */
+
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+
+@include foundation-typography;
+@include foundation-button;
+@include foundation-table;
+
+
+/** === Content Width === */
+.wp-block {
+	width: calc(100vw - (2 * 10));
+	@each $breakpoint, $size in $grid-margin-gutters {
+
+		@include breakpoint($breakpoint) {
+			width: calc(100vw - ($size));
+		}
+
+	}
+}
+
+/** === Base Typography === */
+body {
+	font-size: $global-font-size;
+	font-family: $body-font-family;
+	color: $body-font-color;
+}
+
+/** === Post Title === */
+.editor-post-title__block .editor-post-title__input{
+  @extend h1;
+}
+
+/** === Button === */
+.wp-block-button {
+
+	// add general foundation button styling to button in editor
+	.wp-block-button__link {
+		@extend .button;
+	}
+
+	// add special styling for squared buttons
+	&.is-style-squared .wp-block-button__link {
+		border-radius: 0;
+	}
+
+	// add outline styles
+	&.is-style-outline .wp-block-button__link{
+		@extend .hollow;
+	}
+
+	// set transparent background to block for outline button
+	&.is-style-outline,
+	&.is-style-outline:hover,
+	&.is-style-outline:focus,
+	&.is-style-outline:active {
+		background: transparent;
+	}
+}
+
+/** === File === */
+.wp-block-file__button{
+	@include button();
+}
+
+/** === Pullquote === */
+.wp-block-paragraph.has-background{
+	padding: rem-calc(20px 30px);
+}
+
+/** === Table === */
+.wp-block-table td{
+	border: none;
+}
+
+/** === Latest Posts grid view === */
+.wp-block-latest-posts.is-grid{
+	list-style: none;
+}
