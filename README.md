@@ -171,7 +171,6 @@ We recommend using one of the following setups for local WordPress development:
 * [Byington Vineyard & Winery](http://byington.com/)
 * [Philanthropy House](http://philanthropyhouse.eu/)
 * [TVA Group](http://www.groupe-tva.com/en/)
-* [Forte Science](https://www.forte-science.co.jp/)
 * [Well Made Studio](http://wellmadestudio.com/)
 * [Show And Tell](http://www.showandtelluk.com/)
 * [Wahl + Case](https://www.wahlandcase.com/)
