@@ -5,7 +5,7 @@
   "description": "FoundationPress is a WordPress starter theme based on Foundation 6 by Zurb",
   "homepage": "https://foundationpress.olefredrik.com",
   "license": "MIT",
-  "main": "gulpfile.js",
+  "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
     "dev": "gulp build --dev",
