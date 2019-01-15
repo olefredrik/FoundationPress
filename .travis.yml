@@ -2,12 +2,6 @@ language: php
 
 matrix:
   include:
-  - name: "PHP 5.4 Compatibility Test"
-    php: "5.4"
-    env: TEST_VERSION=5.4
-  - name: "PHP 5.5 Compatibility Test"
-    php: "5.5"
-    env: TEST_VERSION=5.5
   - name: "PHP 5.6 Compatibility Test"
     php: "5.6"
     env: TEST_VERSION=5.6
@@ -23,6 +17,16 @@ matrix:
   - name: "PHP 7.3 Compatibility Test"
     php: "7.3"
     env: TEST_VERSION=7.3
+  allow_failures:
+  - name: "PHP 5.3 Compatibility Test"
+    php: "5.3"
+    env: TEST_VERSION=5.3
+  - name: "PHP 5.4 Compatibility Test"
+    php: "5.4"
+    env: TEST_VERSION=5.4
+  - name: "PHP 5.5 Compatibility Test"
+    php: "5.5"
+    env: TEST_VERSION=5.5
 
 before_script:
   - composer install
