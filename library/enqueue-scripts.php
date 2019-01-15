@@ -22,7 +22,7 @@ if ( ! function_exists( 'foundationpress_asset_path' ) ) :
 		if ( file_exists( $manifest_path ) ) {
 			$manifest = json_decode( file_get_contents( $manifest_path ), true );
 		} else {
-			$manifest = [];
+			$manifest = array();
 		}
 
 		if ( array_key_exists( $filename, $manifest ) ) {
