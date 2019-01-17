@@ -1,0 +1,276 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-13 17:56+0200\n"
+"PO-Revision-Date: 2019-01-17 18:45+0330\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.2\n"
+
+#: 404.php:8
+msgid "File Not Found"
+msgstr "فایل یافت نشد"
+
+#: 404.php:12
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+"صفحه‌ای که به دنبالش هستید، حذف شده، تغییر نام پیدا کرده یا موقتا در دسترس "
+"نیست."
+
+#: 404.php:14
+msgid "Please try the following:"
+msgstr "لطفا این کارها را امتحان کنید:"
+
+#: 404.php:16
+msgid "Check your spelling"
+msgstr "املای خود را چک کنید"
+
+#: 404.php:17
+#, php-format
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr "به <a href=\"%s\">صفحه خانه</a> برگردید"
+
+#: 404.php:18
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr "دکمه <a href=\"javascript:history.back()\">بازگشت</a> را کلیک کنید"
+
+#. /previous pages when applicable
+#: archive.php:21 index.php:24 search.php:25
+msgid "&larr; Older posts"
+msgstr "&rarr; نوشته‌های کهنه‌تر"
+
+#: archive.php:22 index.php:25 search.php:26
+msgid "Newer posts &rarr;"
+msgstr "نوشته‌های تازه‌تر &larr;"
+
+#: comments.php:8
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn\">%s</cite>"
+
+#: comments.php:9
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#: comments.php:10
+msgid "(Edit)"
+msgstr "(ویرایش)"
+
+#: comments.php:16
+msgid "Your comment is awaiting moderation."
+msgstr "دیدگاه شما در انتظار تأیید است."
+
+#: comments.php:31
+msgid "Please do not load this page directly. Thanks!"
+msgstr "لطفا این صفحه را به طور مستقیم لود نکنید. ممنون!"
+
+#: comments.php:36
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"این نوشته با گذرواژه پاسداری می‌شود. برای دیدن دیدگاه‌ها گذرواژه را وارد کنید."
+
+#: comments.php:46
+msgid "No Responses to"
+msgstr "بدون دیدگاه برای"
+
+#: comments.php:46
+msgid "One Response to"
+msgstr "یک دیدگاه برای"
+
+#: comments.php:46
+msgid "% Responses to"
+msgstr "% دیدگاه برای"
+
+#: comments.php:53
+msgid "&larr; Older comments"
+msgstr "دیدگاه‌های کهن‌تر &larr;"
+
+#: comments.php:54
+msgid "Newer comments &rarr;"
+msgstr "دیدگاه‌های تازه‌تر &rarr;"
+
+#: comments.php:61
+msgid "Leave a Reply"
+msgstr "پاسخی بگذارید"
+
+#: comments.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "برای %s پاسخی بگذارید"
+
+#: comments.php:64
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "برای فرستادن دیدگاه شما باید <a href=\"%s\">وارد شوید</a>."
+
+#: comments.php:68
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "وارد شده با نام <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: comments.php:68
+msgid "Log out of this account"
+msgstr "بیرون رفتن از این حساب"
+
+#: comments.php:68
+msgid "Log out &raquo;"
+msgstr "بیرون رفتن &raquo;"
+
+#: comments.php:71
+msgid "Name"
+msgstr "نام"
+
+#: comments.php:71 comments.php:75
+msgid " (required)"
+msgstr "(ضروری)"
+
+#: comments.php:75
+msgid "Email (will not be published)"
+msgstr "ایمیل (منتشر نخواهد شد)"
+
+#: comments.php:79
+msgid "Website"
+msgstr "وبسایت"
+
+#: comments.php:84
+msgid "Comment"
+msgstr "دیدگاه"
+
+#: comments.php:87
+msgid "You can use these tags:"
+msgstr "شما می‌توانید از این تگ‌ها استفاده کنید:"
+
+#: comments.php:88
+msgid "Submit Comment"
+msgstr "ارسال دیدگاه"
+
+#: content-none.php:11
+msgid "Nothing Found"
+msgstr "چیزی پیدا نشد"
+
+#: content-none.php:17
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"برای انتشار نخستین نوشته خود آماده اید؟ <a href=\"%1$s\">از اینجا شروع کنید</"
+"a>."
+
+#: content-none.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"ببخشید، اما چیزی برای عبارت جستجو شده پیدا نشد. لطفا با کلیدواژه‌های دیگری "
+"دوباره سعی کنید."
+
+#: content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching "
+"can help."
+msgstr ""
+"به نظر می‌رسد نمی‌توانیم آنچه که دنبالش هستید را پیدا کنیم. شاید جستجو کمک کند."
+
+#. /archive/search.
+#. *
+#. * @subpackage FoundationPress
+#. * @since FoundationPress 1.0.0
+#.
+#: content.php:16
+msgid "Continue reading..."
+msgstr "به خواندن ادامه دهید..."
+
+#: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
+#: page.php:18 single.php:27 woocommerce.php:18
+msgid "Pages:"
+msgstr "برگه‌ها:"
+
+#: library/entry-meta.php:4
+#, php-format
+msgid "Posted on %1$s at %2$s."
+msgstr "ارسال شده در %1$s ساعت %2$s."
+
+#: library/entry-meta.php:5
+msgid "Written by"
+msgstr "نوشته شده به دست"
+
+#: library/foundation.php:16
+msgid "&laquo;"
+msgstr "«"
+
+#: library/foundation.php:17
+msgid "&raquo;"
+msgstr "»"
+
+#: library/foundation.php:40
+#, php-format
+msgid ""
+"Please assign a menu to the primary menu location under %1$s or %2$s the "
+"design."
+msgstr ""
+
+#: library/foundation.php:41
+#, php-format
+msgid "<a href=\"%s\">Menus</a>"
+msgstr "<a href=\"%s\">فهرست‌ها</a>"
+
+#: library/foundation.php:44
+#, php-format
+msgid "<a href=\"%s\">Customize</a>"
+msgstr "<a href=\"%s\">سفارشی‌سازی</a>"
+
+#: library/widget-areas.php:6
+msgid "Sidebar widgets"
+msgstr "ابزارک‌های نوار کناری"
+
+#: library/widget-areas.php:7
+msgid "Drag widgets to this sidebar container."
+msgstr "ابزارک‌ها را به این جایگاه نوار کناری بکشید."
+
+#: library/widget-areas.php:16
+msgid "Footer widgets"
+msgstr "ابزارک‌های پاصفحه"
+
+#: library/widget-areas.php:17
+msgid "Drag widgets to this footer container"
+msgstr "ابزارک‌ها را به این جایگاه پاصفحه بکشید."
+
+#: node_modules/grunt-pot/test/fixtures/some-file.php:3
+msgid "I'm a translatable string."
+msgstr "من یک رشته قابل ترجمه هستم."
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:4
+msgid "Me too"
+msgstr "من هم"
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:7
+#, php-format
+msgid "I have %d apple"
+msgid_plural "I have %d apples"
+msgstr[0] "من  %d سیب دارم."
+
+#. / TRANSLATORS: This should be translated as a shorthand for YEAR-MONTH-DAY using 4, 2 and 2 digits.
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:16
+msgid "yyyy-mm-dd"
+msgstr "yyyy-mm-dd"
+
+#: search.php:7
+msgid "Search Results for"
+msgstr "نتایج جستجو برای"
+
+#: searchform.php:6 searchform.php:10
+msgid "Search"
+msgstr "جستجو"
