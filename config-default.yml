@@ -10,7 +10,7 @@ COMPATIBILITY:
   - "ios >= 7"
   
 # Set to true if you want static asset revisioning, helpful for cache busting
-REVISIONING: false  
+REVISIONING: false
 
 # Gulp will reference these paths when it copies files
 PATHS:
@@ -46,4 +46,12 @@ PATHS:
   phpcs:
     - "**/*.php"
     - "!wpcs"
-    - "!wpcs/**"  
+    - "!wpcs/**"
+  i18n:
+    - "**/*.php"
+    - "!**/node_modules/**"
+    - "!**/packaged/**"
+    - "!**/src/**"
+    - "!**/dist/**"
+    - "!wpcs"
+    - "!wpcs/**"

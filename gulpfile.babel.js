@@ -13,6 +13,7 @@ import webpack2      from 'webpack';
 import named         from 'vinyl-named';
 import log           from 'fancy-log';
 import colors        from 'ansi-colors';
+import wpPot         from 'gulp-wp-pot';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -257,3 +258,14 @@ gulp.task('default',
 // Package task
 gulp.task('package',
   gulp.series('build', archive));
+
+// POT task to automaticly create pot files
+gulp.task('i18n', function () {
+    return gulp.src(PATHS.i18n)
+        .pipe(wpPot( {
+            domain: 'foundationpress',
+            package: 'foundationpress',
+            headers: false
+        } ))
+        .pipe(gulp.dest('languages/FoundationPress.pot'));
+});

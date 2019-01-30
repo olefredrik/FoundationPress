@@ -12,7 +12,8 @@
     "build": "gulp build --production",
     "package": "gulp package --production",
     "phpcs": "gulp phpcs",
-    "phpcbf": "gulp phpcbf"
+    "phpcbf": "gulp phpcbf",
+    "i18n": "gulp i18n"
   },
   "keywords": [
     "FoundationPress",
@@ -55,6 +56,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.2.0",
+    "gulp-wp-pot": "^2.3.3",
     "gulp-zip": "^4.0.0",
     "js-yaml": "^3.4.6",
     "panini": "^1.6.3",
