@@ -16,7 +16,7 @@ For general questions about how to use FoundationPress, please use the Gitter ch
 
 **Please List the Following:**
 * OS & version:
-* Node version (node -v) [Node v4+ is required] :
+* Node version (node -v) [Node v6+ is required] :
 * FoundationPress version (see line 3 in package.json):
 * Foundation version (found in `node_modules/foundation-sites/package.json`) :
 
