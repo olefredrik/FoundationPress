@@ -3,7 +3,7 @@
 .site-title-bar {
   @include hide-for(medium);
 }
-
+//
 .desktop-menu,
 .site-navigation .top-bar-left {
   @include show-for(medium);
@@ -13,12 +13,6 @@
 .site-desktop-title a {
   font-weight: bold;
 }
-
-// Mobile menu
-.mobile-menu {
-  display: none; // prevents repaint caused by JS hiding menu onload
-}
-
 
 // WP post navigation
 .post-navigation {
