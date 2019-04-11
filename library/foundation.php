@@ -28,45 +28,46 @@ if ( ! function_exists( 'foundationpress_pagination' ) ) :
 			)
 		);
 
-		// Match patterns for preg_replace
-		$preg_find = [
-			'/\s*page-numbers\s*/', // Captures string 'page-numbers' and any whitespace before and after
-			"/\s*class=''/", // Captures any empty class attributes
-			'/<li><a class="prev" href="(\S+)">/', // '(\S+)' Captures href value for backreference
-			'/<li><a class="next" href="(\S+)">/', // '(\S+)' Captures href value for backreference
-			"/<li><span aria-current='page' class='current'>(\d+)<\/span><\/li>/", // '(\d+)' Captures page number for backreference
-			"/<li><a href='(\S+)'>(\d+)<\/a><\/li>/", // '(\S+)' Captures href value for backreference, (\d+)' Captures page number for backreference
-		];
+        // Display the pagination if more than one page is found.
+        if ( $paginate_links ) {
 
-		// preg_replace replacements
-		$preg_replace = [
-			'',
-			'',
-			'<li class="pagination-previous"><a href="$1" aria-label="Previous page">', // '$1' Outputs backreference href value
-			'<li class="pagination-next"><a href="$1" aria-label="Next page">', // '$1' Outputs backreference href value
-			'<li class="current" aria-current="page"><span class="show-for-sr">You\'re on page </span>$1</li>', // '$1' Outputs backreference page number
-			'<li><a href="$1" aria-label="Page $2">$2</a>', // '$1' Ouputs backreference href, '$2' outputs backreference page number
-		];
+            // Match patterns for preg_replace
+            $preg_find = [
+                '/\s*page-numbers\s*/', // Captures string 'page-numbers' and any whitespace before and after
+                "/\s*class=''/", // Captures any empty class attributes
+                '/<li><a class="prev" href="(\S+)">/', // '(\S+)' Captures href value for backreference
+                '/<li><a class="next" href="(\S+)">/', // '(\S+)' Captures href value for backreference
+                "/<li><span aria-current='page' class='current'>(\d+)<\/span><\/li>/", // '(\d+)' Captures page number for backreference
+                "/<li><a href='(\S+)'>(\d+)<\/a><\/li>/", // '(\S+)' Captures href value for backreference, (\d+)' Captures page number for backreference
+            ];
 
-		// Match patterns for str_replace
-		$str_find = [
-			"<ul>",
-			'<li><span class="dots">&hellip;</span></li>',
-		];
+            // preg_replace replacements
+            $preg_replace = [
+                '',
+                '',
+                '<li class="pagination-previous"><a href="$1" aria-label="Previous page">', // '$1' Outputs backreference href value
+                '<li class="pagination-next"><a href="$1" aria-label="Next page">', // '$1' Outputs backreference href value
+                '<li class="current" aria-current="page"><span class="show-for-sr">You\'re on page </span>$1</li>', // '$1' Outputs backreference page number
+                '<li><a href="$1" aria-label="Page $2">$2</a>', // '$1' Ouputs backreference href, '$2' outputs backreference page number
+            ];
 
-		// str_replace replacements
-		$str_replace = [
-			'<ul class="pagination text-center">',
-			'<li class="ellipsis" aria-hidden="true"></li>',
-		];
+            // Match patterns for str_replace
+            $str_find = [
+                "<ul>",
+                '<li><span class="dots">&hellip;</span></li>',
+            ];
 
-		$paginate_links = preg_replace( $preg_find, $preg_replace, $paginate_links );
-		$paginate_links = str_replace( $str_find, $str_replace, $paginate_links );
+            // str_replace replacements
+            $str_replace = [
+                '<ul class="pagination text-center">',
+                '<li class="ellipsis" aria-hidden="true"></li>',
+            ];
 
-		$paginate_links = '<nav aria-label="Pagination">' . $paginate_links . '</nav>';
+            $paginate_links = preg_replace( $preg_find, $preg_replace, $paginate_links );
+            $paginate_links = str_replace( $str_find, $str_replace, $paginate_links );
 
-		// Display the pagination if more than one page is found.
-		if ( $paginate_links ) {
+            $paginate_links = '<nav aria-label="Pagination">' . $paginate_links . '</nav>';
+
 			echo $paginate_links;
 		}
 	}
