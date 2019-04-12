@@ -2,12 +2,21 @@
 
 ## [v2.10.6](https://github.com/olefredrik/FoundationPress/tree/v2.10.6) (2019-04-12)
 
+** Changes **
+- fix foundation-explicit-pieces.js (was broken since foundation-sites@6.5.1)
+- Motion UI updated to latest version
+- foundationpress_pagination() refactored
+
 **Fixed bugs:**
 
 - Using foundation-explicit-pieces.js will not compile [\#1363](https://github.com/olefredrik/FoundationPress/issues/1363)
 
+**Closed issues:**
+- Update Motion UI [\#1363](https://github.com/olefredrik/FoundationPress/issues/1376)
+
 ** Merged pull requests: **
 
+- Fixes foundationpress_pagination() - Outputs valid HTML, output matches Foundation's docs. [\#1375](https://github.com/olefredrik/FoundationPress/pull/1372) ([pixelbrad](https://github.com/pixelbrad))
 - Fix foundation-explicit-pieces.js compile error [\#1375](https://github.com/olefredrik/FoundationPress/pull/1375) ([emaia](https://github.com/emaia))
 
 
