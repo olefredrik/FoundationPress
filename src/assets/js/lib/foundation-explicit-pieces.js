@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { Foundation } from 'foundation-sites/js/foundation.core';
-import { rtl, GetYoDigits, transitionend } from 'foundation-sites/js/foundation.util.core';
+import { rtl, GetYoDigits, transitionend } from 'foundation-sites/js/foundation.core.utils';
 import { Box } from 'foundation-sites/js/foundation.util.box'
 import { onImagesLoaded } from 'foundation-sites/js/foundation.util.imageLoader';
 import { Keyboard } from 'foundation-sites/js/foundation.util.keyboard';
