@@ -117,13 +117,6 @@ We recommend using one of the following setups for local WordPress development:
 * [VVV (Varying Vagrant Vagrants)](https://github.com/Varying-Vagrant-Vagrants/VVV) (Vagrant Box)
 * [Trellis](https://roots.io/trellis/)
 
-## Resources
-
-* [Foundation UI Kit for Adobe XD](https://gumroad.com/l/foundation-ui-kit-xd)
-* [Foundation UI Kit for Axure RP](https://gumroad.com/l/foundation-ui-kit-axure-rp)
-* [Foundation UI Kit for Photoshop](https://gumroad.com/l/foundation-ui-kit-psd)
-* [Foundation 6 Shortcodes for Visual Composer](https://www.402websites.com/downloads/foundation-6-shortcodes-visual-composer/?ref=2&campaign=Foundation6ShortcodesforVisualComposer)
-
 
 ## Tutorials
 
