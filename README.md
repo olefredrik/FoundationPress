@@ -3,7 +3,6 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/olefredrik/foundationpress?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![GitHub version](https://badge.fury.io/gh/olefredrik%2Ffoundationpress.svg)](https://github.com/olefredrik/FoundationPress/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Buy Me a Coffee at ko-fi.com](https://img.shields.io/badge/-Buy%20me%20a%20Coffee-orange.svg?colorB=593C1F&colorA=4e798d&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAVUlEQVR4AWNQtnJTQcZ%2Blb2fsWF0dQzYNRHWzIBdE2EDGGCaSNYI47x69fY%2FMRimnmiNyGqwavyflo6MaawRTTP1%2FIiM4dFBQBPl8UggyRHWSHYiBwCwA90T1NTlAQAAAABJRU5ErkJggg%3D%3D%0D%0A&logoWidth=14)](https://ko-fi.com/olefredrik)
 
 This is a starter-theme for WordPress based on Zurb's [Foundation for Sites 6](https://foundation.zurb.com/sites.html), the most advanced responsive (mobile-first) framework in the world. The purpose of FoundationPress, is to act as a small and handy toolbox that contains the essentials needed to build any design. FoundationPress is meant to be a starting point, not the final product.
 
@@ -116,13 +115,6 @@ We recommend using one of the following setups for local WordPress development:
 * [Local](https://local.getflywheel.com/) (macOS/Windows)
 * [VVV (Varying Vagrant Vagrants)](https://github.com/Varying-Vagrant-Vagrants/VVV) (Vagrant Box)
 * [Trellis](https://roots.io/trellis/)
-
-## Resources
-
-* [Foundation UI Kit for Adobe XD](https://gumroad.com/l/foundation-ui-kit-xd)
-* [Foundation UI Kit for Axure RP](https://gumroad.com/l/foundation-ui-kit-axure-rp)
-* [Foundation UI Kit for Photoshop](https://gumroad.com/l/foundation-ui-kit-psd)
-* [Foundation 6 Shortcodes for Visual Composer](https://www.402websites.com/downloads/foundation-6-shortcodes-visual-composer/?ref=2&campaign=Foundation6ShortcodesforVisualComposer)
 
 
 ## Tutorials

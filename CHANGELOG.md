@@ -1,5 +1,94 @@
 # Change Log
 
+## [v2.10.6](https://github.com/olefredrik/FoundationPress/tree/v2.10.6) (2019-04-12)
+
+** Changes **
+- fix foundation-explicit-pieces.js (was broken since foundation-sites@6.5.1)
+- Motion UI updated to latest version
+- foundationpress_pagination() refactored
+
+**Fixed bugs:**
+
+- Using foundation-explicit-pieces.js will not compile [\#1363](https://github.com/olefredrik/FoundationPress/issues/1363)
+
+**Closed issues:**
+- Update Motion UI [\#1363](https://github.com/olefredrik/FoundationPress/issues/1376)
+
+** Merged pull requests: **
+
+- Fixes foundationpress_pagination() - Outputs valid HTML, output matches Foundation's docs. [\#1375](https://github.com/olefredrik/FoundationPress/pull/1372) ([pixelbrad](https://github.com/pixelbrad))
+- Fix foundation-explicit-pieces.js compile error [\#1375](https://github.com/olefredrik/FoundationPress/pull/1375) ([emaia](https://github.com/emaia))
+
+
+## [v2.10.5](https://github.com/olefredrik/FoundationPress/tree/v2.10.5) (2019-04-04)
+
+** Merged pull requests: **
+
+- Small fixes #1161  (@emaia)
+- Revert style changes in 6.4.3 up-to-date #1160 (@olefredrik)
+- Separate grid element from container #1159 (@olefredrik)
+- Revert style changes in 6.4.3 up-to-date #1158 (@colin-marshall)
+- Tiny update gulpfile.babel.js #1155 (@gruenewiese)
+- Update to Foundation for Sites 6.4.3 #1154 (@Aetles)
+- Change the full-width template class to .main-content-full-width #1149 (@colin-marshall)
+- Add Impeach Trump Now site to the showcase #1139 (@olefredrik)
+- Reintroduce WPCS without Travis #1131 (@colin-marshall)
+- Reintroduce package task #1130 (@colin-marshall)
+- Fix php error in asset_path function #1129 (@JPOak)
+- Combine asset path function. Much prettier. #1126 (@JPOak)
+- Remove data attribute for sticky footer #1125 (@olefredrik)
+- update jqmigrate to be compatible with jquery version used #1244 (@farlandlee)
+- Fix image alignment bug discussed in #1237. #1239 (@JPOak)
+- Wordpress gallery: Added css and custom markup #1234 (@emaia)
+- Update package-lock.json file to sync up with package.json . #1233 (@JPOak)
+- translate(urdu): mo, po file #1226 (@adeelshahid)
+- Removed underscore from accessibility import in app.scss #1222 (@colin)
+- Make topbar default if mobile nav setting isn't already defined #1220 (@colin)
+- Remove reference to gutil in gulpfile #1213 (@dgobnto)
+- Replace deprecated gulp-util with ansi-colors and fancy-log #1212 (@colin)
+- Added path for php and scss file changes/removals to console output. feature request #1210 (@colin)
+- Refine Webpack watch + build functions #1205 (@conorbarclay)
+- Adds Hungarian translation. #1201 (@belamezey)
+- Bumped bablel-loader, webpack, and webpack-stream in package.json #1196 (@colin)
+- Fix typo #1194 (@dgobnto)
+- Fix footer container. #1180 #1189 (@JPOak)
+- Remove demosite script #1188 (@olefredrik)
+- Fix unclosed anchor tag in Dutch translation #1183 (@tiborp)
+- Code cleanup #1178 (@Aetles)
+- Remove stray ‘[‘ and update single.php sidebar indentation #1176 (@giollianosulit)
+- Update package-lock.json file with updated Foundation version. #1175 (@JPOak)
+- Improvements + Consistency updates in code indentation across multiple php files #1173 (@giollianosulit)
+- Optimize JavaScript tasks #1169 (@conorbarclay)
+- Fix asset exclusion globbing pattern #1168 (@conorbarclay)
+- Adding aria-label attribute to mobile menu hamburger button #1166 (@aldavigdis)
+- Adding Icelandic localisation #1165 (@aldavigdis)
+- Clean up showcase - sites made with FP  #1361 (@olefredrik)
+- Update footer.php  #1359 (@dgobnto)
+- Remove extra line  #1358 (@dgobnto)
+- vulnerabilities fixed  #1354 (@derweili)
+- Dependency updates / Security fixes  #1353 (@derweili)
+- Add Persian language file  #1348 (@mojtaba)
+- Travis ci  #1345 (@derweili)
+- Foundation 6.5.1 #1344 (@derweili)
+- Main file changed to gulpfile.babel.js #1342 (@derweili)
+- Sentence correction #1337 (@thisisbhaven)
+- Gutenberg Support #1331 (@derweili)
+- Update package.json #1327 (@dantahoua)
+- Add aria label to the search form to assist in accessibility #1308 (@joshsmith01)
+- Add container to index.php to match other default page templates #1299 (@colin-marshall)
+- Licence Badge Updated #1297 (@derweili)
+- Comments template cleaned up and refactored #1296 (@derweili)
+- Fix image watcher copying images + reloading browser. Bump gulp-imagemin to 4.1.0. #1287 (@pixelbrad)
+- Watch task to handle SVG files #1281 (@derweili)
+- added russian language #1278 (@dzmitROCK)
+- Add La revanche des sites to showcase #1261 (@bqst)
+- use get_stylesheet_directory_uri to support usage as childtheme #1260 (@derweili)
+- Replace deprecated log call #1257 (@hibernius)
+- Add default breakpoint for smaller screen sizes to footer widget area. #1251 #1255 (@JPOak)
+- Code cleanup while loop page.php #1253 (@dgobnto)
+- fix: update webpack exclude rules for Windows compatibility #1250 (@colin-marshall)
+
+
 ## [v2.10.4](https://github.com/olefredrik/FoundationPress/tree/v2.10.4) (2017-10-11)
 [Full Changelog](https://github.com/olefredrik/FoundationPress/compare/v2.10.3...v2.10.4)
 
