@@ -48,7 +48,7 @@ if ( ! function_exists( 'foundationpress_pagination' ) ) :
                 '<li class="pagination-previous"><a href="$1" aria-label="Previous page">', // '$1' Outputs backreference href value
                 '<li class="pagination-next"><a href="$1" aria-label="Next page">', // '$1' Outputs backreference href value
                 '<li class="current" aria-current="page"><span class="show-for-sr">You\'re on page </span>$1</li>', // '$1' Outputs backreference page number
-                '<li><a href="$1" aria-label="Page $2">$2</a>', // '$1' Ouputs backreference href, '$2' outputs backreference page number
+                '<li><a href="$1" aria-label="Page $2">$2</a></li>', // '$1' Ouputs backreference href, '$2' outputs backreference page number
             ];
 
             // Match patterns for str_replace
