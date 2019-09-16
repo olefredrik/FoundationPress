@@ -1,3 +1,12 @@
+# DEPRECATED
+This project will no longer be maintained. As Zurb Foundation is [no longer in active development ](https://github.com/foundation/foundation-sites/issues/11767), I would recommend that you base your front-end code on another framework, such as [Semantic UI](https://semantic-ui.com) or [Bootstrap](https://getbootstrap.com).
+
+To all of you who have contributed to FoundationPress over the years:
+**Thank you!**
+
+– Ole Fredrik
+
+
 # FoundationPress
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/olefredrik/foundationpress?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
